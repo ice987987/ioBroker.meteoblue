@@ -1,0 +1,98 @@
+{
+	"common": {
+		"name": "meteoblue",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "initial release",
+				"de": "Erstveröffentlichung",
+				"ru": "Начальная версия",
+				"pt": "lançamento inicial",
+				"nl": "Eerste uitgave",
+				"fr": "Première version",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Pierwsze wydanie",
+				"zh-cn": "首次出版"
+			}
+		},
+		"title": "meteoblue",
+		"titleLang": {
+			"en": "meteoblue",
+			"de": "meteoblue",
+			"ru": "метеобиний",
+			"pt": "meteoblue",
+			"nl": "meteoblue",
+			"fr": "meteoblue",
+			"it": "meteoblue",
+			"es": "meteoblue",
+			"pl": "meteoblue",
+			"zh-cn": "气象蓝"
+		},
+		"desc": {
+			"en": "meteoblue desc",
+			"de": "meteoblue desc",
+			"ru": "meteoblue desc",
+			"pt": "meteoblue desc",
+			"nl": "meteoblue beschrijving",
+			"fr": "desc de meteoblue",
+			"it": "meteoblue desc",
+			"es": "meteoblue desc",
+			"pl": "opis meteoblue",
+			"zh-cn": "气象蓝说明"
+		},
+		"authors": [
+			"ice987987 <mathias.frei@gmail.com>"
+		],
+		"keywords": [
+			"meteoblue"
+		],
+		"license": "MIT",
+		"platform": "Javascript/Node.js",
+		"main": "main.js",
+		"icon": "meteoblue.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/ice987987/ioBroker.meteoblue/main/admin/meteoblue.png",
+		"readme": "https://github.com/ice987987/ioBroker.meteoblue/blob/main/README.md",
+		"loglevel": "info",
+		"mode": "daemon",
+		"type": "weather",
+		"compact": true,
+		"connectionType": "cloud",
+		"dataSource": "poll",
+		"materialize": true,
+		"dependencies": [
+			{
+				"js-controller": ">=2.0.0"
+			}
+		]
+	},
+	"native": {
+		"option1": true,
+		"option2": "42"
+	},
+	"objects": [],
+	"instanceObjects": [
+		{
+			"_id": "info",
+			"type": "channel",
+			"common": {
+				"name": "Information"
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.connection",
+			"type": "state",
+			"common": {
+				"role": "indicator.connected",
+				"name": "Device or service connected",
+				"type": "boolean",
+				"read": true,
+				"write": false,
+				"def": false
+			},
+			"native": {}
+		}
+	]
+}
