@@ -11,6 +11,9 @@ const utils = require('@iobroker/adapter-core');
 // Load your modules here, e.g.:
 // const fs = require("fs");
 
+//variables
+let meteoblueAPIURL;
+
 class Meteoblue extends utils.Adapter {
 
 	/**
@@ -33,59 +36,73 @@ class Meteoblue extends utils.Adapter {
 	 */
 	async onReady() {
 		// Initialize your adapter here
+		this.log.info('starting Adapter "meteoblue" ...');
 
 		// Reset the connection indicator during startup
 		this.setState('info.connection', false, true);
 
 		// The adapters config (in the instance object everything under the attribute "native") is accessible via
 		// this.config:
-		this.log.info('config option1: ' + this.config.option1);
-		this.log.info('config option2: ' + this.config.option2);
+		this.log.info('this.config.location: ' + this.config.location);
+		this.log.info('this.config.latitude: ' + this.config.latitude);
+		this.log.info('this.config.longitude: ' + this.config.longitude);
+		this.log.info('this.config.elevation: ' + this.config.elevation);
+		this.log.info('this.config.timezone: ' + this.config.timezone);
+		this.log.info('this.config.apikey: ' + this.config.apikey);
+		this.log.info('this.config.temperature: ' + this.config.temperature);
+		this.log.info('this.config.windspeed: ' + this.config.windspeed);
+		this.log.info('this.config.winddirection: ' + this.config.winddirection);
+		this.log.info('this.config.precipitationamount: ' + this.config.precipitationamount);
+		this.log.info('this.config.timeformat: ' + this.config.timeformat);
+	
+		//https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#time-zone
+		//http://my.meteoblue.com/packages/basic-day?name=Wangen&lat=47.3437&lon=7.86982&asl=420&tz=Europe%2FZurich&apikey=123456789&temperature=C&windspeed=ms-1&winddirection=degree&precipitationamount=mm&timeformat=iso8601&format=json0
+	      http://my.meteoblue.com/packages/basic-day?            lat=46.1234&lon=59.9876&asl=999&tz=Europe%2Fzurich&apikey=999888777&temperature=C&windspeed=kmh &winddirection=degree&precipitationamount=inch&timeformat=YMD
+	
+		meteoblueAPIURL = 'http://my.meteoblue.com/packages/basic-day?';
 
-		/*
-		For every state in the system there has to be also an object of type state
-		Here a simple template for a boolean variable named "testVariable"
-		Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
-		*/
-		await this.setObjectNotExistsAsync('testVariable', {
-			type: 'state',
-			common: {
-				name: 'testVariable',
-				type: 'boolean',
-				role: 'indicator',
-				read: true,
-				write: true,
-			},
-			native: {},
-		});
+		//required
+		if ((this.config.latitude).length !== 0) {
+			meteoblueAPIURL += 'lat=' + this.config.latitude;
+		} else {
 
-		// In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
-		this.subscribeStates('testVariable');
-		// You can also add a subscription for multiple states. The following line watches all states starting with "lights."
-		// this.subscribeStates('lights.*');
-		// Or, if you really must, you can also watch all states. Don't do this if you don't need to. Otherwise this will cause a lot of unnecessary load on the system:
-		// this.subscribeStates('*');
-
-		/*
-			setState examples
-			you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
-		*/
-		// the variable testVariable is set to true as command (ack=false)
-		await this.setStateAsync('testVariable', true);
-
-		// same thing, but the value is flagged "ack"
-		// ack should be always set to true if the value is received from or acknowledged from the target system
-		await this.setStateAsync('testVariable', { val: true, ack: true });
-
-		// same thing, but the state is deleted after 30s (getState will return null afterwards)
-		await this.setStateAsync('testVariable', { val: true, ack: true, expire: 30 });
-
-		// examples for the checkPassword/checkGroup functions
-		let result = await this.checkPasswordAsync('admin', 'iobroker');
-		this.log.info('check user admin pw iobroker: ' + result);
-
-		result = await this.checkGroupAsync('admin', 'admin');
-		this.log.info('check group user admin group admin: ' + result);
+		}
+		//required
+		if ((this.config.longitude).length !== 0) {
+			meteoblueAPIURL += '&lon=' + this.config.longitude;
+		} else {
+			
+		}
+		if ((this.config.location).length !== 0) {
+			//convert location to UTF8; see https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#misc
+			meteoblueAPIURL += '&name=' + encodeURIComponent(this.config.location);
+		}
+		if ((this.config.elevation).length !== 0) {
+			meteoblueAPIURL += '&asl=' + this.config.elevation;
+		}
+		if ((this.config.timezone).length !== 0) {
+			meteoblueAPIURL += '&tz=' + this.config.timezone;
+		}
+		if ((this.config.apikey).length !== 0) {
+			meteoblueAPIURL += '&apikey=' + this.config.apikey;
+		}
+		if ((this.config.temperature).length !== 0) {
+			meteoblueAPIURL += '&temperature=' + this.config.temperature;
+		}
+		if ((this.config.windspeed).length !== 0) {
+			meteoblueAPIURL += '&windspeed=' + this.config.windspeed;
+		}
+		if ((this.config.winddirection).length !== 0) {
+			meteoblueAPIURL += '&winddirection=' + this.config.winddirection;
+		}
+		if ((this.config.precipitationamount).length !== 0) {
+			meteoblueAPIURL += '&precipitationamount=' + this.config.precipitationamount;
+		}
+		if ((this.config.timeformat).length !== 0) {
+			meteoblueAPIURL += '&timeformat=' + this.config.timeformat;
+		}
+		meteoblueAPIURL += '&format=json';
+		this.log.info('meteoblueAPIURL: ' + meteoblueAPIURL);
 	}
 
 	/**
