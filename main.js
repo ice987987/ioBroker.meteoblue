@@ -56,49 +56,59 @@ class Meteoblue extends utils.Adapter {
 		this.log.info('this.config.timeformat: ' + this.config.timeformat);
 	
 		//https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#time-zone
-		//http://my.meteoblue.com/packages/basic-day?name=Wangen&lat=47.3437&lon=7.86982&asl=420&tz=Europe%2FZurich&apikey=123456789&temperature=C&windspeed=ms-1&winddirection=degree&precipitationamount=mm&timeformat=iso8601&format=json0
-	      http://my.meteoblue.com/packages/basic-day?            lat=46.1234&lon=59.9876&asl=999&tz=Europe%2Fzurich&apikey=999888777&temperature=C&windspeed=kmh &winddirection=degree&precipitationamount=inch&timeformat=YMD
 	
 		meteoblueAPIURL = 'http://my.meteoblue.com/packages/basic-day?';
 
 		//required
-		if ((this.config.latitude).length !== 0) {
-			meteoblueAPIURL += 'lat=' + this.config.latitude;
-		} else {
+		if ((!this.config.latitude && this.config.latitude !== 0) || isNaN(this.config.latitude) || (!this.config.longitude && this.config.longitude !== 0) || isNaN(this.config.longitude)) {
+			this.log.info('latitude/longitude not set, get data from system')
 
-		}
-		//required
-		if ((this.config.longitude).length !== 0) {
-			meteoblueAPIURL += '&lon=' + this.config.longitude;
+            try {
+                const state = await this.getForeignObjectAsync('system.config');
+				this.config.latitude = state.common.latitude;
+                this.config.longitude = state.common.longitude;
+            } catch (err) {
+                this.log.error(err);
+            }
+
+			if ((!this.config.latitude && this.config.latitude !== 0) || isNaN(this.config.latitude) || (!this.config.longitude && this.config.longitude !== 0) || isNaN(this.config.longitude)) {
+				//shut down
+				this.log.error('latitude and/or longitude not set. Adapter will be terminated.')
+				this.setForeignState("system.adapter." + this.namespace + ".alive", false);
+			} else {
+				meteoblueAPIURL += 'lat=' + this.config.latitude + '&lon=' + this.config.longitude;
+			}
+
 		} else {
-			
+			this.log.info('latitude/longitude manually set')
+			meteoblueAPIURL += 'lat=' + this.config.latitude + '&lon=' + this.config.longitude;
 		}
-		if ((this.config.location).length !== 0) {
+		if (this.config.location !== null) {
 			//convert location to UTF8; see https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#misc
 			meteoblueAPIURL += '&name=' + encodeURIComponent(this.config.location);
 		}
-		if ((this.config.elevation).length !== 0) {
+		if (this.config.elevation !== null) {
 			meteoblueAPIURL += '&asl=' + this.config.elevation;
 		}
-		if ((this.config.timezone).length !== 0) {
+		if (this.config.timezone !== null) {
 			meteoblueAPIURL += '&tz=' + this.config.timezone;
 		}
-		if ((this.config.apikey).length !== 0) {
+		if (this.config.apikey !== null) {
 			meteoblueAPIURL += '&apikey=' + this.config.apikey;
 		}
-		if ((this.config.temperature).length !== 0) {
+		if (this.config.temperature !== null) {
 			meteoblueAPIURL += '&temperature=' + this.config.temperature;
 		}
-		if ((this.config.windspeed).length !== 0) {
+		if (this.config.windspeed !== null) {
 			meteoblueAPIURL += '&windspeed=' + this.config.windspeed;
 		}
-		if ((this.config.winddirection).length !== 0) {
+		if (this.config.winddirection !== null) {
 			meteoblueAPIURL += '&winddirection=' + this.config.winddirection;
 		}
-		if ((this.config.precipitationamount).length !== 0) {
+		if (this.config.precipitationamount !== null) {
 			meteoblueAPIURL += '&precipitationamount=' + this.config.precipitationamount;
 		}
-		if ((this.config.timeformat).length !== 0) {
+		if (this.config.timeformat !== null) {
 			meteoblueAPIURL += '&timeformat=' + this.config.timeformat;
 		}
 		meteoblueAPIURL += '&format=json';
