@@ -62,7 +62,7 @@
 	</script>
 
 </head>
-
+<!-- Learn more http://materializecss.com/forms.html-->
 <body>
 
 	<div class="m adapter-container">
@@ -77,15 +77,91 @@
 
 		<!-- For example columns with settings: -->
 		<div class="row">
-			<div class="col s6 input-field">
-				<input type="checkbox" class="value" id="option1" />
-				<label for="option1" class="translate">option1</label>
+
+			<div class="col s12">
+				<h6 class="translate">API connection settings</h6>
+			</div>
+			<div class="input-field col s12">
+				<input class="value" id="location" type="text" size="50">
+				<label for="location" class="translate">location</label>
+			</div>
+			<div class="input-field col s6">
+				<input class="value" id="latitude" type="number" size="6" min="0">
+				<label for="latitude" class="translate">latitude</label>
+				<span class="translate">required</span>
+			</div>
+			<div class="input-field col s6">
+				<input class="value" id="longitude" type="number" size="6" min="0">
+				<label for="longitude" class="translate">longitude</label>
+				<span class="translate">required</span>
+			</div>
+			<div class="input-field col s6">
+				<input class="value" id="elevation" type="number" size="4" min="0">
+				<label for="elevation" class="translate">elevation</label>
+			</div>
+			<div class="input-field col s6">
+				<select class="value" id="timezone">
+					<option value="Europe%2Fzurich" class="translate">Europe/Zurich</option>
+					<option value="Europe%2Fberlin" class="translate">Europe/Berlin</option>
+				</select>
+				<label for="timezone" class="translate">timezone</label>
+				<!-- Important: label must come directly after select. Label is important. -->
+			</div>
+			<div class="input-field col s6">
+				<input class="value" id="apikey" type="password" size="15">
+				<label for="apikey" class="translate">apikey</label>
+			</div>
+			<div class="input-field col s6">
+				<select class="value" id="temperature">
+					<option value="C" class="translate">celsius</option>
+					<option value="F" class="translate">farenheit</option>
+				</select>
+				<label for="temperature" class="translate">temperature</label>
+				<!-- Important: label must come directly after select. Label is important. -->
+			</div>
+			<div class="input-field col s6">
+				<select class="value" id="windspeed">
+					<option value="kmh" class="translate">kilometer per hour</option>
+					<option value="ms-1" class="translate">meter per second</option>
+					<option value="mph" class="translate">miles per hour</option>
+					<option value="kn" class="translate">knots</option>
+					<option value="bft" class="translate">beaufort</option>
+				</select>
+				<label for="windspeed" class="translate">windspeed</label>
+				<!-- Important: label must come directly after select. Label is important. -->
+			</div>
+			<div class="input-field col s6">
+				<select class="value" id="winddirection">
+					<option value="degree" class="translate">degree</option>
+					<option value="2char" class="translate">2 direction characters</option>
+					<option value="3char" class="translate">3 direction characters</option>
+				</select>
+				<label for="winddirection" class="translate">winddirection</label>
+				<!-- Important: label must come directly after select. Label is important. -->
+			</div>
+			<div class="input-field col s6">
+				<select class="value" id="precipitationamount">
+					<option value="mmh" class="translate">mm</option>
+					<option value="inch" class="translate">inch</option>
+				</select>
+				<label for="precipitationamount" class="translate">precipitationamount</label>
+				<!-- Important: label must come directly after select. Label is important. -->
+			</div>
+			<div class="input-field col s6">
+				<select class="value" id="timeformat">
+					<option value="Y-M-D" class="translate">Y-M-D</option>
+					<option value="YMD" class="translate">YMD</option>
+					<option value="iso8601" class="translate">iso8601</option>
+					<option value="timestamp_utc" class="translate">timestamp_utc</option>
+					<option value="timestamp_ms_utc" class="translate">timestamp_ms_utc</option>
+				</select>
+				<label for="timeformat" class="translate">timeformat</label>
+				<!-- Important: label must come directly after select. Label is important. -->
+			</div>
+			<div class="col s12">
+				<label class="translate" for="api_explanation">api_explanation</label>
 			</div>
 
-			<div class="col s6 input-field">
-				<input type="text" class="value" id="option2" />
-				<label for="option2" class="translate">option2</label>
-			</div>
 		</div>
 
 	</div>
