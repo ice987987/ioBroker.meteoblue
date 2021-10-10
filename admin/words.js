@@ -27,52 +27,52 @@ systemDictionary = {
 		  "zh-cn": "地点"
 		},
 		"latitude": {
-		  "en": "latitude",
-		  "de": "Breite",
-		  "ru": "широта",
-		  "pt": "latitude",
-		  "nl": "breedtegraad",
-		  "fr": "latitude",
-		  "it": "latitudine",
-		  "es": "latitud",
-		  "pl": "szerokość",
-		  "zh-cn": "纬度"
+			"en": "latitude (use system config if empty)",
+			"de": "Breitengrad (verwenden Sie die Systemkonfiguration, wenn sie leer ist)",
+			"ru": "широта (используйте системную конфигурацию, если пусто)",
+			"pt": "latitude (use a configuração do sistema se estiver vazio)",
+			"nl": "latitude (gebruik systeemconfiguratie indien leeg)",
+			"fr": "latitude (utiliser la configuration du système si elle est vide)",
+			"it": "latitudine (usa la configurazione di sistema se vuoto)",
+			"es": "latitud (use la configuración del sistema si está vacío)",
+			"pl": "szerokość geograficzna (użyj konfiguracji systemu, jeśli jest pusta)",
+			"zh-cn": "纬度（如果为空，则使用系统配置）"
 		},
 		"longitude": {
-		  "en": "longitude",
-		  "de": "Längengrad",
-		  "ru": "долгота",
-		  "pt": "longitude",
-		  "nl": "Lengtegraad",
-		  "fr": "longitude",
-		  "it": "longitudine",
-		  "es": "longitud",
-		  "pl": "długość geograficzna",
-		  "zh-cn": "经度"
+			"en": "longitude (use system config if empty)",
+			"de": "Längengrad (verwenden Sie die Systemkonfiguration, wenn sie leer ist)",
+			"ru": "долгота (используйте системную конфигурацию, если она пуста)",
+			"pt": "longitude (use a configuração do sistema se estiver vazio)",
+			"nl": "lengtegraad (gebruik systeemconfiguratie indien leeg)",
+			"fr": "longitude (utiliser la configuration système si vide)",
+			"it": "longitudine (usa la configurazione di sistema se vuoto)",
+			"es": "longitud (use la configuración del sistema si está vacío)",
+			"pl": "długość geograficzna (użyj konfiguracji systemu, jeśli jest pusta)",
+			"zh-cn": "经度（如果为空，则使用系统配置）"
 		},
 		"elevation": {
-		  "en": "elevation",
-		  "de": "Elevation",
-		  "ru": "высота",
-		  "pt": "elevação",
-		  "nl": "verhoging",
-		  "fr": "élévation",
-		  "it": "elevazione",
-		  "es": "elevación",
-		  "pl": "podniesienie",
-		  "zh-cn": "海拔"
+			"en": "use a digital elevation model (DEM) with 80 meters resolution if empty",
+			"de": "Verwenden Sie ein digitales Höhenmodell (DEM) mit einer Auflösung von 80 Metern, wenn es leer ist",
+			"ru": "используйте цифровую модель рельефа (ЦМР) с разрешением 80 метров, если она пуста",
+			"pt": "usar um modelo digital de elevação (DEM) com resolução de 80 metros se vazio",
+			"nl": "gebruik een digitaal hoogtemodel (DEM) met een resolutie van 80 meter indien leeg",
+			"fr": "utiliser un modèle numérique d'élévation (DEM) avec une résolution de 80 mètres s'il est vide",
+			"it": "utilizzare un modello di elevazione digitale (DEM) con una risoluzione di 80 metri se vuoto",
+			"es": "use un modelo de elevación digital (DEM) con una resolución de 80 metros si está vacío",
+			"pl": "użyj cyfrowego modelu wysokości (DEM) o rozdzielczości 80 metrów, jeśli jest pusty",
+			"zh-cn": "如果为空，请使用分辨率为 80 米的数字高程模型 (DEM)"
 		},
 		"timezone": {
-		  "en": "timezone",
-		  "de": "Zeitzone",
-		  "ru": "часовой пояс",
-		  "pt": "fuso horário",
-		  "nl": "tijdzone",
-		  "fr": "fuseau horaire",
-		  "it": "fuso orario",
-		  "es": "zona horaria",
-		  "pl": "strefa czasowa",
-		  "zh-cn": "时区"
+			"en": "timezone (if no time zone is available, the API will detect the time zone automatically)",
+			"de": "Zeitzone (wenn keine Zeitzone verfügbar ist, erkennt die API die Zeitzone automatisch)",
+			"ru": "часовой пояс (если часовой пояс недоступен, API определит часовой пояс автоматически)",
+			"pt": "fuso horário (se nenhum fuso horário estiver disponível, a API detectará o fuso horário automaticamente)",
+			"nl": "tijdzone (als er geen tijdzone beschikbaar is, zal de API de tijdzone automatisch detecteren)",
+			"fr": "fuseau horaire (si aucun fuseau horaire n'est disponible, l'API détectera le fuseau horaire automatiquement)",
+			"it": "fuso orario (se non è disponibile alcun fuso orario, l'API rileverà automaticamente il fuso orario)",
+			"es": "zona horaria (si no hay zona horaria disponible, la API detectará la zona horaria automáticamente)",
+			"pl": "strefa czasowa (jeśli żadna strefa czasowa nie jest dostępna, API automatycznie wykryje strefę czasową)",
+			"zh-cn": "时区（如果没有可用时区，API 会自动检测时区）"
 		},
 		"Europe/Zurich": {
 		  "en": "Europe/Zurich",
@@ -111,16 +111,16 @@ systemDictionary = {
 		  "zh-cn": "apikey"
 		},
 		"temperature": {
-		  "en": "temperature",
-		  "de": "Temperatur",
-		  "ru": "температура",
-		  "pt": "temperatura",
-		  "nl": "temperatuur-",
-		  "fr": "Température",
-		  "it": "temperatura",
-		  "es": "temperatura",
-		  "pl": "temperatura",
-		  "zh-cn": "温度"
+			"en": "temperature (default: celsius)",
+			"de": "Temperatur (Standard: Celsius)",
+			"ru": "температура (по умолчанию: Цельсия)",
+			"pt": "temperatura (padrão: celsius)",
+			"nl": "temperatuur (standaard: Celsius)",
+			"fr": "température (par défaut : Celsius)",
+			"it": "temperatura (predefinito: Celsius)",
+			"es": "temperatura (por defecto: celsius)",
+			"pl": "temperatura (domyślnie: stopnie Celsjusza)",
+			"zh-cn": "温度（默认：摄氏度）"
 		},
 		"celsius": {
 		  "en": "celsius",
@@ -147,16 +147,16 @@ systemDictionary = {
 		  "zh-cn": "华氏度"
 		},
 		"windspeed": {
-		  "en": "windspeed",
-		  "de": "Windgeschwindigkeit",
-		  "ru": "скорость ветра",
-		  "pt": "velocidade do vento",
-		  "nl": "windsnelheid",
-		  "fr": "vitesse du vent",
-		  "it": "velocità del vento",
-		  "es": "velocidad del viento",
-		  "pl": "prędkość wiatru",
-		  "zh-cn": "风速"
+			"en": "windspeed (default: kilometers per hour)",
+			"de": "Windgeschwindigkeit (Standard: Kilometer pro Stunde)",
+			"ru": "скорость ветра (по умолчанию: километров в час)",
+			"pt": "velocidade do vento (padrão: quilômetros por hora)",
+			"nl": "windsnelheid (standaard: kilometer per uur)",
+			"fr": "vitesse du vent (par défaut : kilomètres par heure)",
+			"it": "velocità del vento (predefinito: chilometri all'ora)",
+			"es": "velocidad del viento (predeterminado: kilómetros por hora)",
+			"pl": "prędkość wiatru (domyślnie: kilometry na godzinę)",
+			"zh-cn": "风速（默认：公里每小时）"
 		},
 		"kilometer per hour": {
 		  "en": "kilometer per hour",
@@ -219,16 +219,16 @@ systemDictionary = {
 		  "zh-cn": "博福特"
 		},
 		"winddirection": {
-		  "en": "winddirection",
-		  "de": "Windrichtung",
-		  "ru": "направление ветра",
-		  "pt": "Direção do vento",
-		  "nl": "windrichting",
-		  "fr": "direction du vent",
-		  "it": "la direzione del vento",
-		  "es": "dirección del viento",
-		  "pl": "kierunek wiatru",
-		  "zh-cn": "风向"
+			"en": "winddirection (default: degree)",
+			"de": "Windrichtung (Standard: Grad)",
+			"ru": "направление ветра (по умолчанию: градус)",
+			"pt": "direção do vento (padrão: grau)",
+			"nl": "windrichting (standaard: graad)",
+			"fr": "direction du vent (par défaut : degré)",
+			"it": "direzione del vento (predefinito: gradi)",
+			"es": "dirección del viento (predeterminado: grado)",
+			"pl": "kierunek wiatru (domyślnie: stopień)",
+			"zh-cn": "风向（默认：度）"
 		},
 		"degree": {
 		  "en": "degree",
@@ -267,16 +267,16 @@ systemDictionary = {
 		  "zh-cn": "3个方向字符"
 		},
 		"precipitationamount": {
-		  "en": "precipitationamount",
-		  "de": "Niederschlagsmenge",
-		  "ru": "количество осадков",
-		  "pt": "quantidade de precipitação",
-		  "nl": "neerslaghoeveelheid",
-		  "fr": "quantité de précipitations",
-		  "it": "quantità di precipitazioni",
-		  "es": "cantidad de precipitación",
-		  "pl": "ilość opadów",
-		  "zh-cn": "降水量"
+			"en": "precipitationamount (default: millimeter )",
+			"de": "Niederschlagsmenge (Standard: Millimeter)",
+			"ru": "сумма осадков (по умолчанию: миллиметры)",
+			"pt": "quantidade de precipitação (padrão: milímetro)",
+			"nl": "neerslaghoeveelheid (standaard: millimeter)",
+			"fr": "montant de précipitation (par défaut : millimètre )",
+			"it": "quantità di precipitazioni (predefinito: millimetro )",
+			"es": "cantidad de precipitación (por defecto: milímetro)",
+			"pl": "ilość opadów (domyślnie: milimetr )",
+			"zh-cn": "降水量（默认值：毫米）"
 		},
 		"mm": {
 		  "en": "mm",
@@ -303,16 +303,16 @@ systemDictionary = {
 		  "zh-cn": "英寸"
 		},
 		"timeformat": {
-		  "en": "timeformat",
-		  "de": "Zeitformat",
-		  "ru": "формат времени",
-		  "pt": "formato de tempo",
-		  "nl": "Tijd formaat",
-		  "fr": "format de l'heure",
-		  "it": "formato orario",
-		  "es": "formato de tiempo",
-		  "pl": "format czasu",
-		  "zh-cn": "时间格式"
+			"en": "timeformat (default: Year-Month-Day Hour:Minute)",
+			"de": "Zeitformat (Standard: Jahr-Monat-Tag Stunde:Minute)",
+			"ru": "формат времени (по умолчанию: год-месяц-день, час: минута)",
+			"pt": "formato de hora (padrão: Ano-Mês-Dia Hora: Minuto)",
+			"nl": "tijdnotatie (standaard: Jaar-Maand-Dag Uur:Minuut)",
+			"fr": "timeformat (par défaut : Année-Mois-Jour Heure : Minute)",
+			"it": "formatoora (predefinito: Anno-Mese-Giorno Ora:Minuti)",
+			"es": "formato de hora (predeterminado: Año-Mes-Día Hora: Minuto)",
+			"pl": "format czasu (domyślnie: rok-miesiąc-dzień godzina:minuta)",
+			"zh-cn": "时间格式（默认：年-月-日小时：分钟）"
 		},
 		"Y-M-D": {
 		  "en": "Y-M-D",
