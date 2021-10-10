@@ -9,10 +9,676 @@
 const utils = require('@iobroker/adapter-core');
 
 // Load your modules here, e.g.:
-// const fs = require("fs");
+const axios = require('axios');
 
 //variables
 let meteoblueAPIURL;
+let intervallGetMeteoblueData;
+
+async function createObjectsAPI(adapter){
+
+    //get number of mowers and create DP's for each mower
+    adapter.log.info('create states...');
+    try {
+		//metadata
+		await adapter.setObjectNotExistsAsync('metadata.name', {
+			type: 'state',
+			common: {
+				name: 'name',
+				desc: 'location name',
+				type: 'string',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('metadata.latitude', {
+			type: 'state',
+			common: {
+				name: 'latitude',
+				desc: 'Latitude coordinate in WGS-84',
+				unit: '°N',
+				type: 'number',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('metadata.longitude', {
+			type: 'state',
+			common: {
+				name: 'longitude',
+				desc: 'Longitude coordinate in WGS-84',
+				unit: '°E',
+				type: 'number',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('metadata.height', {
+			type: 'state',
+			common: {
+				name: 'height',
+				desc: 'elevation in meters above sea level',
+				unit: 'm',
+				type: 'number',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('metadata.timezone_abbrevation', {
+			type: 'state',
+			common: {
+				name: 'timezone_abbrevation',
+				desc: 'time zone',
+				type: 'string',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('metadata.utc_timeoffset', {
+			type: 'state',
+			common: {
+				name: 'utc_timeoffset',
+				desc: 'time zone',
+				unit: 'h',
+				type: 'number',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('metadata.modelrun_utc', {
+			type: 'state',
+			common: {
+				name: 'modelrun_utc',
+				desc: 'time zone',
+				type: 'string',
+				role: 'date',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('metadata.modelrun_updatetime_utc', {
+			type: 'state',
+			common: {
+				name: 'modelrun_updatetime_utc',
+				desc: 'time zone',
+				type: 'string',
+				role: 'date',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		//units
+		await adapter.setObjectNotExistsAsync('units.time', {
+			type: 'state',
+			common: {
+				name: 'time',
+				desc: 'time format',
+				type: 'string',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('units.predictability', {
+			type: 'state',
+			common: {
+				name: 'predictability',
+				desc: 'predictability',
+				type: 'string',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('units.precipitation_probability', {
+			type: 'state',
+			common: {
+				name: 'precipitation_probability',
+				desc: 'precipitation_probability',
+				type: 'string',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('units.pressure', {
+			type: 'state',
+			common: {
+				name: 'pressure',
+				desc: 'pressure',
+				type: 'string',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('units.relativehumidity', {
+			type: 'state',
+			common: {
+				name: 'relativehumidity',
+				desc: 'relativehumidity',
+				type: 'string',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('units.co', {
+			type: 'state',
+			common: {
+				name: 'co',
+				desc: 'co',
+				type: 'string',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('units.temperature', {
+			type: 'state',
+			common: {
+				name: 'temperature',
+				desc: 'temperature',
+				type: 'string',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('units.winddirection', {
+			type: 'state',
+			common: {
+				name: 'winddirection',
+				desc: 'winddirection',
+				type: 'string',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('units.precipitation', {
+			type: 'state',
+			common: {
+				name: 'precipitation',
+				desc: 'precipitation',
+				type: 'string',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('units.windspeed', {
+			type: 'state',
+			common: {
+				name: 'windspeed',
+				desc: 'windspeed',
+				type: 'string',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		//data_day 0-6
+		for (let i = 0; i <= 6; i++) {
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.time', {
+				type: 'state',
+				common: {
+					name: 'time',
+					desc: 'time',
+					type: 'string',
+					role: 'date',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.pictocode', {
+				type: 'state',
+				common: {
+					name: 'pictocode',
+					desc: 'pictocode',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.uvindex', {
+				type: 'state',
+				common: {
+					name: 'uvindex',
+					desc: 'uvindex',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.temperature_max', {
+				type: 'state',
+				common: {
+					name: 'temperature_max',
+					desc: 'temperature_max',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.temperature_min', {
+				type: 'state',
+				common: {
+					name: 'temperature_min',
+					desc: 'temperature_min',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.temperature_mean', {
+				type: 'state',
+				common: {
+					name: 'temperature_mean',
+					desc: 'temperature_mean',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.felttemperature_max', {
+				type: 'state',
+				common: {
+					name: 'felttemperature_max',
+					desc: 'felttemperature_max',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.felttemperature_min', {
+				type: 'state',
+				common: {
+					name: 'felttemperature_min',
+					desc: 'felttemperature_min',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.winddirection', {
+				type: 'state',
+				common: {
+					name: 'winddirection',
+					desc: 'winddirection',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.precipitation_probability', {
+				type: 'state',
+				common: {
+					name: 'precipitation_probability',
+					desc: 'precipitation_probability',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.rainspot', {
+				type: 'state',
+				common: {
+					name: 'rainspot',
+					desc: 'rainspot',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.predictability_class', {
+				type: 'state',
+				common: {
+					name: 'predictability_class',
+					desc: 'predictability_class',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.predictability', {
+				type: 'state',
+				common: {
+					name: 'predictability',
+					desc: 'predictability',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.precipitation', {
+				type: 'state',
+				common: {
+					name: 'precipitation',
+					desc: 'precipitation',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.snowfraction', {
+				type: 'state',
+				common: {
+					name: 'snowfraction',
+					desc: 'snowfraction',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.sealevelpressure_max', {
+				type: 'state',
+				common: {
+					name: 'sealevelpressure_max',
+					desc: 'sealevelpressure_max',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.sealevelpressure_min', {
+				type: 'state',
+				common: {
+					name: 'sealevelpressure_min',
+					desc: 'sealevelpressure_min',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.sealevelpressure_mean', {
+				type: 'state',
+				common: {
+					name: 'sealevelpressure_mean',
+					desc: 'sealevelpressure_mean',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.windspeed_max', {
+				type: 'state',
+				common: {
+					name: 'sealevelpressure_mean',
+					desc: 'sealevelpressure_mean',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.windspeed_mean', {
+				type: 'state',
+				common: {
+					name: 'windspeed_mean',
+					desc: 'windspeed_mean',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.windspeed_min', {
+				type: 'state',
+				common: {
+					name: 'windspeed_min',
+					desc: 'windspeed_min',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.relativehumidity_max', {
+				type: 'state',
+				common: {
+					name: 'relativehumidity_max',
+					desc: 'relativehumidity_max',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.relativehumidity_min', {
+				type: 'state',
+				common: {
+					name: 'relativehumidity_min',
+					desc: 'relativehumidity_min',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.relativehumidity_mean', {
+				type: 'state',
+				common: {
+					name: 'relativehumidity_mean',
+					desc: 'relativehumidity_mean',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.convective_precipitation', {
+				type: 'state',
+				common: {
+					name: 'convective_precipitation',
+					desc: 'convective_precipitation',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.precipitation_hours', {
+				type: 'state',
+				common: {
+					name: 'precipitation_hours',
+					desc: 'precipitation_hours',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.humiditygreater90_hours', {
+				type: 'state',
+				common: {
+					name: 'humiditygreater90_hours',
+					desc: 'humiditygreater90_hours',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+		}
+		adapter.log.info('states created...');
+	}
+    catch (error) {
+        adapter.log.error(error);
+    }
+}
+
+async function getMeteoblueData(adapter, meteoblueAPIURL) {
+	//adapter.log.info('adapter: ' + adapter);
+	adapter.log.info('getMeteoblueData...');
+
+	//https://www.npmjs.com/package/axios
+	axios({
+		method: 'get',
+		baseURL: meteoblueAPIURL,
+		//url: '/data.json',
+		//timeout: this.config.requestTimeout * 1000,
+		//responseType: 'json'
+	})
+	.then(async (response) => {
+		const content = response.data;
+		adapter.log.debug('received data (' + response.status + '): ' + JSON.stringify(content));
+
+		//metadata
+		adapter.setState('metadata.name', {val: content.metadata.name, ack: true});
+		//adapter.log.debug('metadata.name: ' + content.metadata.name);
+		adapter.setState('metadata.latitude', {val: content.metadata.latitude, ack: true});
+		//adapter.log.debug('metadata.latitude: ' + content.metadata.latitude);
+		adapter.setState('metadata.longitude', {val: content.metadata.longitude, ack: true});
+		//adapter.log.debug('metadata.longitude: ' + content.metadata.longitude);
+		adapter.setState('metadata.height', {val: content.metadata.height, ack: true});
+		adapter.setState('metadata.timezone_abbrevation', {val: content.metadata.timezone_abbrevation, ack: true});
+		adapter.setState('metadata.utc_timeoffset', {val: content.metadata.utc_timeoffset, ack: true});
+		adapter.setState('metadata.modelrun_utc', {val: content.metadata.modelrun_utc, ack: true});
+		adapter.setState('metadata.modelrun_updatetime_utc', {val: content.metadata.modelrun_updatetime_utc, ack: true});
+
+		//units
+		adapter.setState('units.time', {val: content.units.time, ack: true});
+		adapter.setState('units.predictability', {val: content.units.predictability, ack: true});
+		adapter.setState('units.precipitation_probability', {val: content.units.precipitation_probability, ack: true});
+		adapter.setState('units.pressure', {val: content.units.pressure, ack: true});
+		adapter.setState('units.relativehumidity', {val: content.units.relativehumidity, ack: true});
+		adapter.setState('units.co', {val: content.units.co, ack: true});
+		adapter.setState('units.temperature', {val: content.units.temperature, ack: true});
+		adapter.setState('units.winddirection', {val: content.units.winddirection, ack: true});
+		adapter.setState('units.precipitation', {val: content.units.precipitation, ack: true});
+		adapter.setState('units.windspeed', {val: content.units.windspeed, ack: true});
+		
+	})
+	.catch((error) => {
+		if (error.response) {
+			// The request was made and the server responded with a status code that falls out of the range of 2xx
+
+			adapter.log.warn('received error ' + error.response.status +' with content: ' + JSON.stringify(error.response.data) + '(' + JSON.stringify(error.response.headers) +')');
+
+		} else if (error.request) {
+			// The request was made but no response was received `error.request` is an instance of XMLHttpRequest in the browser and an instance of http.ClientRequest in node.js
+			adapter.log.info(error.message);
+
+		} else {
+			// Something happened in setting up the request that triggered an Error
+			adapter.log.info(error.message);
+		}
+		adapter.log.info(error.config);
+	});
+}
 
 class Meteoblue extends utils.Adapter {
 
@@ -59,7 +725,7 @@ class Meteoblue extends utils.Adapter {
 	
 		meteoblueAPIURL = 'http://my.meteoblue.com/packages/basic-day?';
 
-		//required
+		//check and set latitute & longitude
 		if ((!this.config.latitude && this.config.latitude !== 0) || isNaN(this.config.latitude) || (!this.config.longitude && this.config.longitude !== 0) || isNaN(this.config.longitude)) {
 			this.log.info('latitude/longitude not set, get data from system')
 
@@ -83,6 +749,16 @@ class Meteoblue extends utils.Adapter {
 			this.log.info('latitude/longitude manually set')
 			meteoblueAPIURL += 'lat=' + this.config.latitude + '&lon=' + this.config.longitude;
 		}
+
+		//check and set APIKEY
+		if(!this.config.apikey) {
+			//shut down
+			this.log.error('apikey not set. Adapter will be terminated.')
+			this.setForeignState("system.adapter." + this.namespace + ".alive", false);
+		} else {
+			meteoblueAPIURL += '&apikey=' + this.config.apikey;
+		}
+
 		if (this.config.location !== null) {
 			//convert location to UTF8; see https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#misc
 			meteoblueAPIURL += '&name=' + encodeURIComponent(this.config.location);
@@ -92,9 +768,6 @@ class Meteoblue extends utils.Adapter {
 		}
 		if (this.config.timezone !== null) {
 			meteoblueAPIURL += '&tz=' + this.config.timezone;
-		}
-		if (this.config.apikey !== null) {
-			meteoblueAPIURL += '&apikey=' + this.config.apikey;
 		}
 		if (this.config.temperature !== null) {
 			meteoblueAPIURL += '&temperature=' + this.config.temperature;
@@ -113,6 +786,9 @@ class Meteoblue extends utils.Adapter {
 		}
 		meteoblueAPIURL += '&format=json';
 		this.log.info('meteoblueAPIURL: ' + meteoblueAPIURL);
+
+		await createObjectsAPI(this);
+		await getMeteoblueData(this, meteoblueAPIURL);
 	}
 
 	/**
@@ -128,8 +804,11 @@ class Meteoblue extends utils.Adapter {
 			// clearInterval(interval1);
 
 			callback();
+			clearInterval(intervallGetMeteoblueData);
+			this.log.info('cleaned everything up... (#1)');
 		} catch (e) {
 			callback();
+			this.log.info('cleaned everything up... (#2)');
 		}
 	}
 
