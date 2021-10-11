@@ -306,6 +306,7 @@ async function createObjectsAPI(adapter){
 				common: {
 					name: 'temperature_max',
 					desc: 'temperature_max',
+					unit: '°',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -319,6 +320,7 @@ async function createObjectsAPI(adapter){
 				common: {
 					name: 'temperature_min',
 					desc: 'temperature_min',
+					unit: '°',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -332,6 +334,7 @@ async function createObjectsAPI(adapter){
 				common: {
 					name: 'temperature_mean',
 					desc: 'temperature_mean',
+					unit: '°',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -345,6 +348,7 @@ async function createObjectsAPI(adapter){
 				common: {
 					name: 'felttemperature_max',
 					desc: 'felttemperature_max',
+					unit: '°',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -358,6 +362,7 @@ async function createObjectsAPI(adapter){
 				common: {
 					name: 'felttemperature_min',
 					desc: 'felttemperature_min',
+					unit: '°',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -366,11 +371,12 @@ async function createObjectsAPI(adapter){
 				native: {}
 			});
 
-			await adapter.setObjectNotExistsAsync('data_day.' + i + '.winddirection', {
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.winddirectionDeg', {
 				type: 'state',
 				common: {
 					name: 'winddirection',
 					desc: 'winddirection',
+					unit: '°',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -378,12 +384,27 @@ async function createObjectsAPI(adapter){
 				},
 				native: {}
 			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.winddirectionChar', {
+				type: 'state',
+				common: {
+					name: 'winddirection',
+					desc: 'winddirection',
+					type: 'string',
+					role: 'value',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
 
 			await adapter.setObjectNotExistsAsync('data_day.' + i + '.precipitation_probability', {
 				type: 'state',
 				common: {
 					name: 'precipitation_probability',
 					desc: 'precipitation_probability',
+					unit: '%',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -397,7 +418,7 @@ async function createObjectsAPI(adapter){
 				common: {
 					name: 'rainspot',
 					desc: 'rainspot',
-					type: 'number',
+					type: 'string',
 					role: 'value',
 					read: true,
 					write: true
@@ -462,6 +483,7 @@ async function createObjectsAPI(adapter){
 				common: {
 					name: 'sealevelpressure_max',
 					desc: 'sealevelpressure_max',
+					unit: 'hPa',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -475,6 +497,7 @@ async function createObjectsAPI(adapter){
 				common: {
 					name: 'sealevelpressure_min',
 					desc: 'sealevelpressure_min',
+					unit: 'hPa',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -488,6 +511,7 @@ async function createObjectsAPI(adapter){
 				common: {
 					name: 'sealevelpressure_mean',
 					desc: 'sealevelpressure_mean',
+					unit: 'hPa',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -501,6 +525,7 @@ async function createObjectsAPI(adapter){
 				common: {
 					name: 'sealevelpressure_mean',
 					desc: 'sealevelpressure_mean',
+					unit: 'hPa',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -540,6 +565,7 @@ async function createObjectsAPI(adapter){
 				common: {
 					name: 'relativehumidity_max',
 					desc: 'relativehumidity_max',
+					unit: '%',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -553,6 +579,7 @@ async function createObjectsAPI(adapter){
 				common: {
 					name: 'relativehumidity_min',
 					desc: 'relativehumidity_min',
+					unit: '%',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -566,6 +593,7 @@ async function createObjectsAPI(adapter){
 				common: {
 					name: 'relativehumidity_mean',
 					desc: 'relativehumidity_mean',
+					unit: '%',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -633,6 +661,9 @@ async function getMeteoblueData(adapter, meteoblueAPIURL) {
 		//responseType: 'json'
 	})
 	.then(async (response) => {
+
+		adapter.setState('info.connection', true, true);
+
 		const content = response.data;
 		adapter.log.debug('received data (' + response.status + '): ' + JSON.stringify(content));
 
@@ -660,7 +691,42 @@ async function getMeteoblueData(adapter, meteoblueAPIURL) {
 		adapter.setState('units.winddirection', {val: content.units.winddirection, ack: true});
 		adapter.setState('units.precipitation', {val: content.units.precipitation, ack: true});
 		adapter.setState('units.windspeed', {val: content.units.windspeed, ack: true});
-		
+
+		//data_day 0-6
+		for (let i = 0; i <= 6; i++) {
+			adapter.setState('data_day.' + i + '.time', {val: content.data_day.time[i] , ack: true});
+			adapter.setState('data_day.' + i + '.pictocode', {val: content.data_day.pictocode[i] , ack: true});
+			adapter.setState('data_day.' + i + '.uvindex', {val: content.data_day.uvindex[i] , ack: true});
+			adapter.setState('data_day.' + i + '.temperature_max', {val: content.data_day.temperature_max[i] , ack: true});
+			adapter.setState('data_day.' + i + '.temperature_min', {val: content.data_day.temperature_min[i] , ack: true});
+			adapter.setState('data_day.' + i + '.temperature_mean', {val: content.data_day.temperature_mean[i] , ack: true});
+			adapter.setState('data_day.' + i + '.felttemperature_max', {val: content.data_day.felttemperature_max[i] , ack: true});
+			adapter.setState('data_day.' + i + '.felttemperature_min', {val: content.data_day.felttemperature_min[i] , ack: true});
+			if(typeof(content.data_day.winddirection[i]) === 'number') {
+				adapter.setState('data_day.' + i + '.winddirectionDeg', {val: content.data_day.winddirection[i] , ack: true});
+			} else {
+				adapter.setState('data_day.' + i + '.winddirectionChar', {val: content.data_day.winddirection[i] , ack: true});
+			}
+			adapter.setState('data_day.' + i + '.precipitation_probability', {val: content.data_day.precipitation_probability[i] , ack: true});
+			adapter.setState('data_day.' + i + '.rainspot', {val: content.data_day.rainspot[i] , ack: true});
+			adapter.setState('data_day.' + i + '.predictability_class', {val: content.data_day.predictability_class[i] , ack: true});
+			adapter.setState('data_day.' + i + '.predictability', {val: content.data_day.predictability[i] , ack: true});
+			adapter.setState('data_day.' + i + '.precipitation', {val: content.data_day.precipitation[i] , ack: true});
+			adapter.setState('data_day.' + i + '.snowfraction', {val: content.data_day.snowfraction[i] , ack: true});
+			adapter.setState('data_day.' + i + '.sealevelpressure_max', {val: content.data_day.sealevelpressure_max[i] , ack: true});
+			adapter.setState('data_day.' + i + '.sealevelpressure_min', {val: content.data_day.sealevelpressure_min[i] , ack: true});
+			adapter.setState('data_day.' + i + '.sealevelpressure_mean', {val: content.data_day.sealevelpressure_mean[i] , ack: true});
+			adapter.setState('data_day.' + i + '.windspeed_max', {val: content.data_day.windspeed_max[i] , ack: true});
+			adapter.setState('data_day.' + i + '.windspeed_mean', {val: content.data_day.windspeed_mean[i] , ack: true});
+			adapter.setState('data_day.' + i + '.windspeed_min', {val: content.data_day.windspeed_min[i] , ack: true});
+			adapter.setState('data_day.' + i + '.relativehumidity_max', {val: content.data_day.relativehumidity_max[i] , ack: true});
+			adapter.setState('data_day.' + i + '.relativehumidity_min', {val: content.data_day.relativehumidity_min[i] , ack: true});
+			adapter.setState('data_day.' + i + '.relativehumidity_mean', {val: content.data_day.relativehumidity_mean[i] , ack: true});
+			adapter.setState('data_day.' + i + '.convective_precipitation', {val: content.data_day.convective_precipitation[i] , ack: true});
+			adapter.setState('data_day.' + i + '.precipitation_hours', {val: content.data_day.precipitation_hours[i] , ack: true});
+			adapter.setState('data_day.' + i + '.humiditygreater90_hours', {val: content.data_day.humiditygreater90_hours[i] , ack: true});
+		}
+		adapter.log.info('all states written...');
 	})
 	.catch((error) => {
 		if (error.response) {
@@ -680,6 +746,15 @@ async function getMeteoblueData(adapter, meteoblueAPIURL) {
 	});
 }
 
+async function getMeteoblueDateIntervall(adapter, meteoblueAPIURL) {
+
+	intervallGetMeteoblueData = setInterval(async () => {
+		await getMeteoblueData(adapter, meteoblueAPIURL)
+	}, 10000);
+
+}
+
+
 class Meteoblue extends utils.Adapter {
 
 	/**
@@ -691,7 +766,7 @@ class Meteoblue extends utils.Adapter {
 			name: 'meteoblue',
 		});
 		this.on('ready', this.onReady.bind(this));
-		this.on('stateChange', this.onStateChange.bind(this));
+		// this.on('stateChange', this.onStateChange.bind(this));
 		// this.on('objectChange', this.onObjectChange.bind(this));
 		// this.on('message', this.onMessage.bind(this));
 		this.on('unload', this.onUnload.bind(this));
@@ -725,70 +800,80 @@ class Meteoblue extends utils.Adapter {
 	
 		meteoblueAPIURL = 'http://my.meteoblue.com/packages/basic-day?';
 
-		//check and set latitute & longitude
-		if ((!this.config.latitude && this.config.latitude !== 0) || isNaN(this.config.latitude) || (!this.config.longitude && this.config.longitude !== 0) || isNaN(this.config.longitude)) {
-			this.log.info('latitude/longitude not set, get data from system')
-
-            try {
-                const state = await this.getForeignObjectAsync('system.config');
-				this.config.latitude = state.common.latitude;
-                this.config.longitude = state.common.longitude;
-            } catch (err) {
-                this.log.error(err);
-            }
-
-			if ((!this.config.latitude && this.config.latitude !== 0) || isNaN(this.config.latitude) || (!this.config.longitude && this.config.longitude !== 0) || isNaN(this.config.longitude)) {
-				//shut down
-				this.log.error('latitude and/or longitude not set. Adapter will be terminated.')
-				this.setForeignState("system.adapter." + this.namespace + ".alive", false);
+		//check apikey
+		if(typeof(this.config.apikey) === 'string') {
+			this.log.debug('APIKEY set. (' + this.config.apikey +')')
+			meteoblueAPIURL += 'apikey=' + this.config.apikey;
+			
+			//check and set latitute & longitude
+			if(typeof(this.config.latitude) === 'number' && !isNaN(this.config.latitude) && this.config.latitude >= -90 && this.config.latitude <= 90 &&
+			   typeof(this.config.longitude) === 'number' && !isNaN(this.config.longitude) && this.config.longitude >= -180 && this.config.longitude <= 180) {
+				this.log.info('latitude/longitude manually set');
+				meteoblueAPIURL += '&lat=' + this.config.latitude + '&lon=' + this.config.longitude;
 			} else {
-				meteoblueAPIURL += 'lat=' + this.config.latitude + '&lon=' + this.config.longitude;
+				this.log.info('latitude/longitude not manually set, get data from system')
+				
+				try {
+					const state = await this.getForeignObjectAsync('system.config');
+					this.config.latitude = state.common.latitude;
+					this.config.longitude = state.common.longitude;
+				} catch (err) {
+					this.log.error(err);
+				}
+
+				this.log.info('this.config.latitude: ' + this.config.latitude)
+				this.log.info('this.config.latitude: ' + this.config.longitude)
+				this.log.info('this.config.latitude: ' + typeof(this.config.latitude))
+				this.log.info('this.config.latitude: ' + typeof(this.config.longitude))
+
+				if(typeof(this.config.latitude) === 'number' && !isNaN(this.config.latitude) && this.config.latitude >= -90 && this.config.latitude <= 90 &&
+			       typeof(this.config.longitude) === 'number' && !isNaN(this.config.longitude) && this.config.longitude >= -180 && this.config.longitude <= 180) {
+					this.log.info('latitude/longitude set from system')
+					meteoblueAPIURL += '&lat=' + this.config.latitude + '&lon=' + this.config.longitude;
+
+					if (this.config.location !== null && this.config.location !== '') {
+						//convert location to UTF8; see https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#misc
+						meteoblueAPIURL += '&name=' + encodeURIComponent(this.config.location);
+					}
+					if (this.config.elevation !== null) {
+						meteoblueAPIURL += '&asl=' + this.config.elevation;
+					}
+					if (this.config.timezone !== null) {
+						meteoblueAPIURL += '&tz=' + this.config.timezone;
+					}
+					if (this.config.temperature !== null) {
+						meteoblueAPIURL += '&temperature=' + this.config.temperature;
+					}
+					if (this.config.windspeed !== null) {
+						meteoblueAPIURL += '&windspeed=' + this.config.windspeed;
+					}
+					if (this.config.winddirection !== null) {
+						meteoblueAPIURL += '&winddirection=' + this.config.winddirection;
+					}
+					if (this.config.precipitationamount !== null) {
+						meteoblueAPIURL += '&precipitationamount=' + this.config.precipitationamount;
+					}
+					if (this.config.timeformat !== null) {
+						meteoblueAPIURL += '&timeformat=' + this.config.timeformat;
+					}
+					meteoblueAPIURL += '&format=json';
+					this.log.info('meteoblueAPIURL: ' + meteoblueAPIURL);
+
+					await createObjectsAPI(this);
+					await getMeteoblueData(this, meteoblueAPIURL);
+					//await getMeteoblueDateIntervall(this, meteoblueAPIURL);
+
+				} else {
+					//shut down
+					this.log.error('latitude and/or longitude not set. Adapter will be terminated.')
+					this.setForeignState("system.adapter." + this.namespace + ".alive", false);
+				}
 			}
-
 		} else {
-			this.log.info('latitude/longitude manually set')
-			meteoblueAPIURL += 'lat=' + this.config.latitude + '&lon=' + this.config.longitude;
-		}
-
-		//check and set APIKEY
-		if(!this.config.apikey) {
 			//shut down
-			this.log.error('apikey not set. Adapter will be terminated.')
+			this.log.error('APIKEY not set. Adapter will be terminated.')
 			this.setForeignState("system.adapter." + this.namespace + ".alive", false);
-		} else {
-			meteoblueAPIURL += '&apikey=' + this.config.apikey;
-		}
-
-		if (this.config.location !== null) {
-			//convert location to UTF8; see https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#misc
-			meteoblueAPIURL += '&name=' + encodeURIComponent(this.config.location);
-		}
-		if (this.config.elevation !== null) {
-			meteoblueAPIURL += '&asl=' + this.config.elevation;
-		}
-		if (this.config.timezone !== null) {
-			meteoblueAPIURL += '&tz=' + this.config.timezone;
-		}
-		if (this.config.temperature !== null) {
-			meteoblueAPIURL += '&temperature=' + this.config.temperature;
-		}
-		if (this.config.windspeed !== null) {
-			meteoblueAPIURL += '&windspeed=' + this.config.windspeed;
-		}
-		if (this.config.winddirection !== null) {
-			meteoblueAPIURL += '&winddirection=' + this.config.winddirection;
-		}
-		if (this.config.precipitationamount !== null) {
-			meteoblueAPIURL += '&precipitationamount=' + this.config.precipitationamount;
-		}
-		if (this.config.timeformat !== null) {
-			meteoblueAPIURL += '&timeformat=' + this.config.timeformat;
-		}
-		meteoblueAPIURL += '&format=json';
-		this.log.info('meteoblueAPIURL: ' + meteoblueAPIURL);
-
-		await createObjectsAPI(this);
-		await getMeteoblueData(this, meteoblueAPIURL);
+		};
 	}
 
 	/**
@@ -834,6 +919,7 @@ class Meteoblue extends utils.Adapter {
 	 * @param {string} id
 	 * @param {ioBroker.State | null | undefined} state
 	 */
+	/*
 	onStateChange(id, state) {
 		if (state) {
 			// The state was changed
@@ -843,7 +929,7 @@ class Meteoblue extends utils.Adapter {
 			this.log.info(`state ${id} deleted`);
 		}
 	}
-
+*/
 	// If you need to accept messages in your adapter, uncomment the following block and the corresponding line in the constructor.
 	// /**
 	//  * Some message was sent to this instance over message box. Used by email, pushover, text2speech, ...
