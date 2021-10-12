@@ -108,8 +108,8 @@ async function createObjectsAPI(adapter){
 			common: {
 				name: 'modelrun_utc',
 				desc: 'time zone',
-				type: 'string',
-				role: 'date',
+				type: 'number',
+				role: 'value',
 				read: true,
 				write: true
 			},
@@ -121,6 +121,32 @@ async function createObjectsAPI(adapter){
 			common: {
 				name: 'modelrun_updatetime_utc',
 				desc: 'time zone',
+				type: 'number',
+				role: 'value',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('metadata.modelrun', {
+			type: 'state',
+			common: {
+				name: 'modelrun',
+				desc: '',
+				type: 'string',
+				role: 'date',
+				read: true,
+				write: true
+			},
+			native: {}
+		});
+
+		await adapter.setObjectNotExistsAsync('metadata.modelrun_updatetime', {
+			type: 'state',
+			common: {
+				name: 'modelrun_updatetime',
+				desc: '',
 				type: 'string',
 				role: 'date',
 				read: true,
@@ -269,6 +295,19 @@ async function createObjectsAPI(adapter){
 					desc: 'time',
 					type: 'string',
 					role: 'date',
+					read: true,
+					write: true
+				},
+				native: {}
+			});
+
+			await adapter.setObjectNotExistsAsync('data_day.' + i + '.time_UTC', {
+				type: 'state',
+				common: {
+					name: 'time',
+					desc: 'time',
+					type: 'number',
+					role: 'value',
 					read: true,
 					write: true
 				},
@@ -677,9 +716,17 @@ async function getMeteoblueData(adapter, meteoblueAPIURL) {
 		adapter.setState('metadata.height', {val: content.metadata.height, ack: true});
 		adapter.setState('metadata.timezone_abbrevation', {val: content.metadata.timezone_abbrevation, ack: true});
 		adapter.setState('metadata.utc_timeoffset', {val: content.metadata.utc_timeoffset, ack: true});
-		adapter.setState('metadata.modelrun_utc', {val: content.metadata.modelrun_utc, ack: true});
-		adapter.setState('metadata.modelrun_updatetime_utc', {val: content.metadata.modelrun_updatetime_utc, ack: true});
-
+		if(typeof(content.metadata.modelrun_utc) === 'number') {
+			adapter.setState('metadata.modelrun_utc', {val: content.metadata.modelrun, ack: true});
+		} else {
+			adapter.setState('metadata.modelrun', {val: content.metadata.modelrun, ack: true});
+		}
+		if(typeof(content.metadata.modelrun_utc) === 'number') {
+			adapter.setState('metadata.modelrun_updatetime_utc', {val: content.metadata.modelrun_updatetime_utc, ack: true});
+		} else {
+			adapter.setState('metadata.modelrun_updatetime', {val: content.metadata.modelrun_updatetime_utc, ack: true});
+		}
+		
 		//units
 		adapter.setState('units.time', {val: content.units.time, ack: true});
 		adapter.setState('units.predictability', {val: content.units.predictability, ack: true});
@@ -694,7 +741,11 @@ async function getMeteoblueData(adapter, meteoblueAPIURL) {
 
 		//data_day 0-6
 		for (let i = 0; i <= 6; i++) {
-			adapter.setState('data_day.' + i + '.time', {val: content.data_day.time[i] , ack: true});
+			if(typeof(content.data_day.time[i]) === 'number') {
+				adapter.setState('data_day.' + i + '.time_UTC', {val: content.data_day.time[i] , ack: true});
+			} else {
+				adapter.setState('data_day.' + i + '.time', {val: content.data_day.time[i] , ack: true});
+			}
 			adapter.setState('data_day.' + i + '.pictocode', {val: content.data_day.pictocode[i] , ack: true});
 			adapter.setState('data_day.' + i + '.uvindex', {val: content.data_day.uvindex[i] , ack: true});
 			adapter.setState('data_day.' + i + '.temperature_max', {val: content.data_day.temperature_max[i] , ack: true});
@@ -810,6 +861,40 @@ class Meteoblue extends utils.Adapter {
 			   typeof(this.config.longitude) === 'number' && !isNaN(this.config.longitude) && this.config.longitude >= -180 && this.config.longitude <= 180) {
 				this.log.info('latitude/longitude manually set');
 				meteoblueAPIURL += '&lat=' + this.config.latitude + '&lon=' + this.config.longitude;
+
+				if (this.config.location !== null && this.config.location !== '') {
+					//convert location to UTF8; see https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#misc
+					meteoblueAPIURL += '&name=' + encodeURIComponent(this.config.location);
+				}
+				if (this.config.elevation !== null) {
+					meteoblueAPIURL += '&asl=' + this.config.elevation;
+				}
+				if (this.config.timezone !== null) {
+					meteoblueAPIURL += '&tz=' + this.config.timezone;
+				}
+				if (this.config.temperature !== null) {
+					meteoblueAPIURL += '&temperature=' + this.config.temperature;
+				}
+				if (this.config.windspeed !== null) {
+					meteoblueAPIURL += '&windspeed=' + this.config.windspeed;
+				}
+				if (this.config.winddirection !== null) {
+					meteoblueAPIURL += '&winddirection=' + this.config.winddirection;
+				}
+				if (this.config.precipitationamount !== null) {
+					meteoblueAPIURL += '&precipitationamount=' + this.config.precipitationamount;
+				}
+				if (this.config.timeformat !== null) {
+					meteoblueAPIURL += '&timeformat=' + this.config.timeformat;
+				}
+				meteoblueAPIURL += '&format=json';
+				this.log.info('meteoblueAPIURL: ' + meteoblueAPIURL);
+
+				await createObjectsAPI(this);
+				await getMeteoblueData(this, meteoblueAPIURL);
+				//await getMeteoblueDateIntervall(this, meteoblueAPIURL);
+
+				
 			} else {
 				this.log.info('latitude/longitude not manually set, get data from system')
 				
