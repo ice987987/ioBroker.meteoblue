@@ -27,28 +27,28 @@ systemDictionary = {
 		  "zh-cn": "地点"
 		},
 		"latitude": {
-			"en": "latitude (default: system configuration)",
-			"de": "Breitengrad (Standard: Systemkonfiguration)",
-			"ru": "широта (по умолчанию: конфигурация системы)",
-			"pt": "latitude (padrão: configuração do sistema)",
-			"nl": "breedtegraad (standaard: systeemconfiguratie)",
-			"fr": "latitude (par défaut : configuration du système)",
-			"it": "latitudine (predefinito: configurazione del sistema)",
-			"es": "latitud (predeterminado: configuración del sistema)",
-			"pl": "szerokość geograficzna (domyślnie: konfiguracja systemu)",
-			"zh-cn": "纬度（默认：系统配置）"
+			"en": "latitude WGS84 (default: system configuration)",
+			"de": "Breitengrad WGS84 (Standard: Systemkonfiguration)",
+			"ru": "широта WGS84 (по умолчанию: конфигурация системы)",
+			"pt": "latitude WGS84 (padrão: configuração do sistema)",
+			"nl": "latitude WGS84 (standaard: systeemconfiguratie)",
+			"fr": "latitude WGS84 (par défaut : configuration du système)",
+			"it": "latitude WGS84 (predefinito: configurazione del sistema)",
+			"es": "latitud WGS84 (predeterminado: configuración del sistema)",
+			"pl": "latitude WGS84 (domyślnie: konfiguracja systemu)",
+			"zh-cn": "latitude WGS84（默认：系统配置）"
 		},
 		"longitude": {
-			"en": "longitude (default: system configuration)",
-			"de": "Längengrad (Standard: Systemkonfiguration)",
-			"ru": "долгота (по умолчанию: конфигурация системы)",
-			"pt": "longitude (padrão: configuração do sistema)",
-			"nl": "lengtegraad (standaard: systeemconfiguratie)",
-			"fr": "longitude (par défaut : configuration du système)",
-			"it": "longitudine (predefinito: configurazione del sistema)",
-			"es": "longitud (predeterminado: configuración del sistema)",
-			"pl": "długość geograficzna (domyślnie: konfiguracja systemu)",
-			"zh-cn": "经度（默认：系统配置）"
+			"en": "longitude WGS84 (default: system configuration)",
+			"de": "Längengrad WGS84 (Standard: Systemkonfiguration)",
+			"ru": "долгота WGS84 (по умолчанию: конфигурация системы)",
+			"pt": "longitude WGS84 (padrão: configuração do sistema)",
+			"nl": "lengtegraad WGS84 (standaard: systeemconfiguratie)",
+			"fr": "longitude WGS84 (par défaut : configuration du système)",
+			"it": "longitudine WGS84 (predefinito: configurazione del sistema)",
+			"es": "longitud WGS84 (predeterminado: configuración del sistema)",
+			"pl": "długość geograficzna WGS84 (domyślnie: konfiguracja systemu)",
+			"zh-cn": "经度 WGS84（默认：系统配置）"
 		},
 		"elevation": {
 			"en": "elevation (default: automatic detection)",
