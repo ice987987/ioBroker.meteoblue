@@ -30,23 +30,26 @@
 			"zh-cn": "气象蓝"
 		},
 		"desc": {
-			"en": "meteoblue desc",
-			"de": "meteoblue desc",
-			"ru": "meteoblue desc",
-			"pt": "meteoblue desc",
-			"nl": "meteoblue beschrijving",
-			"fr": "desc de meteoblue",
-			"it": "meteoblue desc",
-			"es": "meteoblue desc",
-			"pl": "opis meteoblue",
-			"zh-cn": "气象蓝说明"
+			"en": "This adapter fetches weather forecast from meteoblue.com",
+			"de": "Dieser Adapter holt die Wettervorhersage von meteoblue.com",
+			"ru": "Этот адаптер получает прогноз погоды с сайта meteoblue.com.",
+			"pt": "Este adaptador obtém a previsão do tempo em meteoblue.com",
+			"nl": "Deze adapter haalt de weersvoorspelling op van meteoblue.com",
+			"fr": "Cet adaptateur récupère les prévisions météo de meteoblue.com",
+			"it": "Questo adattatore recupera le previsioni del tempo da meteoblue.com",
+			"es": "Este adaptador obtiene el pronóstico del tiempo de meteoblue.com",
+			"pl": "Ten adapter pobiera prognozę pogody z meteoblue.com",
+			"zh-cn": "该适配器从meteoblue.com 获取天气预报"
 		},
 		"authors": [
 			"ice987987 <mathias.frei@gmail.com>"
 		],
 		"keywords": [
-			"meteoblue"
-		],
+			"ioBroker",
+			"weather",
+			"Home automation",
+			"meteoblue.com"
+		  ],
 		"license": "MIT",
 		"platform": "Javascript/Node.js",
 		"main": "main.js",
