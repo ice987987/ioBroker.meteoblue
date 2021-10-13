@@ -1,6 +1,6 @@
 ![Logo](admin/meteoblue.png)
 # ioBroker.meteoblue
-
+dev
 [![NPM version](https://img.shields.io/npm/v/iobroker.meteoblue.svg)](https://www.npmjs.com/package/iobroker.meteoblue)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.meteoblue.svg)](https://www.npmjs.com/package/iobroker.meteoblue)
 ![Number of Installations](https://iobroker.live/badges/meteoblue-installed.svg)
