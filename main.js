@@ -58,7 +58,7 @@ class Meteoblue extends utils.Adapter {
 		meteoblueAPIURL = 'http://my.meteoblue.com/packages/basic-day?';
 
 		//check apikey
-		if(typeof(this.config.apikey) === 'string') {
+		if((this.config.apikey).length !== 0 ) {
 			this.log.debug('APIKEY set. (' + this.config.apikey +')');
 			meteoblueAPIURL += 'apikey=' + this.config.apikey;
 
