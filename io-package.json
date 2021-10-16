@@ -54,7 +54,7 @@
 		"platform": "Javascript/Node.js",
 		"main": "main.js",
 		"icon": "meteoblue.png",
-		"enabled": true,
+		"enabled": false,
 		"extIcon": "https://raw.githubusercontent.com/ice987987/ioBroker.meteoblue/main/admin/meteoblue.png",
 		"readme": "https://github.com/ice987987/ioBroker.meteoblue/blob/main/README.md",
 		"loglevel": "info",
@@ -71,8 +71,17 @@
 		]
 	},
 	"native": {
-		"option1": true,
-		"option2": "42"
+		"location": "",
+		"latitude": "",
+		"longitude": "",
+		"elevation": "",
+		"timezone": "",
+		"apikey": "",
+		"temperature": "C",
+		"windspeed": "kmh",
+		"winddirection": "degree",
+		"precipitationamount": "mm",
+		"timeformat": "Y-M-D"
 	},
 	"objects": [],
 	"instanceObjects": [
