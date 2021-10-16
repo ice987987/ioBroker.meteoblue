@@ -111,16 +111,16 @@ systemDictionary = {
 			"zh-cn": "API-Key（必填）"
 		},
 		"temperature": {
-			"en": "temperature (default: celsius)",
-			"de": "Temperatur (Standard: Celsius)",
-			"ru": "температура (по умолчанию: Цельсия)",
-			"pt": "temperatura (padrão: celsius)",
-			"nl": "temperatuur (standaard: Celsius)",
-			"fr": "température (par défaut : Celsius)",
-			"it": "temperatura (predefinito: Celsius)",
-			"es": "temperatura (por defecto: celsius)",
-			"pl": "temperatura (domyślnie: stopnie Celsjusza)",
-			"zh-cn": "温度（默认：摄氏度）"
+			"en": "temperature",
+			"de": "Temperatur",
+			"ru": "температура",
+			"pt": "temperatura",
+			"nl": "temperatuur-",
+			"fr": "Température",
+			"it": "temperatura",
+			"es": "temperatura",
+			"pl": "temperatura",
+			"zh-cn": "温度"
 		},
 		"celsius": {
 		  "en": "celsius",
@@ -147,16 +147,16 @@ systemDictionary = {
 		  "zh-cn": "华氏度"
 		},
 		"windspeed": {
-			"en": "windspeed (default: kilometers per hour)",
-			"de": "Windgeschwindigkeit (Standard: Kilometer pro Stunde)",
-			"ru": "скорость ветра (по умолчанию: километров в час)",
-			"pt": "velocidade do vento (padrão: quilômetros por hora)",
-			"nl": "windsnelheid (standaard: kilometer per uur)",
-			"fr": "vitesse du vent (par défaut : kilomètres par heure)",
-			"it": "velocità del vento (predefinito: chilometri all'ora)",
-			"es": "velocidad del viento (predeterminado: kilómetros por hora)",
-			"pl": "prędkość wiatru (domyślnie: kilometry na godzinę)",
-			"zh-cn": "风速（默认：公里每小时）"
+			"en": "windspeed",
+			"de": "Windgeschwindigkeit",
+			"ru": "скорость ветра",
+			"pt": "velocidade do vento",
+			"nl": "windsnelheid",
+			"fr": "vitesse du vent",
+			"it": "velocità del vento",
+			"es": "velocidad del viento",
+			"pl": "prędkość wiatru",
+			"zh-cn": "风速"
 		},
 		"kilometer per hour": {
 		  "en": "kilometer per hour",
@@ -219,16 +219,16 @@ systemDictionary = {
 		  "zh-cn": "博福特"
 		},
 		"winddirection": {
-			"en": "winddirection (default: degree)",
-			"de": "Windrichtung (Standard: Grad)",
-			"ru": "направление ветра (по умолчанию: градус)",
-			"pt": "direção do vento (padrão: grau)",
-			"nl": "windrichting (standaard: graad)",
-			"fr": "direction du vent (par défaut : degré)",
-			"it": "direzione del vento (predefinito: gradi)",
-			"es": "dirección del viento (predeterminado: grado)",
-			"pl": "kierunek wiatru (domyślnie: stopień)",
-			"zh-cn": "风向（默认：度）"
+			"en": "winddirection",
+			"de": "Windrichtung",
+			"ru": "направление ветра",
+			"pt": "Direção do vento",
+			"nl": "windrichting",
+			"fr": "direction du vent",
+			"it": "la direzione del vento",
+			"es": "dirección del viento",
+			"pl": "kierunek wiatru",
+			"zh-cn": "风向"
 		},
 		"degree": {
 		  "en": "degree",
@@ -267,16 +267,16 @@ systemDictionary = {
 		  "zh-cn": "3个方向字符"
 		},
 		"precipitationamount": {
-			"en": "precipitationamount (default: millimeter )",
-			"de": "Niederschlagsmenge (Standard: Millimeter)",
-			"ru": "сумма осадков (по умолчанию: миллиметры)",
-			"pt": "quantidade de precipitação (padrão: milímetro)",
-			"nl": "neerslaghoeveelheid (standaard: millimeter)",
-			"fr": "montant de précipitation (par défaut : millimètre )",
-			"it": "quantità di precipitazioni (predefinito: millimetro )",
-			"es": "cantidad de precipitación (por defecto: milímetro)",
-			"pl": "ilość opadów (domyślnie: milimetr )",
-			"zh-cn": "降水量（默认值：毫米）"
+			"en": "precipitationamount",
+			"de": "Niederschlagsmenge",
+			"ru": "количество осадков",
+			"pt": "quantidade de precipitação",
+			"nl": "neerslaghoeveelheid",
+			"fr": "quantité de précipitations",
+			"it": "quantità di precipitazioni",
+			"es": "cantidad de precipitación",
+			"pl": "ilość opadów",
+			"zh-cn": "降水量"
 		},
 		"mm": {
 		  "en": "mm",
@@ -303,16 +303,16 @@ systemDictionary = {
 		  "zh-cn": "英寸"
 		},
 		"timeformat": {
-			"en": "timeformat (default: Year-Month-Day Hour:Minute)",
-			"de": "Zeitformat (Standard: Jahr-Monat-Tag Stunde:Minute)",
-			"ru": "формат времени (по умолчанию: год-месяц-день, час: минута)",
-			"pt": "formato de hora (padrão: Ano-Mês-Dia Hora: Minuto)",
-			"nl": "tijdnotatie (standaard: Jaar-Maand-Dag Uur:Minuut)",
-			"fr": "timeformat (par défaut : Année-Mois-Jour Heure : Minute)",
-			"it": "formatoora (predefinito: Anno-Mese-Giorno Ora:Minuti)",
-			"es": "formato de hora (predeterminado: Año-Mes-Día Hora: Minuto)",
-			"pl": "format czasu (domyślnie: rok-miesiąc-dzień godzina:minuta)",
-			"zh-cn": "时间格式（默认：年-月-日小时：分钟）"
+			"en": "timeformat",
+			"de": "Zeitformat",
+			"ru": "формат времени",
+			"pt": "formato de tempo",
+			"nl": "Tijd formaat",
+			"fr": "format de l'heure",
+			"it": "formato orario",
+			"es": "formato de tiempo",
+			"pl": "format czasu",
+			"zh-cn": "时间格式"
 		},
 		"Y-M-D": {
 		  "en": "Y-M-D",
@@ -375,16 +375,16 @@ systemDictionary = {
 			"zh-cn": "时间戳 (MS_UTC)"
 		},
 		"api_explanation": {
-			"en": "more information can be found <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#time-zone\" target=\"_blank\">here</a>",
-			"de": "weitere Informationen finden Sie <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#time-zone\" target=\"_blank\">hier</a>",
-			"ru": "дополнительную информацию можно найти <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#time-zone\" target=\"_blank\">здесь</a>",
-			"pt": "mais informações podem ser encontradas <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#time-zone\" target=\"_blank\">aqui</a>",
-			"nl": "meer informatie vind je <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#time-zone\" target=\"_blank\">hier</a>",
-			"fr": "plus d'informations peuvent être trouvées <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#time-zone\" target=\"_blank\">ici</a>",
-			"it": "maggiori informazioni possono essere trovate <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#time-zone\" target=\"_blank\">qui</a>",
-			"es": "se puede encontrar más información <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#time-zone\" target=\"_blank\">aquí</a>",
-			"pl": "więcej informacji znajdziesz <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#time-zone\" target=\"_blank\">tutaj</a>",
-			"zh-cn": "更多信息可以在<a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#time-zone\" target=\"_blank\">这里找到</a>"
+			"en": "For non-commercial uses, meteoblue.com offers the meteogram 5 days and the data package basic-day. Non-commercial uses are all uses without direct profit purposes. Get meteoblue non-commercial API service <a href=\"https://content.meteoblue.com/en/access-options/meteoblue-weather-api/non-commercial-use\" target=\"_blank\">here</a>. A description of the values can be found <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction\" target=\"_blank\">here</a>.",
+			"de": "Für nicht-kommerzielle Zwecke bietet meteoblue.com das Meteogramm 5 Tage und das Datenpaket Basic-Day an. Nicht-kommerzielle Nutzungen sind alle Nutzungen ohne unmittelbaren Gewinnzweck. Erhalten Sie meteoblue nicht-kommerziellen API - Service <a href=\"https://content.meteoblue.com/en/access-options/meteoblue-weather-api/non-commercial-use\" target=\"_blank\">hier</a> . Eine Beschreibung der Werte finden Sie <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction\" target=\"_blank\">hier</a> .",
+			"ru": "Для некоммерческого использования meteoblue.com предлагает метеограмму за 5 дней и пакет данных «базовый день». Некоммерческое использование - это все виды использования без прямой прибыли. Получите некоммерческий API-сервис meteoblue <a href=\"https://content.meteoblue.com/en/access-options/meteoblue-weather-api/non-commercial-use\" target=\"_blank\">здесь</a> . Описание значений можно найти <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction\" target=\"_blank\">здесь</a> .",
+			"pt": "Para usos não comerciais, meteoblue.com oferece o meteograma 5 dias e o pacote de dados básico-dia. Usos não comerciais são todos os usos sem fins lucrativos diretos. Obtenha o serviço API não comercial de meteoblue <a href=\"https://content.meteoblue.com/en/access-options/meteoblue-weather-api/non-commercial-use\" target=\"_blank\">aqui</a> . Uma descrição dos valores pode ser encontrada <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction\" target=\"_blank\">aqui</a> .",
+			"nl": "Voor niet-commercieel gebruik biedt meteoblue.com het meteogram 5 dagen en het datapakket basisdag aan. Niet-commercieel gebruik is elk gebruik zonder directe winstoogmerk. Get meteoblue niet-commercieel API <a href=\"https://content.meteoblue.com/en/access-options/meteoblue-weather-api/non-commercial-use\" target=\"_blank\">hier</a> . Een beschrijving van de waarden vindt u <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction\" target=\"_blank\">hier</a> .",
+			"fr": "Pour des usages non commerciaux, meteoblue.com propose le météogramme 5 jours et le forfait data base-jour. Les utilisations non commerciales sont toutes des utilisations sans but lucratif direct. Obtenez le service API non commercial de meteoblue <a href=\"https://content.meteoblue.com/en/access-options/meteoblue-weather-api/non-commercial-use\" target=\"_blank\">ici</a> . Une description des valeurs peut être trouvée <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction\" target=\"_blank\">ici</a> .",
+			"it": "Per usi non commerciali, meteoblue.com offre il meteogramma 5 giorni e il pacchetto dati basic-day. Gli usi non commerciali sono tutti gli usi senza fini di lucro diretto. Ottieni il servizio API non commerciale di meteoblue <a href=\"https://content.meteoblue.com/en/access-options/meteoblue-weather-api/non-commercial-use\" target=\"_blank\">qui</a> . Una descrizione dei valori può essere trovata <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction\" target=\"_blank\">qui</a> .",
+			"es": "Para usos no comerciales, meteoblue.com ofrece el meteograma 5 días y el paquete de datos basic-day. Los usos no comerciales son todos los usos sin fines de lucro directo. Obtenga el servicio API no comercial de meteoblue <a href=\"https://content.meteoblue.com/en/access-options/meteoblue-weather-api/non-commercial-use\" target=\"_blank\">aquí</a> . Puede encontrar una descripción de los valores <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction\" target=\"_blank\">aquí</a> .",
+			"pl": "Do zastosowań niekomercyjnych meteoblue.com oferuje meteogram 5 dni i pakiet danych basic-day. Zastosowania niekomercyjne to wszystkie zastosowania bez bezpośredniego zysku. Skorzystaj z niekomercyjnej usługi API meteoblue <a href=\"https://content.meteoblue.com/en/access-options/meteoblue-weather-api/non-commercial-use\" target=\"_blank\">tutaj</a> . Opis wartości można znaleźć <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction\" target=\"_blank\">tutaj</a> .",
+			"zh-cn": "对于非商业用途，meteoblue.com 提供 5 天的气象图和基本天的数据包。非商业用途是所有没有直接盈利目的的用途。 <a href=\"https://content.meteoblue.com/en/access-options/meteoblue-weather-api/non-commercial-use\" target=\"_blank\">在此处</a>获取meteoblue 非商业API 服务。<a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction\" target=\"_blank\">可以在此处</a>找到这些值的说明。"
 		}, 
 		"required": {
 			"en": "required",
