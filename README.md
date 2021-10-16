@@ -26,7 +26,7 @@ This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.0.3 (2021-10-16)
+### **WORK IN PROGRESS**
 -   (ice987987) initial development
 
 ## License
