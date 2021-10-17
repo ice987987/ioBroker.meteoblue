@@ -820,7 +820,7 @@ class Meteoblue extends utils.Adapter {
 
 	async getMeteoblueData(meteoblueAPIURL) {
 		//adapter.log.info('adapter: ' + adapter);
-		this.log.info('getMeteoblueData...');
+		this.log.debug('getMeteoblueData...');
 
 		//https://www.npmjs.com/package/axios
 		axios({
@@ -915,7 +915,7 @@ class Meteoblue extends utils.Adapter {
 					this.setState('data_day.' + i + '.precipitation_hours', {val: content.data_day.precipitation_hours[i], ack: true});
 					this.setState('data_day.' + i + '.humiditygreater90_hours', {val: content.data_day.humiditygreater90_hours[i], ack: true});
 				}
-				this.log.info('all states written...');
+				this.log.debug('all states written...');
 			})
 			.catch((error) => {
 				if (error.response) {
@@ -925,13 +925,13 @@ class Meteoblue extends utils.Adapter {
 
 				} else if (error.request) {
 					// The request was made but no response was received `error.request` is an instance of XMLHttpRequest in the browser and an instance of http.ClientRequest in node.js
-					this.log.info(error.message);
+					this.log.warn(error.message);
 
 				} else {
 					// Something happened in setting up the request that triggered an Error
-					this.log.info(error.message);
+					this.log.warn(error.message);
 				}
-				this.log.info(error.config);
+				this.log.warn(error.config);
 			});
 	}
 
