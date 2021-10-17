@@ -74,30 +74,6 @@ systemDictionary = {
 			"pl": "strefa czasowa (domyślnie: automatyczne wykrywanie)",
 			"zh-cn": "时区（默认：自动检测）"
 		},
-		"Europe/Zurich": {
-		  "en": "Europe/Zurich",
-		  "de": "Europa/Zürich",
-		  "ru": "Европа/Цюрих",
-		  "pt": "Europa/Zurique",
-		  "nl": "Europa/Zürich",
-		  "fr": "Europe/Zurich",
-		  "it": "Europa/Zurigo",
-		  "es": "Europa/Zúrich",
-		  "pl": "Europa/Zurych",
-		  "zh-cn": "欧洲/苏黎世"
-		},
-		"Europe/Berlin": {
-		  "en": "Europe/Berlin",
-		  "de": "Europa/Berlin",
-		  "ru": "Европа/Берлин",
-		  "pt": "Europa/Berlim",
-		  "nl": "Europa/Berlijn",
-		  "fr": "Europe/Berlin",
-		  "it": "Europa/Berlino",
-		  "es": "Europa/Berlín",
-		  "pl": "Europa/Berlin",
-		  "zh-cn": "欧洲/柏林"
-		},
 		"apikey": {
 			"en": "API-Key (required)",
 			"de": "API-Schlüssel (erforderlich)",
