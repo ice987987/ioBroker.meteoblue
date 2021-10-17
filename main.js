@@ -39,8 +39,7 @@ class Meteoblue extends utils.Adapter {
 		// Reset the connection indicator during startup
 		this.setState('info.connection', false, true);
 
-		// The adapters config (in the instance object everything under the attribute "native") is accessible via
-		// this.config:
+		// The adapters config (in the instance object everything under the attribute "native") is accessible via this.config:
 		this.log.debug('this.config.location: ' + this.config.location);
 		this.log.debug('this.config.latitude: ' + this.config.latitude);
 		this.log.debug('this.config.longitude: ' + this.config.longitude);
@@ -53,37 +52,54 @@ class Meteoblue extends utils.Adapter {
 		this.log.debug('this.config.precipitationamount: ' + this.config.precipitationamount);
 		this.log.debug('this.config.timeformat: ' + this.config.timeformat);
 
-		//https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#time-zone
-
+		//https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#url-parameter
 		meteoblueAPIURL = 'http://my.meteoblue.com/packages/basic-day?';
 
 		//check apikey
-		if((this.config.apikey).length !== 0 ) {
+		if ((this.config.apikey).length !== 0 ) {
 			this.log.debug('APIKEY set. (' + this.config.apikey +')');
 			meteoblueAPIURL += 'apikey=' + this.config.apikey;
 
 			//check and set latitute & longitude
-			if(typeof(this.config.latitude) === 'number' && !isNaN(this.config.latitude) && this.config.latitude >= -90 && this.config.latitude <= 90 &&
-			typeof(this.config.longitude) === 'number' && !isNaN(this.config.longitude) && this.config.longitude >= -180 && this.config.longitude <= 180) {
+			if (
+				typeof(this.config.latitude) === 'number' &&
+				!isNaN(this.config.latitude) &&
+				this.config.latitude >= -90 &&
+				this.config.latitude <= 90 &&
+				typeof(this.config.longitude) === 'number' &&
+				!isNaN(this.config.longitude) &&
+				this.config.longitude >= -180 &&
+				this.config.longitude <= 180)
+			{
 				this.log.info('latitude/longitude manually set');
 				meteoblueAPIURL += '&lat=' + this.config.latitude + '&lon=' + this.config.longitude;
 				await this.meteoblueAPIURL2ndPart();
 			} else {
 				this.log.info('latitude/longitude not manually set, get data from system');
-
 				try {
-					const state = await this.getForeignObjectAsync('system.config');
-					this.config.latitude = state.common.latitude;
-					this.config.longitude = state.common.longitude;
+					const state = await this.getForeignObjectAsync('system.config', 'state');
+
+					if (state) {
+						this.config.latitude = state.common.latitude;
+						this.config.longitude = state.common.longitude;
+						this.log.debug('system latitude: ' + this.config.latitude + 'system longitude: ' + this.config.longitude);
+					} else {
+						this.log.error('Astro data from system settings cannot be called up. Please check configuration!');
+					}
 				} catch (err) {
-					this.log.error(err);
+					this.log.error('Astro data from system settings cannot be called up. Please check configuration! (' + err +')');
 				}
 
-				this.log.debug('system latitude: ' + this.config.latitude);
-				this.log.debug('system longitude: ' + this.config.longitude);
-
-				if(typeof(this.config.latitude) === 'number' && !isNaN(this.config.latitude) && this.config.latitude >= -90 && this.config.latitude <= 90 &&
-				typeof(this.config.longitude) === 'number' && !isNaN(this.config.longitude) && this.config.longitude >= -180 && this.config.longitude <= 180) {
+				if (
+					typeof(this.config.latitude) === 'number' &&
+					!isNaN(this.config.latitude) &&
+					this.config.latitude >= -90 &&
+					this.config.latitude <= 90 &&
+					typeof(this.config.longitude) === 'number' &&
+					!isNaN(this.config.longitude) &&
+					this.config.longitude >= -180 &&
+					this.config.longitude <= 180)
+				{
 					this.log.info('latitude/longitude set from system');
 					meteoblueAPIURL += '&lat=' + this.config.latitude + '&lon=' + this.config.longitude;
 					await this.meteoblueAPIURL2ndPart();
@@ -808,7 +824,8 @@ class Meteoblue extends utils.Adapter {
 		axios({
 			method: 'get',
 			baseURL: meteoblueAPIURL,
-
+			timeout: 2000,
+			responseType: 'json'
 		})
 			.then(async (response) => {
 
