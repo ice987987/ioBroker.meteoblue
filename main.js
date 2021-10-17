@@ -157,8 +157,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('metadata.name', {
 			type: 'state',
 			common: {
-				name: 'name',
-				desc: 'location name',
+				name: 'Location name',
+				desc: 'Location name',
 				type: 'string',
 				role: 'value',
 				read: true,
@@ -170,7 +170,7 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('metadata.latitude', {
 			type: 'state',
 			common: {
-				name: 'latitude',
+				name: 'Latitude coordinate in WGS-84',
 				desc: 'Latitude coordinate in WGS-84',
 				unit: '°N',
 				type: 'number',
@@ -184,7 +184,7 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('metadata.longitude', {
 			type: 'state',
 			common: {
-				name: 'longitude',
+				name: 'Longitude coordinate in WGS-84',
 				desc: 'Longitude coordinate in WGS-84',
 				unit: '°E',
 				type: 'number',
@@ -199,7 +199,7 @@ class Meteoblue extends utils.Adapter {
 			type: 'state',
 			common: {
 				name: 'height',
-				desc: 'elevation in meters above sea level',
+				desc: 'Elevation in meters above sea level',
 				unit: 'm',
 				type: 'number',
 				role: 'value',
@@ -212,8 +212,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('metadata.timezone_abbrevation', {
 			type: 'state',
 			common: {
-				name: 'timezone_abbrevation',
-				desc: 'timezone_abbrevation',
+				name: 'Time zone',
+				desc: 'Time zone',
 				type: 'string',
 				role: 'value',
 				read: true,
@@ -225,8 +225,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('metadata.utc_timeoffset', {
 			type: 'state',
 			common: {
-				name: 'utc_timeoffset',
-				desc: 'utc_timeoffset',
+				name: 'UTC offset +/-(hh:mm)',
+				desc: 'UTC offset +/-(hh:mm)',
 				unit: 'h',
 				type: 'number',
 				role: 'value',
@@ -239,21 +239,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('metadata.modelrun_utc', {
 			type: 'state',
 			common: {
-				name: 'modelrun_utc',
-				desc: 'modelrun_utc',
-				type: 'number',
-				role: 'value',
-				read: true,
-				write: false
-			},
-			native: {}
-		});
-
-		await this.setObjectNotExistsAsync('metadata.modelrun_updatetime_utc', {
-			type: 'state',
-			common: {
-				name: 'modelrun_updatetime_utc',
-				desc: 'modelrun_updatetime_utc zone',
+				name: 'Initialisation time of the meteoblue model run which delivers the raw meteoblue model data to the forecast API packages, in UTC',
+				desc: 'Initialisation time of the meteoblue model run which delivers the raw meteoblue model data to the forecast API packages, in UTC',
 				type: 'number',
 				role: 'value',
 				read: true,
@@ -265,10 +252,23 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('metadata.modelrun', {
 			type: 'state',
 			common: {
-				name: 'modelrun',
-				desc: 'modelrun',
+				name: 'Initialisation time of the meteoblue model run which delivers the raw meteoblue model data to the forecast API packages, in ms',
+				desc: 'Initialisation time of the meteoblue model run which delivers the raw meteoblue model data to the forecast API packages, in ms',
 				type: 'string',
 				role: 'date',
+				read: true,
+				write: false
+			},
+			native: {}
+		});
+
+		await this.setObjectNotExistsAsync('metadata.modelrun_updatetime_utc', {
+			type: 'state',
+			common: {
+				name: 'Displays the time at which the last meteoblue model run has been completed, in UTC',
+				desc: 'Displays the time at which the last meteoblue model run has been completed, in UTC',
+				type: 'number',
+				role: 'value',
 				read: true,
 				write: false
 			},
@@ -278,8 +278,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('metadata.modelrun_updatetime', {
 			type: 'state',
 			common: {
-				name: 'modelrun_updatetime',
-				desc: 'modelrun_updatetime',
+				name: 'Displays the time at which the last meteoblue model run has been completed, in ms',
+				desc: 'Displays the time at which the last meteoblue model run has been completed, in ms',
 				type: 'string',
 				role: 'date',
 				read: true,
@@ -292,8 +292,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('units.time', {
 			type: 'state',
 			common: {
-				name: 'time',
-				desc: 'time',
+				name: 'Time format',
+				desc: 'Time format',
 				type: 'string',
 				role: 'value',
 				read: true,
@@ -305,8 +305,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('units.predictability', {
 			type: 'state',
 			common: {
-				name: 'predictability',
-				desc: 'predictability',
+				name: 'Unit of predictability',
+				desc: 'Unit of predictability',
 				type: 'string',
 				role: 'value',
 				read: true,
@@ -318,8 +318,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('units.precipitation_probability', {
 			type: 'state',
 			common: {
-				name: 'precipitation_probability',
-				desc: 'precipitation_probability',
+				name: 'Unit of precipitation probability',
+				desc: 'Unit of precipitation probability',
 				type: 'string',
 				role: 'value',
 				read: true,
@@ -331,8 +331,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('units.pressure', {
 			type: 'state',
 			common: {
-				name: 'pressure',
-				desc: 'pressure',
+				name: 'Unit of pressure',
+				desc: 'Unit of pressure',
 				type: 'string',
 				role: 'value',
 				read: true,
@@ -344,8 +344,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('units.relativehumidity', {
 			type: 'state',
 			common: {
-				name: 'relativehumidity',
-				desc: 'relativehumidity',
+				name: 'Unit of relative humidity',
+				desc: 'Unit of relative humidity',
 				type: 'string',
 				role: 'value',
 				read: true,
@@ -357,8 +357,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('units.co', {
 			type: 'state',
 			common: {
-				name: 'co',
-				desc: 'co',
+				name: 'Unit of CO',
+				desc: 'Unit of CO',
 				type: 'string',
 				role: 'value',
 				read: true,
@@ -370,8 +370,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('units.temperature', {
 			type: 'state',
 			common: {
-				name: 'temperature',
-				desc: 'temperature',
+				name: 'Unit of temperature',
+				desc: 'Unit of temperature',
 				type: 'string',
 				role: 'value',
 				read: true,
@@ -383,8 +383,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('units.winddirection', {
 			type: 'state',
 			common: {
-				name: 'winddirection',
-				desc: 'winddirection',
+				name: 'Unit of winddirection',
+				desc: 'Unit of winddirection',
 				type: 'string',
 				role: 'value',
 				read: true,
@@ -396,8 +396,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('units.precipitation', {
 			type: 'state',
 			common: {
-				name: 'precipitation',
-				desc: 'precipitation',
+				name: 'Unit of precipitation',
+				desc: 'Unit of precipitation',
 				type: 'string',
 				role: 'value',
 				read: true,
@@ -409,8 +409,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('units.windspeed', {
 			type: 'state',
 			common: {
-				name: 'windspeed',
-				desc: 'windspeed',
+				name: 'Unit of windspeed',
+				desc: 'Unit of windspeed',
 				type: 'string',
 				role: 'value',
 				read: true,
@@ -424,8 +424,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.time', {
 				type: 'state',
 				common: {
-					name: 'time',
-					desc: 'time',
+					name: 'Day of forecast',
+					desc: 'Day of forecast',
 					type: 'string',
 					role: 'date',
 					read: true,
@@ -437,8 +437,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.time_UTC', {
 				type: 'state',
 				common: {
-					name: 'time',
-					desc: 'time',
+					name: 'Day of forecast in ms',
+					desc: 'Day of forecast in ms',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -450,8 +450,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.pictocode', {
 				type: 'state',
 				common: {
-					name: 'pictocode',
-					desc: 'pictocode',
+					name: 'Classification of weather conditions "sunny", "partly cloudy" or "overcast with rain" using a numeric number',
+					desc: 'Classification of weather conditions "sunny", "partly cloudy" or "overcast with rain" using a numeric number',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -463,8 +463,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.uvindex', {
 				type: 'state',
 				common: {
-					name: 'uvindex',
-					desc: 'uvindex',
+					name: 'UV-index	on ground level (0 ... 11+)',
+					desc: 'UV-index	on ground level (0 ... 11+)',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -476,8 +476,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.temperature_max', {
 				type: 'state',
 				common: {
-					name: 'temperature_max',
-					desc: 'temperature_max',
+					name: 'Maximum temperature, 2m above ground',
+					desc: 'Maximum temperature, 2m above ground',
 					unit: '°',
 					type: 'number',
 					role: 'value',
@@ -490,8 +490,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.temperature_min', {
 				type: 'state',
 				common: {
-					name: 'temperature_min',
-					desc: 'temperature_min',
+					name: 'Minimum temperature, 2m above ground',
+					desc: 'Minimum temperature, 2m above ground',
 					unit: '°',
 					type: 'number',
 					role: 'value',
@@ -504,8 +504,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.temperature_mean', {
 				type: 'state',
 				common: {
-					name: 'temperature_mean',
-					desc: 'temperature_mean',
+					name: 'Mean temperature, 2m above ground',
+					desc: 'Mean temperature, 2m above ground',
 					unit: '°',
 					type: 'number',
 					role: 'value',
@@ -518,8 +518,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.felttemperature_max', {
 				type: 'state',
 				common: {
-					name: 'felttemperature_max',
-					desc: 'felttemperature_max',
+					name: 'Maximum felttemperature, 2m above ground',
+					desc: 'Maximum felttemperature, 2m above ground',
 					unit: '°',
 					type: 'number',
 					role: 'value',
@@ -532,8 +532,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.felttemperature_min', {
 				type: 'state',
 				common: {
-					name: 'felttemperature_min',
-					desc: 'felttemperature_min',
+					name: 'Minimum felttemperature, 2m above ground',
+					desc: 'Minimum felttemperature, 2m above ground',
 					unit: '°',
 					type: 'number',
 					role: 'value',
@@ -546,8 +546,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.winddirectionDeg', {
 				type: 'state',
 				common: {
-					name: 'winddirection',
-					desc: 'winddirection',
+					name: 'Wind direction 10m above ground, degree',
+					desc: 'Wind direction 10m above ground, degree',
 					unit: '°',
 					type: 'number',
 					role: 'value',
@@ -560,8 +560,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.winddirectionChar', {
 				type: 'state',
 				common: {
-					name: 'winddirection',
-					desc: 'winddirection',
+					name: 'Wind direction 10m above ground, char',
+					desc: 'Wind direction 10m above ground, char',
 					type: 'string',
 					role: 'value',
 					read: true,
@@ -574,8 +574,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.precipitation_probability', {
 				type: 'state',
 				common: {
-					name: 'precipitation_probability',
-					desc: 'precipitation_probability',
+					name: 'Precipitation probability',
+					desc: 'Precipitation probability',
 					unit: '%',
 					type: 'number',
 					role: 'value',
@@ -588,8 +588,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.rainspot', {
 				type: 'state',
 				common: {
-					name: 'rainspot',
-					desc: 'rainspot',
+					name: 'rainSPOT (0 ≤ 0.02 mm, 1 = 0.2 - 1.5 mm, 2 = 1.5 - 5 mm, 3 ≥ 5 mm, 9 = 0.02 - 0.2 mm)',
+					desc: 'rainSPOT (0 ≤ 0.02 mm, 1 = 0.2 - 1.5 mm, 2 = 1.5 - 5 mm, 3 ≥ 5 mm, 9 = 0.02 - 0.2 mm)',
 					type: 'string',
 					role: 'value',
 					read: true,
@@ -601,8 +601,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.predictability_class', {
 				type: 'state',
 				common: {
-					name: 'predictability_class',
-					desc: 'predictability_class',
+					name: 'Predictability class (1 = very low, 5 = very high)',
+					desc: 'Predictability class (1 = very low, 5 = very high)',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -614,8 +614,9 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.predictability', {
 				type: 'state',
 				common: {
-					name: 'predictability',
-					desc: 'predictability',
+					name: 'Predictability (24h)',
+					desc: 'Predictability (24h)',
+					unit: '%',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -627,8 +628,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.precipitation', {
 				type: 'state',
 				common: {
-					name: 'precipitation',
-					desc: 'precipitation',
+					name: 'Precipitation, total amount of Water',
+					desc: 'Precipitation, total amount of Water',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -640,8 +641,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.snowfraction', {
 				type: 'state',
 				common: {
-					name: 'snowfraction',
-					desc: 'snowfraction',
+					name: 'Snow fraction, information whether precipitation falls as rain or snow (0 = rain, 1 = snow)',
+					desc: 'Snow fraction, information whether precipitation falls as rain or snow: (0 = rain, 1 = snow)',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -653,8 +654,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.sealevelpressure_max', {
 				type: 'state',
 				common: {
-					name: 'sealevelpressure_max',
-					desc: 'sealevelpressure_max',
+					name: 'Maximum sea level pressure, adjusted to mean sea level',
+					desc: 'Maximum sea level pressure, adjusted to mean sea level',
 					unit: 'hPa',
 					type: 'number',
 					role: 'value',
@@ -667,8 +668,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.sealevelpressure_min', {
 				type: 'state',
 				common: {
-					name: 'sealevelpressure_min',
-					desc: 'sealevelpressure_min',
+					name: 'Minimum sea level pressure, adjusted to mean sea level',
+					desc: 'Minimum sea level pressure, adjusted to mean sea level',
 					unit: 'hPa',
 					type: 'number',
 					role: 'value',
@@ -681,8 +682,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.sealevelpressure_mean', {
 				type: 'state',
 				common: {
-					name: 'sealevelpressure_mean',
-					desc: 'sealevelpressure_mean',
+					name: 'Mean sea level pressure, adjusted to mean sea level',
+					desc: 'Mean sea level pressure, adjusted to mean sea level',
 					unit: 'hPa',
 					type: 'number',
 					role: 'value',
@@ -695,9 +696,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.windspeed_max', {
 				type: 'state',
 				common: {
-					name: 'sealevelpressure_mean',
-					desc: 'sealevelpressure_mean',
-					unit: 'hPa',
+					name: 'Maximum windspeed, 10m above ground',
+					desc: 'Maximum windspeed, 10m above ground',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -709,8 +709,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.windspeed_mean', {
 				type: 'state',
 				common: {
-					name: 'windspeed_mean',
-					desc: 'windspeed_mean',
+					name: 'Mean windspeed, 10m above ground',
+					desc: 'Mean windspeed, 10m above ground',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -722,8 +722,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.windspeed_min', {
 				type: 'state',
 				common: {
-					name: 'windspeed_min',
-					desc: 'windspeed_min',
+					name: 'Minimum windspeed, 10m above ground',
+					desc: 'Minimum windspeed, 10m above ground',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -735,8 +735,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.relativehumidity_max', {
 				type: 'state',
 				common: {
-					name: 'relativehumidity_max',
-					desc: 'relativehumidity_max',
+					name: 'Maximum relative air humidity',
+					desc: 'Maximum relative air humidity',
 					unit: '%',
 					type: 'number',
 					role: 'value',
@@ -749,8 +749,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.relativehumidity_min', {
 				type: 'state',
 				common: {
-					name: 'relativehumidity_min',
-					desc: 'relativehumidity_min',
+					name: 'Mimimum relative air humidity',
+					desc: 'Mimimum relative air humidity',
 					unit: '%',
 					type: 'number',
 					role: 'value',
@@ -763,8 +763,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.relativehumidity_mean', {
 				type: 'state',
 				common: {
-					name: 'relativehumidity_mean',
-					desc: 'relativehumidity_mean',
+					name: 'Mean relative air humidity',
+					desc: 'Mean relative air humidity',
 					unit: '%',
 					type: 'number',
 					role: 'value',
@@ -777,8 +777,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.convective_precipitation', {
 				type: 'state',
 				common: {
-					name: 'convective_precipitation',
-					desc: 'convective_precipitation',
+					name: 'Convective precipitation, total amount',
+					desc: 'Convective precipitation, total amount',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -790,8 +790,9 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.precipitation_hours', {
 				type: 'state',
 				common: {
-					name: 'precipitation_hours',
-					desc: 'precipitation_hours',
+					name: 'Precipitation hours',
+					desc: 'Precipitation hours',
+					unit: 'h',
 					type: 'number',
 					role: 'value',
 					read: true,
@@ -803,8 +804,9 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.humiditygreater90_hours', {
 				type: 'state',
 				common: {
-					name: 'humiditygreater90_hours',
-					desc: 'humiditygreater90_hours',
+					name: 'Hours with humidity greater than 90%',
+					desc: 'Hours with humidity greater than 90%',
+					unit: 'h',
 					type: 'number',
 					role: 'value',
 					read: true,
