@@ -659,7 +659,7 @@ class Meteoblue extends utils.Adapter {
 					name: 'rainspot for vis (html-widget binding)',
 					desc: 'rainspot for vis (html-widget binding)',
 					type: 'string',
-					role: 'value',
+					role: 'html',
 					read: true,
 					write: false
 				},
