@@ -15,6 +15,7 @@ const axios = require('axios');
 let meteoblueAPIURL;
 let intervallGetMeteoblueData;
 let createVisHTMLBindingRainspot;
+let calculateWinddirectionChar;
 
 class Meteoblue extends utils.Adapter {
 
@@ -49,7 +50,6 @@ class Meteoblue extends utils.Adapter {
 		this.log.debug('this.config.apikey: ' + this.config.apikey);
 		this.log.debug('this.config.temperature: ' + this.config.temperature);
 		this.log.debug('this.config.windspeed: ' + this.config.windspeed);
-		this.log.debug('this.config.winddirection: ' + this.config.winddirection);
 		this.log.debug('this.config.precipitationamount: ' + this.config.precipitationamount);
 		this.log.debug('this.config.timeformat: ' + this.config.timeformat);
 
@@ -134,9 +134,6 @@ class Meteoblue extends utils.Adapter {
 		if (this.config.windspeed !== null) {
 			meteoblueAPIURL += '&windspeed=' + this.config.windspeed;
 		}
-		if (this.config.winddirection !== null) {
-			meteoblueAPIURL += '&winddirection=' + this.config.winddirection;
-		}
 		if (this.config.precipitationamount !== null) {
 			meteoblueAPIURL += '&precipitationamount=' + this.config.precipitationamount;
 		}
@@ -153,6 +150,8 @@ class Meteoblue extends utils.Adapter {
 
 	async createObjectsAPI() {
 		this.log.info('create states...');
+
+		//https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md#state-roles
 
 		//create channel metadata
 		await this.setObjectNotExistsAsync('metadata', {
@@ -185,7 +184,7 @@ class Meteoblue extends utils.Adapter {
 				desc: 'Latitude coordinate in WGS-84',
 				unit: '°N',
 				type: 'number',
-				role: 'value',
+				role: 'value.gps.latitude',
 				read: true,
 				write: false
 			},
@@ -199,7 +198,7 @@ class Meteoblue extends utils.Adapter {
 				desc: 'Longitude coordinate in WGS-84',
 				unit: '°E',
 				type: 'number',
-				role: 'value',
+				role: 'value.gps.longitude',
 				read: true,
 				write: false
 			},
@@ -213,7 +212,7 @@ class Meteoblue extends utils.Adapter {
 				desc: 'Elevation in meters above sea level',
 				unit: 'm',
 				type: 'number',
-				role: 'value',
+				role: 'value.gps.elevation',
 				read: true,
 				write: false
 			},
@@ -457,8 +456,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i, {
 				type: 'channel',
 				common: {
-					name: 'data of day ' + i,
-					desc: 'data of day ' + i
+					name: 'forecast data of day ' + i,
+					desc: 'forecast data of day ' + i
 				},
 				native: {}
 			});
@@ -469,20 +468,7 @@ class Meteoblue extends utils.Adapter {
 					name: 'Day of forecast',
 					desc: 'Day of forecast',
 					type: 'string',
-					role: 'date',
-					read: true,
-					write: false
-				},
-				native: {}
-			});
-
-			await this.setObjectNotExistsAsync('data_day.' + i + '.time', {
-				type: 'state',
-				common: {
-					name: 'Day of forecast',
-					desc: 'Day of forecast',
-					type: 'string',
-					role: 'date',
+					role: 'date.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -495,7 +481,7 @@ class Meteoblue extends utils.Adapter {
 					name: 'Day of forecast in ms',
 					desc: 'Day of forecast in ms',
 					type: 'number',
-					role: 'value',
+					role: 'date.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -521,7 +507,7 @@ class Meteoblue extends utils.Adapter {
 					name: 'UV-index	on ground level (0 ... 11+)',
 					desc: 'UV-index	on ground level (0 ... 11+)',
 					type: 'number',
-					role: 'value',
+					role: 'value.uv.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -535,7 +521,7 @@ class Meteoblue extends utils.Adapter {
 					desc: 'Maximum temperature, 2m above ground',
 					unit: '°',
 					type: 'number',
-					role: 'value',
+					role: 'value.temperature.max.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -549,7 +535,7 @@ class Meteoblue extends utils.Adapter {
 					desc: 'Minimum temperature, 2m above ground',
 					unit: '°',
 					type: 'number',
-					role: 'value',
+					role: 'value.temperature.min.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -563,7 +549,7 @@ class Meteoblue extends utils.Adapter {
 					desc: 'Mean temperature, 2m above ground',
 					unit: '°',
 					type: 'number',
-					role: 'value',
+					role: 'value.temperature.mean.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -577,7 +563,7 @@ class Meteoblue extends utils.Adapter {
 					desc: 'Maximum felttemperature, 2m above ground',
 					unit: '°',
 					type: 'number',
-					role: 'value',
+					role: 'value.felttemperature.max.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -591,7 +577,7 @@ class Meteoblue extends utils.Adapter {
 					desc: 'Minimum felttemperature, 2m above ground',
 					unit: '°',
 					type: 'number',
-					role: 'value',
+					role: 'value.felttemperature.min.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -605,26 +591,38 @@ class Meteoblue extends utils.Adapter {
 					desc: 'Wind direction 10m above ground, degree',
 					unit: '°',
 					type: 'number',
-					role: 'value',
+					role: 'value.direction.wind.forecast.' + i,
 					read: true,
 					write: false
 				},
 				native: {}
 			});
 
-			await this.setObjectNotExistsAsync('data_day.' + i + '.winddirectionChar', {
+			await this.setObjectNotExistsAsync('data_day.' + i + '.winddirectionChar2', {
 				type: 'state',
 				common: {
-					name: 'Wind direction 10m above ground, char',
-					desc: 'Wind direction 10m above ground, char',
+					name: 'Wind direction 10m above ground, 2 char',
+					desc: 'Wind direction 10m above ground, 2 char',
 					type: 'string',
-					role: 'value',
+					role: 'weather.direction.wind.forecast.' + i,
 					read: true,
 					write: false
 				},
 				native: {}
 			});
 
+			await this.setObjectNotExistsAsync('data_day.' + i + '.winddirectionChar3', {
+				type: 'state',
+				common: {
+					name: 'Wind direction 10m above ground, 3 char',
+					desc: 'Wind direction 10m above ground, 3 char',
+					type: 'string',
+					role: 'weather.direction.wind.forecast.' + i,
+					read: true,
+					write: false
+				},
+				native: {}
+			});
 
 			await this.setObjectNotExistsAsync('data_day.' + i + '.precipitation_probability', {
 				type: 'state',
@@ -633,7 +631,7 @@ class Meteoblue extends utils.Adapter {
 					desc: 'Precipitation probability',
 					unit: '%',
 					type: 'number',
-					role: 'value',
+					role: 'value.precipitation.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -656,8 +654,8 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.rainspot_vis', {
 				type: 'state',
 				common: {
-					name: 'rainspot for vis (html-widget binding)',
-					desc: 'rainspot for vis (html-widget binding)',
+					name: 'rainspot 30x30km for vis (html-widget binding)',
+					desc: 'rainspot 30x30km for vis (html-widget binding)',
 					type: 'string',
 					role: 'html',
 					read: true,
@@ -699,7 +697,7 @@ class Meteoblue extends utils.Adapter {
 					name: 'Precipitation, total amount of Water',
 					desc: 'Precipitation, total amount of Water',
 					type: 'number',
-					role: 'value',
+					role: 'value.precipitation.day.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -726,7 +724,7 @@ class Meteoblue extends utils.Adapter {
 					desc: 'Maximum sea level pressure, adjusted to mean sea level',
 					unit: 'hPa',
 					type: 'number',
-					role: 'value',
+					role: 'value.pressure.max.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -740,7 +738,7 @@ class Meteoblue extends utils.Adapter {
 					desc: 'Minimum sea level pressure, adjusted to mean sea level',
 					unit: 'hPa',
 					type: 'number',
-					role: 'value',
+					role: 'value.pressure.min.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -754,7 +752,7 @@ class Meteoblue extends utils.Adapter {
 					desc: 'Mean sea level pressure, adjusted to mean sea level',
 					unit: 'hPa',
 					type: 'number',
-					role: 'value',
+					role: 'value.pressure.mean.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -767,7 +765,7 @@ class Meteoblue extends utils.Adapter {
 					name: 'Maximum windspeed, 10m above ground',
 					desc: 'Maximum windspeed, 10m above ground',
 					type: 'number',
-					role: 'value',
+					role: 'value.speed.max.wind.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -780,7 +778,7 @@ class Meteoblue extends utils.Adapter {
 					name: 'Mean windspeed, 10m above ground',
 					desc: 'Mean windspeed, 10m above ground',
 					type: 'number',
-					role: 'value',
+					role: 'value.speed.mean.wind.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -793,7 +791,7 @@ class Meteoblue extends utils.Adapter {
 					name: 'Minimum windspeed, 10m above ground',
 					desc: 'Minimum windspeed, 10m above ground',
 					type: 'number',
-					role: 'value',
+					role: 'value.speed.min.wind.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -807,7 +805,7 @@ class Meteoblue extends utils.Adapter {
 					desc: 'Maximum relative air humidity',
 					unit: '%',
 					type: 'number',
-					role: 'value',
+					role: 'value.humidity.max.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -821,7 +819,7 @@ class Meteoblue extends utils.Adapter {
 					desc: 'Mimimum relative air humidity',
 					unit: '%',
 					type: 'number',
-					role: 'value',
+					role: 'value.humidity.min.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -835,7 +833,7 @@ class Meteoblue extends utils.Adapter {
 					desc: 'Mean relative air humidity',
 					unit: '%',
 					type: 'number',
-					role: 'value',
+					role: 'value.humidity.mean.forecast.' + i,
 					read: true,
 					write: false
 				},
@@ -887,6 +885,7 @@ class Meteoblue extends utils.Adapter {
 	}
 
 	createVisHTMLBindingRainspot(day) {
+		//https://content.meteoblue.com/en/spatial-dimensions/spot
 		let counter = 0;
 		let html = '<style>' +
 						'table.meteoblue {width: calc(100% - 2px); height: calc(100% - 2px); border: none; border-collapse: collapse; empty-cells: show; }' +
@@ -925,6 +924,14 @@ class Meteoblue extends utils.Adapter {
 		}
 		html += '</table>';
 		return html;
+	}
+
+	calculateWinddirectionChar(degree) {
+		//https://docs.meteoblue.com/en/meteo/variables/weather-variables#wind-direction
+		const chars = ['N', 'NNO', 'NO', 'ONO', 'O', 'OSO', 'SO', 'SSO', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
+		const value3 = Math.round(degree / 22.5);
+		const value2 = Math.round(degree / 45);
+		return [chars[(value2 % 8) * 2], chars[value3 % 16]];
 	}
 
 	async getMeteoblueData(meteoblueAPIURL) {
@@ -985,6 +992,7 @@ class Meteoblue extends utils.Adapter {
 				//data_day 0-6
 				for (let i = 0; i <= 6; i++) {
 					createVisHTMLBindingRainspot = this.createVisHTMLBindingRainspot(content.data_day.rainspot[i]);
+					calculateWinddirectionChar = this.calculateWinddirectionChar(content.data_day.winddirection[i]);
 
 					if(typeof(content.data_day.time[i]) === 'number') {
 						this.setState('data_day.' + i + '.time_UTC', {val: content.data_day.time[i], ack: true});
@@ -1000,13 +1008,11 @@ class Meteoblue extends utils.Adapter {
 					this.setState('data_day.' + i + '.temperature_mean', {val: content.data_day.temperature_mean[i], ack: true});
 					this.setState('data_day.' + i + '.felttemperature_max', {val: content.data_day.felttemperature_max[i], ack: true});
 					this.setState('data_day.' + i + '.felttemperature_min', {val: content.data_day.felttemperature_min[i], ack: true});
-					if(typeof(content.data_day.winddirection[i]) === 'number') {
-						this.setState('data_day.' + i + '.winddirectionDeg', {val: content.data_day.winddirection[i], ack: true});
-						this.setState('data_day.' + i + '.winddirectionChar', {val: '', ack: true});
-					} else {
-						this.setState('data_day.' + i + '.winddirectionDeg', {val: '', ack: true});
-						this.setState('data_day.' + i + '.winddirectionChar', {val: content.data_day.winddirection[i], ack: true});
-					}
+
+					this.setState('data_day.' + i + '.winddirectionDeg', {val: content.data_day.winddirection[i], ack: true});
+					this.setState('data_day.' + i + '.winddirectionChar2', {val: calculateWinddirectionChar[0], ack: true});
+					this.setState('data_day.' + i + '.winddirectionChar3', {val: calculateWinddirectionChar[1], ack: true});
+
 					this.setState('data_day.' + i + '.precipitation_probability', {val: content.data_day.precipitation_probability[i], ack: true});
 					//convert rainstpot in an array, that it can be shown/accessed in vis
 					//this.setState('data_day.' + i + '.rainspot', {val: '[' + (content.data_day.rainspot[i].split('').map(Number)).toString() + ']', ack: true});
