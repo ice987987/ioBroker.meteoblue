@@ -1054,7 +1054,8 @@ class Meteoblue extends utils.Adapter {
 					// Something happened in setting up the request that triggered an Error
 					this.log.warn(error.message);
 				}
-				this.log.warn(JSON.stringify(error.config));
+				this.log.debug(JSON.stringify(error.config));
+				this.setState('info.connection', false, true);
 			});
 	}
 
