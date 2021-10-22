@@ -887,8 +887,9 @@ class Meteoblue extends utils.Adapter {
 	createVisHTMLBindingRainspot(day) {
 		//https://content.meteoblue.com/en/spatial-dimensions/spot
 		let counter = 0;
+		//correction of 3/-3px due to basic-HTML widget issues
 		let html = '<style>' +
-						'table.meteoblue {width: 100%; height: 100%; border: none; border-collapse: collapse; empty-cells: show; }' +
+						'table.meteoblue {width: calc(100% + 3px); height: calc(100% + 3px); border: none; border-collapse: collapse; empty-cells: show; }' +
 						'table.meteoblue tr {height: calc(100% / 7); }' +
 						'table.meteoblue td {width: calc(100% / 7); }' +
 						'table.meteoblue td.value0 {background-color: rgba(0, 0, 0, 0); }' +
@@ -896,7 +897,7 @@ class Meteoblue extends utils.Adapter {
 						'table.meteoblue td.value2 {background-color: rgba(58, 170, 220, 1); }' +
 						'table.meteoblue td.value3 {background-color: rgba(23, 116, 196, 1); }' +
 						'table.meteoblue td.value9 {background-color: rgba(38, 215, 146, 1); }' +
-						'#meteoblueMain {position: absolute; width: calc(100% - 3px); height: calc(100% - 3px); top: 0px; left: 0px; border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#meteoblueMain {position: absolute; width: calc(100% - 3px); height: calc(100% - 3px); top: 0px; left: 0px; }' +
 						'#meteoblueCircle1 {position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
 						'#meteoblueCircle2 {position: absolute; width: calc((100% / 7) * 5); height: calc((100% / 7) * 5); top: calc((100% / 7) * 1); left: calc((100% / 7) * 1); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
 						'#meteoblueCircle3 {position: absolute; width: calc((100% / 7) * 3); height: calc((100% / 7) * 3); top: calc((100% / 7) * 2); left: calc((100% / 7) * 2); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
