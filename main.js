@@ -890,7 +890,7 @@ class Meteoblue extends utils.Adapter {
 		let html = '<style>' +
 						'table.meteoblue {width: 100%; height: 100%; border: none; border-collapse: collapse; empty-cells: show; }' +
 						'table.meteoblue tr {height: calc(100% / 7); }' +
-						'table.meteoblue td {width: calc(100% / 7); text-align: center; }' +
+						'table.meteoblue td {width: calc(100% / 7); }' +
 						'table.meteoblue td.value0 {background-color: rgba(0, 0, 0, 0); }' +
 						'table.meteoblue td.value1 {background-color: rgba(19, 238, 252, 1); }' +
 						'table.meteoblue td.value2 {background-color: rgba(58, 170, 220, 1); }' +
