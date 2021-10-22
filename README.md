@@ -26,8 +26,12 @@ This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (ice987987) add rainspot
+- (ice987987) remove winddirection as user input field, calculate winddirection as 2 and 3 chars
+
 ### 0.0.1 (2021-10-17)
--   (ice987987) initial development
+- (ice987987) initial development
 
 ## License
 MIT License
