@@ -14,6 +14,7 @@ const axios = require('axios');
 //variables
 let meteoblueAPIURL;
 let intervallGetMeteoblueData;
+let createVisHTMLBindingRainspot;
 
 class Meteoblue extends utils.Adapter {
 
@@ -153,7 +154,17 @@ class Meteoblue extends utils.Adapter {
 	async createObjectsAPI() {
 		this.log.info('create states...');
 
-		//metadata
+		//create channel metadata
+		await this.setObjectNotExistsAsync('metadata', {
+			type: 'channel',
+			common: {
+				name: 'metadata',
+				desc: 'metadata'
+			},
+			native: {}
+		});
+
+		//create states metadata
 		await this.setObjectNotExistsAsync('metadata.name', {
 			type: 'state',
 			common: {
@@ -288,7 +299,17 @@ class Meteoblue extends utils.Adapter {
 			native: {}
 		});
 
-		//units
+		//create channel units
+		await this.setObjectNotExistsAsync('units', {
+			type: 'channel',
+			common: {
+				name: 'units',
+				desc: 'units'
+			},
+			native: {}
+		});
+
+		//create states metadata
 		await this.setObjectNotExistsAsync('units.time', {
 			type: 'state',
 			common: {
@@ -419,8 +440,42 @@ class Meteoblue extends utils.Adapter {
 			native: {}
 		});
 
+		//create folder data_day
+		await this.setObjectNotExistsAsync('data_day', {
+			type: 'folder',
+			common: {
+				name: 'data_day',
+				desc: 'data_day'
+			},
+			native: {}
+		});
+
 		//data_day 0-6
 		for (let i = 0; i <= 6; i++) {
+
+			//create channel data_day + i
+			await this.setObjectNotExistsAsync('data_day.' + i, {
+				type: 'channel',
+				common: {
+					name: 'data of day ' + i,
+					desc: 'data of day ' + i
+				},
+				native: {}
+			});
+
+			await this.setObjectNotExistsAsync('data_day.' + i + '.time', {
+				type: 'state',
+				common: {
+					name: 'Day of forecast',
+					desc: 'Day of forecast',
+					type: 'string',
+					role: 'date',
+					read: true,
+					write: false
+				},
+				native: {}
+			});
+
 			await this.setObjectNotExistsAsync('data_day.' + i + '.time', {
 				type: 'state',
 				common: {
@@ -588,8 +643,21 @@ class Meteoblue extends utils.Adapter {
 			await this.setObjectNotExistsAsync('data_day.' + i + '.rainspot', {
 				type: 'state',
 				common: {
-					name: 'rainSPOT (0 ≤ 0.02 mm, 1 = 0.2 - 1.5 mm, 2 = 1.5 - 5 mm, 3 ≥ 5 mm, 9 = 0.02 - 0.2 mm)',
-					desc: 'rainSPOT (0 ≤ 0.02 mm, 1 = 0.2 - 1.5 mm, 2 = 1.5 - 5 mm, 3 ≥ 5 mm, 9 = 0.02 - 0.2 mm)',
+					name: 'rainspot (0 ≤ 0.02 mm, 1 = 0.2 - 1.5 mm, 2 = 1.5 - 5 mm, 3 ≥ 5 mm, 9 = 0.02 - 0.2 mm)',
+					desc: 'rainspot (0 ≤ 0.02 mm, 1 = 0.2 - 1.5 mm, 2 = 1.5 - 5 mm, 3 ≥ 5 mm, 9 = 0.02 - 0.2 mm)',
+					type: 'string',
+					role: 'value',
+					read: true,
+					write: false
+				},
+				native: {}
+			});
+
+			await this.setObjectNotExistsAsync('data_day.' + i + '.rainspot_vis', {
+				type: 'state',
+				common: {
+					name: 'rainspot for vis (html-widget binding)',
+					desc: 'rainspot for vis (html-widget binding)',
 					type: 'string',
 					role: 'value',
 					read: true,
@@ -818,6 +886,47 @@ class Meteoblue extends utils.Adapter {
 		this.log.info('states created...');
 	}
 
+	createVisHTMLBindingRainspot(day) {
+		let counter = 0;
+		let html = '<style>' +
+						'table.meteoblue {width: calc(100% - 2px); height: calc(100% - 2px); border: none; border-collapse: collapse; empty-cells: show; }' +
+						'table.meteoblue tr {height: calc(100% / 7); }' +
+						'table.meteoblue td {width: calc(100% / 7); text-align: center; }' +
+						'table.meteoblue td.value0 {background-color: rgba(0, 0, 0, 0); }' +
+						'table.meteoblue td.value1 {background-color: rgba(19, 238, 252, 1); }' +
+						'table.meteoblue td.value2 {background-color: rgba(58, 170, 220, 1); }' +
+						'table.meteoblue td.value3 {background-color: rgba(23, 116, 196, 1); }' +
+						'table.meteoblue td.value9 {background-color: rgba(38, 215, 146, 1); }' +
+						'#circle1 {position: absolute; width: calc(100% - 2px); height: calc(100% - 2px); top: 0px; left: 0px; border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#circle2 {position: absolute; width: calc(((100% - 2px) / 7) * 5); height: calc(((100% - 2px) / 7) * 5); top: calc(((100% - 2px) / 7) * 1); left: calc(((100% - 2px) / 7) * 1); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#circle3 {position: absolute; width: calc(((100% - 2px) / 7) * 3); height: calc(((100% - 2px) / 7) * 3); top: calc(((100% - 2px) / 7) * 2); left: calc(((100% - 2px) / 7) * 2); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#circle4 {position: absolute; width: calc(((100% - 2px) / 7) * 1); height: calc(((100% - 2px) / 7) * 1); top: calc(((100% - 2px) / 7) * 3); left: calc(((100% - 2px) / 7) * 3); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'.lineleft {position: absolute; top: 50%; left: 0px; border: 0.5px solid rgba(109, 109, 114, 1); width: calc((100% - 2px) / 14); height: 0px; }' +
+						'.lineright {position: absolute; top: 50%; right: 0px; border: 0.5px solid rgba(109, 109, 114, 1); width: calc((100% - 2px) / 14); height: 0px; }' +
+						'.linetop {position: absolute; top: 0px; right: 50%; border: 0.5px solid rgba(109, 109, 114, 1); width: 0px; height: calc((100% - 2px) / 14); }' +
+						'.linedown {position: absolute; top: calc(100% - ((100% - 2px) / 14)); right: 50%; border: 0.5px solid rgba(109, 109, 114, 1); width: 0px; height: calc((100% - 2px) / 14); }' +
+					'</style>' +
+					'<div id="circle1"></div>' +
+					'<div id="circle2"></div>' +
+					'<div id="circle3"></div>' +
+					'<div id="circle4"></div>' +
+					'<div class="lineleft"></div>' +
+					'<div class="lineright"></div>' +
+					'<div class="linetop"></div>' +
+					'<div class="linedown"></div>' +
+					'<table class="meteoblue">';
+		for (let i = 0; i < 7; i++) {
+			html += '<tr>';
+			for (let j = 0; j < 7; j++) {
+				html += '<td class ="value' + day.substr(counter, 1) + '"></td>';
+				counter += 1;
+			}
+			html += '</tr>';
+		}
+		html += '</table>';
+		return html;
+	}
+
 	async getMeteoblueData(meteoblueAPIURL) {
 		//adapter.log.info('adapter: ' + adapter);
 		this.log.debug('getMeteoblueData...');
@@ -875,6 +984,8 @@ class Meteoblue extends utils.Adapter {
 
 				//data_day 0-6
 				for (let i = 0; i <= 6; i++) {
+					createVisHTMLBindingRainspot = this.createVisHTMLBindingRainspot(content.data_day.rainspot[i]);
+
 					if(typeof(content.data_day.time[i]) === 'number') {
 						this.setState('data_day.' + i + '.time_UTC', {val: content.data_day.time[i], ack: true});
 						this.setState('data_day.' + i + '.time', {val: '', ack: true});
@@ -897,7 +1008,10 @@ class Meteoblue extends utils.Adapter {
 						this.setState('data_day.' + i + '.winddirectionChar', {val: content.data_day.winddirection[i], ack: true});
 					}
 					this.setState('data_day.' + i + '.precipitation_probability', {val: content.data_day.precipitation_probability[i], ack: true});
+					//convert rainstpot in an array, that it can be shown/accessed in vis
+					//this.setState('data_day.' + i + '.rainspot', {val: '[' + (content.data_day.rainspot[i].split('').map(Number)).toString() + ']', ack: true});
 					this.setState('data_day.' + i + '.rainspot', {val: content.data_day.rainspot[i], ack: true});
+					this.setState('data_day.' + i + '.rainspot_vis', {val: createVisHTMLBindingRainspot, ack: true});
 					this.setState('data_day.' + i + '.predictability_class', {val: content.data_day.predictability_class[i], ack: true});
 					this.setState('data_day.' + i + '.predictability', {val: content.data_day.predictability[i], ack: true});
 					this.setState('data_day.' + i + '.precipitation', {val: content.data_day.precipitation[i], ack: true});
