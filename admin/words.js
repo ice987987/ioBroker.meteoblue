@@ -243,52 +243,16 @@ systemDictionary = {
 			"zh-cn": "时间格式"
 		},
 		"Y-M-D": {
-		  "en": "Y-M-D",
-		  "de": "Y-M-D",
-		  "ru": "Г-М-Д",
-		  "pt": "Y-M-D",
-		  "nl": "J-M-D",
-		  "fr": "A-M-D",
-		  "it": "Y-M-D",
-		  "es": "Y-M-D",
-		  "pl": "Y-M-D",
-		  "zh-cn": "年-月-日"
-		},
-		"YMD": {
-		  "en": "YMD",
-		  "de": "YMD",
-		  "ru": "YMD",
-		  "pt": "YMD",
-		  "nl": "YMD",
-		  "fr": "AMJ",
-		  "it": "YMD",
-		  "es": "YMD",
-		  "pl": "YMD",
-		  "zh-cn": "长城"
-		},
-		"iso8601": {
-		  "en": "iso8601",
-		  "de": "iso8601",
-		  "ru": "iso8601",
-		  "pt": "iso8601",
-		  "nl": "iso8601",
-		  "fr": "iso8601",
-		  "it": "iso8601",
-		  "es": "iso8601",
-		  "pl": "iso8601",
-		  "zh-cn": "iso8601"
-		},
-		"timestamp_utc": {
-			"en": "timestamp (UTC)",
-			"de": "Zeitstempel (UTC)",
-			"ru": "отметка времени (UTC)",
-			"pt": "carimbo de data / hora (UTC)",
-			"nl": "tijdstempel (UTC)",
-			"fr": "horodatage (UTC)",
-			"it": "timestamp (UTC)",
-			"es": "marca de tiempo (UTC)",
-			"pl": "znacznik czasu (UTC)",
-			"zh-cn": "时间戳 (UTC)"
+		  "en": "YYYY-MM-DD",
+		  "de": "YYYY-MM-DD",
+		  "ru": "ГГГГ-ММ-ДД",
+		  "pt": "YYYY-MM-DD",
+		  "nl": "JJJJ-MM-DD",
+		  "fr": "AAAA-MM-DD",
+		  "it": "YYYY-MM-DD",
+		  "es": "YYYY-MM-DD",
+		  "pl": "YYYY-MM-DD",
+		  "zh-cn": "年年年年-月月-日日"
 		},
 		"timestamp_ms_utc": {
 			"en": "timestamp (MS_UTC)",
