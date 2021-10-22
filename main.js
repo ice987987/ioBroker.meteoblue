@@ -475,7 +475,7 @@ class Meteoblue extends utils.Adapter {
 				native: {}
 			});
 
-			await this.setObjectNotExistsAsync('data_day.' + i + '.time_UTC', {
+			await this.setObjectNotExistsAsync('data_day.' + i + '.time_ms', {
 				type: 'state',
 				common: {
 					name: 'Day of forecast in ms',
@@ -888,7 +888,7 @@ class Meteoblue extends utils.Adapter {
 		//https://content.meteoblue.com/en/spatial-dimensions/spot
 		let counter = 0;
 		let html = '<style>' +
-						'table.meteoblue {width: calc(100% - 2px); height: calc(100% - 2px); border: none; border-collapse: collapse; empty-cells: show; }' +
+						'table.meteoblue {width: 100%; height: 100%; border: none; border-collapse: collapse; empty-cells: show; }' +
 						'table.meteoblue tr {height: calc(100% / 7); }' +
 						'table.meteoblue td {width: calc(100% / 7); text-align: center; }' +
 						'table.meteoblue td.value0 {background-color: rgba(0, 0, 0, 0); }' +
@@ -896,23 +896,25 @@ class Meteoblue extends utils.Adapter {
 						'table.meteoblue td.value2 {background-color: rgba(58, 170, 220, 1); }' +
 						'table.meteoblue td.value3 {background-color: rgba(23, 116, 196, 1); }' +
 						'table.meteoblue td.value9 {background-color: rgba(38, 215, 146, 1); }' +
-						'#circle1 {position: absolute; width: calc(100% - 2px); height: calc(100% - 2px); top: 0px; left: 0px; border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
-						'#circle2 {position: absolute; width: calc(((100% - 2px) / 7) * 5); height: calc(((100% - 2px) / 7) * 5); top: calc(((100% - 2px) / 7) * 1); left: calc(((100% - 2px) / 7) * 1); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
-						'#circle3 {position: absolute; width: calc(((100% - 2px) / 7) * 3); height: calc(((100% - 2px) / 7) * 3); top: calc(((100% - 2px) / 7) * 2); left: calc(((100% - 2px) / 7) * 2); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
-						'#circle4 {position: absolute; width: calc(((100% - 2px) / 7) * 1); height: calc(((100% - 2px) / 7) * 1); top: calc(((100% - 2px) / 7) * 3); left: calc(((100% - 2px) / 7) * 3); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
-						'.lineleft {position: absolute; top: 50%; left: 0px; border: 0.5px solid rgba(109, 109, 114, 1); width: calc((100% - 2px) / 14); height: 0px; }' +
-						'.lineright {position: absolute; top: 50%; right: 0px; border: 0.5px solid rgba(109, 109, 114, 1); width: calc((100% - 2px) / 14); height: 0px; }' +
-						'.linetop {position: absolute; top: 0px; right: 50%; border: 0.5px solid rgba(109, 109, 114, 1); width: 0px; height: calc((100% - 2px) / 14); }' +
-						'.linedown {position: absolute; top: calc(100% - ((100% - 2px) / 14)); right: 50%; border: 0.5px solid rgba(109, 109, 114, 1); width: 0px; height: calc((100% - 2px) / 14); }' +
+						'#meteoblueMain {position: absolute; width: calc(100% - 3px); height: calc(100% - 3px); top: 0px; left: 0px; border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#meteoblueCircle1 {position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#meteoblueCircle2 {position: absolute; width: calc((100% / 7) * 5); height: calc((100% / 7) * 5); top: calc((100% / 7) * 1); left: calc((100% / 7) * 1); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#meteoblueCircle3 {position: absolute; width: calc((100% / 7) * 3); height: calc((100% / 7) * 3); top: calc((100% / 7) * 2); left: calc((100% / 7) * 2); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#meteoblueCircle4 {position: absolute; width: calc((100% / 7) * 1); height: calc((100% / 7) * 1); top: calc((100% / 7) * 3); left: calc((100% / 7) * 3); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#meteoblueLineleft {position: absolute; top: 50%; left: 0px; border: 0.5px solid rgba(109, 109, 114, 1); width: calc(100% / 14); height: 0px; }' +
+						'#meteoblueLineright {position: absolute; top: 50%; right: 0px; border: 0.5px solid rgba(109, 109, 114, 1); width: calc(100% / 14); height: 0px; }' +
+						'#meteoblueLinetop {position: absolute; top: 0px; right: 50%; border: 0.5px solid rgba(109, 109, 114, 1); width: 0px; height: calc(100% / 14); }' +
+						'#meteoblueLinedown {position: absolute; top: calc(100% - (100% / 14)); right: 50%; border: 0.5px solid rgba(109, 109, 114, 1); width: 0px; height: calc(100% / 14); }' +
 					'</style>' +
-					'<div id="circle1"></div>' +
-					'<div id="circle2"></div>' +
-					'<div id="circle3"></div>' +
-					'<div id="circle4"></div>' +
-					'<div class="lineleft"></div>' +
-					'<div class="lineright"></div>' +
-					'<div class="linetop"></div>' +
-					'<div class="linedown"></div>' +
+					'<div id="meteoblueMain">' +
+					'<div id="meteoblueCircle1"></div>' +
+					'<div id="meteoblueCircle2"></div>' +
+					'<div id="meteoblueCircle3"></div>' +
+					'<div id="meteoblueCircle4"></div>' +
+					'<div id="meteoblueLineleft"></div>' +
+					'<div id="meteoblueLineright"></div>' +
+					'<div id="meteoblueLinetop"></div>' +
+					'<div id="meteoblueLinedown"></div>' +
 					'<table class="meteoblue">';
 		for (let i = 0; i < 7; i++) {
 			html += '<tr>';
@@ -922,15 +924,15 @@ class Meteoblue extends utils.Adapter {
 			}
 			html += '</tr>';
 		}
-		html += '</table>';
+		html += '</table></div>';
 		return html;
 	}
 
 	calculateWinddirectionChar(degree) {
 		//https://docs.meteoblue.com/en/meteo/variables/weather-variables#wind-direction
 		const chars = ['N', 'NNO', 'NO', 'ONO', 'O', 'OSO', 'SO', 'SSO', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
-		const value3 = Math.round(degree / 22.5);
 		const value2 = Math.round(degree / 45);
+		const value3 = Math.round(degree / 22.5);
 		return [chars[(value2 % 8) * 2], chars[value3 % 16]];
 	}
 
@@ -995,10 +997,10 @@ class Meteoblue extends utils.Adapter {
 					calculateWinddirectionChar = this.calculateWinddirectionChar(content.data_day.winddirection[i]);
 
 					if(typeof(content.data_day.time[i]) === 'number') {
-						this.setState('data_day.' + i + '.time_UTC', {val: content.data_day.time[i], ack: true});
-						this.setState('data_day.' + i + '.time', {val: '', ack: true});
+						this.setState('data_day.' + i + '.time_ms', {val: content.data_day.time[i], ack: true});
+						this.setState('data_day.' + i + '.time', {val: this.formatDate(content.data_day.time[i], 'YYYY-MM-DD'), ack: true});
 					} else {
-						this.setState('data_day.' + i + '.time_UTC', {val: null, ack: true});
+						this.setState('data_day.' + i + '.time_ms', {val: (new Date(content.data_day.time[i])).getTime(), ack: true});
 						this.setState('data_day.' + i + '.time', {val: content.data_day.time[i], ack: true});
 					}
 					this.setState('data_day.' + i + '.pictocode', {val: content.data_day.pictocode[i], ack: true});
