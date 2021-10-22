@@ -194,54 +194,6 @@ systemDictionary = {
 		  "pl": "piękna",
 		  "zh-cn": "博福特"
 		},
-		"winddirection": {
-			"en": "winddirection",
-			"de": "Windrichtung",
-			"ru": "направление ветра",
-			"pt": "Direção do vento",
-			"nl": "windrichting",
-			"fr": "direction du vent",
-			"it": "la direzione del vento",
-			"es": "dirección del viento",
-			"pl": "kierunek wiatru",
-			"zh-cn": "风向"
-		},
-		"degree": {
-		  "en": "degree",
-		  "de": "Grad",
-		  "ru": "степень",
-		  "pt": "grau",
-		  "nl": "rang",
-		  "fr": "degré",
-		  "it": "livello",
-		  "es": "la licenciatura",
-		  "pl": "stopień",
-		  "zh-cn": "程度"
-		},
-		"2 direction characters": {
-		  "en": "2 direction characters",
-		  "de": "2 Richtungszeichen",
-		  "ru": "2 символа направления",
-		  "pt": "2 caracteres de direção",
-		  "nl": "2 richting karakters",
-		  "fr": "2 personnages de direction",
-		  "it": "2 caratteri di direzione",
-		  "es": "2 caracteres de dirección",
-		  "pl": "2 znaki kierunkowe",
-		  "zh-cn": "2个方向字符"
-		},
-		"3 direction characters": {
-		  "en": "3 direction characters",
-		  "de": "3 Richtungszeichen",
-		  "ru": "3 символа направления",
-		  "pt": "3 caracteres de direção",
-		  "nl": "3 richting karakters",
-		  "fr": "3 personnages de direction",
-		  "it": "3 caratteri di direzione",
-		  "es": "3 caracteres de dirección",
-		  "pl": "3 znaki kierunkowe",
-		  "zh-cn": "3个方向字符"
-		},
 		"precipitationamount": {
 			"en": "precipitationamount",
 			"de": "Niederschlagsmenge",
