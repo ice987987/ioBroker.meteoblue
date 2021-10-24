@@ -80,8 +80,7 @@
 		"temperature": "C",
 		"windspeed": "kmh",
 		"winddirection": "degree",
-		"precipitationamount": "mm",
-		"timeformat": "Y-M-D"
+		"precipitationamount": "mm"
 	},
 	"objects": [],
 	"instanceObjects": [
