@@ -230,42 +230,6 @@ systemDictionary = {
 		  "pl": "cal",
 		  "zh-cn": "英寸"
 		},
-		"timeformat": {
-			"en": "timeformat",
-			"de": "Zeitformat",
-			"ru": "формат времени",
-			"pt": "formato de tempo",
-			"nl": "Tijd formaat",
-			"fr": "format de l'heure",
-			"it": "formato orario",
-			"es": "formato de tiempo",
-			"pl": "format czasu",
-			"zh-cn": "时间格式"
-		},
-		"Y-M-D": {
-		  "en": "YYYY-MM-DD",
-		  "de": "YYYY-MM-DD",
-		  "ru": "ГГГГ-ММ-ДД",
-		  "pt": "YYYY-MM-DD",
-		  "nl": "JJJJ-MM-DD",
-		  "fr": "AAAA-MM-DD",
-		  "it": "YYYY-MM-DD",
-		  "es": "YYYY-MM-DD",
-		  "pl": "YYYY-MM-DD",
-		  "zh-cn": "年年年年-月月-日日"
-		},
-		"timestamp_ms_utc": {
-			"en": "timestamp (MS_UTC)",
-			"de": "Zeitstempel (MS_UTC)",
-			"ru": "отметка времени (MS_UTC)",
-			"pt": "carimbo de data / hora (MS_UTC)",
-			"nl": "tijdstempel (MS_UTC)",
-			"fr": "horodatage (MS_UTC)",
-			"it": "timestamp (MS_UTC)",
-			"es": "marca de tiempo (MS_UTC)",
-			"pl": "sygnatura czasowa (MS_UTC)",
-			"zh-cn": "时间戳 (MS_UTC)"
-		},
 		"api_explanation": {
 			"en": "For non-commercial uses, meteoblue.com offers the meteogram 5 days and the data package basic-day. Non-commercial uses are all uses without direct profit purposes. Get meteoblue non-commercial API service <a href=\"https://content.meteoblue.com/en/access-options/meteoblue-weather-api/non-commercial-use\" target=\"_blank\">here</a>. A description of the values can be found <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction\" target=\"_blank\">here</a>.",
 			"de": "Für nicht-kommerzielle Zwecke bietet meteoblue.com das Meteogramm 5 Tage und das Datenpaket Basic-Day an. Nicht-kommerzielle Nutzungen sind alle Nutzungen ohne unmittelbaren Gewinnzweck. Erhalten Sie meteoblue nicht-kommerziellen API - Service <a href=\"https://content.meteoblue.com/de/zugangsoptionen/meteoblue-wetter-api/nicht-kommerzielle-nutzung\" target=\"_blank\">hier</a>. Eine Beschreibung der Werte finden Sie <a href=\"https://docs.meteoblue.com/en/weather-apis/packages-api/introduction\" target=\"_blank\">hier</a>.",
