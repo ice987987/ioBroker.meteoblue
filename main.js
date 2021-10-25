@@ -51,7 +51,6 @@ class Meteoblue extends utils.Adapter {
 		this.log.debug('this.config.temperature: ' + this.config.temperature);
 		this.log.debug('this.config.windspeed: ' + this.config.windspeed);
 		this.log.debug('this.config.precipitationamount: ' + this.config.precipitationamount);
-		this.log.debug('this.config.timeformat: ' + this.config.timeformat);
 
 		//https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#url-parameter
 		meteoblueAPIURL = 'http://my.meteoblue.com/packages/basic-day?';
@@ -137,10 +136,7 @@ class Meteoblue extends utils.Adapter {
 		if (this.config.precipitationamount !== null) {
 			meteoblueAPIURL += '&precipitationamount=' + this.config.precipitationamount;
 		}
-		if (this.config.timeformat !== null) {
-			meteoblueAPIURL += '&timeformat=' + this.config.timeformat;
-		}
-		meteoblueAPIURL += '&format=json';
+		meteoblueAPIURL += '&timeformat=Y-M-D&format=json';
 		this.log.info('meteoblueAPIURL: ' + meteoblueAPIURL);
 
 		await this.createObjectsAPI();
@@ -889,7 +885,7 @@ class Meteoblue extends utils.Adapter {
 		let counter = 0;
 		//correction of 3/-3px due to basic-HTML widget issues
 		let html = '<style>' +
-						'table.meteoblue {width: calc(100% + 3px); height: calc(100% + 3px); border: none; border-collapse: collapse; empty-cells: show; }' +
+						'table.meteoblue {width: 100%; height: 100%; border: none; border-collapse: collapse; empty-cells: show; }' +
 						'table.meteoblue tr {height: calc(100% / 7); }' +
 						'table.meteoblue td {width: calc(100% / 7); }' +
 						'table.meteoblue td.value0 {background-color: rgba(0, 0, 0, 0); }' +
@@ -897,14 +893,14 @@ class Meteoblue extends utils.Adapter {
 						'table.meteoblue td.value2 {background-color: rgba(58, 170, 220, 1); }' +
 						'table.meteoblue td.value3 {background-color: rgba(23, 116, 196, 1); }' +
 						'table.meteoblue td.value9 {background-color: rgba(38, 215, 146, 1); }' +
-						'#meteoblueMain {position: absolute; width: calc(100% - 3px); height: calc(100% - 3px); top: 0px; left: 0px; }' +
-						'#meteoblueCircle1 {position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
-						'#meteoblueCircle2 {position: absolute; width: calc((100% / 7) * 5); height: calc((100% / 7) * 5); top: calc((100% / 7) * 1); left: calc((100% / 7) * 1); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
-						'#meteoblueCircle3 {position: absolute; width: calc((100% / 7) * 3); height: calc((100% / 7) * 3); top: calc((100% / 7) * 2); left: calc((100% / 7) * 2); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
-						'#meteoblueCircle4 {position: absolute; width: calc((100% / 7) * 1); height: calc((100% / 7) * 1); top: calc((100% / 7) * 3); left: calc((100% / 7) * 3); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#meteoblueMain {position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; border: none; }' +
+						'#meteoblueCircle1 {position: absolute; top: 0px; left: 0px; width: calc(100% - 2px); height: calc(100% - 2px); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#meteoblueCircle2 {position: absolute; top: calc((100% / 7) * 1); left: calc((100% / 7) * 1); width: calc(((100% - 2px) / 7) * 5); height: calc(((100% - 2px) / 7) * 5); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#meteoblueCircle3 {position: absolute; top: calc((100% / 7) * 2); left: calc((100% / 7) * 2); width: calc(((100% - 2px) / 7) * 3); height: calc(((100% - 2px) / 7) * 3); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#meteoblueCircle4 {position: absolute; top: calc((100% / 7) * 3); left: calc((100% / 7) * 3); width: calc(((100% - 2px) / 7) * 1); height: calc(((100% - 2px) / 7) * 1); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
 						'#meteoblueLineleft {position: absolute; top: 50%; left: 0px; border: 0.5px solid rgba(109, 109, 114, 1); width: calc(100% / 14); height: 0px; }' +
-						'#meteoblueLineright {position: absolute; top: 50%; right: 0px; border: 0.5px solid rgba(109, 109, 114, 1); width: calc(100% / 14); height: 0px; }' +
-						'#meteoblueLinetop {position: absolute; top: 0px; right: 50%; border: 0.5px solid rgba(109, 109, 114, 1); width: 0px; height: calc(100% / 14); }' +
+						'#meteoblueLineright {position: absolute; top: 50%; right: 0px; border: 0.5px solid rgba(109, 109, 114, 1); width: calc(100% / 14); }' +
+						'#meteoblueLinetop {position: absolute; top: 0px; left: 50%; border: 0.5px solid rgba(109, 109, 114, 1); width: 0px; height: calc(100% / 14); }' +
 						'#meteoblueLinedown {position: absolute; top: calc(100% - (100% / 14)); right: 50%; border: 0.5px solid rgba(109, 109, 114, 1); width: 0px; height: calc(100% / 14); }' +
 					'</style>' +
 					'<div id="meteoblueMain">' +
@@ -997,13 +993,8 @@ class Meteoblue extends utils.Adapter {
 					createVisHTMLBindingRainspot = this.createVisHTMLBindingRainspot(content.data_day.rainspot[i]);
 					calculateWinddirectionChar = this.calculateWinddirectionChar(content.data_day.winddirection[i]);
 
-					if(typeof(content.data_day.time[i]) === 'number') {
-						this.setState('data_day.' + i + '.time_ms', {val: content.data_day.time[i], ack: true});
-						this.setState('data_day.' + i + '.time', {val: this.formatDate(content.data_day.time[i], 'YYYY-MM-DD'), ack: true});
-					} else {
-						this.setState('data_day.' + i + '.time_ms', {val: (new Date(content.data_day.time[i])).getTime(), ack: true});
-						this.setState('data_day.' + i + '.time', {val: content.data_day.time[i], ack: true});
-					}
+					this.setState('data_day.' + i + '.time_ms', {val: (new Date(content.data_day.time[i])).getTime(), ack: true});
+					this.setState('data_day.' + i + '.time', {val: content.data_day.time[i], ack: true});
 					this.setState('data_day.' + i + '.pictocode', {val: content.data_day.pictocode[i], ack: true});
 					this.setState('data_day.' + i + '.uvindex', {val: content.data_day.uvindex[i], ack: true});
 					this.setState('data_day.' + i + '.temperature_max', {val: content.data_day.temperature_max[i], ack: true});
