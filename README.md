@@ -28,7 +28,8 @@ This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.
 -->
 ### **WORK IN PROGRESS**
 - (ice987987) add rainspot
-- (ice987987) remove winddirection as user input field, calculate winddirection as 2 and 3 chars
+- (ice987987) remove user inputfield winddirection, calculate winddirection as 2 and 3 chars
+- (ice987987) remove user inputfield timezone
 - (ice987987) bugfix
 
 ### 0.0.1 (2021-10-17)
