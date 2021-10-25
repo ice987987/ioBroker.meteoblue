@@ -79,7 +79,6 @@
 		"apikey": "",
 		"temperature": "C",
 		"windspeed": "kmh",
-		"winddirection": "degree",
 		"precipitationamount": "mm"
 	},
 	"objects": [],
