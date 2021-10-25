@@ -69,8 +69,8 @@ class Meteoblue extends utils.Adapter {
 				typeof(this.config.longitude) === 'number' &&
 				!isNaN(this.config.longitude) &&
 				this.config.longitude >= -180 &&
-				this.config.longitude <= 180)
-			{
+				this.config.longitude <= 180
+			) {
 				this.log.info('latitude/longitude manually set');
 				meteoblueAPIURL += '&lat=' + this.config.latitude + '&lon=' + this.config.longitude;
 				await this.meteoblueAPIURL2ndPart();
@@ -84,10 +84,14 @@ class Meteoblue extends utils.Adapter {
 						this.config.longitude = state.common.longitude;
 						this.log.debug('system latitude: ' + this.config.latitude + 'system longitude: ' + this.config.longitude);
 					} else {
+						//shut down
 						this.log.error('Astro data from system settings cannot be called up. Please check configuration!');
+						this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
 					}
 				} catch (err) {
+					//shut down
 					this.log.error('Astro data from system settings cannot be called up. Please check configuration! (' + err +')');
+					this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
 				}
 
 				if (
@@ -98,8 +102,8 @@ class Meteoblue extends utils.Adapter {
 					typeof(this.config.longitude) === 'number' &&
 					!isNaN(this.config.longitude) &&
 					this.config.longitude >= -180 &&
-					this.config.longitude <= 180)
-				{
+					this.config.longitude <= 180
+				) {
 					this.log.info('latitude/longitude set from system');
 					meteoblueAPIURL += '&lat=' + this.config.latitude + '&lon=' + this.config.longitude;
 					await this.meteoblueAPIURL2ndPart();
@@ -953,22 +957,19 @@ class Meteoblue extends utils.Adapter {
 
 				//metadata
 				this.setState('metadata.name', {val: content.metadata.name, ack: true});
-				//this.log.debug('metadata.name: ' + content.metadata.name);
 				this.setState('metadata.latitude', {val: content.metadata.latitude, ack: true});
-				//this.log.debug('metadata.latitude: ' + content.metadata.latitude);
 				this.setState('metadata.longitude', {val: content.metadata.longitude, ack: true});
-				//this.log.debug('metadata.longitude: ' + content.metadata.longitude);
 				this.setState('metadata.height', {val: content.metadata.height, ack: true});
 				this.setState('metadata.timezone_abbrevation', {val: content.metadata.timezone_abbrevation, ack: true});
 				this.setState('metadata.utc_timeoffset', {val: content.metadata.utc_timeoffset, ack: true});
-				if(typeof(content.metadata.modelrun_utc) === 'number') {
+				if (typeof(content.metadata.modelrun_utc) === 'number') {
 					this.setState('metadata.modelrun_utc', {val: content.metadata.modelrun, ack: true});
 					this.setState('metadata.modelrun', {val: '', ack: true});
 				} else {
 					this.setState('metadata.modelrun_utc', {val: null, ack: true});
 					this.setState('metadata.modelrun', {val: content.metadata.modelrun, ack: true});
 				}
-				if(typeof(content.metadata.modelrun_utc) === 'number') {
+				if (typeof(content.metadata.modelrun_utc) === 'number') {
 					this.setState('metadata.modelrun_updatetime_utc', {val: content.metadata.modelrun_updatetime_utc, ack: true});
 					this.setState('metadata.modelrun_updatetime', {val: '', ack: true});
 				} else {
@@ -1053,7 +1054,7 @@ class Meteoblue extends utils.Adapter {
 	async getMeteoblueDateIntervall(meteoblueAPIURL) {
 		intervallGetMeteoblueData = setInterval(async () => {
 			await this.getMeteoblueData(meteoblueAPIURL);
-		}, 30*60000); //30*60000=1800000ms=30min
+		}, 30*60000); //30*60000=1800000ms=30min ; max-intervall: 86400000/100=864000=14min24s
 	}
 
 	/**
