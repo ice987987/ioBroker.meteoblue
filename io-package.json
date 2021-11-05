@@ -1,7 +1,7 @@
 {
 	"common": {
 		"name": "meteoblue",
-		"version": "0.0.1",
+		"version": "0.0.2",
 		"news": {
 			"0.0.1": {
 				"en": "initial release",
@@ -14,7 +14,19 @@
 				"es": "Versión inicial",
 				"pl": "Pierwsze wydanie",
 				"zh-cn": "首次出版"
-			}
+			},
+			"0.0.2": {
+				"en": "add rainspot\nremove user inputfield winddirection, calculate winddirection as 2 and 3 chars\nremove user inputfield timezone\nbugfix",
+				"de": "Regenfleck hinzufügen\nBenutzereingabefeld Windrichtung entfernen, Windrichtung als 2 und 3 Zeichen berechnen\nZeitzone des Benutzereingabefelds entfernen\nFehlerbehebung",
+				"ru": "добавить дождевое пятно\nудалить направление ветра в поле ввода пользователя, вычислить направление ветра как 2 и 3 символа\nудалить часовой пояс поля ввода пользователя\nИсправлена ошибка",
+				"pt": "adicionar ponto de chuva\nremova a direção do vento do campo de entrada do usuário, calcule a direção do vento como 2 e 3 caracteres\nremover o fuso horário do campo de entrada do usuário\ncorreção de bug",
+				"nl": "regenvlek toevoegen\nverwijder gebruikersinvoerveld windrichting, bereken windrichting als 2 en 3 tekens\nverwijder gebruikersinvoerveld tijdzone\nbugfix",
+				"fr": "ajouter une tache de pluie\nsupprimer la direction du vent du champ de saisie de l'utilisateur, calculer la direction du vent comme 2 et 3 caractères\nsupprimer le fuseau horaire du champ de saisie de l'utilisateur\ncorrection d'un bug",
+				"it": "aggiungi punto di pioggia\nrimuovere la direzione del vento del campo di input dell'utente, calcolare la direzione del vento come 2 e 3 caratteri\nrimuovi il fuso orario del campo di input dell'utente\nrisoluzione del problema",
+				"es": "agregar la mancha de lluvia\neliminar la dirección del viento del campo de entrada del usuario, calcular la dirección del viento como 2 y 3 caracteres\neliminar la zona horaria del campo de entrada del usuario\narreglo del fallo",
+				"pl": "dodaj plamę deszczu\nusuń pole wejściowe użytkownika kierunek wiatru, oblicz kierunek wiatru jako 2 i 3 znaki\nusuń strefę czasową pola wejściowego użytkownika\nnaprawa błędów",
+				"zh-cn": "添加雨点\n删除用户输入字段风向，将风向计算为 2 和 3 个字符\n删除用户输入字段时区\n错误修正"
+			  }
 		},
 		"title": "meteoblue",
 		"titleLang": {
