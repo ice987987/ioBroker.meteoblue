@@ -887,7 +887,7 @@ class Meteoblue extends utils.Adapter {
 	createVisHTMLBindingRainspot(day) {
 		//https://content.meteoblue.com/en/spatial-dimensions/spot
 		let counter = 0;
-		//correction of 3/-3px due to basic-HTML widget issues
+		//correction of +2px/-2px due to basic-HTML widget issues
 		let html = '<style>' +
 						'table.meteoblue {width: 100%; height: 100%; border: none; border-collapse: collapse; empty-cells: show; }' +
 						'table.meteoblue tr {height: calc(100% / 7); }' +
@@ -899,13 +899,13 @@ class Meteoblue extends utils.Adapter {
 						'table.meteoblue td.value9 {background-color: rgba(38, 215, 146, 1); }' +
 						'#meteoblueMain {position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; border: none; }' +
 						'#meteoblueCircle1 {position: absolute; top: 0px; left: 0px; width: calc(100% - 2px); height: calc(100% - 2px); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
-						'#meteoblueCircle2 {position: absolute; top: calc((100% / 7) * 1); left: calc((100% / 7) * 1); width: calc(((100% - 2px) / 7) * 5); height: calc(((100% - 2px) / 7) * 5); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
-						'#meteoblueCircle3 {position: absolute; top: calc((100% / 7) * 2); left: calc((100% / 7) * 2); width: calc(((100% - 2px) / 7) * 3); height: calc(((100% - 2px) / 7) * 3); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
-						'#meteoblueCircle4 {position: absolute; top: calc((100% / 7) * 3); left: calc((100% / 7) * 3); width: calc(((100% - 2px) / 7) * 1); height: calc(((100% - 2px) / 7) * 1); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
-						'#meteoblueLineleft {position: absolute; top: 50%; left: 0px; border: 0.5px solid rgba(109, 109, 114, 1); width: calc(100% / 14); height: 0px; }' +
-						'#meteoblueLineright {position: absolute; top: 50%; right: 0px; border: 0.5px solid rgba(109, 109, 114, 1); width: calc(100% / 14); }' +
-						'#meteoblueLinetop {position: absolute; top: 0px; left: 50%; border: 0.5px solid rgba(109, 109, 114, 1); width: 0px; height: calc(100% / 14); }' +
-						'#meteoblueLinedown {position: absolute; top: calc(100% - (100% / 14)); right: 50%; border: 0.5px solid rgba(109, 109, 114, 1); width: 0px; height: calc(100% / 14); }' +
+						'#meteoblueCircle2 {position: absolute; top: calc(((100% - 2px) / 7) * 1); left: calc(((100% - 2px) / 7) * 1); width: calc(((100% - 2px) / 7) * 5); height: calc(((100% - 2px) / 7) * 5); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#meteoblueCircle3 {position: absolute; top: calc(((100% - 2px) / 7) * 2); left: calc(((100% - 2px) / 7) * 2); width: calc(((100% - 2px) / 7) * 3); height: calc(((100% - 2px) / 7) * 3); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#meteoblueCircle4 {position: absolute; top: calc(((100% - 2px) / 7) * 3); left: calc(((100% - 2px) / 7) * 3); width: calc(((100% - 2px) / 7) * 1); height: calc(((100% - 2px) / 7) * 1); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
+						'#meteoblueLineleft {position: absolute; top: calc((100% - 2px) / 2); left: 0px; border: 0.5px solid rgba(109, 109, 114, 0.5); width: calc(100% / 14); height: 0px; }' +
+						'#meteoblueLineright {position: absolute; top: calc((100% - 2px) / 2); right: 0px; border: 0.5px solid rgba(109, 109, 114, 0.5); width: calc(100% / 14); }' +
+						'#meteoblueLinetop {position: absolute; top: 0px; left: calc((100% - 2px) / 2); border: 0.5px solid rgba(109, 109, 114, 0.5); width: 0px; height: calc(100% / 14); }' +
+						'#meteoblueLinedown {position: absolute; top: calc((100% - 2px) - ((100% - 2px) / 14)); left: calc((100% - 2px) / 2); border: 0.5px solid rgba(109, 109, 114, 0.5); width: 0px; height: calc(100% / 14); }' +
 					'</style>' +
 					'<div id="meteoblueMain">' +
 					'<div id="meteoblueCircle1"></div>' +
