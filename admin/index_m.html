@@ -18,45 +18,108 @@
 	<script type="text/javascript" src="words.js"></script>
 
 	<script type="text/javascript">
+
+		function showHideSettings() {
+			if ($('#locationFromSystem').prop('checked')) {
+				$('._locationFromSystem').hide();
+				$("#location").val("");
+			} else {
+            	$('._locationFromSystem').show();
+			}
+			if ($('#latlongFromSystem').prop('checked')) {
+				$('._latlongFromSystem').hide();
+			} else {
+            	$('._latlongFromSystem').show();
+			}
+			if ($('#tempunitFromSystem').prop('checked')) {
+				$('._tempunitFromSystem').hide();
+			} else {
+            	$('._tempunitFromSystem').show();
+			}
+		}
+
 		// This will be called by the admin adapter when the settings page loads
 		function load(settings, onChange) {
 			// example: select elements with id=key and class=value and insert value
 			if (!settings) return;
-			$('.value').each(function () {
-				var $key = $(this);
-				var id = $key.attr('id');
-				if ($key.attr('type') === 'checkbox') {
-					// do not call onChange direct, because onChange could expect some arguments
-					$key.prop('checked', settings[id])
-						.on('change', () => onChange())
-						;
-				} else {
-					// do not call onChange direct, because onChange could expect some arguments
-					$key.val(settings[id])
-						.on('change', () => onChange())
-						.on('keyup', () => onChange())
-						;
-				}
-			});
-			onChange(false);
-			// reinitialize all the Materialize labels on the page if you are dynamically adding inputs:
+			
+				// handle value changes
+				$(".value").on("input change", function() {
+					// if something changed, enable save buttons when all fields are filled
+					if ( ($("#location").val() || $("#locationFromSystem").prop('checked')) &&
+						 (($("#latitude").val() && $("#longitude").val()) || $("#latlongFromSystem").prop('checked')) &&
+						 $("#elevation").val() &&
+						 $("#timezone").val() &&
+						 ($("#temperature").val() || $("#tempunitFromSystem").prop('checked')) &&
+						 $("#windspeed").val() &&
+						 $("#precipitationamount").val() &&
+						 $("#apikey").val())
+					{
+						onChange(true);
+					} else {
+						onChange(false);
+					};
+					if (M) M.updateTextFields();
+				});
+			
+			$("#location").val(settings["location"]);
+			$("#locationFromSystem").prop('checked', settings['locationFromSystem'])
+			$("#latitude").val(settings["latitude"]);
+			$("#longitude").val(settings["longitude"]);
+			$("#latlongFromSystem").prop('checked', settings['latlongFromSystem'])
+			$("#elevation").val(settings["elevation"]);
+			$("#timezone").val(settings["timezone"]);
+			$("#temperature").val(settings["temperature"]);
+			$("#tempunitFromSystem").prop('checked', settings['tempunitFromSystem'])
+			$("#windspeed").val(settings["windspeed"]);
+			$("#precipitationamount").val(settings["precipitationamount"]);
+			$("#apikey").val(settings["apikey"]);
+
+			showHideSettings();
+
+			if ( ($("#location").val() || $("#locationFromSystem").prop('checked')) &&
+				(($("#latitude").val() && $("#longitude").val()) || $("#latlongFromSystem").prop('checked')) &&
+				$("#elevation").val() &&
+				$("#timezone").val() &&
+				($("#temperature").val() || $("#tempunitFromSystem").prop('checked')) &&
+				$("#windspeed").val() &&
+				$("#precipitationamount").val() &&
+				$("#apikey").val())
+			{
+				onChange(true);
+			} else {
+				onChange(false);
+			};
 			if (M) M.updateTextFields();
+
+			$('#locationFromSystem').change(function () {
+				showHideSettings();
+			});
+			$('#latlongFromSystem').change(function () {
+				showHideSettings();
+			});
+			$('#tempunitFromSystem').change(function () {
+				showHideSettings();
+			});
 		}
 
 		// This will be called by the admin adapter when the user presses the save button
 		function save(callback) {
 			// example: select elements with class=value and build settings object
 			var obj = {};
-			$('.value').each(function () {
-				var $this = $(this);
-				if ($this.attr('type') === 'checkbox') {
-					obj[$this.attr('id')] = $this.prop('checked');
-				} else if ($this.attr('type') === 'number') {
-					obj[$this.attr('id')] = parseFloat($this.val());
-				} else {
-					obj[$this.attr('id')] = $this.val();
-				}
-			});
+			obj["location"] = $("#location").val();
+			obj["locationFromSystem"] = $("#locationFromSystem").prop('checked');
+			obj["latitude"] = $("#latitude").val();
+			obj["longitude"] = $("#longitude").val();
+			obj["latlongFromSystem"] = $("#latlongFromSystem").prop('checked');
+			obj["elevation"] = $("#elevation").val();
+			obj["timezone"] = $("#timezone").val();
+			obj["temperature"] = $("#temperature").val();
+			obj["tempunitFromSystem"] = $("#tempunitFromSystem").prop('checked');
+			obj["windspeed"] = $("#windspeed").val();
+			obj["precipitationamount"] = $("#precipitationamount").val();
+			obj["apikey"] = $("#apikey").val();
+
 			callback(obj);
 		}
 	</script>
@@ -68,35 +131,87 @@
 	<div class="m adapter-container">
 
 		<div class="row">
-			<div class="col s12 m4 l2">
+			<div class="col s12">
 				<img src="meteoblue.png" class="logo">
 			</div>
 		</div>
 
 		<!-- Put your content here -->
-
-		<!-- For example columns with settings: -->
 		<div class="row">
 			<div class="col s12">
-				<h6 class="translate">API connection settings</h6>
+				<h6 class="translate">APIConnectionSettings</h6>
 			</div>
-			<div class="input-field col s12">
-				<input placeholder=" " id="location" type="text" class="value">
+		</div>
+
+		<div class="row">
+			<div class="input-field col s8 l8 _locationFromSystem">
+				<input
+					id="location"
+					type="text"
+					class="value validate"
+					pattern="[a-zA-Z0-9àÀâÂäÄáÁéÉèÈêÊëËìÌîÎïÏòÒôÔöÖùÙûÛüÜçÇñ ]+"
+				>
 				<label for="location" class="translate">location</label>
+				<span class="translate">locationHint</span>
 			</div>
-			<div class="input-field col s6">
-				<input placeholder=" " id="latitude" type="number" class="value">
+			<div class="input-field col s4 l4">
+				<input
+					id="locationFromSystem"
+					type="checkbox"
+					class="value"
+				>
+				<label for="locationFromSystem" class="translate">locationFromSystem</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s4 l4 _latlongFromSystem">
+				<input
+					id="latitude"
+					type="number"
+					class="value validate"
+					min="-180"
+					max="180"
+					step="0.0000001"
+				>
 				<label for="latitude" class="translate">latitude</label>
+				<span class="translate">latitudeHint</span>
 			</div>
-			<div class="input-field col s6">
-				<input placeholder=" " id="longitude" type="number" class="value">
+			<div class="input-field col s4 l4 _latlongFromSystem">
+				<input
+					id="longitude"
+					type="number"
+					class="value validate"
+					min="-90"
+					max="90"
+					step="0.0000001"
+				>
 				<label for="longitude" class="translate">longitude</label>
+				<span class="translate">longitudeHint</span>
 			</div>
-			<div class="input-field col s6">
-				<input placeholder=" " id="elevation" type="number" class="value">
+			<div class="input-field col s4 l4">
+				<input
+					id="latlongFromSystem"
+					type="checkbox"
+					class="value"
+				>
+				<label for="latlongFromSystem" class="translate">latlongFromSystem</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12 l8">
+				<input
+					id="elevation"
+					type="number"
+					class="value validate"
+					min="0"
+					max="9000"
+				>
 				<label for="elevation" class="translate">elevation</label>
+				<span class="translate">elevationHint</span>
 			</div>
-			<div class="input-field col s6">
+		</div>
+		<div class="row">
+			<div class="input-field col s12 l8">
 				<select class="value" id="timezone">
 					<option value="Africa%2FAccra">Africa/Accra</option>
 					<option value="Africa%2FAddis_Ababa">Africa/Addis_Ababa</option>
@@ -694,21 +809,27 @@
 					<option value="Zulu">Zulu</option>					
 				</select>
 				<label for="timezone" class="translate">timezone</label>
-				<!-- Important: label must come directly after select. Label is important. -->
 			</div>
-			<div class="input-field col s6">
-				<input placeholder=" " id="apikey" type="password" class="value">
-				<label for="apikey" class="translate">apikey</label>
-			</div>
-			<div class="input-field col s6">
+		</div>
+		<div class="row">
+			<div class="input-field col s8 l8 _tempunitFromSystem">
 				<select class="value" id="temperature">
-					<option value="C" class="translate">celsius</option>
+					<option value="C" class="translate" >celsius</option>
 					<option value="F" class="translate">farenheit</option>
 				</select>
 				<label for="temperature" class="translate">temperature</label>
-				<!-- Important: label must come directly after select. Label is important. -->
 			</div>
-			<div class="input-field col s6">
+			<div class="input-field col s4 l4">
+				<input
+					id="tempunitFromSystem"
+					type="checkbox"
+					class="value"
+				>
+				<label for="tempunitFromSystem" class="translate">tempunitFromSystem</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12 l8">
 				<select class="value" id="windspeed">
 					<option value="kmh" class="translate">kilometer per hour</option>
 					<option value="ms-1" class="translate">meter per second</option>
@@ -719,7 +840,9 @@
 				<label for="windspeed" class="translate">windspeed</label>
 				<!-- Important: label must come directly after select. Label is important. -->
 			</div>
-			<div class="input-field col s6">
+		</div>
+		<div class="row">
+			<div class="input-field col s12 l8">
 				<select class="value" id="precipitationamount">
 					<option value="mm" class="translate">mm</option>
 					<option value="inch" class="translate">inch</option>
@@ -727,12 +850,25 @@
 				<label for="precipitationamount" class="translate">precipitationamount</label>
 				<!-- Important: label must come directly after select. Label is important. -->
 			</div>
-			<div class="col s12">
-				<label class="translate" for="api_explanation">api_explanation</label>
-			</div>
-
 		</div>
-
+		<div class="row">
+			<div class="input-field col s12 l8">
+				<input
+					id="apikey"
+					type="password"
+					minlength="5"
+					class="value validate"
+				>
+				<label for="apikey" class="translate">apikey</label>
+				<span class="translate">apikeyHint</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 l12">
+				<p class="translate">api_explanation</p>
+				<p class="translate">on save adapter restarts with new config immediately</p>
+			</div>
+		</div>
 	</div>
 
 </body>

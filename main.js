@@ -9,7 +9,7 @@
 const utils = require('@iobroker/adapter-core');
 
 // Load your modules here, e.g.:
-const axios = require('axios');
+const axios = require('axios').default;
 
 //variables
 let meteoblueAPIURL;
@@ -43,109 +43,127 @@ class Meteoblue extends utils.Adapter {
 
 		// The adapters config (in the instance object everything under the attribute "native") is accessible via this.config:
 		this.log.debug('this.config.location: ' + this.config.location);
+		this.log.debug('this.config.locationFromSystem: ' + this.config.locationFromSystem);
 		this.log.debug('this.config.latitude: ' + this.config.latitude);
+		this.log.debug('typeof(this.config.latitude): ' + typeof(this.config.latitude));
 		this.log.debug('this.config.longitude: ' + this.config.longitude);
+		this.log.debug('this.config.latlongFromSystem: ' + this.config.latlongFromSystem);
 		this.log.debug('this.config.elevation: ' + this.config.elevation);
 		this.log.debug('this.config.timezone: ' + this.config.timezone);
-		this.log.debug('this.config.apikey: ' + this.config.apikey);
 		this.log.debug('this.config.temperature: ' + this.config.temperature);
+		this.log.debug('this.config.tempunitFromSystem: ' + this.config.tempunitFromSystem);
 		this.log.debug('this.config.windspeed: ' + this.config.windspeed);
 		this.log.debug('this.config.precipitationamount: ' + this.config.precipitationamount);
+		this.log.debug('this.config.apikey: ' + this.config.apikey);
+
+		const state = await this.getForeignObjectAsync('system.config', 'state');
+		if (state && state.common) {
+			this.log.debug('state.common: ' + JSON.stringify(state.common));
+			this.log.debug('state.common.city: ' + state.common.city);
+			this.log.debug('state.common.latitude: ' + state.common.latitude);
+			this.log.debug('state.common.latitude: ' + state.common.longitude);
+			this.log.debug('state.common.tempUnit: ' + state.common.tempUnit);
+
+			if (this.config.locationFromSystem) {
+				this.config.location = state.common.city;
+			}
+			if (this.config.latlongFromSystem) {
+				this.config.latitude = state.common.latitude;
+				this.config.latitude = state.common.longitude;
+			}
+			if (this.config.tempunitFromSystem) {
+				this.config.temperature = (state.common.tempUnit).substr(1, 1);
+			}
+		}
 
 		//https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#url-parameter
 		meteoblueAPIURL = 'http://my.meteoblue.com/packages/basic-day?';
 
-		//check apikey
-		if ((this.config.apikey).length !== 0 ) {
+		//check and set apikey
+		if ((this.config.apikey).length >= 5) {
 			this.log.debug('APIKEY set. (' + this.config.apikey +')');
 			meteoblueAPIURL += 'apikey=' + this.config.apikey;
 
 			//check and set latitute & longitude
 			if (
-				typeof(this.config.latitude) === 'number' &&
-				!isNaN(this.config.latitude) &&
-				this.config.latitude >= -90 &&
-				this.config.latitude <= 90 &&
-				typeof(this.config.longitude) === 'number' &&
-				!isNaN(this.config.longitude) &&
-				this.config.longitude >= -180 &&
-				this.config.longitude <= 180
+				Number(this.config.latitude) >= -90 &&
+				Number(this.config.latitude) <= 90 &&
+				Number(this.config.longitude) >= -180 &&
+				Number(this.config.longitude) <= 180
 			) {
-				this.log.info('latitude/longitude manually set');
 				meteoblueAPIURL += '&lat=' + this.config.latitude + '&lon=' + this.config.longitude;
-				await this.meteoblueAPIURL2ndPart();
-			} else {
-				this.log.info('latitude/longitude not manually set, get data from system');
-				try {
-					const state = await this.getForeignObjectAsync('system.config', 'state');
 
-					if (state) {
-						this.config.latitude = state.common.latitude;
-						this.config.longitude = state.common.longitude;
-						this.log.debug('system latitude: ' + this.config.latitude + 'system longitude: ' + this.config.longitude);
+				if (this.config.location !== null && this.config.location !== '') {
+					//convert location to UTF8; see https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#misc
+					meteoblueAPIURL += '&name=' + encodeURIComponent(this.config.location);
+
+					if (this.config.elevation !== null && this.config.elevation !== '') {
+						meteoblueAPIURL += '&asl=' + this.config.elevation;
+
+						if (this.config.timezone !== null && this.config.timezone !== '') {
+							meteoblueAPIURL += '&tz=' + this.config.timezone;
+
+							if (this.config.temperature !== null && this.config.temperature !== '') {
+								meteoblueAPIURL += '&temperature=' + this.config.temperature;
+
+								if (this.config.windspeed !== null && this.config.windspeed !== '') {
+									meteoblueAPIURL += '&windspeed=' + this.config.windspeed;
+
+									if (this.config.precipitationamount !== null && this.config.precipitationamount !== '') {
+										meteoblueAPIURL += '&precipitationamount=' + this.config.precipitationamount;
+
+										meteoblueAPIURL += '&timeformat=Y-M-D&format=json';
+										this.log.info('meteoblueAPIURL: ' + meteoblueAPIURL);
+
+										try {
+											await this.createObjectsAPI();
+											await this.getMeteoblueData(meteoblueAPIURL);
+											await this.getMeteoblueDateIntervall(meteoblueAPIURL);
+										} catch(error){
+											// Reset the connection indicator
+											this.setState('info.connection', false, true);
+											this.log.error(error);
+										}
+									} else {
+										//shut down
+										this.log.error('Unit of precipitationamount not correctly set. Please check configuration!');
+										this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
+									}
+								} else {
+									//shut down
+									this.log.error('Unit of windspeed not correctly set. Please check configuration!');
+									this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
+								}
+							} else {
+								//shut down
+								this.log.error('Temperature unit not correctly set. Please check configuration!');
+								this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
+							}
+						} else {
+							//shut down
+							this.log.error('Timezone not correctly set. Please check configuration!');
+							this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
+						}
 					} else {
 						//shut down
-						this.log.error('Astro data from system settings cannot be called up. Please check configuration!');
+						this.log.error('Elevation not correctly set. Please check configuration!');
 						this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
 					}
-				} catch (err) {
-					//shut down
-					this.log.error('Astro data from system settings cannot be called up. Please check configuration! (' + err +')');
-					this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
-				}
-
-				if (
-					typeof(this.config.latitude) === 'number' &&
-					!isNaN(this.config.latitude) &&
-					this.config.latitude >= -90 &&
-					this.config.latitude <= 90 &&
-					typeof(this.config.longitude) === 'number' &&
-					!isNaN(this.config.longitude) &&
-					this.config.longitude >= -180 &&
-					this.config.longitude <= 180
-				) {
-					this.log.info('latitude/longitude set from system');
-					meteoblueAPIURL += '&lat=' + this.config.latitude + '&lon=' + this.config.longitude;
-					await this.meteoblueAPIURL2ndPart();
 				} else {
 					//shut down
-					this.log.error('latitude and/or longitude not set. Adapter will be terminated.');
+					this.log.error('Location not correctly set. Please check configuration!');
 					this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
 				}
+			} else {
+				//shut down
+				this.log.error('Latitude and/or longitude not correctly set. Please check configuration!');
+				this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
 			}
 		} else {
 			//shut down
 			this.log.error('APIKEY not set. Adapter will be terminated.');
 			this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
 		}
-	}
-
-	async meteoblueAPIURL2ndPart() {
-		if (this.config.location !== null && this.config.location !== '') {
-			//convert location to UTF8; see https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#misc
-			meteoblueAPIURL += '&name=' + encodeURIComponent(this.config.location);
-		}
-		if (this.config.elevation !== null) {
-			meteoblueAPIURL += '&asl=' + this.config.elevation;
-		}
-		if (this.config.timezone !== null) {
-			meteoblueAPIURL += '&tz=' + this.config.timezone;
-		}
-		if (this.config.temperature !== null) {
-			meteoblueAPIURL += '&temperature=' + this.config.temperature;
-		}
-		if (this.config.windspeed !== null) {
-			meteoblueAPIURL += '&windspeed=' + this.config.windspeed;
-		}
-		if (this.config.precipitationamount !== null) {
-			meteoblueAPIURL += '&precipitationamount=' + this.config.precipitationamount;
-		}
-		meteoblueAPIURL += '&timeformat=Y-M-D&format=json';
-		this.log.info('meteoblueAPIURL: ' + meteoblueAPIURL);
-
-		await this.createObjectsAPI();
-		await this.getMeteoblueData(meteoblueAPIURL);
-		await this.getMeteoblueDateIntervall(meteoblueAPIURL);
 	}
 
 	async createObjectsAPI() {
@@ -942,13 +960,13 @@ class Meteoblue extends utils.Adapter {
 		this.log.debug('getMeteoblueData...');
 
 		//https://www.npmjs.com/package/axios
-		axios({
+		await axios({
 			method: 'get',
 			baseURL: meteoblueAPIURL,
 			timeout: 2000,
 			responseType: 'json'
 		})
-			.then(async (response) => {
+			.then((response) => {
 
 				this.setState('info.connection', true, true);
 
@@ -1035,26 +1053,25 @@ class Meteoblue extends utils.Adapter {
 			.catch((error) => {
 				if (error.response) {
 					// The request was made and the server responded with a status code that falls out of the range of 2xx
-
-					this.log.warn('received error ' + error.response.status +' with content: ' + JSON.stringify(error.response.data) + '(' + JSON.stringify(error.response.headers) +')');
-
+					this.log.debug('error data: ' + error.response.data);
+					this.log.debug('error status: ' + error.response.status);
+					this.log.debug('error headers: ' + error.response.headers);
 				} else if (error.request) {
 					// The request was made but no response was received `error.request` is an instance of XMLHttpRequest in the browser and an instance of http.ClientRequest in node.js
-					this.log.warn(error.message);
-
+					this.log.debug('error request: ' + error);
 				} else {
 					// Something happened in setting up the request that triggered an Error
-					this.log.warn(error.message);
+					this.log.debug('error message: ' + error.message);
 				}
-				this.log.debug(JSON.stringify(error.config));
-				this.setState('info.connection', false, true);
+				this.log.debug('error.config: ' + JSON.stringify(error.config));
+				throw new Error(JSON.stringify(error.config) + '(ERR_#001)');
 			});
 	}
 
 	async getMeteoblueDateIntervall(meteoblueAPIURL) {
 		intervallGetMeteoblueData = setInterval(async () => {
 			await this.getMeteoblueData(meteoblueAPIURL);
-		}, 30*60000); //30*60000=1800000ms=30min ; max-intervall: 86400000/100=864000=14min24s
+		}, 30*60000); //default-intervall: 30*60000=1800000ms=30min ; max-intervall: 86400000/100=864000=14min24s
 	}
 
 	/**

@@ -1,7 +1,7 @@
 {
 	"common": {
 		"name": "meteoblue",
-		"version": "0.0.2",
+		"version": "0.0.3",
 		"news": {
 			"0.0.1": {
 				"en": "initial release",
@@ -26,6 +26,18 @@
 				"es": "agregar la mancha de lluvia\neliminar la dirección del viento del campo de entrada del usuario, calcular la dirección del viento como 2 y 3 caracteres\neliminar la zona horaria del campo de entrada del usuario\narreglo del fallo",
 				"pl": "dodaj plamę deszczu\nusuń pole wejściowe użytkownika kierunek wiatru, oblicz kierunek wiatru jako 2 i 3 znaki\nusuń strefę czasową pola wejściowego użytkownika\nnaprawa błędów",
 				"zh-cn": "添加雨点\n删除用户输入字段风向，将风向计算为 2 和 3 个字符\n删除用户输入字段时区\n错误修正"
+			  },
+			  "0.0.3": {
+				"en": "revision of the index_m input page",
+				"de": "Überarbeitung der index_m Eingabeseite",
+				"ru": "версия страницы ввода index_m",
+				"pt": "revisão da página de entrada index_m",
+				"nl": "revisie van de index_m invoerpagina",
+				"fr": "révision de la page d'entrée index_m",
+				"it": "revisione della pagina di input index_m",
+				"es": "revisión de la página de entrada index_m",
+				"pl": "rewizja strony wejściowej index_m",
+				"zh-cn": "index_m 输入页面的修订版"
 			  }
 		},
 		"title": "meteoblue",
@@ -78,20 +90,23 @@
 		"materialize": true,
 		"dependencies": [
 			{
-				"js-controller": ">=2.0.0"
+				"js-controller": ">=3.0.0"
 			}
 		]
 	},
 	"native": {
 		"location": "",
+		"locationFromSystem": false,
 		"latitude": "",
 		"longitude": "",
+		"latlongFromSystem": false,
 		"elevation": "",
-		"timezone": "",
-		"apikey": "",
+		"timezone": "Europe%2FZurich",
 		"temperature": "C",
+		"tempunitFromSystem": false,
 		"windspeed": "kmh",
-		"precipitationamount": "mm"
+		"precipitationamount": "mm",
+		"apikey": ""
 	},
 	"objects": [],
 	"instanceObjects": [

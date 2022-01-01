@@ -1,6 +1,6 @@
 {
   "name": "iobroker.meteoblue",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This adapter fetches weather forecast from meteoblue.com",
   "author": {
     "name": "ice987987",
@@ -61,8 +61,7 @@
     "test:integration": "mocha test/integration --exit",
     "test": "npm run test:js && npm run test:package",
     "check": "tsc --noEmit -p tsconfig.check.json",
-    "lint": "eslint",
-    "release": "release-script"
+    "lint": "eslint"
   },
   "bugs": {
     "url": "https://github.com/ice987987/ioBroker.meteoblue/issues"
