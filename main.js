@@ -69,7 +69,7 @@ class Meteoblue extends utils.Adapter {
 			}
 			if (this.config.latlongFromSystem) {
 				this.config.latitude = state.common.latitude;
-				this.config.latitude = state.common.longitude;
+				this.config.longitude = state.common.longitude;
 			}
 			if (this.config.tempunitFromSystem) {
 				this.config.temperature = (state.common.tempUnit).substr(1, 1);
