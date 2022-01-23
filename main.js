@@ -57,23 +57,34 @@ class Meteoblue extends utils.Adapter {
 		this.log.debug('this.config.apikey: ' + this.config.apikey);
 
 		const state = await this.getForeignObjectAsync('system.config', 'state');
-		if (state && state.common) {
-			this.log.debug('state.common: ' + JSON.stringify(state.common));
-			this.log.debug('state.common.city: ' + state.common.city);
-			this.log.debug('state.common.latitude: ' + state.common.latitude);
-			this.log.debug('state.common.latitude: ' + state.common.longitude);
-			this.log.debug('state.common.tempUnit: ' + state.common.tempUnit);
+		if (this.supportsFeature && this.supportsFeature('ADAPTER_AUTO_DECRYPT_NATIVE')) {
+			if (state && state.common && state.native && state.native.secret) {
+				this.log.debug('state.native: ' + JSON.stringify(state.native));
+				this.log.debug('state.native.secret: ' + JSON.stringify(state.native.secret));
+				this.log.debug('state.common: ' + JSON.stringify(state.common));
+				this.log.debug('state.common.city: ' + state.common.city);
+				this.log.debug('state.common.latitude: ' + state.common.latitude);
+				this.log.debug('state.common.latitude: ' + state.common.longitude);
+				this.log.debug('state.common.tempUnit: ' + state.common.tempUnit);
 
-			if (this.config.locationFromSystem) {
-				this.config.location = state.common.city;
+				if (this.config.locationFromSystem) {
+					this.config.location = state.common.city;
+				}
+				if (this.config.latlongFromSystem) {
+					this.config.latitude = state.common.latitude;
+					this.config.longitude = state.common.longitude;
+				}
+				if (this.config.tempunitFromSystem) {
+					this.config.temperature = (state.common.tempUnit).substr(1, 1);
+				}
+
+				this.config.apikey = decrypt(state.native.secret, this.config.apikey);
+				//this.log.debug('this.config.apikey (decrypted): ' + this.config.apikey);
 			}
-			if (this.config.latlongFromSystem) {
-				this.config.latitude = state.common.latitude;
-				this.config.longitude = state.common.longitude;
-			}
-			if (this.config.tempunitFromSystem) {
-				this.config.temperature = (state.common.tempUnit).substr(1, 1);
-			}
+		} else {
+			//shut down
+			this.log.error('This adapter requires at least js-controller V3.0.0. Your system is not compatible. Please update your system. (ERR_#017)');
+			this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
 		}
 
 		//https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#url-parameter
@@ -122,46 +133,46 @@ class Meteoblue extends utils.Adapter {
 										} catch(error){
 											// Reset the connection indicator
 											this.setState('info.connection', false, true);
-											this.log.error(error);
+											this.log.error(error + ' (ERR_#009)');
 										}
 									} else {
 										//shut down
-										this.log.error('Unit of precipitationamount not correctly set. Please check configuration!');
+										this.log.error('Unit of precipitationamount not correctly set. Please check configuration! (ERR_#008)');
 										this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
 									}
 								} else {
 									//shut down
-									this.log.error('Unit of windspeed not correctly set. Please check configuration!');
+									this.log.error('Unit of windspeed not correctly set. Please check configuration! (ERR_#007)');
 									this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
 								}
 							} else {
 								//shut down
-								this.log.error('Temperature unit not correctly set. Please check configuration!');
+								this.log.error('Temperature unit not correctly set. Please check configuration! (ERR_#006)');
 								this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
 							}
 						} else {
 							//shut down
-							this.log.error('Timezone not correctly set. Please check configuration!');
+							this.log.error('Timezone not correctly set. Please check configuration! (ERR_#005)');
 							this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
 						}
 					} else {
 						//shut down
-						this.log.error('Elevation not correctly set. Please check configuration!');
+						this.log.error('Elevation not correctly set. Please check configuration! (ERR_#004)');
 						this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
 					}
 				} else {
 					//shut down
-					this.log.error('Location not correctly set. Please check configuration!');
+					this.log.error('Location not correctly set. Please check configuration! (ERR_#003)');
 					this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
 				}
 			} else {
 				//shut down
-				this.log.error('Latitude and/or longitude not correctly set. Please check configuration!');
+				this.log.error('Latitude and/or longitude not correctly set. Please check configuration! (ERR_#002)');
 				this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
 			}
 		} else {
 			//shut down
-			this.log.error('APIKEY not set. Adapter will be terminated.');
+			this.log.error('APIKEY not set. Adapter will be terminated. (ERR_#001)');
 			this.setForeignState('system.adapter.' + this.namespace + '.alive', false);
 		}
 	}
@@ -1053,18 +1064,18 @@ class Meteoblue extends utils.Adapter {
 			.catch((error) => {
 				if (error.response) {
 					// The request was made and the server responded with a status code that falls out of the range of 2xx
-					this.log.debug('error data: ' + error.response.data);
-					this.log.debug('error status: ' + error.response.status);
-					this.log.debug('error headers: ' + error.response.headers);
+					this.log.debug('error data: ' + JSON.stringify(error.response.data) + ' (ERR_#010)');
+					this.log.debug('error status: ' + JSON.stringify(error.response.status) + ' (ERR_#011)');
+					this.log.debug('error headers: ' + JSON.stringify(error.response.headers) + ' (ERR_#012)');
 				} else if (error.request) {
 					// The request was made but no response was received `error.request` is an instance of XMLHttpRequest in the browser and an instance of http.ClientRequest in node.js
-					this.log.debug('error request: ' + error);
+					this.log.debug('error request: ' + JSON.stringify(error) + ' (ERR_#013)');
 				} else {
 					// Something happened in setting up the request that triggered an Error
-					this.log.debug('error message: ' + error.message);
+					this.log.debug('error message: ' + JSON.stringify(error.message) + ' (ERR_#014)');
 				}
-				this.log.debug('error.config: ' + JSON.stringify(error.config));
-				throw new Error(JSON.stringify(error.config) + '(ERR_#001)');
+				this.log.debug('error.config: ' + JSON.stringify(error.config) + ' (ERR_#015)');
+				throw new Error(JSON.stringify(error.config) + ' (ERR_#016)');
 			});
 	}
 
@@ -1100,4 +1111,13 @@ if (require.main !== module) {
 } else {
 	// otherwise start the instance directly
 	new Meteoblue();
+}
+
+// Decrypt passwords
+function decrypt(key, value) {
+	let result = '';
+	for (let i = 0; i < value.length; ++i) {
+		result += String.fromCharCode(key[i % key.length].charCodeAt(0) ^ value.charCodeAt(i));
+	}
+	return result;
 }
