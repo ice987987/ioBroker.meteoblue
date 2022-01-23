@@ -26,6 +26,8 @@ This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.
 
 ### **WORK IN PROGRESS**
 - (ice987987) revision of the index_m input page
+- (ice987987) implementation of API decryption
+- (ice987987) bugfix
 
 ### v0.0.2 (2021-11-05)
 - (ice987987) add rainspot
@@ -39,7 +41,7 @@ This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.
 ## License
 MIT License
 
-Copyright (c) 2021 ice987987 <mathias.frei@gmail.com>
+Copyright (c) 2021-2022 ice987987 <mathias.frei@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
