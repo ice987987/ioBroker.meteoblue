@@ -973,7 +973,7 @@ class Meteoblue extends utils.Adapter {
 		//https://www.npmjs.com/package/axios
 		await axios({
 			method: 'get',
-			baseURL: meteoblueAPIURL,
+			url: meteoblueAPIURL,
 			timeout: 2000,
 			responseType: 'json'
 		})
