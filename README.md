@@ -27,7 +27,7 @@ This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.
 
 ## Changelog
 
-<!-- ### **WORK IN PROGRESS** 
+<!-- ### **WORK IN PROGRESS** -->
 
 ### **WORK IN PROGRESS**
 - (ice987987) update dependencies
