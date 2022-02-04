@@ -4,12 +4,15 @@
 [![NPM version](https://img.shields.io/npm/v/iobroker.meteoblue.svg)](https://www.npmjs.com/package/iobroker.meteoblue)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.meteoblue.svg)](https://www.npmjs.com/package/iobroker.meteoblue)
 ![Number of Installations](https://iobroker.live/badges/meteoblue-installed.svg)
-![Current version in stable repository](https://iobroker.live/badges/meteoblue-stable.svg)
-[![Dependency Status](https://img.shields.io/david/ice987987/iobroker.meteoblue.svg)](https://david-dm.org/ice987987/iobroker.meteoblue)
+<!-- ![Current version in stable repository](https://iobroker.live/badges/meteoblue-stable.svg) -->
+![Current version in stable repository](https://img.shields.io/badge/stable-not%20published-%23264777)
+<!-- [![Dependency Status](https://img.shields.io/david/ice987987/iobroker.meteoblue.svg)](https://david-dm.org/ice987987/iobroker.meteoblue) -->
 
 [![NPM](https://nodei.co/npm/iobroker.meteoblue.png?downloads=true)](https://nodei.co/npm/iobroker.meteoblue/)
 
-**Tests:** ![Test and Release](https://github.com/ice987987/ioBroker.meteoblue/workflows/Test%20and%20Release/badge.svg)
+![Test and Release](https://github.com/ice987987/ioBroker.meteoblue/workflows/Test%20and%20Release/badge.svg)
+
+[![Donate](https://img.shields.io/badge/donate-paypal-blue?style=flat)](https://paypal.me/ice987987)
 
 ## meteoblue adapter for ioBroker
 
@@ -24,11 +27,12 @@ This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.
 
 ## Changelog
 
-<!-- ### **WORK IN PROGRESS** -->
+<!-- ### **WORK IN PROGRESS** 
 
 ### **WORK IN PROGRESS**
 - (ice987987) update dependencies
 - (ice987987) bugfix
+- (ice987987) update readme.md
 
 ### v0.0.3 (2022-01-23)
 - (ice987987) revision of the index_m input page
