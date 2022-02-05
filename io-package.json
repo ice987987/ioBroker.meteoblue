@@ -28,16 +28,16 @@
 				"zh-cn": "添加雨点\n删除用户输入字段风向，将风向计算为 2 和 3 个字符\n删除用户输入字段时区\n错误修正"
 			  },
 			  "0.0.3": {
-				"en": "revision of the index_m input page",
-				"de": "Überarbeitung der index_m Eingabeseite",
-				"ru": "версия страницы ввода index_m",
-				"pt": "revisão da página de entrada index_m",
-				"nl": "revisie van de index_m invoerpagina",
-				"fr": "révision de la page d'entrée index_m",
-				"it": "revisione della pagina di input index_m",
-				"es": "revisión de la página de entrada index_m",
-				"pl": "rewizja strony wejściowej index_m",
-				"zh-cn": "index_m 输入页面的修订版"
+				"en": "revision of the index_m input page\nimplementation of API-Key de- and entcryption\nbugfix",
+				"de": "Überarbeitung der index_m Eingabeseite\nImplementierung der API-Key Ent- und Entschlüsselung\nBugfix",
+				"ru": "пересмотр страницы ввода index_m\nвнедрение API-ключей дешифрования и шифрования\nисправление",
+				"pt": "revisão da página de entrada index_m\nimplementação de API-Key de- e entcryption\nbugfix",
+				"nl": "revisie van de index_m invoerpagina\nimplementatie van API-Key de- en encryptie\nbugfix",
+				"fr": "révision de la page d'entrée index_m\nimplémentation du déchiffrement et du chiffrement de la clé API\ncorrection de bug",
+				"it": "revisione della pagina di input index_m\nimplementazione della chiave API di de- e entcryption\ncorrezione di bug",
+				"es": "revisión de la página de entrada index_m\nimplementación de API-Key descifrado y cifrado\ncorrección de errores",
+				"pl": "wersja strony wejściowej index_m\nimplementacja odszyfrowywania i szyfrowania klucza API\npoprawka błędów",
+				"zh-cn": "index_m 输入页面的修订\n实施 API-Key 解密和加密\n错误修复"
 			  }
 		},
 		"title": "meteoblue",
@@ -78,6 +78,9 @@
 		"platform": "Javascript/Node.js",
 		"main": "main.js",
 		"icon": "meteoblue.png",
+        "adminUI": {
+            "config": "materialize"
+        },
 		"enabled": false,
 		"extIcon": "https://raw.githubusercontent.com/ice987987/ioBroker.meteoblue/main/admin/meteoblue.png",
 		"readme": "https://github.com/ice987987/ioBroker.meteoblue/blob/main/README.md",
