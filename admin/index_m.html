@@ -23,6 +23,7 @@
 			showError('This adapter requires at least ioBroker.js-controller v3.0. Your system is not compatible. Please update.');
 			throw new Error('This adapter requires at least ioBroker.js-controller v3.0. Your system is not compatible. Please update.');
 		};
+
 		let secret = '';
 
 		function showHideSettings() {
@@ -34,6 +35,8 @@
 			}
 			if ($('#latlongFromSystem').prop('checked')) {
 				$('._latlongFromSystem').hide();
+				$("#latitude").val("");
+				$("#longitude").val("");
 			} else {
             	$('._latlongFromSystem').show();
 			}
@@ -53,30 +56,24 @@
 			$(".value").on("input change", function() {
 				// if something changed, enable save buttons when all fields are filled
 				if ( ($("#location").val() || $("#locationFromSystem").prop('checked')) &&
-						(($("#latitude").val() && $("#longitude").val()) || $("#latlongFromSystem").prop('checked')) &&
-						$("#elevation").val() &&
-						$("#timezone").val() &&
-						($("#temperature").val() || $("#tempunitFromSystem").prop('checked')) &&
-						$("#windspeed").val() &&
-						$("#precipitationamount").val() &&
-						$("#apikey").val())
-				{
+					(($("#latitude").val() && $("#longitude").val()) || $("#latlongFromSystem").prop('checked')) &&
+					$("#elevation").val() &&
+					$("#timezone").val() &&
+					($("#temperature").val() || $("#tempunitFromSystem").prop('checked')) &&
+					$("#windspeed").val() &&
+					$("#precipitationamount").val() &&
+					$("#apikey").val()
+				) {
 					onChange(true);
 				} else {
 					onChange(false);
 				};
 
-				if ($(this).attr('id') === 'apikey') {
-					// get the system secret for pwd de-/encryption
-					socket.emit('getObject', 'system.config', function (err, obj) {
-						secret = (obj.native ? obj.native.secret : '');
-						settings[id] = decrypt(secret, settings[id]);
-					});
-				};
+				showHideSettings();
 
 				if (M) M.updateTextFields();
 			});
-			
+
 			$("#location").val(settings["location"]);
 			$("#locationFromSystem").prop('checked', settings['locationFromSystem']);
 			$("#latitude").val(settings["latitude"]);
@@ -88,9 +85,10 @@
 			$("#tempunitFromSystem").prop('checked', settings['tempunitFromSystem']);
 			$("#windspeed").val(settings["windspeed"]);
 			$("#precipitationamount").val(settings["precipitationamount"]);
-			$("#apikey").val(settings["apikey"]);
-
-			showHideSettings();
+			socket.emit('getObject', 'system.config', function (err, obj) {
+				secret = (obj.native ? obj.native.secret : '');
+				$("#apikey").val(decrypt(secret, settings["apikey"]));
+			});
 
 			if ( ($("#location").val() || $("#locationFromSystem").prop('checked')) &&
 				(($("#latitude").val() && $("#longitude").val()) || $("#latlongFromSystem").prop('checked')) &&
@@ -99,23 +97,16 @@
 				($("#temperature").val() || $("#tempunitFromSystem").prop('checked')) &&
 				$("#windspeed").val() &&
 				$("#precipitationamount").val() &&
-				$("#apikey").val())
-			{
+				$("#apikey").val()
+			) {
 				onChange(true);
 			} else {
 				onChange(false);
 			};
-			if (M) M.updateTextFields();
 
-			$('#locationFromSystem').change(function () {
-				showHideSettings();
-			});
-			$('#latlongFromSystem').change(function () {
-				showHideSettings();
-			});
-			$('#tempunitFromSystem').change(function () {
-				showHideSettings();
-			});
+			showHideSettings();
+
+			if (M) M.updateTextFields();
 		}
 
 		// This will be called by the admin adapter when the user presses the save button
