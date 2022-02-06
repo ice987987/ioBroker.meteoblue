@@ -1,7 +1,7 @@
 {
 	"common": {
 		"name": "meteoblue",
-		"version": "0.0.3",
+		"version": "0.0.4",
 		"news": {
 			"0.0.1": {
 				"en": "initial release",
@@ -38,6 +38,18 @@
 				"es": "revisión de la página de entrada index_m\nimplementación de API-Key descifrado y cifrado\ncorrección de errores",
 				"pl": "wersja strony wejściowej index_m\nimplementacja odszyfrowywania i szyfrowania klucza API\npoprawka błędów",
 				"zh-cn": "index_m 输入页面的修订\n实施 API-Key 解密和加密\n错误修复"
+			  },
+			  "0.0.4": {
+				"en": "update dependencies\nupdate readme.md\nbugfix",
+				"de": "Abhängigkeiten aktualisieren\nreadme.md aktualisieren\nFehlerbehebung",
+				"ru": "обновить зависимости\nобновить файл readme.md\nbugfix",
+				"pt": "atualizar dependências\nupdate readme.md\nbugfix",
+				"nl": "update afhankelijkheden\nupdate readme.md\nbugfix",
+				"fr": "mettre à jour les dépendances\nmettre à jour le fichier readme.md\ncorrection de bug",
+				"it": "aggiorna le dipendenze\naggiorna readme.md\ncorrezione di bug",
+				"es": "actualizar dependencias\nactualizar readme.md\ncorrección de errores",
+				"pl": "zależności aktualizacji\nzaktualizuj plik readme.md\npoprawka błędów",
+				"zh-cn": "更新依赖\n更新 readme.md\n错误修复"
 			  }
 		},
 		"title": "meteoblue",

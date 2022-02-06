@@ -28,10 +28,10 @@ This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.
 
 <!-- ### **WORK IN PROGRESS** -->
 
-### **WORK IN PROGRESS**
+### v0.0.4 (2022-02-06)
 - (ice987987) update dependencies
-- (ice987987) bugfix
 - (ice987987) update readme.md
+- (ice987987) bugfix
 
 ### v0.0.3 (2022-01-23)
 - (ice987987) revision of the index_m input page
