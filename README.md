@@ -16,8 +16,7 @@
 
 ## meteoblue adapter for ioBroker
 
-This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.com)
-
+This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.com) and creates a rainspot (precipitation distribution within 35km).
 
 ## Installation requirements
 
