@@ -1061,7 +1061,7 @@ class Meteoblue extends utils.Adapter {
 				}
 				this.log.debug('all states written...');
 			})
-			.catch((error) => {
+			.catch ((error) => {
 				if (error.response) {
 					// The request was made and the server responded with a status code that falls out of the range of 2xx
 					this.log.debug('error data: ' + JSON.stringify(error.response.data) + ' (ERR_#010)');
@@ -1080,9 +1080,14 @@ class Meteoblue extends utils.Adapter {
 	}
 
 	async getMeteoblueDateIntervall(meteoblueAPIURL) {
-		intervallGetMeteoblueData = setInterval(async () => {
-			await this.getMeteoblueData(meteoblueAPIURL);
-		}, 30*60000); //default-intervall: 30*60000=1800000ms=30min ; max-intervall: 86400000/100=864000=14min24s
+		this.log.info('Starting polltimer with a 30 minutes interval.');
+		try {
+			intervallGetMeteoblueData = setInterval(async () => {
+				await this.getMeteoblueData(meteoblueAPIURL);
+			}, 30 * 60000); //default-intervall: 30*60000=1800000ms=30min ; max-intervall: 86400000/100=864000=14min24s
+		} catch (error) {
+			this.log.error(error + ' (ERR_#018)');
+		}
 	}
 
 	/**
