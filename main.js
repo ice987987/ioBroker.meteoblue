@@ -264,8 +264,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('metadata.utc_timeoffset', {
 			type: 'state',
 			common: {
-				name: 'UTC offset +/-(hh:mm)',
-				desc: 'UTC offset +/-(hh:mm)',
+				name: 'UTC offset (±hh:mm)',
+				desc: 'UTC offset (±hh:mm)',
 				unit: 'h',
 				type: 'number',
 				role: 'value',
@@ -278,21 +278,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('metadata.modelrun_utc', {
 			type: 'state',
 			common: {
-				name: 'Initialisation time of the meteoblue model run which delivers the raw meteoblue model data to the forecast API packages, in UTC',
-				desc: 'Initialisation time of the meteoblue model run which delivers the raw meteoblue model data to the forecast API packages, in UTC',
-				type: 'number',
-				role: 'value',
-				read: true,
-				write: false
-			},
-			native: {}
-		});
-
-		await this.setObjectNotExistsAsync('metadata.modelrun', {
-			type: 'state',
-			common: {
-				name: 'Initialisation time of the meteoblue model run which delivers the raw meteoblue model data to the forecast API packages, in ms',
-				desc: 'Initialisation time of the meteoblue model run which delivers the raw meteoblue model data to the forecast API packages, in ms',
+				name: 'Initialisation time of the meteoblue model run which delivers the raw meteoblue model data to the forecast API packages',
+				desc: 'Initialisation time of the meteoblue model run which delivers the raw meteoblue model data to the forecast API packages',
 				type: 'string',
 				role: 'date',
 				read: true,
@@ -304,21 +291,8 @@ class Meteoblue extends utils.Adapter {
 		await this.setObjectNotExistsAsync('metadata.modelrun_updatetime_utc', {
 			type: 'state',
 			common: {
-				name: 'Displays the time at which the last meteoblue model run has been completed, in UTC',
-				desc: 'Displays the time at which the last meteoblue model run has been completed, in UTC',
-				type: 'number',
-				role: 'value',
-				read: true,
-				write: false
-			},
-			native: {}
-		});
-
-		await this.setObjectNotExistsAsync('metadata.modelrun_updatetime', {
-			type: 'state',
-			common: {
-				name: 'Displays the time at which the last meteoblue model run has been completed, in ms',
-				desc: 'Displays the time at which the last meteoblue model run has been completed, in ms',
+				name: 'Displays the time at which the last meteoblue model run has been completed',
+				desc: 'Displays the time at which the last meteoblue model run has been completed',
 				type: 'string',
 				role: 'date',
 				read: true,
@@ -978,20 +952,8 @@ class Meteoblue extends utils.Adapter {
 				this.setState('metadata.height', {val: content.metadata.height, ack: true});
 				this.setState('metadata.timezone_abbrevation', {val: content.metadata.timezone_abbrevation, ack: true});
 				this.setState('metadata.utc_timeoffset', {val: content.metadata.utc_timeoffset, ack: true});
-				if (typeof(content.metadata.modelrun_utc) === 'number') {
-					this.setState('metadata.modelrun_utc', {val: content.metadata.modelrun, ack: true});
-					this.setState('metadata.modelrun', {val: '', ack: true});
-				} else {
-					this.setState('metadata.modelrun_utc', {val: null, ack: true});
-					this.setState('metadata.modelrun', {val: content.metadata.modelrun, ack: true});
-				}
-				if (typeof(content.metadata.modelrun_utc) === 'number') {
-					this.setState('metadata.modelrun_updatetime_utc', {val: content.metadata.modelrun_updatetime_utc, ack: true});
-					this.setState('metadata.modelrun_updatetime', {val: '', ack: true});
-				} else {
-					this.setState('metadata.modelrun_updatetime_utc', {val: null, ack: true});
-					this.setState('metadata.modelrun_updatetime', {val: content.metadata.modelrun_updatetime_utc, ack: true});
-				}
+				this.setState('metadata.modelrun_utc', {val: content.metadata.modelrun_utc, ack: true});
+				this.setState('metadata.modelrun_updatetime_utc', {val: content.metadata.modelrun_updatetime_utc, ack: true});
 
 				//units
 				this.setState('units.time', {val: content.units.time, ack: true});
