@@ -504,19 +504,6 @@ class Meteoblue extends utils.Adapter {
 				native: {}
 			});
 
-			await this.setObjectNotExistsAsync('data_day.' + i + '.time_ms', {
-				type: 'state',
-				common: {
-					name: 'Day of forecast in ms',
-					desc: 'Day of forecast in ms',
-					type: 'number',
-					role: 'date.forecast.' + i,
-					read: true,
-					write: false
-				},
-				native: {}
-			});
-
 			await this.setObjectNotExistsAsync('data_day.' + i + '.pictocode', {
 				type: 'state',
 				common: {
@@ -1023,7 +1010,6 @@ class Meteoblue extends utils.Adapter {
 					createVisHTMLBindingRainspot = this.createVisHTMLBindingRainspot(content.data_day.rainspot[i]);
 					calculateWinddirectionChar = this.calculateWinddirectionChar(content.data_day.winddirection[i]);
 
-					this.setState('data_day.' + i + '.time_ms', {val: (new Date(content.data_day.time[i])).getTime(), ack: true});
 					this.setState('data_day.' + i + '.time', {val: content.data_day.time[i], ack: true});
 					this.setState('data_day.' + i + '.pictocode', {val: content.data_day.pictocode[i], ack: true});
 					this.setState('data_day.' + i + '.uvindex', {val: content.data_day.uvindex[i], ack: true});
