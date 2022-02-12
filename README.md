@@ -30,6 +30,7 @@ This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.
 
 ### **WORK IN PROGRESS**
 - (ice987987) bugfix
+- (ice987987) remove dp `.data_day.[0-6].time_ms`
 
 ### v0.0.4 (2022-02-06)
 - (ice987987) update dependencies
