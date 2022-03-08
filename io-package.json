@@ -1,7 +1,7 @@
 {
 	"common": {
 		"name": "meteoblue",
-		"version": "0.0.4",
+		"version": "0.0.5",
 		"news": {
 			"0.0.1": {
 				"en": "initial release",
@@ -50,6 +50,18 @@
 				"es": "actualizar dependencias\nactualizar readme.md\ncorrección de errores",
 				"pl": "zależności aktualizacji\nzaktualizuj plik readme.md\npoprawka błędów",
 				"zh-cn": "更新依赖\n更新 readme.md\n错误修复"
+			  },
+			  "0.0.5": {
+				"en": "bugfix\nremove dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` and `.metadata.modelrun`\nupdate dependencies\nupdate readme",
+				"de": "Bug-Fix\nEntfernen Sie dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` und `.metadata.modelrun`\nAbhängigkeiten aktualisieren\nReadme aktualisieren",
+				"ru": "Исправлена ошибка\nудалить dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` и `.metadata.modelrun`\nобновить зависимости\nобновить ридми",
+				"pt": "correção de bug\nremover dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` e `.metadata.modelrun`\natualizar dependências\natualize o leia-me",
+				"nl": "bugfix\nverwijder dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` en `.metadata.modelrun`\nupdate afhankelijkheden\nupdate leesmij",
+				"fr": "correction d'un bug\nsupprimer dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` et `.metadata.modelrun`\nmettre à jour les dépendances\nmettre à jour le fichier lisez-moi",
+				"it": "risoluzione del problema\nrimuovere dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` e `.metadata.modelrun`\naggiornare le dipendenze\naggiorna il readme",
+				"es": "arreglo del fallo\neliminar dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` y `.metadata.modelrun`\nactualizar dependencias\nactualizar Léame",
+				"pl": "naprawa błędów\nusuń dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` i `.metadata.modelrun`\nzaktualizuj zależności\nzaktualizuj plik readme",
+				"zh-cn": "错误修正\n删除 dp `.data_day.[0-6].time_ms`、`.metadata.modelrun_updatetime` 和 `.metadata.modelrun`\n更新依赖\n更新自述文件"
 			  }
 		},
 		"title": "meteoblue",
