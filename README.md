@@ -28,6 +28,9 @@ This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.
 
 <!-- ### **WORK IN PROGRESS** -->
 
+### **WORK IN PROGRESS**
+- (ice987987) update dependencies
+
 ### v0.0.5 (2022-03-08)
 - (ice987987) bugfix
 - (ice987987) remove dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` and `.metadata.modelrun`
