@@ -64,7 +64,6 @@
 				"zh-cn": "错误修正\n删除 dp `.data_day.[0-6].time_ms`、`.metadata.modelrun_updatetime` 和 `.metadata.modelrun`\n更新依赖\n更新自述文件"
 			  }
 		},
-		"title": "meteoblue",
 		"titleLang": {
 			"en": "Meteoblue",
 			"de": "Meteoblue",
@@ -93,18 +92,13 @@
 			"ice987987 <mathias.frei1@gmail.com>"
 		],
 		"keywords": [
-		    "ioBroker",
-		    "weather",
-		    "smarthome",
-		    "meteoblue"
-		  ],
+			"weather",
+			"meteoblue"
+		],
 		"license": "MIT",
 		"platform": "Javascript/Node.js",
 		"main": "main.js",
 		"icon": "meteoblue.png",
-        "adminUI": {
-            "config": "materialize"
-        },
 		"enabled": false,
 		"extIcon": "https://raw.githubusercontent.com/ice987987/ioBroker.meteoblue/main/admin/meteoblue.png",
 		"readme": "https://github.com/ice987987/ioBroker.meteoblue/blob/main/README.md",
@@ -115,25 +109,39 @@
 		"connectionType": "cloud",
 		"dataSource": "poll",
 		"materialize": true,
+		"adminUI": {
+			"config": "json"
+		},
 		"dependencies": [
 			{
-				"js-controller": ">=3.0.0"
+				"js-controller": ">=3.3.19"
+			}
+		],
+		"globalDependencies": [
+			{
+				"admin": ">=5.1.28"
 			}
 		]
 	},
+	"encryptedNative": [
+		"applicationKey"
+	],
+	"protectedNative": [
+		"applicationKey"
+	],
 	"native": {
-		"location": "",
-		"locationFromSystem": false,
+		"applicationKey": "",
+		"latlongFromSystem": false,
 		"latitude": "",
 		"longitude": "",
-		"latlongFromSystem": false,
+		"cityFromSystem": false,
+		"city": "",
 		"elevation": "",
 		"timezone": "Europe%2FZurich",
-		"temperature": "C",
 		"tempunitFromSystem": false,
+		"tempunit": "C",
 		"windspeed": "kmh",
-		"precipitationamount": "mm",
-		"apikey": ""
+		"precipitationamount": "mm"
 	},
 	"objects": [],
 	"instanceObjects": [
