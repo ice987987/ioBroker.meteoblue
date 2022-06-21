@@ -1,170 +1,170 @@
 {
-	"common": {
-		"name": "meteoblue",
-		"version": "0.0.5",
-		"news": {
-			"0.0.1": {
-				"en": "initial release",
-				"de": "Erstveröffentlichung",
-				"ru": "Начальная версия",
-				"pt": "lançamento inicial",
-				"nl": "Eerste uitgave",
-				"fr": "Première version",
-				"it": "Versione iniziale",
-				"es": "Versión inicial",
-				"pl": "Pierwsze wydanie",
-				"zh-cn": "首次出版"
-			},
-			"0.0.2": {
-				"en": "add rainspot\nremove user inputfield winddirection, calculate winddirection as 2 and 3 chars\nremove user inputfield timezone\nbugfix",
-				"de": "Regenfleck hinzufügen\nBenutzereingabefeld Windrichtung entfernen, Windrichtung als 2 und 3 Zeichen berechnen\nZeitzone des Benutzereingabefelds entfernen\nFehlerbehebung",
-				"ru": "добавить дождевое пятно\nудалить направление ветра в поле ввода пользователя, вычислить направление ветра как 2 и 3 символа\nудалить часовой пояс поля ввода пользователя\nИсправлена ошибка",
-				"pt": "adicionar ponto de chuva\nremova a direção do vento do campo de entrada do usuário, calcule a direção do vento como 2 e 3 caracteres\nremover o fuso horário do campo de entrada do usuário\ncorreção de bug",
-				"nl": "regenvlek toevoegen\nverwijder gebruikersinvoerveld windrichting, bereken windrichting als 2 en 3 tekens\nverwijder gebruikersinvoerveld tijdzone\nbugfix",
-				"fr": "ajouter une tache de pluie\nsupprimer la direction du vent du champ de saisie de l'utilisateur, calculer la direction du vent comme 2 et 3 caractères\nsupprimer le fuseau horaire du champ de saisie de l'utilisateur\ncorrection d'un bug",
-				"it": "aggiungi punto di pioggia\nrimuovere la direzione del vento del campo di input dell'utente, calcolare la direzione del vento come 2 e 3 caratteri\nrimuovi il fuso orario del campo di input dell'utente\nrisoluzione del problema",
-				"es": "agregar la mancha de lluvia\neliminar la dirección del viento del campo de entrada del usuario, calcular la dirección del viento como 2 y 3 caracteres\neliminar la zona horaria del campo de entrada del usuario\narreglo del fallo",
-				"pl": "dodaj plamę deszczu\nusuń pole wejściowe użytkownika kierunek wiatru, oblicz kierunek wiatru jako 2 i 3 znaki\nusuń strefę czasową pola wejściowego użytkownika\nnaprawa błędów",
-				"zh-cn": "添加雨点\n删除用户输入字段风向，将风向计算为 2 和 3 个字符\n删除用户输入字段时区\n错误修正"
-			  },
-			  "0.0.3": {
-				"en": "revision of the index_m input page\nimplementation of API-Key de- and entcryption\nbugfix",
-				"de": "Überarbeitung der index_m Eingabeseite\nImplementierung der API-Key Ent- und Entschlüsselung\nBugfix",
-				"ru": "пересмотр страницы ввода index_m\nвнедрение API-ключей дешифрования и шифрования\nисправление",
-				"pt": "revisão da página de entrada index_m\nimplementação de API-Key de- e entcryption\nbugfix",
-				"nl": "revisie van de index_m invoerpagina\nimplementatie van API-Key de- en encryptie\nbugfix",
-				"fr": "révision de la page d'entrée index_m\nimplémentation du déchiffrement et du chiffrement de la clé API\ncorrection de bug",
-				"it": "revisione della pagina di input index_m\nimplementazione della chiave API di de- e entcryption\ncorrezione di bug",
-				"es": "revisión de la página de entrada index_m\nimplementación de API-Key descifrado y cifrado\ncorrección de errores",
-				"pl": "wersja strony wejściowej index_m\nimplementacja odszyfrowywania i szyfrowania klucza API\npoprawka błędów",
-				"zh-cn": "index_m 输入页面的修订\n实施 API-Key 解密和加密\n错误修复"
-			  },
-			  "0.0.4": {
-				"en": "update dependencies\nupdate readme.md\nbugfix",
-				"de": "Abhängigkeiten aktualisieren\nreadme.md aktualisieren\nFehlerbehebung",
-				"ru": "обновить зависимости\nобновить файл readme.md\nbugfix",
-				"pt": "atualizar dependências\nupdate readme.md\nbugfix",
-				"nl": "update afhankelijkheden\nupdate readme.md\nbugfix",
-				"fr": "mettre à jour les dépendances\nmettre à jour le fichier readme.md\ncorrection de bug",
-				"it": "aggiorna le dipendenze\naggiorna readme.md\ncorrezione di bug",
-				"es": "actualizar dependencias\nactualizar readme.md\ncorrección de errores",
-				"pl": "zależności aktualizacji\nzaktualizuj plik readme.md\npoprawka błędów",
-				"zh-cn": "更新依赖\n更新 readme.md\n错误修复"
-			  },
-			  "0.0.5": {
-				"en": "bugfix\nremove dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` and `.metadata.modelrun`\nupdate dependencies\nupdate readme",
-				"de": "Bug-Fix\nEntfernen Sie dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` und `.metadata.modelrun`\nAbhängigkeiten aktualisieren\nReadme aktualisieren",
-				"ru": "Исправлена ошибка\nудалить dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` и `.metadata.modelrun`\nобновить зависимости\nобновить ридми",
-				"pt": "correção de bug\nremover dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` e `.metadata.modelrun`\natualizar dependências\natualize o leia-me",
-				"nl": "bugfix\nverwijder dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` en `.metadata.modelrun`\nupdate afhankelijkheden\nupdate leesmij",
-				"fr": "correction d'un bug\nsupprimer dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` et `.metadata.modelrun`\nmettre à jour les dépendances\nmettre à jour le fichier lisez-moi",
-				"it": "risoluzione del problema\nrimuovere dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` e `.metadata.modelrun`\naggiornare le dipendenze\naggiorna il readme",
-				"es": "arreglo del fallo\neliminar dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` y `.metadata.modelrun`\nactualizar dependencias\nactualizar Léame",
-				"pl": "naprawa błędów\nusuń dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` i `.metadata.modelrun`\nzaktualizuj zależności\nzaktualizuj plik readme",
-				"zh-cn": "错误修正\n删除 dp `.data_day.[0-6].time_ms`、`.metadata.modelrun_updatetime` 和 `.metadata.modelrun`\n更新依赖\n更新自述文件"
-			  }
-		},
-		"titleLang": {
-			"en": "Meteoblue",
-			"de": "Meteoblue",
-			"ru": "Meteoblue",
-			"pt": "Meteoblue",
-			"nl": "Meteoblue",
-			"fr": "Meteoblue",
-			"it": "Meteoblue",
-			"es": "Meteoblue",
-			"pl": "Meteoblue",
-			"zh-cn": "气象蓝"
-		},
-		"desc": {
-			"en": "This adapter fetches weather forecast from meteoblue.com",
-			"de": "Dieser Adapter holt die Wettervorhersage von meteoblue.com",
-			"ru": "Этот адаптер получает прогноз погоды с сайта meteoblue.com.",
-			"pt": "Este adaptador obtém a previsão do tempo em meteoblue.com",
-			"nl": "Deze adapter haalt de weersvoorspelling op van meteoblue.com",
-			"fr": "Cet adaptateur récupère les prévisions météo de meteoblue.com",
-			"it": "Questo adattatore recupera le previsioni del tempo da meteoblue.com",
-			"es": "Este adaptador obtiene el pronóstico del tiempo de meteoblue.com",
-			"pl": "Ten adapter pobiera prognozę pogody z meteoblue.com",
-			"zh-cn": "该适配器从meteoblue.com 获取天气预报"
-		},
-		"authors": [
-			"ice987987 <mathias.frei1@gmail.com>"
-		],
-		"keywords": [
-			"weather",
-			"meteoblue"
-		],
-		"license": "MIT",
-		"platform": "Javascript/Node.js",
-		"main": "main.js",
-		"icon": "meteoblue.png",
-		"enabled": false,
-		"extIcon": "https://raw.githubusercontent.com/ice987987/ioBroker.meteoblue/main/admin/meteoblue.png",
-		"readme": "https://github.com/ice987987/ioBroker.meteoblue/blob/main/README.md",
-		"loglevel": "info",
-		"mode": "daemon",
-		"type": "weather",
-		"compact": true,
-		"connectionType": "cloud",
-		"dataSource": "poll",
-		"materialize": true,
-		"adminUI": {
-			"config": "json"
-		},
-		"dependencies": [
-			{
-				"js-controller": ">=3.3.19"
-			}
-		],
-		"globalDependencies": [
-			{
-				"admin": ">=5.1.28"
-			}
-		]
-	},
-	"encryptedNative": [
-		"applicationKey"
-	],
-	"protectedNative": [
-		"applicationKey"
-	],
-	"native": {
-		"applicationKey": "",
-		"latlongFromSystem": false,
-		"latitude": "",
-		"longitude": "",
-		"cityFromSystem": false,
-		"city": "",
-		"elevation": "",
-		"timezone": "Europe%2FZurich",
-		"tempunitFromSystem": false,
-		"tempunit": "C",
-		"windspeed": "kmh",
-		"precipitationamount": "mm"
-	},
-	"objects": [],
-	"instanceObjects": [
-		{
-			"_id": "info",
-			"type": "channel",
-			"common": {
-				"name": "Information"
-			},
-			"native": {}
-		},
-		{
-			"_id": "info.connection",
-			"type": "state",
-			"common": {
-				"role": "indicator.connected",
-				"name": "Device or service connected",
-				"type": "boolean",
-				"read": true,
-				"write": false,
-				"def": false
-			},
-			"native": {}
-		}
-	]
+    "common": {
+        "name": "meteoblue",
+        "version": "0.0.5",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            },
+            "0.0.2": {
+                "en": "add rainspot\nremove user inputfield winddirection, calculate winddirection as 2 and 3 chars\nremove user inputfield timezone\nbugfix",
+                "de": "Regenfleck hinzufügen\nBenutzereingabefeld Windrichtung entfernen, Windrichtung als 2 und 3 Zeichen berechnen\nZeitzone des Benutzereingabefelds entfernen\nFehlerbehebung",
+                "ru": "добавить дождевое пятно\nудалить направление ветра в поле ввода пользователя, вычислить направление ветра как 2 и 3 символа\nудалить часовой пояс поля ввода пользователя\nИсправлена ошибка",
+                "pt": "adicionar ponto de chuva\nremova a direção do vento do campo de entrada do usuário, calcule a direção do vento como 2 e 3 caracteres\nremover o fuso horário do campo de entrada do usuário\ncorreção de bug",
+                "nl": "regenvlek toevoegen\nverwijder gebruikersinvoerveld windrichting, bereken windrichting als 2 en 3 tekens\nverwijder gebruikersinvoerveld tijdzone\nbugfix",
+                "fr": "ajouter une tache de pluie\nsupprimer la direction du vent du champ de saisie de l'utilisateur, calculer la direction du vent comme 2 et 3 caractères\nsupprimer le fuseau horaire du champ de saisie de l'utilisateur\ncorrection d'un bug",
+                "it": "aggiungi punto di pioggia\nrimuovere la direzione del vento del campo di input dell'utente, calcolare la direzione del vento come 2 e 3 caratteri\nrimuovi il fuso orario del campo di input dell'utente\nrisoluzione del problema",
+                "es": "agregar la mancha de lluvia\neliminar la dirección del viento del campo de entrada del usuario, calcular la dirección del viento como 2 y 3 caracteres\neliminar la zona horaria del campo de entrada del usuario\narreglo del fallo",
+                "pl": "dodaj plamę deszczu\nusuń pole wejściowe użytkownika kierunek wiatru, oblicz kierunek wiatru jako 2 i 3 znaki\nusuń strefę czasową pola wejściowego użytkownika\nnaprawa błędów",
+                "zh-cn": "添加雨点\n删除用户输入字段风向，将风向计算为 2 和 3 个字符\n删除用户输入字段时区\n错误修正"
+            },
+            "0.0.3": {
+                "en": "revision of the index_m input page\nimplementation of API-Key de- and entcryption\nbugfix",
+                "de": "Überarbeitung der index_m Eingabeseite\nImplementierung der API-Key Ent- und Entschlüsselung\nBugfix",
+                "ru": "пересмотр страницы ввода index_m\nвнедрение API-ключей дешифрования и шифрования\nисправление",
+                "pt": "revisão da página de entrada index_m\nimplementação de API-Key de- e entcryption\nbugfix",
+                "nl": "revisie van de index_m invoerpagina\nimplementatie van API-Key de- en encryptie\nbugfix",
+                "fr": "révision de la page d'entrée index_m\nimplémentation du déchiffrement et du chiffrement de la clé API\ncorrection de bug",
+                "it": "revisione della pagina di input index_m\nimplementazione della chiave API di de- e entcryption\ncorrezione di bug",
+                "es": "revisión de la página de entrada index_m\nimplementación de API-Key descifrado y cifrado\ncorrección de errores",
+                "pl": "wersja strony wejściowej index_m\nimplementacja odszyfrowywania i szyfrowania klucza API\npoprawka błędów",
+                "zh-cn": "index_m 输入页面的修订\n实施 API-Key 解密和加密\n错误修复"
+            },
+            "0.0.4": {
+                "en": "update dependencies\nupdate readme.md\nbugfix",
+                "de": "Abhängigkeiten aktualisieren\nreadme.md aktualisieren\nFehlerbehebung",
+                "ru": "обновить зависимости\nобновить файл readme.md\nbugfix",
+                "pt": "atualizar dependências\nupdate readme.md\nbugfix",
+                "nl": "update afhankelijkheden\nupdate readme.md\nbugfix",
+                "fr": "mettre à jour les dépendances\nmettre à jour le fichier readme.md\ncorrection de bug",
+                "it": "aggiorna le dipendenze\naggiorna readme.md\ncorrezione di bug",
+                "es": "actualizar dependencias\nactualizar readme.md\ncorrección de errores",
+                "pl": "zależności aktualizacji\nzaktualizuj plik readme.md\npoprawka błędów",
+                "zh-cn": "更新依赖\n更新 readme.md\n错误修复"
+            },
+            "0.0.5": {
+                "en": "bugfix\nremove dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` and `.metadata.modelrun`\nupdate dependencies\nupdate readme",
+                "de": "Bug-Fix\nEntfernen Sie dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` und `.metadata.modelrun`\nAbhängigkeiten aktualisieren\nReadme aktualisieren",
+                "ru": "Исправлена ошибка\nудалить dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` и `.metadata.modelrun`\nобновить зависимости\nобновить ридми",
+                "pt": "correção de bug\nremover dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` e `.metadata.modelrun`\natualizar dependências\natualize o leia-me",
+                "nl": "bugfix\nverwijder dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` en `.metadata.modelrun`\nupdate afhankelijkheden\nupdate leesmij",
+                "fr": "correction d'un bug\nsupprimer dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` et `.metadata.modelrun`\nmettre à jour les dépendances\nmettre à jour le fichier lisez-moi",
+                "it": "risoluzione del problema\nrimuovere dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` e `.metadata.modelrun`\naggiornare le dipendenze\naggiorna il readme",
+                "es": "arreglo del fallo\neliminar dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` y `.metadata.modelrun`\nactualizar dependencias\nactualizar Léame",
+                "pl": "naprawa błędów\nusuń dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` i `.metadata.modelrun`\nzaktualizuj zależności\nzaktualizuj plik readme",
+                "zh-cn": "错误修正\n删除 dp `.data_day.[0-6].time_ms`、`.metadata.modelrun_updatetime` 和 `.metadata.modelrun`\n更新依赖\n更新自述文件"
+            }
+        },
+        "titleLang": {
+            "en": "Meteoblue",
+            "de": "Meteoblue",
+            "ru": "Meteoblue",
+            "pt": "Meteoblue",
+            "nl": "Meteoblue",
+            "fr": "Meteoblue",
+            "it": "Meteoblue",
+            "es": "Meteoblue",
+            "pl": "Meteoblue",
+            "zh-cn": "气象蓝"
+        },
+        "desc": {
+            "en": "This adapter fetches weather forecast from meteoblue.com",
+            "de": "Dieser Adapter holt die Wettervorhersage von meteoblue.com",
+            "ru": "Этот адаптер получает прогноз погоды с сайта meteoblue.com.",
+            "pt": "Este adaptador obtém a previsão do tempo em meteoblue.com",
+            "nl": "Deze adapter haalt de weersvoorspelling op van meteoblue.com",
+            "fr": "Cet adaptateur récupère les prévisions météo de meteoblue.com",
+            "it": "Questo adattatore recupera le previsioni del tempo da meteoblue.com",
+            "es": "Este adaptador obtiene el pronóstico del tiempo de meteoblue.com",
+            "pl": "Ten adapter pobiera prognozę pogody z meteoblue.com",
+            "zh-cn": "该适配器从meteoblue.com 获取天气预报"
+        },
+        "authors": [
+            "ice987987 <mathias.frei1@gmail.com>"
+        ],
+        "keywords": [
+            "weather",
+            "meteoblue"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "meteoblue.png",
+        "enabled": false,
+        "extIcon": "https://raw.githubusercontent.com/ice987987/ioBroker.meteoblue/main/admin/meteoblue.png",
+        "readme": "https://github.com/ice987987/ioBroker.meteoblue/blob/main/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "weather",
+        "compact": true,
+        "connectionType": "cloud",
+        "dataSource": "poll",
+        "materialize": true,
+        "adminUI": {
+            "config": "json"
+        },
+        "dependencies": [
+            {
+                "js-controller": ">=3.3.19"
+            }
+        ],
+        "globalDependencies": [
+            {
+                "admin": ">=5.1.28"
+            }
+        ]
+    },
+    "encryptedNative": [
+        "applicationKey"
+    ],
+    "protectedNative": [
+        "applicationKey"
+    ],
+    "native": {
+        "applicationKey": "",
+        "latlongFromSystem": false,
+        "latitude": "",
+        "longitude": "",
+        "cityFromSystem": false,
+        "city": "",
+        "elevation": "",
+        "timezone": "Europe%2FZurich",
+        "tempunitFromSystem": false,
+        "tempunit": "C",
+        "windspeed": "kmh",
+        "precipitationamount": "mm"
+    },
+    "objects": [],
+    "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "Device or service connected",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
+    ]
 }
