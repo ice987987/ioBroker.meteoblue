@@ -1,6 +1,6 @@
 {
     "city": "город",
-    "cityHint": "например ",
+    "cityHint": "e.g Базель",
     "cityFromSystem": "использовать город из системных настроек",
     "latitude": "широта WGS84",
     "latitudeHint": "например ",
