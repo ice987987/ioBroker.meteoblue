@@ -24,5 +24,5 @@
     "mm": "mm",
     "inch": "Zoll",
     "applicationKey": "API-Schlüssel",
-    "applicationKeyHint": "Holen Sie sich <a href=\"https://content.meteoblue.com/en/access-options/weather-apis/free-weather-api\" target=\"_blank\">hier</a> den nicht-kommerziellen API-Dienst von meteoblue."
+    "applicationKeyHint": "Holen Sie sich <a href=\"https://content.meteoblue.com/de/zugangsoptionen/wetter-apis/free-weather-api\" target=\"_blank\">hier</a> den nicht-kommerziellen API-Dienst von meteoblue."
 }

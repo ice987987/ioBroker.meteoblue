@@ -12,10 +12,9 @@ const utils = require('@iobroker/adapter-core');
 const axios = require('axios').default;
 
 // variables
-const isValidcity = /[a-zA-Z0-9 ]{2,}/;
 const isValidApplicationKey = /[a-zA-Z0-9]{12,}/;
-let createVisHTMLBindingRainspot = '';
-let calculateWinddirectionChar = '';
+let createVisHTMLBindingRainspot = null;
+let calculateWinddirectionChar = null;
 
 class Meteoblue extends utils.Adapter {
 
@@ -97,7 +96,7 @@ class Meteoblue extends utils.Adapter {
 					this.log.error('"City" from system settings is not valid. Please check configuration! (ERR_#004)');
 					return;
 				}
-			} else if (!isValidcity.test(this.config.city)) {
+			} else if (!this.config.city) {
 				this.log.error('"City" is not valid. Pleae check configuration! (ERR_#005)');
 				return;
 			}
@@ -105,7 +104,7 @@ class Meteoblue extends utils.Adapter {
 			this.meteoblueApiUrl += `&name=${encodeURIComponent(this.config.city)}`;
 
 			// check elevation
-			if (Number(this.config.elevation) < 0 || Number(this.config.elevation) > 9000) {
+			if (Number(this.config.elevation) < -428 || Number(this.config.elevation) > 8848) {
 				this.log.error('"Elevation" is not valid. Please check configuration! (ERR_#004)');
 				return;
 			}
@@ -159,7 +158,7 @@ class Meteoblue extends utils.Adapter {
 		} catch (error){
 			// Reset the connection indicator
 			this.setState('info.connection', false, true);
-			this.log.error(`${error}: (ERR_#011)`);
+			this.log.error(`${error}`);
 		}
 	}
 
@@ -1000,7 +999,7 @@ class Meteoblue extends utils.Adapter {
 					this.log.debug(`[getMeteoblueData]: error message: ${error.message}`);
 				}
 				this.log.debug(`[getMeteoblueData]: error.config: ${JSON.stringify(error.config)}`);
-				throw new Error ('"Meteoblue API" not reachable. (ERR_#012)');
+				throw new Error (`"Meteoblue API" not reachable. ${error.response.data.error_message} (ERR_#012)`);
 			});
 	}
 
@@ -1009,7 +1008,7 @@ class Meteoblue extends utils.Adapter {
 		try {
 			this.intervall = setInterval(async () => {
 				await this.getMeteoblueData();
-			}, 1 * 60000); // default-intervall: 30*60000=1800000ms=30min ; max-intervall: 86400000/100=864000=14min24s
+			}, 30 * 60000); // default-intervall: 30*60000=1800000ms=30min ; max-intervall: 86400000/100=864000=14min24s
 		} catch (error) {
 			this.log.error(`${error}: (ERR_#013)`);
 		}
