@@ -3,9 +3,9 @@
     "cityHint": "por exemplo Basileia",
     "cityFromSystem": "usar cidade nas configurações do sistema",
     "latitude": "latitude WGS84",
-    "latitudeHint": "por exemplo. ",
+    "latitudeHint": "por exemplo 47.55814",
     "longitude": "longitude WGS84",
-    "longitudeHint": "por exemplo. ",
+    "longitudeHint": "por exemplo 7.58769",
     "latlongFromSystem": "use latitude e longitude das configurações do sistema",
     "elevation": "altitude (metros acima do mar)",
     "elevationHint": "por exemplo. ",
@@ -24,5 +24,7 @@
     "mm": "milímetros",
     "inch": "polegada",
     "applicationKey": "Chave API",
-    "applicationKeyHint": "Obtenha o serviço de API não comercial de meteoblue <a href=\"https://content.meteoblue.com/pt/formas-de-acesso/apis-meteorologicas/free-weather-api\" target=\"_blank\">aqui</a>."
+    "applicationKeyHint": "Obtenha o serviço de API não comercial de meteoblue <a href=\"https://content.meteoblue.com/pt/formas-de-acesso/apis-meteorologicas/free-weather-api\" target=\"_blank\">aqui</a>.",
+    "application_explanation": "Para usos não comerciais, meteoblue.com oferece o meteograma 5 dias e o pacote de dados básico-dia. Usos não comerciais são todos os usos sem fins lucrativos diretos.",
+    "application_link": "Uma descrição dos valores pode ser encontrada aqui."
 }

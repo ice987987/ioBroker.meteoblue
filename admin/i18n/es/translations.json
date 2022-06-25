@@ -1,11 +1,11 @@
 {
     "city": "ciudad",
-    "cityHint": "p.ej. ",
+    "cityHint": "p.ej. Basel",
     "cityFromSystem": "usar la ciudad desde la configuración del sistema",
     "latitude": "latitud WGS84",
-    "latitudeHint": "p.ej. ",
+    "latitudeHint": "p.ej. 47.55814",
     "longitude": "longitud WGS84",
-    "longitudeHint": "p.ej. ",
+    "longitudeHint": "p.ej. 7.58769",
     "latlongFromSystem": "usar latitud y longitud de la configuración del sistema",
     "elevation": "elevación (metros sobre el mar)",
     "elevationHint": "p.ej. ",
@@ -24,5 +24,7 @@
     "mm": "milímetro",
     "inch": "pulgada",
     "applicationKey": "Clave API",
-    "applicationKeyHint": "Obtenga el servicio API no comercial de meteoblue <a href=\"https://content.meteoblue.com/es/modos-de-accesso/api-meteorologicas/free-weather-api\" target=\"_blank\">aquí</a>."
+    "applicationKeyHint": "Obtenga el servicio API no comercial de meteoblue <a href=\"https://content.meteoblue.com/es/modos-de-accesso/api-meteorologicas/free-weather-api\" target=\"_blank\">aquí</a>.",
+    "application_explanation": "Para usos no comerciales, meteoblue.com ofrece el meteograma 5 días y el paquete de datos basic-day. Los usos no comerciales son todos los usos sin fines de lucro directo.",
+    "application_link": "Puede encontrar una descripción de los valores aquí."
 }

@@ -1,11 +1,11 @@
 {
     "city": "stad",
-    "cityHint": "bijv. ",
+    "cityHint": "bijv Basel",
     "cityFromSystem": "gebruik stad uit systeeminstellingen",
     "latitude": "breedtegraad WGS84",
-    "latitudeHint": "bijv. ",
+    "latitudeHint": "bijv 47.55814",
     "longitude": "lengtegraad WGS84",
-    "longitudeHint": "bijv. ",
+    "longitudeHint": "bijv 7.58769",
     "latlongFromSystem": "gebruik de lengte- en breedtegraad uit de systeeminstellingen",
     "elevation": "hoogte (meters boven zee)",
     "elevationHint": "bijv. ",
@@ -24,5 +24,7 @@
     "mm": "mm",
     "inch": "inch",
     "applicationKey": "API sleutel",
-    "applicationKeyHint": "Download de meteoblue niet-commerciële API-service <a href=\"https://content.meteoblue.com/en/access-options/weather-apis/free-weather-api\" target=\"_blank\">hier</a>."
+    "applicationKeyHint": "Download de meteoblue niet-commerciële API-service <a href=\"https://content.meteoblue.com/en/access-options/weather-apis/free-weather-api\" target=\"_blank\">hier</a>.",
+    "application_explanation": "Voor niet-commercieel gebruik biedt meteoblue.com het meteogram 5 dagen en het datapakket basisdag aan. Niet-commercieel gebruik is elk gebruik zonder directe winstoogmerk.",
+    "application_link": "Een beschrijving van de waarden vindt u hier"
 }

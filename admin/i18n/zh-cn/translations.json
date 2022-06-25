@@ -3,9 +3,9 @@
     "cityHint": "e. 巴塞尔",
     "cityFromSystem": "从系统设置中使用城市",
     "latitude": "纬度 WGS84",
-    "latitudeHint": "例如",
+    "latitudeHint": "例如 47.55814",
     "longitude": "经度 WGS84",
-    "longitudeHint": "例如",
+    "longitudeHint": "例如 7.58769",
     "latlongFromSystem": "使用系统设置中的纬度和经度",
     "elevation": "海拔（海拔米）",
     "elevationHint": "例如",
@@ -24,5 +24,7 @@
     "mm": "毫米",
     "inch": "英寸",
     "applicationKey": "API 密钥",
-    "applicationKeyHint": "<a href=\"https://content.meteoblue.com/en/access-options/weather-apis/free-weather-api\" target=\"_blank\">这里</a>获取meteoblue非商业API服务。"
+    "applicationKeyHint": "<a href=\"https://content.meteoblue.com/en/access-options/weather-apis/free-weather-api\" target=\"_blank\">这里</a>获取meteoblue非商业API服务。",
+    "application_explanation": "对于非商业用途，meteoblue.com 提供 5 天的气象图和基本天的数据包。非商业用途是所有没有直接盈利目的的用途。",
+    "application_link": "可以在此处 找到这些值的说明。"
 }
