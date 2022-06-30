@@ -13,6 +13,7 @@ const axios = require('axios').default;
 
 // variables
 const isValidApplicationKey = /[a-zA-Z0-9]{12,}/;
+const compassDirection = ['N', 'NNO', 'NO', 'ONO', 'O', 'OSO', 'SO', 'SSO', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
 let createVisHTMLBindingRainspot = null;
 let calculateWinddirectionChar = null;
 
@@ -862,42 +863,42 @@ class Meteoblue extends utils.Adapter {
 		// https://content.meteoblue.com/en/spatial-dimensions/spot
 		let counter = 0;
 		// correction of +2px/-2px due to basic-HTML widget issues
-		let html = '<style>' +
-						'table.meteoblue {width: 100%; height: 100%; border: none; border-collapse: collapse; empty-cells: show; }' +
-						'table.meteoblue tr {height: calc(100% / 7); }' +
-						'table.meteoblue td {width: calc(100% / 7); }' +
-						'table.meteoblue td.value0 {background-color: rgba(0, 0, 0, 0); }' +
-						'table.meteoblue td.value1 {background-color: rgba(19, 238, 252, 1); }' +
-						'table.meteoblue td.value2 {background-color: rgba(58, 170, 220, 1); }' +
-						'table.meteoblue td.value3 {background-color: rgba(23, 116, 196, 1); }' +
-						'table.meteoblue td.value9 {background-color: rgba(38, 215, 146, 1); }' +
-						'#meteoblueMain {position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; border: none; }' +
-						'#meteoblueCircle1 {position: absolute; top: 0px; left: 0px; width: calc(100% - 2px); height: calc(100% - 2px); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
-						'#meteoblueCircle2 {position: absolute; top: calc(((100% - 2px) / 7) * 1); left: calc(((100% - 2px) / 7) * 1); width: calc(((100% - 2px) / 7) * 5); height: calc(((100% - 2px) / 7) * 5); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
-						'#meteoblueCircle3 {position: absolute; top: calc(((100% - 2px) / 7) * 2); left: calc(((100% - 2px) / 7) * 2); width: calc(((100% - 2px) / 7) * 3); height: calc(((100% - 2px) / 7) * 3); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
-						'#meteoblueCircle4 {position: absolute; top: calc(((100% - 2px) / 7) * 3); left: calc(((100% - 2px) / 7) * 3); width: calc(((100% - 2px) / 7) * 1); height: calc(((100% - 2px) / 7) * 1); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }' +
-						'#meteoblueLineleft {position: absolute; top: calc((100% - 2px) / 2); left: 0px; border: 0.5px solid rgba(109, 109, 114, 0.5); width: calc(100% / 14); height: 0px; }' +
-						'#meteoblueLineright {position: absolute; top: calc((100% - 2px) / 2); right: 0px; border: 0.5px solid rgba(109, 109, 114, 0.5); width: calc(100% / 14); }' +
-						'#meteoblueLinetop {position: absolute; top: 0px; left: calc((100% - 2px) / 2); border: 0.5px solid rgba(109, 109, 114, 0.5); width: 0px; height: calc(100% / 14); }' +
-						'#meteoblueLinedown {position: absolute; top: calc((100% - 2px) - ((100% - 2px) / 14)); left: calc((100% - 2px) / 2); border: 0.5px solid rgba(109, 109, 114, 0.5); width: 0px; height: calc(100% / 14); }' +
-					'</style>' +
-					'<div id="meteoblueMain">' +
-					'<div id="meteoblueCircle1"></div>' +
-					'<div id="meteoblueCircle2"></div>' +
-					'<div id="meteoblueCircle3"></div>' +
-					'<div id="meteoblueCircle4"></div>' +
-					'<div id="meteoblueLineleft"></div>' +
-					'<div id="meteoblueLineright"></div>' +
-					'<div id="meteoblueLinetop"></div>' +
-					'<div id="meteoblueLinedown"></div>' +
-					'<table class="meteoblue">';
+		let html = '<style> ' +
+						'table.meteoblue {width: 100%; height: 100%; border: none; border-collapse: collapse; empty-cells: show; } ' +
+						'table.meteoblue tr {height: calc(100% / 7); } ' +
+						'table.meteoblue td {width: calc(100% / 7); } ' +
+						'table.meteoblue td.value0 {background-color: rgba(0, 0, 0, 0); } ' +
+						'table.meteoblue td.value1 {background-color: rgba(19, 238, 252, 1); } ' +
+						'table.meteoblue td.value2 {background-color: rgba(58, 170, 220, 1); } ' +
+						'table.meteoblue td.value3 {background-color: rgba(23, 116, 196, 1); } ' +
+						'table.meteoblue td.value9 {background-color: rgba(38, 215, 146, 1); } ' +
+						'#meteoblueMain {position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; border: none; } ' +
+						'#meteoblueCircle1 {position: absolute; top: 0px; left: 0px; width: calc(100% - 2px); height: calc(100% - 2px); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; } ' +
+						'#meteoblueCircle2 {position: absolute; top: calc(((100% - 2px) / 7) * 1); left: calc(((100% - 2px) / 7) * 1); width: calc(((100% - 2px) / 7) * 5); height: calc(((100% - 2px) / 7) * 5); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; } ' +
+						'#meteoblueCircle3 {position: absolute; top: calc(((100% - 2px) / 7) * 2); left: calc(((100% - 2px) / 7) * 2); width: calc(((100% - 2px) / 7) * 3); height: calc(((100% - 2px) / 7) * 3); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; } ' +
+						'#meteoblueCircle4 {position: absolute; top: calc(((100% - 2px) / 7) * 3); left: calc(((100% - 2px) / 7) * 3); width: calc(((100% - 2px) / 7) * 1); height: calc(((100% - 2px) / 7) * 1); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; } ' +
+						'#meteoblueLineleft {position: absolute; top: calc((100% - 2px) / 2); left: 0px; border: 0.5px solid rgba(109, 109, 114, 0.5); width: calc(100% / 14); height: 0px; } ' +
+						'#meteoblueLineright {position: absolute; top: calc((100% - 2px) / 2); right: 0px; border: 0.5px solid rgba(109, 109, 114, 0.5); width: calc(100% / 14); } ' +
+						'#meteoblueLinetop {position: absolute; top: 0px; left: calc((100% - 2px) / 2); border: 0.5px solid rgba(109, 109, 114, 0.5); width: 0px; height: calc(100% / 14); } ' +
+						'#meteoblueLinedown {position: absolute; top: calc((100% - 2px) - ((100% - 2px) / 14)); left: calc((100% - 2px) / 2); border: 0.5px solid rgba(109, 109, 114, 0.5); width: 0px; height: calc(100% / 14); } ' +
+					'</style> ' +
+					'<div id="meteoblueMain"> ' +
+					'<div id="meteoblueCircle1"></div> ' +
+					'<div id="meteoblueCircle2"></div> ' +
+					'<div id="meteoblueCircle3"></div> ' +
+					'<div id="meteoblueCircle4"></div> ' +
+					'<div id="meteoblueLineleft"></div> ' +
+					'<div id="meteoblueLineright"></div> ' +
+					'<div id="meteoblueLinetop"></div> ' +
+					'<div id="meteoblueLinedown"></div> ' +
+					'<table class="meteoblue"> ';
 		for (let i = 0; i < 7; i++) {
-			html += '<tr>';
+			html += '<tr> ';
 			for (let j = 0; j < 7; j++) {
-				html += '<td class ="value' + day.substr(counter, 1) + '"></td>';
+				html += '<td class ="value' + day.substr(counter, 1) + '"></td> ';
 				counter += 1;
 			}
-			html += '</tr>';
+			html += '</tr> ';
 		}
 		html += '</table></div>';
 		return html;
@@ -905,10 +906,9 @@ class Meteoblue extends utils.Adapter {
 
 	calculateWinddirectionChar(degree) {
 		// https://docs.meteoblue.com/en/meteo/variables/weather-variables#wind-direction
-		const chars = ['N', 'NNO', 'NO', 'ONO', 'O', 'OSO', 'SO', 'SSO', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
 		const value2 = Math.round(degree / 45);
 		const value3 = Math.round(degree / 22.5);
-		return [chars[(value2 % 8) * 2], chars[value3 % 16]];
+		return [compassDirection[(value2 % 8) * 2], compassDirection[value3 % 16]];
 	}
 
 	async getMeteoblueData() {
