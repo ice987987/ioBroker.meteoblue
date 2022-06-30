@@ -9,24 +9,25 @@
   "homepage": "https://github.com/ice987987/ioBroker.meteoblue",
   "license": "MIT",
   "keywords": [
-    "ioBroker",
     "weather",
-    "smarthome",
     "meteoblue"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ice987987/ioBroker.meteoblue"
   },
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "dependencies": {
     "@iobroker/adapter-core": "^2.6.0",
     "axios": "^0.27.2"
   },
   "devDependencies": {
+    "@iobroker/adapter-dev": "^1.0.0",
     "@iobroker/testing": "^3.0.2",
     "@types/chai": "^4.3.1",
     "@types/chai-as-promised": "^7.1.5",
-    "@types/gulp": "^4.0.9",
     "@types/mocha": "^9.1.1",
     "@types/node": "^17.0.38",
     "@types/proxyquire": "^1.3.28",
@@ -35,7 +36,6 @@
     "chai": "^4.3.6",
     "chai-as-promised": "^7.1.1",
     "eslint": "^8.16.0",
-    "gulp": "^4.0.2",
     "mocha": "^10.0.0",
     "proxyquire": "^2.1.3",
     "sinon": "^14.0.0",
@@ -55,11 +55,11 @@
   "scripts": {
     "test:js": "mocha --config test/mocharc.custom.json \"{!(node_modules|test)/**/*.test.js,*.test.js,test/**/test!(PackageFiles|Startup).js}\"",
     "test:package": "mocha test/package --exit",
-    "test:unit": "mocha test/unit --exit",
     "test:integration": "mocha test/integration --exit",
     "test": "npm run test:js && npm run test:package",
     "check": "tsc --noEmit -p tsconfig.check.json",
-    "lint": "eslint"
+    "lint": "eslint",
+    "translate": "translate-adapter"
   },
   "bugs": {
     "url": "https://github.com/ice987987/ioBroker.meteoblue/issues"
