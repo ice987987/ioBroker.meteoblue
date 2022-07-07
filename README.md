@@ -34,7 +34,6 @@ This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.
 * (ice987987) clean up code
 * (ice987987) implementation of JSON config (this change requires js-controller >= v3.3.19 and admin >= v5.1.28)
 * (ice987987) node.js >= v14.0 is required
-* (ice987987) update dependencies
 * (ice987987) improved bug-report form
 * (ice987987) update links to meteoblue homepage due to their updated homepage
 * (ice987987) update dependencies
