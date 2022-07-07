@@ -8,7 +8,7 @@
     "longitudeHint": "np. 7.58769",
     "latlongFromSystem": "użyj szerokości i długości geograficznej z ustawień systemowych",
     "elevation": "wysokość (m nad poziomem morza)",
-    "elevationHint": "np. ",
+    "elevationHint": "np. 260",
     "timezone": "strefa czasowa",
     "tempunit": "jednostka temperatury",
     "celsius": "Celsjusz",

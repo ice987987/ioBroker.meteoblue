@@ -8,7 +8,7 @@
     "longitudeHint": "por exemplo 7.58769",
     "latlongFromSystem": "use latitude e longitude das configurações do sistema",
     "elevation": "altitude (metros acima do mar)",
-    "elevationHint": "por exemplo. ",
+    "elevationHint": "por exemplo 260",
     "timezone": "fuso horário",
     "tempunit": "unidade de temperatura",
     "celsius": "Celsius",

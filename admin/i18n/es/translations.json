@@ -8,7 +8,7 @@
     "longitudeHint": "p.ej. 7.58769",
     "latlongFromSystem": "usar latitud y longitud de la configuración del sistema",
     "elevation": "elevación (metros sobre el mar)",
-    "elevationHint": "p.ej. ",
+    "elevationHint": "p.ej. 260",
     "timezone": "zona horaria",
     "tempunit": "unidad de temperatura",
     "celsius": "Celsius",
