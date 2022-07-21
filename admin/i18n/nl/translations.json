@@ -26,7 +26,7 @@
     "applicationKey": "API sleutel",
     "applicationKeyHint": "Download de meteoblue niet-commerciële API-service <a href=\"https://content.meteoblue.com/en/access-options/weather-apis/free-weather-api\" target=\"_blank\">hier</a>. Bekijk <a href=\"https://www.meteoblue.com/de/weather-api/forecast-api\" target=\"_blank\">hier</a> uw persoonlijke API-sleutel.",
     "intervall": "verkiezingen",
-    "intervallHint": "bijv 300",
+    "intervallHint": "binnen enkele minuten",
     "application_explanation": "Voor niet-commercieel gebruik biedt meteoblue.com het meteogram 5 dagen en het datapakket basisdag aan. Niet-commercieel gebruik is elk gebruik zonder directe winstoogmerk.",
     "application_link": "Een beschrijving van de waarden vindt u hier"
 }

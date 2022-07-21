@@ -37,6 +37,7 @@ This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.
 * (ice987987) improved bug-report form
 * (ice987987) update links to meteoblue homepage due to their updated homepage
 * (ice987987) update dependencies
+* (ice987987) add polling interval
 
 ### v0.0.5 (2022-03-08)
 * (ice987987) bugfix
