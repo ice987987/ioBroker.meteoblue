@@ -24,7 +24,9 @@
     "mm": "毫米",
     "inch": "英寸",
     "applicationKey": "API 密钥",
-    "applicationKeyHint": "<a href=\"https://content.meteoblue.com/en/access-options/weather-apis/free-weather-api\" target=\"_blank\">这里</a>获取meteoblue非商业API服务。",
+    "applicationKeyHint": "<a href=\"https://content.meteoblue.com/en/access-options/weather-apis/free-weather-api\" target=\"_blank\">这里</a>获取meteoblue非商业API服务。你们个人API-Key <a href=\"https://www.meteoblue.com/de/weather-api/forecast-api\" target=\"_blank\"> here </a>。",
+    "intervall": "投票间隔",
+    "intervallHint": "例如300",
     "application_explanation": "对于非商业用途，meteoblue.com 提供 5 天的气象图和基本天的数据包。非商业用途是所有没有直接盈利目的的用途。",
     "application_link": "可以在此处 找到这些值的说明。"
 }

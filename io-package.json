@@ -141,7 +141,8 @@
         "tempunitFromSystem": false,
         "tempunit": "C",
         "windspeed": "kmh",
-        "precipitationamount": "mm"
+        "precipitationamount": "mm",
+        "intervall": 300
     },
     "objects": [],
     "instanceObjects": [

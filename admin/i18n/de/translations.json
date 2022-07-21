@@ -24,7 +24,9 @@
     "mm": "Millimeter",
     "inch": "Zoll",
     "applicationKey": "API-Schlüssel",
-    "applicationKeyHint": "Holen Sie sich <a href=\"https://content.meteoblue.com/de/zugangsoptionen/wetter-apis/free-weather-api\" target=\"_blank\">hier</a> den nicht-kommerziellen API-Dienst von meteoblue.",
+    "applicationKeyHint": "Holen Sie sich <a href=\"https://content.meteoblue.com/de/zugangsoptionen/wetter-apis/free-weather-api\" target=\"_blank\">hier</a> den nicht-kommerziellen API-Dienst von meteoblue. Ihren persönslichen APK-Key finden sie <a href=\"https://www.meteoblue.com/de/weather-api/forecast-api\" target=\"_blank\">hier</a>.",
+    "intervall": "Abfrageintervall",
+    "intervallHint": "z.B. 300",
     "application_explanation": "Für nicht-kommerzielle Zwecke bietet meteoblue.com das Meteogramm 5 Tage und das Datenpaket Basic-Day an. Nicht-kommerzielle Nutzungen sind alle Nutzungen ohne unmittelbaren Gewinnzweck.",
     "application_link": "Eine Beschreibung der Werte finden Sie hier."
 }

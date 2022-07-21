@@ -153,6 +153,22 @@
             "md": 8,
             "lg": 8
         },
+        "intervall": {
+            "newLine": true,
+            "type": "number",
+            "label": "intervall",
+            "help": "intervallHint",
+            "placeholder": "300",
+            "min": 1,
+            "max": 1440,
+            "step": 1,
+            "validator": "data.intervall && data.intervall >= 1 && data.intervall <= 1440",
+            "validatorNoSaveOnError": true,
+            "xs": 12,
+            "sm": 12,
+            "md": 8,
+            "lg": 8
+        },
         "_application_explanation": {
             "newLine": true,
             "type": "staticText",

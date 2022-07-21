@@ -24,7 +24,9 @@
     "mm": "мм",
     "inch": "дюйм",
     "applicationKey": "API-ключ",
-    "applicationKeyHint": "Получите некоммерческий API-сервис meteoblue <a href=\"https://content.meteoblue.com/en/access-options/weather-apis/free-weather-api\" target=\"_blank\">здесь</a>.",
+    "applicationKeyHint": "Получите некоммерческий API-сервис meteoblue <a href=\"https://content.meteoblue.com/en/access-options/weather-apis/free-weather-api\" target=\"_blank\">здесь</a>. Посмотреть свой персональный API-ключ можно <a href=\"https://www.meteoblue.com/de/weather-api/forecast-api\" target=\"_blank\">здесь</a>",
+    "intervall": "интервал опроса",
+    "intervallHint": "долгота 300",
     "application_explanation": "Для некоммерческого использования meteoblue.com предлагает метеограмму за 5 дней и пакет данных «базовый день». Некоммерческое использование - это все виды использования без прямой прибыли.",
     "application_link": "Описание значений можно найти здесь."
 }

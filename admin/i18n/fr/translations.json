@@ -24,7 +24,9 @@
     "mm": "millimètre",
     "inch": "pouce",
     "applicationKey": "Clé API",
-    "applicationKeyHint": "Obtenez le service API non commercial de meteoblue <a href=\"https://content.meteoblue.com/fr/modes-d-acces/apis-meteo/free-weather-api\" target=\"_blank\">ici</a>.",
+    "applicationKeyHint": "Obtenez le service API non commercial de meteoblue <a href=\"https://content.meteoblue.com/fr/modes-d-acces/apis-meteo/free-weather-api\" target=\"_blank\">ici</a>. Consultez votre clé API personnelle <a href=\"https://www.meteoblue.com/de/weather-api/forecast-api\" target=\"_blank\">ici</a>.",
+    "intervall": "intervalle de vote",
+    "intervallHint": "par exemple 300",
     "application_explanation": "Pour des usages non commerciaux, meteoblue.com propose le météogramme 5 jours et le forfait data base-jour. Les utilisations non commerciales sont toutes des utilisations sans but lucratif direct.",
     "application_link": "Une description des valeurs peut être trouvée ici."
 }

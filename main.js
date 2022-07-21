@@ -57,6 +57,7 @@ class Meteoblue extends utils.Adapter {
 		this.log.debug(`this.config.tempunit: ${this.config.tempunit}`);
 		this.log.debug(`this.config.windspeed: ${this.config.windspeed}`);
 		this.log.debug(`this.config.precipitationamount: ${this.config.precipitationamount}`);
+		this.log.debug(`this.config.intervall: ${this.config.intervall}`);
 
 		// https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#url-parameter
 		this.meteoblueApiUrl = 'http://my.meteoblue.com/packages/basic-day?';
@@ -145,8 +146,13 @@ class Meteoblue extends utils.Adapter {
 				return;
 			}
 			this.meteoblueApiUrl += `&precipitationamount=${this.config.precipitationamount}`;
-
 			this.meteoblueApiUrl += '&timeformat=Y-M-D&format=json';
+
+			// check intervall
+			if (Number(this.config.intervall) < 1 || Number(this.config.intervall > 1440)) {
+				this.log.error('"Polling intervall" not valid. Please check configuration! (ERR_#014)');
+				return;
+			}
 
 			this.log.debug(`this.meteoblueApiUrl: ${this.meteoblueApiUrl}`);
 
@@ -1004,11 +1010,11 @@ class Meteoblue extends utils.Adapter {
 	}
 
 	async getMeteoblueDateIntervall() {
-		this.log.info('[getMeteoblueData]: Starting polltimer with a 30 minutes interval.');
+		this.log.info(`[getMeteoblueData]: Starting polltimer with a ${this.config.intervall} minutes interval.`);
 		try {
 			this.intervall = setInterval(async () => {
 				await this.getMeteoblueData();
-			}, 30 * 60000); // default-intervall: 30*60000=1800000ms=30min ; max-intervall: 86400000/100=864000=14min24s
+			}, this.config.intervall * 60000);
 		} catch (error) {
 			this.log.error(`${error}: (ERR_#013)`);
 		}
