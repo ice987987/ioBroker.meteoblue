@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "meteoblue",
-        "version": "0.0.5",
+        "version": "0.0.6",
         "news": {
             "0.0.1": {
                 "en": "initial release",
@@ -62,7 +62,19 @@
                 "es": "arreglo del fallo\neliminar dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` y `.metadata.modelrun`\nactualizar dependencias\nactualizar Léame",
                 "pl": "naprawa błędów\nusuń dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` i `.metadata.modelrun`\nzaktualizuj zależności\nzaktualizuj plik readme",
                 "zh-cn": "错误修正\n删除 dp `.data_day.[0-6].time_ms`、`.metadata.modelrun_updatetime` 和 `.metadata.modelrun`\n更新依赖\n更新自述文件"
-            }
+            },
+            "0.0.6": {
+                "en": "password encryption added (user need to reenter the password once after update, this change requires admin >= v4.0.9)\nclean up code\nimplementation of JSON config (this change requires js-controller >= v3.3.19 and admin >= v5.1.28)\nnode.js >= v14.0 is required\nimproved bug-report form\nupdate links to meteoblue homepage due to their updated homepage\nupdate dependencies\nadd polling interval",
+                "de": "passwort-verschlüsselung hinzugefügt (benutzer müssen das passwort nach update neu eingeben, diese änderung erfordert admin >= v4.0.9)\ncode aufräumen\nimplementierung von JSON config (diese Änderung erfordert js-controller >= v3.3.19 und admin >= v5.1.28)\nnode.js >= v14.0 ist erforderlich\nverbessertes bug-report-formular\naktualisierung von links zu meteoblue homepage aufgrund ihrer aktualisierten homepage\naktualisierung der abhängigkeiten\ndas abfrageintervall hinzufügen",
+                "ru": "шифрование пароля добавлено (пользователю нужно перекодировать пароль после обновления, это изменение требует админ >= v4.0.9)\nочистить код\nреализация JSON config (это изменение требует js-controller >= v3.3.19 и admin >= v5.1.28)\nnode.js >= v14.0 требуется\nулучшенная форма bug-report\nобновление ссылок на сайт meteoblue из-за обновленной домашней страницы\nобновление зависимостей\nдобавить интервал опроса",
+                "pt": "criptografia de senha adicionada (o usuário precisa digitar a senha uma vez após a atualização, essa alteração requer admin >= v4.0.9)\nlimpar o código\nimplementação de JSON config (esta mudança requer js-controller >= v3.3.19 e admin >= v5.1.28)\nnode.js >= v14.0 é necessário\nformulário melhorado de relatório de bugs\natualizar links para a página inicial do meteoblue devido à sua página inicial atualizada\ndependências\nadicionar intervalo de votação",
+                "nl": "wachtwoord encryptie toegevoegd om het wachtwoord een keer na de update te vernieuwen, vereist deze verandering administratie v.0.9\nruim code op\nimplementatie van JSON config ( deze verandering vereist js-verandering js-19 en administratie =3,28 )\nnode\nverbeterde insecten-reportvorm\nvertaling:\nvertaling:\nvoeg de peiling toe",
+                "fr": "cryptage de mot de passe ajouté (l'utilisateur doit entrer le mot de passe une fois après la mise à jour, ce changement nécessite admin = v4.0.9)\nnettoyer le code\nimplémentation de la configuration JSON (ce changement nécessite js-controller ACIA= v3.3.19 et admin > v5.1.28)\nnode.js acia= v14.0 est nécessaire\nformulaire amélioré de rapport de bogues\nmettre à jour les liens vers la page d'accueil de meteoblue en raison de leur page d'accueil mise à jour\nmettre à jour les dépendances\najouter l'intervalle de vote",
+                "it": "crittografia della password aggiunta (l'utente deve reinserire la password una volta dopo l'aggiornamento, questa modifica richiede admin >= v4.0.9)\npulire il codice\nimplementazione di JSON config (questa modifica richiede js-controller >= v3.3.19 e admin >= v5.1.28)\nnode.js >= v14.0 è richiesto\nmigliorata forma di bug-report\naggiornamento link alla homepage meteoblue a causa della loro pagina iniziale aggiornata\naggiornamento dipendenze\naggiungere l'intervallo di polling",
+                "es": "contraseña de cifrado añadido (usuario necesita reingresar la contraseña una vez después de la actualización, este cambio requiere administrador >= v4.0.9)\nlimpiar código\nla implementación de JSON config (este cambio requiere js-controller √= v3.3.19 y admin= v5.1.28)\nnode.js √= v14.0 se requiere\nmejorado formulario de informe de fallos\nenlaces a página web meteoblue debido a su página web actualizada\ndependencias de actualización\nañadir intervalo de votación",
+                "pl": "dodanie szyfrowania haseł (user need to reenter the password once after update, to zmiana wymaga admin >= v4.0.9)\nczyścić kod\nwdrażanie formatu JSON (tzw. zmiana wymaga js-controller >= v3.19, admin >= v5.1.28\nwęzły >= v14.0\nulepszona forma bug-reportu\npowiązane z meteoblue ze względu na ich aktualizację\nzależności\ndodać interwał",
+                "zh-cn": "密码加密(用户需要在更新之后重新写言,这一变化需要注释>= v4.0.9)\n清洁守则\n实施联合执行协会会议config(其变化需要防控勒->= v3.3.19和注释>= v5.128)\n无需说明。\n改进报告格式\n由于其更新的主页,更新了与面纱的联系\na. 最新受扶养人\n增加投票间隔"
+              }
         },
         "titleLang": {
             "en": "Meteoblue",
