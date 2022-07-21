@@ -999,7 +999,7 @@ class Meteoblue extends utils.Adapter {
 					this.log.debug(`[getMeteoblueData]: error message: ${error.message}`);
 				}
 				this.log.debug(`[getMeteoblueData]: error.config: ${JSON.stringify(error.config)}`);
-				throw new Error (`"Meteoblue API" not reachable. ${error.response.data.error_message} (ERR_#012)`);
+				this.log.error(`"Meteoblue API" not reachable. ${error.response.data.error_message} (ERR_#012)`);
 			});
 	}
 
