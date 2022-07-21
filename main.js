@@ -159,7 +159,7 @@ class Meteoblue extends utils.Adapter {
 		} catch (error){
 			// Reset the connection indicator
 			this.setState('info.connection', false, true);
-			this.log.error(`${error}`);
+			this.log.error(`${error} (ERR_#014)`);
 		}
 	}
 
@@ -999,7 +999,7 @@ class Meteoblue extends utils.Adapter {
 					this.log.debug(`[getMeteoblueData]: error message: ${error.message}`);
 				}
 				this.log.debug(`[getMeteoblueData]: error.config: ${JSON.stringify(error.config)}`);
-				this.log.error(`"Meteoblue API" not reachable. ${error.response.data.error_message} (ERR_#012)`);
+				throw new Error(`"Meteoblue API" not reachable. ${error.response.data.error_message} (ERR_#012)`);
 			});
 	}
 
