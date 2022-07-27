@@ -29,6 +29,9 @@ This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.
 
 <!-- ### **WORK IN PROGRESS** -->
 
+### **WORK IN PROGRESS**
+* (ice987987) fix date of DP `modelrun_updatetime_utc` and `modelrun_utc`
+
 ### v0.0.6 (2022-07-21)
 * (ice987987) password encryption added (user need to reenter the password once after update, this change requires admin >= v4.0.9)
 * (ice987987) clean up code

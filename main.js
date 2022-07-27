@@ -272,7 +272,7 @@ class Meteoblue extends utils.Adapter {
 				name: 'Initialisation time of the meteoblue model run which delivers the raw meteoblue model data to the forecast API packages',
 				desc: 'Initialisation time of the meteoblue model run which delivers the raw meteoblue model data to the forecast API packages',
 				type: 'string',
-				role: 'date',
+				role: 'value.time',
 				read: true,
 				write: false
 			},
@@ -285,7 +285,7 @@ class Meteoblue extends utils.Adapter {
 				name: 'Displays the time at which the last meteoblue model run has been completed',
 				desc: 'Displays the time at which the last meteoblue model run has been completed',
 				type: 'string',
-				role: 'date',
+				role: 'value.time',
 				read: true,
 				write: false
 			},
@@ -938,8 +938,8 @@ class Meteoblue extends utils.Adapter {
 				this.setState('metadata.height', {val: content.metadata.height, ack: true});
 				this.setState('metadata.timezone_abbrevation', {val: content.metadata.timezone_abbrevation, ack: true});
 				this.setState('metadata.utc_timeoffset', {val: content.metadata.utc_timeoffset, ack: true});
-				this.setState('metadata.modelrun_utc', {val: content.metadata.modelrun_utc, ack: true});
-				this.setState('metadata.modelrun_updatetime_utc', {val: content.metadata.modelrun_updatetime_utc, ack: true});
+				this.setState('metadata.modelrun_utc', {val: new Date(content.metadata.modelrun_utc).getTime(), ack: true});
+				this.setState('metadata.modelrun_updatetime_utc', {val: new Date(content.metadata.modelrun_updatetime_utc).getTime(), ack: true});
 
 				// units
 				this.setState('units.time', {val: content.units.time, ack: true});
