@@ -109,6 +109,7 @@ Forecast Package `current`: meteodata for current day (8 values)
 <!-- ### **WORK IN PROGRESS** -->
 
 ### **WORK IN PROGRESS**
+* (ice987987) add section "Available values (readonly)" in readme
 * (ice987987) BREAKING: added forecast packages `basic-15min`, `basic-1h`, `basic-3h` and `current`. Name of Objects in forecast package `basic-day` changed.
 * (ice987987) fix date of DP `modelrun_updatetime_utc` and `modelrun_utc`
 
