@@ -194,7 +194,7 @@ class Meteoblue extends utils.Adapter {
 		try {
 			await this.createObjects();
 			await this.getMeteoblueData();
-			//await this.getMeteoblueDateIntervall();
+			await this.getMeteoblueDateIntervall();
 		} catch (error){
 			// Reset the connection indicator
 			this.setState('info.connection', false, true);
