@@ -1,4 +1,9 @@
 {
+    "title1": "Forecasts généraux",
+    "title2": "API Key et paramètres",
+    "title3": "Réglages",
+    "forecastPackage_basic_explanation": "À des fins générales, contient les variables météorologiques les plus courantes",
+    "forecastPackage_current_explanation": "Informations météorologiques actuelles, y compris observations et mesures",
     "city": "ville",
     "cityHint": "par exemple Bâle",
     "cityFromSystem": "utiliser la ville à partir des paramètres système",

@@ -1,4 +1,9 @@
 {
+    "title1": "Pacotes de previsão geral",
+    "title2": "Chave de API e configurações",
+    "title3": "Configurações",
+    "forecastPackage_basic_explanation": "Para fins gerais, contém as variáveis climáticas mais comuns",
+    "forecastPackage_current_explanation": "InformaÃ§Ãμes climáticas atuais, incluindo observações e medidas",
     "city": "cidade",
     "cityHint": "por exemplo Basileia",
     "cityFromSystem": "usar cidade nas configurações do sistema",

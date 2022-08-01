@@ -1,4 +1,9 @@
 {
+    "title1": "Allgemeine Prognosepakete",
+    "title2": "API Schlüssel und Einstellungen",
+    "title3": "Einstellungen",
+    "forecastPackage_basic_explanation": "Für allgemeine Zwecke, enthält die häufigsten Wettervariablen",
+    "forecastPackage_current_explanation": "Aktuelle Wetterinformationen, einschließlich Beobachtungen und Messungen",
     "city": "Stadt",
     "cityHint": "z.B. Basel",
     "cityFromSystem": "Verwenden Sie die Stadt aus den Systemeinstellungen",

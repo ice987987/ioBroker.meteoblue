@@ -1,4 +1,9 @@
 {
+    "title1": "General Forecast Packages",
+    "title2": "API Key and Settings",
+    "title3": "Settings",
+    "forecastPackage_basic_explanation": "For general purposes, contains the most common weather variables",
+    "forecastPackage_current_explanation": "Current weather information, including observations and measurements",
     "city": "city",
     "cityHint": "e.g. Basel",
     "cityFromSystem": "use city from system settings",

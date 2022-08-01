@@ -1,4 +1,9 @@
 {
+    "title1": "Pacchetti di previsione generale",
+    "title2": "API Key e Impostazioni",
+    "title3": "Impostazioni impostazioni",
+    "forecastPackage_basic_explanation": "Per scopi generali, contiene le variabili meteorologiche più comuni",
+    "forecastPackage_current_explanation": "Informazioni meteo attuali, incluse osservazioni e misurazioni",
     "city": "città",
     "cityHint": "per esempio Basel",
     "cityFromSystem": "usa la città dalle impostazioni di sistema",

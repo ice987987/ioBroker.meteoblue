@@ -1,4 +1,9 @@
 {
+    "title1": "General Forecast Package",
+    "title2": "API Key and Settings",
+    "title3": "Setting",
+    "forecastPackage_basic_explanation": "Dla celów ogólnych, zawiera najczęstsze zmienne pogodowe",
+    "forecastPackage_current_explanation": "Aktualne informacje pogodowe, w tym obserwacje i pomiary",
     "city": "Miasto",
     "cityHint": "np Basel",
     "cityFromSystem": "użyj miasta z ustawień systemu",

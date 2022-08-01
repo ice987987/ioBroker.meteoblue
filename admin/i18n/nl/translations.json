@@ -1,4 +1,9 @@
 {
+    "title1": "Generaal Forecast Packages",
+    "title2": "API Key en Setting",
+    "title3": "Setting",
+    "forecastPackage_basic_explanation": "Voor algemene doeleinden bevatten de meest voorkomende weer variabelen",
+    "forecastPackage_current_explanation": "Current weer informatie, waaronder observaties en maatregelen",
     "city": "stad",
     "cityHint": "bijv Basel",
     "cityFromSystem": "gebruik stad uit systeeminstellingen",
