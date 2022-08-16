@@ -31,7 +31,7 @@
     "applicationKey": "API-Key",
     "applicationKeyHint": "Get meteoblue non-commercial API service <a href=\"https://content.meteoblue.com/en/access-options/weather-apis/free-weather-api\" target=\"_blank\">here</a>. View your personal API-Key <a href=\"https://www.meteoblue.com/de/weather-api/forecast-api\" target=\"_blank\">here</a>.",
     "intervall": "polling interval",
-    "intervallHint": "in minutes",
+    "intervallHint": "in minutes (0 for manual requests)",
     "application_explanation": "For non-commercial uses, meteoblue.com offers the meteogram 5 days and the data package basic-day.",
     "application_link": "A description of the values can be found here."
 }

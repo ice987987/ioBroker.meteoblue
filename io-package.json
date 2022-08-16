@@ -154,7 +154,7 @@
         "tempunit": "C",
         "windspeed": "kmh",
         "precipitationamount": "mm",
-        "intervall": 300,
+        "intervall": 0,
         "forecastPackage_basic_15min": false,
         "forecastPackage_basic_1h": false,
         "forecastPackage_basic_3h": false,
