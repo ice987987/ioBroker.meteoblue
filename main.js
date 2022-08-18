@@ -112,10 +112,10 @@ class Meteoblue extends utils.Adapter {
 					return;
 				}
 			} else {
-				this.log.error('system.config not available. Please check configuration! (ERR_#00x)');
+				this.log.error('system.config not available. Please check configuration! (ERR_#004)');
 			}
 		} else if ((Number(this.config.latitude) < -90 || Number(this.config.latitude) > 90) && (Number(this.config.longitude) < -180 || Number(this.config.longitude) > 180)) {
-			this.log.error('"Latitude" and/or "longitude" is/are not valid. Please check configuration! (ERR_#004)');
+			this.log.error('"Latitude" and/or "longitude" is/are not valid. Please check configuration! (ERR_#005)');
 			return;
 		}
 		this.meteoblueApiUrl += `&lat=${this.config.latitude}&lon=${this.config.longitude}`;
@@ -126,14 +126,14 @@ class Meteoblue extends utils.Adapter {
 				if (systemConfig.common.city) {
 					this.config.city = systemConfig.common.city;
 				} else {
-					this.log.error('"City" from system settings is not valid. Please check configuration! (ERR_#005)');
+					this.log.error('"City" from system settings is not valid. Please check configuration! (ERR_#006)');
 					return;
 				}
 			} else {
-				this.log.error('system.config not available. Please check configuration! (ERR_#00x)');
+				this.log.error('system.config not available. Please check configuration! (ERR_#007)');
 			}
 		} else if (!this.config.city) {
-			this.log.error('"City" is not valid. Pleae check configuration! (ERR_#006)');
+			this.log.error('"City" is not valid. Pleae check configuration! (ERR_#008)');
 			return;
 		}
 		// convert city to UTF8; see https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#misc
@@ -141,14 +141,14 @@ class Meteoblue extends utils.Adapter {
 
 		// check elevation
 		if (Number(this.config.elevation) < -428 || Number(this.config.elevation) > 8848) {
-			this.log.error('"Elevation" is not valid. Please check configuration! (ERR_#007)');
+			this.log.error('"Elevation" is not valid. Please check configuration! (ERR_#009)');
 			return;
 		}
 		this.meteoblueApiUrl += `&asl=${this.config.elevation}`;
 
 		// check timezone
 		if (this.config.timezone == null || this.config.timezone == '') {
-			this.log.error('"Timezone" not valid. Please check configuration! (ERR_#008)');
+			this.log.error('"Timezone" not valid. Please check configuration! (ERR_#010)');
 			return;
 		}
 		this.meteoblueApiUrl += `&tz=${this.config.timezone}`;
@@ -159,28 +159,28 @@ class Meteoblue extends utils.Adapter {
 				if (systemConfig.common.tempUnit) {
 					this.config.tempunit = (systemConfig.common.tempUnit).substr(1, 1);
 				} else {
-					this.log.error('"Temperature unit" from system settings is not valid. Please check configuration! (ERR_#009)');
+					this.log.error('"Temperature unit" from system settings is not valid. Please check configuration! (ERR_#011)');
 					return;
 				}
 			} else {
-				this.log.error('system.config not available. Please check configuration! (ERR_#00x)');
+				this.log.error('system.config not available. Please check configuration! (ERR_#012)');
 			}
 		} else if (this.config.tempunit == null || this.config.tempunit == '') {
-			this.log.error('"Temperature unit" not valid. Please check configuration! (ERR_#010)');
+			this.log.error('"Temperature unit" not valid. Please check configuration! (ERR_#013)');
 			return;
 		}
 		this.meteoblueApiUrl += `&temperature=${this.config.tempunit}`;
 
 		// check windspeed
 		if (this.config.windspeed == null || this.config.windspeed == '') {
-			this.log.error('"Unit of windspeed" not valid. Please check configuration! (ERR_#011)');
+			this.log.error('"Unit of windspeed" not valid. Please check configuration! (ERR_#014)');
 			return;
 		}
 		this.meteoblueApiUrl += `&windspeed=${this.config.windspeed}`;
 
 		// check precipitationamount
 		if (this.config.precipitationamount == null || this.config.precipitationamount == '') {
-			this.log.error('"Unit of precipitationamount" not valid. Please check configuration! (ERR_#012)');
+			this.log.error('"Unit of precipitationamount" not valid. Please check configuration! (ERR_#015)');
 			return;
 		}
 		this.meteoblueApiUrl += `&precipitationamount=${this.config.precipitationamount}`;
@@ -197,7 +197,7 @@ class Meteoblue extends utils.Adapter {
 			await this.delObjectAsync('ACTION', {recursive: true});
 			this.log.debug('[deleteObjects]: deleting existing folder with ID "ACTION" finished.');
 		} else {
-			this.log.error('"Polling intervall" not valid. Please check configuration! (ERR_#013)');
+			this.log.error('"Polling intervall" not valid. Please check configuration! (ERR_#016)');
 			return;
 		}
 
@@ -214,7 +214,6 @@ class Meteoblue extends utils.Adapter {
 				this.log.debug(`[deleteObjects1]: start deleting states for channel "units2". Please be patient...`);
 				for (let i = 1; i < objectsStates.units2.length; i++) {
 					await this.delObjectAsync(`units.${objectsStates.units2[i].id}`);
-					// this.log.debug(`state to delete: units.${units2[i].id}`);
 				}
 				this.log.debug(`[deleteObjects1]: states seletion for channel "units2" finished.`);
 			}
@@ -281,7 +280,7 @@ class Meteoblue extends utils.Adapter {
 		} catch (error){
 			// Reset the connection indicator
 			this.setState('info.connection', false, true);
-			this.log.error(`${error} (ERR_#014)`);
+			this.log.error(`${error} (ERR_#017)`);
 		}
 	}
 
@@ -308,7 +307,7 @@ class Meteoblue extends utils.Adapter {
 
 	async createStatesObjects3(statesObjectInfo) {
 		this.log.debug(`[createStatesObjects3]: start objects creation for channel "${statesObjectInfo[0].id}". Please be patient...`);
-		for (let k = 0; k <= 7; k++) {
+		for (let k = 0; k < 7; k++) {
 			for (let j = 0; j < statesObjectInfo[1].id.length; j++) {
 				for (let i = 0; i < statesObjectInfo.length; i++) {
 					await this.createObject(statesObjectInfo[0].id, `${k}d_${statesObjectInfo[1].id[j]}`, statesObjectInfo[i]);
@@ -420,12 +419,12 @@ class Meteoblue extends utils.Adapter {
 					'<div id="meteoblueLinetop"></div> ' +
 					'<div id="meteoblueLinedown"></div> ' +
 					'<table class="meteoblue"> ';
-		for (let i = 0; i < 7; i++) {
+
+		for (let i = 7; i > 0; i--) {
 			html += '<tr> ';
 			// display correct order of values
-			/* eslint-disable */
-			for (let j = 7; j < 0; j--) {
-				html += '<td class ="value' + day.substr(7 * i - 7, 7) + '"></td> ';
+			for (let j = 7; j > 0; j--) {
+				html += '<td class ="value' + day.substr((7 * i) - j, 1) + '"></td> ';
 			}
 			html += '</tr> ';
 		}
@@ -508,8 +507,9 @@ class Meteoblue extends utils.Adapter {
 					this.log.debug(`[getMeteoblueData]: error message: ${error.message}`);
 				}
 				this.log.debug(`[getMeteoblueData]: error.config: ${JSON.stringify(error.config)}`);
-				throw new Error(`"Meteoblue API" not reachable. ${error.response.data.error_message} (ERR_#015)`);
+				throw new Error(`"Meteoblue API" not reachable. ${error.response.data.error_message} (ERR_#018)`);
 			});
+
 	}
 
 	async writeStates1(ids, content) {
@@ -551,7 +551,7 @@ class Meteoblue extends utils.Adapter {
 	async writeStates3(ids, content) {
 		this.log.debug(`[writeStates3]: start writing states for channel "${ids[0].id}". Please be patient...`);
 		let iteration = 0;
-		for (let k = 0; k <= 7; k++) {
+		for (let k = 0; k < 7; k++) {
 			for (let j = 0; j < ids[1].id.length; j++) {
 				for (let i = 2; i < ids.length; i++) {
 
@@ -583,7 +583,7 @@ class Meteoblue extends utils.Adapter {
 				await this.getMeteoblueData();
 			}, this.config.intervall * 60000);
 		} catch (error) {
-			this.log.error(`${error}: (ERR_#016)`);
+			this.log.error(`${error}: (ERR_#019)`);
 		}
 	}
 
@@ -611,7 +611,7 @@ class Meteoblue extends utils.Adapter {
 	 * @param {string} id
 	 * @param {ioBroker.State | null | undefined} state
 	 */
-	 async onStateChange(id, state) {
+	async onStateChange(id, state) {
 		if (state !== null && state !== undefined) {
 			if (state.ack === false) {
 				// The state was manually changed
