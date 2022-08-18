@@ -61,7 +61,7 @@ Forecast Package `basic-3h`: meteodata for 7 days in a 3h interval (7d x 8values
 * `.[0-6]d_HHMM.precipitation_probability`: Precipitation probability
 * `.[0-6]d_HHMM.convective_precipitation`: Water amount, caused by convection e.g. thunderstorms
 * `.[0-6]d_HHMM.isdaylight`: Day or night (`0`: night, `1`: day)
-* `.[0-6]d_HHMM.pictocode`: Classification of weather conditions "sunny", "partly cloudy" or "overcast with rain" using a numeric number (`1` ... `17`)
+* `.[0-6]d_HHMM.pictocode`: Classification of weather conditions using a numeric number (`1` ... `35`) ([Day and night pictograms](https://content.meteoblue.com/en/specifications/standards/symbols-and-pictograms))
 * `.[0-6]d_HHMM.rainspot`: Rainspot (`0` ≤ 0.02 mm, `1` = 0.2 - 1.5 mm, `2` = 1.5 - 5 mm, `3` ≥ 5 mm, `9` = 0.02 - 0.2 mm)
 * `.[0-6]d_HHMM.rainspot_vis`: Rainspot for vis (html-widget binding)
 * `.[0-6]d_HHMM.snowfraction`: Snow fraction, information whether precipitation falls as rain or snow
@@ -91,7 +91,7 @@ Forecast Package `basic-day`: meteodata for 7 days in a 1d interval (7d x 1value
 * `.[0-6]d.precipitation_probability`: Precipitation probability
 * `.[0-6]d.precipitation_hours`: Hours with precipitation
 * `.[0-6]d.convective_precipitation`: Water amount, caused by convection e.g. thunderstorms
-* `.[0-6]d.pictocode`: Classification of weather conditions "sunny", "partly cloudy" or "overcast with rain" using a numeric number (`1` ... `17`)
+* `.[0-6]d.pictocode`: Classification of weather conditions using a numeric number (`1` ... `17`) ([Day and night pictograms](https://content.meteoblue.com/en/specifications/standards/symbols-and-pictograms))
 * `.[0-6]d.rainspot`: Rainspot (`0` ≤ 0.02 mm, `1` = 0.2 - 1.5 mm, `2` = 1.5 - 5 mm, `3` ≥ 5 mm, `9` = 0.02 - 0.2 mm)
 * `.[0-6]d.rainspot_vis`: Rainspot for vis (html-widget binding)
 * `.[0-6]d.snowfraction`: Snow fraction, information whether precipitation falls as rain or snow
@@ -105,7 +105,7 @@ Forecast Package `current`: meteodata for current day (1d x 1value/d x 8values =
 * `.windspeed`: Windspeed, 10m above ground (unit specified in settings)
 * `.isdaylight`: Day or night (`0`: night, `1`: day)
 * `.pictocode`: Classification of weather conditions "sunny", "partly cloudy" or "overcast with rain" using a numeric number (`1` ... `17`)
-* `.pictocode_detailed`: Classification of weather conditions "sunny", "partly cloudy" or "overcast with rain" using a numeric number (`1` ... `35`)
+* `.pictocode_detailed`: Classification of weather conditions using a numeric number (`1` ... `35`) ([Day and night pictograms](https://content.meteoblue.com/en/specifications/standards/symbols-and-pictograms))
 * `.isobserveddata`: Is-observation (`1`: observation available, `0`: no observation)
 * `.zenithangle`: Angle between zenith and centre of the sun's disc, in degree
 
