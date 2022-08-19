@@ -285,6 +285,7 @@ class Meteoblue extends utils.Adapter {
 	}
 
 	/**
+	 * creates one channel with several states
 	 * @param statesObjectInfo {object}
 	 */
 	async createStatesObjects1(statesObjectInfo) {
@@ -295,6 +296,10 @@ class Meteoblue extends utils.Adapter {
 		this.log.debug(`[createStatesObjects1]: objects creation for channel "${statesObjectInfo[0].id}" finished.`);
 	}
 
+	/**
+	 * creates one channel with several states, without time in the description
+	 * @param statesObjectInfo {object}
+	 */
 	async createStatesObjects2(statesObjectInfo) {
 		this.log.debug(`[createStatesObjects2]: start objects creation for channel "${statesObjectInfo[0].id}". Please be patient...`);
 		for (let k = 0; k < statesObjectInfo[1].id.length; k++) {
@@ -305,6 +310,10 @@ class Meteoblue extends utils.Adapter {
 		this.log.debug(`[createStatesObjects2]: objects creation for channel "${statesObjectInfo[0].id}" finished.`);
 	}
 
+	/**
+	 * creates one channel with several states, with time in the description
+	 * @param statesObjectInfo {object}
+	 */
 	async createStatesObjects3(statesObjectInfo) {
 		this.log.debug(`[createStatesObjects3]: start objects creation for channel "${statesObjectInfo[0].id}". Please be patient...`);
 		for (let k = 0; k < 7; k++) {
@@ -323,26 +332,31 @@ class Meteoblue extends utils.Adapter {
 		// this.log.debug('stateInfo: ' + JSON.stringify(stateInfo));
 		const common = {};
 		let id = '';
-		let type = '';
 
-		// channel_0
-		if (stateInfo.type === 'channel_0') {
-			id = `${channel_0}`;
-			type = 'channel';
-			common.name = stateInfo.cname;
-			common.desc = stateInfo.cname;
-		}
-		// channel_1
-		if (stateInfo.type === 'channel_1') {
-			id = `${channel_0}.${channel_1}`;
-			type = 'channel';
-			if (channel_0 !== 'data_day') {
-				common.name = `forecast +${channel_1.substring(0, 2)} ${channel_1.substring(3, 5)}:${channel_1.substring(channel_1.length - 2, channel_1.length)}h`;
-				common.desc = `forecast +${channel_1.substring(0, 2)} ${channel_1.substring(3, 5)}:${channel_1.substring(channel_1.length - 2, channel_1.length)}h`;
-			} else {
-				common.name = `forecast +${channel_1}`;
-				common.desc = `forecast +${channel_1}`;
+		// if-situation, because type: 'channel' and 'state' does not allow to be a variable
+		if (stateInfo.type.substr(0, stateInfo.type.length - 2) === 'channel') {
+			// channel_0
+			if (stateInfo.type === 'channel_0') {
+				id = `${channel_0}`;
+				common.name = stateInfo.cname;
+				common.desc = stateInfo.cname;
 			}
+			// channel_1
+			if (stateInfo.type === 'channel_1') {
+				id = `${channel_0}.${channel_1}`;
+				if (channel_0 !== 'data_day') {
+					common.name = `forecast +${channel_1.substring(0, 2)} ${channel_1.substring(3, 5)}:${channel_1.substring(channel_1.length - 2, channel_1.length)}h`;
+					common.desc = `forecast +${channel_1.substring(0, 2)} ${channel_1.substring(3, 5)}:${channel_1.substring(channel_1.length - 2, channel_1.length)}h`;
+				} else {
+					common.name = `forecast +${channel_1}`;
+					common.desc = `forecast +${channel_1}`;
+				}
+			}
+			await this.setObjectNotExistsAsync(id, {
+				type: 'channel',
+				common: common,
+				native: {},
+			});
 		}
 		// states
 		if (stateInfo.type === 'state') {
@@ -352,15 +366,14 @@ class Meteoblue extends utils.Adapter {
 			} else {
 				id = `${channel_0}.${stateInfo.id}`;
 			}
-			// type/name/desc/ctype
-			type = 'state';
+			// name/desc/ctype
 			common.name = stateInfo.cname || '';
 			common.desc = stateInfo.cname || '';
 			common.type = stateInfo.ctype || '';
 			// role
 			if (channel_1) {
 				if (stateInfo.crole.split('.')[stateInfo.crole.split('.').length - 1] === 'forecast') {
-					common.role = `${stateInfo.crole}.${channel_1.match(/(?<=\+)\d(?=d)/)}`;
+					common.role = `${stateInfo.crole}.${channel_1.match(/\d(?=d)/)}`;
 				} else {
 					common.role = stateInfo.crole || '';
 				}
@@ -379,12 +392,12 @@ class Meteoblue extends utils.Adapter {
 			} else {
 				common.write = false;
 			}
+			await this.setObjectNotExistsAsync(id, {
+				type: 'state',
+				common: common,
+				native: {},
+			});
 		}
-		await this.setObjectNotExistsAsync(id, {
-			type: type,
-			common: common,
-			native: {},
-		});
 	}
 
 	createVisHTMLBindingRainspot(day) {
@@ -493,7 +506,6 @@ class Meteoblue extends utils.Adapter {
 				}
 
 				this.log.debug('[getMeteoblueData]: all states written.');
-
 			})
 			.catch((error) => {
 				if (error.response) {
