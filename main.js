@@ -511,6 +511,7 @@ class Meteoblue extends utils.Adapter {
 				if (error.response) {
 					// The request was made and the server responded with a status code that falls out of the range of 2xx
 					this.log.debug(`[getMeteoblueData]: HTTP status response: ${error.response.status}; headers: ${JSON.stringify(error.response.headers)}; data: ${JSON.stringify(error.response.data)}`);
+					this.log.error(`[getMeteoblueData]: ${error.response.data.error_message}`);
 				} else if (error.request) {
 					// The request was made but no response was received `error.request` is an instance of XMLHttpRequest in the browser and an instance of http.ClientRequest in node.js
 					this.log.debug(`[getMeteoblueData]: error request: ${error}`);
@@ -519,9 +520,7 @@ class Meteoblue extends utils.Adapter {
 					this.log.debug(`[getMeteoblueData]: error message: ${error.message}`);
 				}
 				this.log.debug(`[getMeteoblueData]: error.config: ${JSON.stringify(error.config)}`);
-				throw new Error(`"Meteoblue API" not reachable. ${error.response.data.error_message} (ERR_#018)`);
 			});
-
 	}
 
 	async writeStates1(ids, content) {
