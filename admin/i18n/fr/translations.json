@@ -1,4 +1,9 @@
 {
+    "title1": "Forecasts généraux",
+    "title2": "API Key et paramètres",
+    "title3": "Réglages",
+    "forecastPackage_basic_explanation": "À des fins générales, contient les variables météorologiques les plus courantes",
+    "forecastPackage_current_explanation": "Informations météorologiques actuelles, y compris observations et mesures",
     "city": "ville",
     "cityHint": "par exemple Bâle",
     "cityFromSystem": "utiliser la ville à partir des paramètres système",
@@ -26,7 +31,7 @@
     "applicationKey": "Clé API",
     "applicationKeyHint": "Obtenez le service API non commercial de meteoblue <a href=\"https://content.meteoblue.com/fr/modes-d-acces/apis-meteo/free-weather-api\" target=\"_blank\">ici</a>. Consultez votre clé API personnelle <a href=\"https://www.meteoblue.com/de/weather-api/forecast-api\" target=\"_blank\">ici</a>.",
     "intervall": "intervalle de vote",
-    "intervallHint": "en minutes",
+    "intervallHint": "en minutes (0 pour les demandes manuelles)",
     "application_explanation": "Pour des usages non commerciaux, meteoblue.com propose le météogramme 5 jours et le forfait data base-jour. Les utilisations non commerciales sont toutes des utilisations sans but lucratif direct.",
     "application_link": "Une description des valeurs peut être trouvée ici."
 }
