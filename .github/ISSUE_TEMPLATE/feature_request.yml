@@ -27,4 +27,4 @@ body:
       required: true
   - type: textarea
     attributes:
-		label: Additional information & file uploads
+      label: Additional information & file uploads
