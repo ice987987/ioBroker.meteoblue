@@ -51,7 +51,7 @@ Forecast Package `basic-3h`: meteodata for 7 days in a 3h interval (7d x 8values
 * `.[0-6]d_HHMM.convective_precipitation`: Water amount, caused by convection e.g. thunderstorms
 * `.[0-6]d_HHMM.felttemperature`: Felttemperature, 2m above ground
 * `.[0-6]d_HHMM.isdaylight`: Day or night
-* `.[0-6]d_HHMM.pictocode'`: Classification of weather conditions, using a numeric number (1-35) ([Day and night pictograms](https://content.meteoblue.com/en/specifications/standards/symbols-and-pictograms))
+* `.[0-6]d_HHMM.pictocode`: Classification of weather conditions, using a numeric number (1-35) ([Day and night pictograms](https://content.meteoblue.com/en/specifications/standards/symbols-and-pictograms))
 * `.[0-6]d_HHMM.precipitation`: Precipitation
 * `.[0-6]d_HHMM.precipitation_probability`: Precipitation Probability
 * `.[0-6]d_HHMM.rainspot`: Rainspot (0 ≤ 0.02 mm, 1 = 0.2 - 1.5 mm, 2 = 1.5 - 5 mm, 3 ≥ 5 mm, 9 = 0.02 - 0.2 mm)
