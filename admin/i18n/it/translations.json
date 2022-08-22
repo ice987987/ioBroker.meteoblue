@@ -4,6 +4,8 @@
     "title3": "Impostazioni impostazioni",
     "forecastPackage_basic_explanation": "Per scopi generali, contiene le variabili meteorologiche più comuni",
     "forecastPackage_current_explanation": "Informazioni meteo attuali, incluse osservazioni e misurazioni",
+    "forecastPackage_clouds_explanation": "Previsioni dettagliate sullo strato del cloud e sulla durata del sole",
+    "forecastPackage_sunAndMoon_explanation": "Informazioni sull'ascesa e sui tempi di tramonto del sole e della luna",
     "city": "città",
     "cityHint": "per esempio Basel",
     "cityFromSystem": "usa la città dalle impostazioni di sistema",

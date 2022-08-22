@@ -4,6 +4,8 @@
     "title3": "Setting",
     "forecastPackage_basic_explanation": "Voor algemene doeleinden bevatten de meest voorkomende weer variabelen",
     "forecastPackage_current_explanation": "Current weer informatie, waaronder observaties en maatregelen",
+    "forecastPackage_clouds_explanation": "Gedetailleerde wolkenlaag en zonneschijn duration voorspelt",
+    "forecastPackage_sunAndMoon_explanation": "Informatie over stijgen en plaatsen van zon en maan",
     "city": "stad",
     "cityHint": "bijv Basel",
     "cityFromSystem": "gebruik stad uit systeeminstellingen",

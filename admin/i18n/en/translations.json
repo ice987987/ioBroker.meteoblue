@@ -4,6 +4,8 @@
     "title3": "Settings",
     "forecastPackage_basic_explanation": "For general purposes, contains the most common weather variables",
     "forecastPackage_current_explanation": "Current weather information, including observations and measurements",
+    "forecastPackage_clouds_explanation": "Detailed cloud layer and sunshine duration forecasts",
+    "forecastPackage_sunAndMoon_explanation": "Information about rising and setting times of sun and moon",
     "city": "city",
     "cityHint": "e.g. Basel",
     "cityFromSystem": "use city from system settings",

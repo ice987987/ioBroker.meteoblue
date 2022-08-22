@@ -62,6 +62,10 @@ class Meteoblue extends utils.Adapter {
 		this.log.debug(`this.config.forecastPackage_basic_3h: ${this.config.forecastPackage_basic_3h}`);
 		this.log.debug(`this.config.forecastPackage_basic_day: ${this.config.forecastPackage_basic_day}`);
 		this.log.debug(`this.config.forecastPackage_current: ${this.config.forecastPackage_current}`);
+		this.log.debug(`this.config.forecastPackage_clouds_1h: ${this.config.forecastPackage_clouds_1h}`);
+		this.log.debug(`this.config.forecastPackage_clouds_3h: ${this.config.forecastPackage_clouds_3h}`);
+		this.log.debug(`this.config.forecastPackage_clouds_day: ${this.config.forecastPackage_clouds_day}`);
+		this.log.debug(`this.config.forecastPackage_sunmoon: ${this.config.forecastPackage_sunmoon}`);
 
 		// load system.config
 		const systemConfig = await this.getForeignObjectAsync('system.config', 'state');
@@ -71,7 +75,7 @@ class Meteoblue extends utils.Adapter {
 		this.meteoblueApiUrl = 'http://my.meteoblue.com/packages/';
 
 		// check forecast package
-		if (!this.config.forecastPackage_basic_15min && !this.config.forecastPackage_basic_1h && !this.config.forecastPackage_basic_3h && !this.config.forecastPackage_basic_day && !this.config.forecastPackage_current) {
+		if (!this.config.forecastPackage_basic_15min && !this.config.forecastPackage_basic_1h && !this.config.forecastPackage_basic_3h && !this.config.forecastPackage_basic_day && !this.config.forecastPackage_current && ! this.config.forecastPackage_clouds_1h && !this.config.forecastPackage_clouds_3h && !this.config.forecastPackage_clouds_day && !this.config.forecastPackage_sunmoon) {
 			this.log.error('No "forecast Package" selected. Please check configuration! (ERR_#001)');
 			return;
 		} else {
@@ -89,6 +93,21 @@ class Meteoblue extends utils.Adapter {
 			}
 			if (this.config.forecastPackage_current) {
 				this.meteoblueApiUrl += 'current_';
+			}
+			if (this.config.forecastPackage_clouds_1h) {
+				this.meteoblueApiUrl += 'clouds-1h_';
+			}
+			if (this.config.forecastPackage_clouds_3h) {
+				this.meteoblueApiUrl += 'clouds-3h_';
+			}
+			if (this.config.forecastPackage_clouds_day) {
+				this.meteoblueApiUrl += 'clouds-day_';
+			}
+			if (this.config.forecastPackage_clouds_3h) {
+				this.meteoblueApiUrl += 'clouds-3h_';
+			}
+			if (this.config.forecastPackage_sunmoon) {
+				this.meteoblueApiUrl += 'sunmoon_';
 			}
 			this.meteoblueApiUrl = this.meteoblueApiUrl.substring(0, this.meteoblueApiUrl.length - 1);
 			this.meteoblueApiUrl += '?';
@@ -204,74 +223,206 @@ class Meteoblue extends utils.Adapter {
 		this.log.debug(`this.meteoblueApiUrl: ${this.meteoblueApiUrl}`);
 
 		try {
-			await this.createStatesObjects1(objectsStates.metadata);
-			await this.createStatesObjects1(objectsStates.units1);
 
-			// Objetcs in "units2" only needed in forecastPackages basic_15min, basic_1h, basic_3h and basic_day
-			if (this.config.forecastPackage_basic_15min || this.config.forecastPackage_basic_1h || this.config.forecastPackage_basic_3h || this.config.forecastPackage_basic_day) {
-				await this.createStatesObjects1(objectsStates.units2);
-			} else {
+			this.log.info('create/delete all required states. Please be patient...');
+
+			// delete channels if no longer required
+			if (!this.config.forecastPackage_basic_15min && !this.config.forecastPackage_basic_1h && !this.config.forecastPackage_basic_3h && !this.config.forecastPackage_basic_day && !this.config.forecastPackage_current) {
+				this.log.debug(`[deleteObjects1]: start deleting states for channel "units1". Please be patient...`);
+				for (let i = 1; i < objectsStates.units1.length; i++) {
+					await this.delObjectAsync(`units.${objectsStates.units1[i].id}`);
+				}
+				this.log.debug(`[deleteObjects1]: states deletion for channel "units1" finished.`);
+			}
+			if (!this.config.forecastPackage_basic_15min && !this.config.forecastPackage_basic_1h && !this.config.forecastPackage_basic_3h && !this.config.forecastPackage_basic_day) {
 				this.log.debug(`[deleteObjects1]: start deleting states for channel "units2". Please be patient...`);
 				for (let i = 1; i < objectsStates.units2.length; i++) {
 					await this.delObjectAsync(`units.${objectsStates.units2[i].id}`);
 				}
-				this.log.debug(`[deleteObjects1]: states seletion for channel "units2" finished.`);
+				this.log.debug(`[deleteObjects1]: states deletion for channel "units2" finished.`);
+			}
+			if (!this.config.forecastPackage_clouds_1h && !this.config.forecastPackage_clouds_3h && !this.config.forecastPackage_clouds_day) {
+				this.log.debug(`[deleteObjects1]: start deleting states for channel "units3". Please be patient...`);
+				for (let i = 1; i < objectsStates.units3.length; i++) {
+					await this.delObjectAsync(`units.${objectsStates.units3[i].id}`);
+				}
+				this.log.debug(`[deleteObjects1]: states deletion for channel "units3" finished.`);
+			}
+
+			if (!this.config.forecastPackage_basic_15min) {
+				this.log.debug(`[deleteObjects0]: start deleting states for channel "data_xmin". Please be patient...`);
+				await this.delObjectAsync('data_xmin', {recursive: true});
+				this.log.debug(`[deleteObjects0]: states deletion for channel "data_xmin" finished.`);
+			}
+			if (!this.config.forecastPackage_basic_1h && !this.config.forecastPackage_clouds_1h) {
+				this.log.debug(`[deleteObjects0]: start deleting states for channel "data_1h". Please be patient...`);
+				await this.delObjectAsync('data_1h', {recursive: true});
+				this.log.debug(`[deleteObjects0]: states deletion for channel "data_1h" finished.`);
+			} else {
+				if (!this.config.forecastPackage_basic_1h) {
+					this.log.debug(`[deleteObjects3]: start deleting states for channel "data_1h". Please be patient...`);
+					for (let k = 0; k < 7; k++) {
+						for (let j = 0; j < objectsStates.basic_1h[1].id.length; j++) {
+							for (let i = 2; i < objectsStates.basic_1h.length; i++) {
+								if (objectsStates.basic_1h[i].id !== 'time') {
+									await this.delObjectAsync(`${objectsStates.basic_1h[0].id}.${k}d_${objectsStates.basic_1h[1].id[j]}.${objectsStates.basic_1h[i].id}`);
+									//this.log.debug(`${objectsStates.basic_1h[0].id}.${k}d_${objectsStates.basic_1h[1].id[j]}.${objectsStates.basic_1h[i].id}`);
+								}
+							}
+						}
+					}
+					this.log.debug(`[deleteObjects3]: states deletion for channel "data_1h" finished.`);
+				}
+				if (!this.config.forecastPackage_clouds_1h) {
+					this.log.debug(`[deleteObjects3]: start deleting states for channel "clouds_1h". Please be patient...`);
+					for (let k = 0; k < 7; k++) {
+						for (let j = 0; j < objectsStates.clouds_1h[1].id.length; j++) {
+							for (let i = 2; i < objectsStates.clouds_1h.length; i++) {
+								if (objectsStates.clouds_1h[i].id !== 'time') {
+									await this.delObjectAsync(`${objectsStates.clouds_1h[0].id}.${k}d_${objectsStates.clouds_1h[1].id[j]}.${objectsStates.clouds_1h[i].id}`);
+									//this.log.debug(`${objectsStates.clouds_1h[0].id}.${k}d_${objectsStates.clouds_1h[1].id[j]}.${objectsStates.clouds_1h[i].id}`);
+								}
+							}
+						}
+					}
+					this.log.debug(`[deleteObjects3]: states deletion for channel "clouds_1h" finished.`);
+				}
+			}
+			if (!this.config.forecastPackage_basic_3h && !this.config.forecastPackage_clouds_3h) {
+				this.log.debug(`[deleteObjects0]: start deleting states for channel "data_3h". Please be patient...`);
+				await this.delObjectAsync('data_3h', {recursive: true});
+				this.log.debug(`[deleteObjects0]: states deletion for channel "data_3h" finished.`);
+			} else {
+				if (!this.config.forecastPackage_basic_3h) {
+					this.log.debug(`[deleteObjects3]: start deleting states for channel "basic_3h". Please be patient...`);
+					for (let k = 0; k < 7; k++) {
+						for (let j = 0; j < objectsStates.basic_3h[1].id.length; j++) {
+							for (let i = 2; i < objectsStates.basic_3h.length; i++) {
+								if (objectsStates.basic_3h[i].id !== 'time') {
+									await this.delObjectAsync(`${objectsStates.basic_3h[0].id}.${k}d_${objectsStates.basic_3h[1].id[j]}.${objectsStates.basic_3h[i].id}`);
+									//this.log.debug(`${objectsStates.basic_3h[0].id}.${k}d_${objectsStates.basic_3h[1].id[j]}.${objectsStates.basic_3h[i].id}`);
+								}
+							}
+						}
+					}
+					this.log.debug(`[deleteObjects3]: states deletion for channel "basic_3h" finished.`);
+				}
+				if (!this.config.forecastPackage_clouds_3h) {
+					this.log.debug(`[deleteObjects3]: start deleting states for channel "clouds_3h". Please be patient...`);
+					for (let k = 0; k < 7; k++) {
+						for (let j = 0; j < objectsStates.clouds_3h[1].id.length; j++) {
+							for (let i = 2; i < objectsStates.clouds_3h.length; i++) {
+								if (objectsStates.clouds_3h[i].id !== 'time') {
+									await this.delObjectAsync(`${objectsStates.clouds_3h[0].id}.${k}d_${objectsStates.clouds_3h[1].id[j]}.${objectsStates.clouds_3h[i].id}`);
+									//this.log.debug(`${objectsStates.clouds_3h[0].id}.${k}d_${objectsStates.clouds_3h[1].id[j]}.${objectsStates.clouds_3h[i].id}`);
+								}
+							}
+						}
+					}
+					this.log.debug(`[deleteObjects3]: states deletion for channel "clouds_3h" finished.`);
+				}
+			}
+			if (!this.config.forecastPackage_basic_day && !this.config.forecastPackage_clouds_day && !this.config.forecastPackage_sunmoon) {
+				this.log.debug(`[deleteObjects0]: start deleting states for channel "data_day". Please be patient...`);
+				await this.delObjectAsync('data_day', {recursive: true});
+				this.log.debug(`[deleteObjects0]: states deletion for channel "data_day" finished.`);
+			} else {
+				if (!this.config.forecastPackage_basic_day) {
+					this.log.debug(`[deleteObjects3]: start deleting states for channel "basic_day". Please be patient...`);
+					for (let k = 0; k < objectsStates.basic_day[1].id.length; k++) {
+						for (let i = 2; i < objectsStates.basic_day.length; i++) {
+							if (objectsStates.basic_day[i].id !== 'time') {
+								await this.delObjectAsync(`${objectsStates.basic_day[0].id}.${objectsStates.basic_day[1].id[k]}.${objectsStates.basic_day[i].id}`);
+							}
+						}
+					}
+					this.log.debug(`[deleteObjects3]: states deletion for channel "basic_day" finished.`);
+				}
+				if (!this.config.forecastPackage_clouds_day) {
+					this.log.debug(`[deleteObjects3]: start deleting states for channel "clouds_day". Please be patient...`);
+					for (let k = 0; k < objectsStates.clouds_day[1].id.length; k++) {
+						for (let i = 2; i < objectsStates.clouds_day.length; i++) {
+							if (objectsStates.clouds_day[i].id !== 'time') {
+								await this.delObjectAsync(`${objectsStates.clouds_day[0].id}.${objectsStates.clouds_day[1].id[k]}.${objectsStates.clouds_day[i].id}`);
+							}
+						}
+					}
+					this.log.debug(`[deleteObjects3]: states deletion for channel "clouds_day" finished.`);
+				}
+				if (!this.config.forecastPackage_sunmoon) {
+					this.log.debug(`[deleteObjects3]: start deleting states for channel "sunmoon". Please be patient...`);
+					for (let k = 0; k < objectsStates.sunmoon[1].id.length; k++) {
+						for (let i = 2; i < objectsStates.sunmoon.length; i++) {
+							if (objectsStates.sunmoon[i].id !== 'time') {
+								await this.delObjectAsync(`${objectsStates.sunmoon[0].id}.${objectsStates.sunmoon[1].id[k]}.${objectsStates.sunmoon[i].id}`);
+							}
+						}
+					}
+					this.log.debug(`[deleteObjects3]: states deletion for channel "sunmoon" finished.`);
+				}
+			}
+			if (!this.config.forecastPackage_current) {
+				this.log.debug(`[deleteObjects0]: start deleting states for channel "data_current". Please be patient...`);
+				await this.delObjectAsync('data_current', {recursive: true});
+				this.log.debug(`[deleteObjects0]: states deletion for channel "data_current" finished.`);
+			}
+
+			// create channels (if required)
+			await this.createStatesObjects1(objectsStates.metadata);
+			await this.createStatesObjects1(objectsStates.units0);
+
+			// objects units1 needed in forcast packages basic_15min, basic_1h, basic_3h, basic_day, current
+			if (this.config.forecastPackage_basic_15min || this.config.forecastPackage_basic_1h || this.config.forecastPackage_basic_3h || this.config.forecastPackage_basic_day || this.config.forecastPackage_current) {
+				await this.createStatesObjects1(objectsStates.units1);
+			}
+
+			// objects units2 needed in forcast basic_15min, basic_1h, basic_3h, basic_day
+			if (this.config.forecastPackage_basic_15min || this.config.forecastPackage_basic_1h || this.config.forecastPackage_basic_3h || this.config.forecastPackage_basic_day) {
+				await this.createStatesObjects1(objectsStates.units2);
+			}
+
+			// objects units3 needed in forcast clouds_1h, clouds_3h, clouds_day
+			if (this.config.forecastPackage_clouds_1h || this.config.forecastPackage_clouds_3h || this.config.forecastPackage_clouds_day) {
+				await this.createStatesObjects1(objectsStates.units3);
 			}
 
 			if (this.config.forecastPackage_basic_15min) {
-				await this.createStatesObjects3(objectsStates.data_15min);
-			} else {
-				// delete folder and content of data_xmin if exists
-				if (await this.getObjectAsync('data_xmin')) {
-					this.log.debug(`[deleteObjects]: start deleting existing folder with ID "data_xmin". Please be patient...`);
-					await this.delObjectAsync('data_xmin', {recursive: true});
-					this.log.debug('[deleteObjects]: deleting existing folder with ID "data_xmin" finished.');
-				}
+				await this.createStatesObjects3(objectsStates.basic_15min);
 			}
 
 			if (this.config.forecastPackage_basic_1h) {
-				await this.createStatesObjects3(objectsStates.data_1h);
-			} else {
-				// delete folder and content of data_1h if exists
-				if (await this.getObjectAsync('data_1h')) {
-					this.log.debug(`[deleteObjects]: start deleting existing folder with ID "data_1h". Please be patient...`);
-					await this.delObjectAsync('data_1h', {recursive: true});
-					this.log.debug('[deleteObjects]: deleting existing folder with ID "data_1h" finished.');
-				}
+				await this.createStatesObjects3(objectsStates.basic_1h);
 			}
 
 			if (this.config.forecastPackage_basic_3h) {
-				await this.createStatesObjects3(objectsStates.data_3h);
-			} else {
-				// delete folder and content of data_3h if exists
-				if (await this.getObjectAsync('data_3h')) {
-					this.log.debug(`[deleteObjects]: start deleting existing folder with ID "data_3h". Please be patient...`);
-					await this.delObjectAsync('data_3h', {recursive: true});
-					this.log.debug('[deleteObjects]: deleting existing folder with ID "data_3h" finished.');
-				}
+				await this.createStatesObjects3(objectsStates.basic_3h);
 			}
 
 			if (this.config.forecastPackage_basic_day) {
-				await this.createStatesObjects2(objectsStates.data_day);
-			} else {
-				// delete folder and content of data_day if exists
-				if (await this.getObjectAsync('data_day')) {
-					this.log.debug(`[deleteObjects]: start deleting existing folder with ID "data_day". Please be patient...`);
-					await this.delObjectAsync('data_day', {recursive: true});
-					this.log.debug('[deleteObjects]: deleting existing folder with ID "data_day" finished.');
-				}
+				await this.createStatesObjects2(objectsStates.basic_day);
 			}
 
 			if (this.config.forecastPackage_current) {
-				await this.createStatesObjects1(objectsStates.data_current);
-			} else {
-				// delete folder and content of data_current if exists
-				if (await this.getObjectAsync('data_current')) {
-					this.log.debug(`[deleteObjects]: start deleting existing folder with ID "data_current". Please be patient...`);
-					await this.delObjectAsync('data_current', {recursive: true});
-					this.log.debug('[deleteObjects]: deleting existing folder with ID "data_current" finished.');
-				}
+				await this.createStatesObjects1(objectsStates.current);
 			}
+
+			if (this.config.forecastPackage_clouds_1h) {
+				await this.createStatesObjects3(objectsStates.clouds_1h);
+			}
+
+			if (this.config.forecastPackage_clouds_3h) {
+				await this.createStatesObjects3(objectsStates.clouds_3h);
+			}
+
+			if (this.config.forecastPackage_clouds_day) {
+				await this.createStatesObjects2(objectsStates.clouds_day);
+			}
+
+			if (this.config.forecastPackage_sunmoon) {
+				await this.createStatesObjects2(objectsStates.sunmoon);
+			}
+
+			this.log.info('creation/deletion of all required states finished.');
 
 			await this.getMeteoblueData();
 			if (Number(this.config.intervall) !== 0) {
@@ -467,45 +618,74 @@ class Meteoblue extends utils.Adapter {
 				this.log.debug(`[getMeteoblueData]: HTTP status response: ${response.status} ${response.statusText}; config: ${JSON.stringify(response.config)}; headers: ${JSON.stringify(response.headers)}; data: ${JSON.stringify(response.data)}`);
 				const content = response.data;
 
-				this.log.debug('[getMeteoblueData]: start writing all required states...');
+				this.log.info('start writing all configured states...');
 
-				// objectsStates.metadata
+				// metadata and units0
 				await this.writeStates1(objectsStates.metadata, content);
+				await this.writeStates1(objectsStates.units0, content);
 
-				// units1
-				await this.writeStates1(objectsStates.units1, content);
+				// units1 units1 needed in forcast packages basic_15min, basic_1h, basic_3h, basic_day, current
+				if (this.config.forecastPackage_basic_15min || this.config.forecastPackage_basic_1h || this.config.forecastPackage_basic_3h || this.config.forecastPackage_basic_day || this.config.forecastPackage_current) {
+					await this.writeStates1(objectsStates.units1, content);
+				}
 
-				// units2 only needed in forecastPackages basic_15min, basic_1h, basic_3h and basic_day
+				// objects units2 needed in forcast basic_15min, basic_1h, basic_3h, basic_day
 				if (this.config.forecastPackage_basic_15min || this.config.forecastPackage_basic_1h || this.config.forecastPackage_basic_3h || this.config.forecastPackage_basic_day) {
 					await this.writeStates1(objectsStates.units2, content);
 				}
 
-				// data_xmin
+				// objects units3 needed in forcast clouds_1h, clouds_3h, clouds_day
+				if (this.config.forecastPackage_clouds_1h || this.config.forecastPackage_clouds_3h || this.config.forecastPackage_clouds_day) {
+					await this.writeStates1(objectsStates.units3, content);
+				}
+
+				// basic_15min
 				if (content.data_xmin && this.config.forecastPackage_basic_15min) {
-					await this.writeStates3(objectsStates.data_15min, content);
+					await this.writeStates3(objectsStates.basic_15min, content);
 				}
 
-				// data_1h
+				// basic_1h
 				if (content.data_1h && this.config.forecastPackage_basic_1h) {
-					await this.writeStates3(objectsStates.data_1h, content);
+					await this.writeStates3(objectsStates.basic_1h, content);
 				}
 
-				// data_3h
+				// basic_3h
 				if (content.data_3h && this.config.forecastPackage_basic_3h) {
-					await this.writeStates3(objectsStates.data_3h, content);
+					await this.writeStates3(objectsStates.basic_3h, content);
 				}
 
-				// data_day
+				// basic_day
 				if (content.data_day && this.config.forecastPackage_basic_day) {
-					await this.writeStates2(objectsStates.data_day, content);
+					await this.writeStates2(objectsStates.basic_day, content);
 				}
 
-				// data_current
+				// current
 				if (content.data_current && this.config.forecastPackage_current) {
-					await this.writeStates1(objectsStates.data_current, content);
+					await this.writeStates1(objectsStates.current, content);
 				}
 
-				this.log.debug('[getMeteoblueData]: all states written.');
+				// clouds_1h
+				if (content.data_1h && this.config.forecastPackage_clouds_1h) {
+					await this.writeStates3(objectsStates.clouds_1h, content);
+				}
+
+				// clouds_3h
+				if (content.data_3h && this.config.forecastPackage_clouds_3h) {
+					await this.writeStates3(objectsStates.clouds_3h, content);
+				}
+
+				// clouds_day
+				if (content.data_day && this.config.forecastPackage_clouds_day) {
+					await this.writeStates2(objectsStates.clouds_day, content);
+				}
+
+				// sunmoon
+				if (content.data_day && this.config.forecastPackage_sunmoon) {
+					await this.writeStates2(objectsStates.sunmoon, content);
+				}
+
+				this.log.info('[getMeteoblueData]: all states written.');
+
 			})
 			.catch((error) => {
 				if (error.response) {
@@ -521,6 +701,7 @@ class Meteoblue extends utils.Adapter {
 				}
 				this.log.debug(`[getMeteoblueData]: error.config: ${JSON.stringify(error.config)}`);
 			});
+
 	}
 
 	async writeStates1(ids, content) {

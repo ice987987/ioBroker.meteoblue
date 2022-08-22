@@ -27,7 +27,7 @@ This adapter fetches weather forecast from [meteoblue.com](http://www.meteoblue.
 
 ## Control
 
-If polling interval is set to `0` you can fetch the values from the API manually. Else this value does not appear.
+If polling interval is set to `0` you can fetch the values from the API manually, else this value does not appear.
 * `.ACTION.REQUEST_DATA`: Fetch data manually
 
 ## Available values (readonly)
@@ -35,79 +35,124 @@ If polling interval is set to `0` you can fetch the values from the API manually
 You get the following values from meteoblue.ch:
 
 Forecast Package `basic-15min`: meteodata for 7 days in a 15min interval (7d x 96values/d x 9values = 6048 forecast values)
-* `.[0-6]d_HHMM.time`: Date and time of forecast
-* `.[0-6]d_HHMM.temperature`: Temperature, 2m above ground (unit specified in settings)
-* `.[0-6]d_HHMM.felttemperature`: Felttemperature, 2m above ground (unit specified in settings)
-* `.[0-6]d_HHMM.sealevelpressure`: Sea level pressure, adjusted to mean sea level (unit specified in settings)
-* `.[0-6]d_HHMM.relativehumidity`: Relative air humidity, in percent
-* `.[0-6]d_HHMM.windspeed`: Windspeed, 10m above ground (unit specified in settings)
+* `.[0-6]d_HHMM.felttemperature`: Felttemperature, 2m above ground
+* `.[0-6]d_HHMM.relativehumidity`: Relative air humidity
+* `.[0-6]d_HHMM.sealevelpressure`: Sea level pressure, adjusted to mean sea level
+* `.[0-6]d_HHMM.temperature`: Temperature, 2m above ground
+* `.[0-6]d_HHMM.time`: Day and time of forecast
+* `.[0-6]d_HHMM.winddirectionChar2`: Wind direction 10m above ground, 2 char
+* `.[0-6]d_HHMM.winddirectionChar3`: Wind direction 10m above ground, 3 char
 * `.[0-6]d_HHMM.winddirection`: Wind direction 10m above ground, degree
-* `.[0-6]d_HHMM.winddirectionChar2`: Wind direction 10m above ground, 2 char (f.ex. `NO`)
-* `.[0-6]d_HHMM.winddirectionChar3`: Wind direction 10m above ground, 3 char (f. ex `NNO`)
+* `.[0-6]d_HHMM.windspeed`: Windspeed, 10m above ground
 
 Forecast Package `basic-1h`: meteodata for 7 days in a 1h interval (7d x 24values/d x 18values = 3024 forecast values)
 
 Forecast Package `basic-3h`: meteodata for 7 days in a 3h interval (7d x 8values/d x 18values = 1008 forecast values)
-* `.[0-6]d_HHMM.time`: Date and time of forecast
-* `.[0-6]d_HHMM.temperature`: Temperature, 2m above ground (unit specified in settings)
-* `.[0-6]d_HHMM.felttemperature`: Felttemperature, 2m above ground (unit specified in settings)
-* `.[0-6]d_HHMM.sealevelpressure`: Sea level pressure, adjusted to mean sea level (unit specified in settings)
-* `.[0-6]d_HHMM.relativehumidity`: Relative air humidity, in percent
-* `.[0-6]d_HHMM.windspeed`: Windspeed, 10m above ground (unit specified in settings)
-* `.[0-6]d_HHMM.winddirection`: Wind direction 10m above ground, degree
-* `.[0-6]d_HHMM.winddirectionChar2`: Wind direction 10m above ground, 2 char (f.ex. `NO`)
-* `.[0-6]d_HHMM.winddirectionChar3`: Wind direction 10m above ground, 3 char (f. ex `NNO`)
-* `.[0-6]d_HHMM.precipitation`: Precipitation
-* `.[0-6]d_HHMM.precipitation_probability`: Precipitation probability
 * `.[0-6]d_HHMM.convective_precipitation`: Water amount, caused by convection e.g. thunderstorms
-* `.[0-6]d_HHMM.isdaylight`: Day or night (`0`: night, `1`: day)
-* `.[0-6]d_HHMM.pictocode`: Classification of weather conditions using a numeric number (`1` ... `35`) ([Day and night pictograms](https://content.meteoblue.com/en/specifications/standards/symbols-and-pictograms))
-* `.[0-6]d_HHMM.rainspot`: Rainspot (`0` ≤ 0.02 mm, `1` = 0.2 - 1.5 mm, `2` = 1.5 - 5 mm, `3` ≥ 5 mm, `9` = 0.02 - 0.2 mm)
+* `.[0-6]d_HHMM.felttemperature`: Felttemperature, 2m above ground
+* `.[0-6]d_HHMM.isdaylight`: Day or night
+* `.[0-6]d_HHMM.pictocode'`: Classification of weather conditions, using a numeric number (1-35) ([Day and night pictograms](https://content.meteoblue.com/en/specifications/standards/symbols-and-pictograms))
+* `.[0-6]d_HHMM.precipitation`: Precipitation
+* `.[0-6]d_HHMM.precipitation_probability`: Precipitation Probability
+* `.[0-6]d_HHMM.rainspot`: Rainspot (0 ≤ 0.02 mm, 1 = 0.2 - 1.5 mm, 2 = 1.5 - 5 mm, 3 ≥ 5 mm, 9 = 0.02 - 0.2 mm)
 * `.[0-6]d_HHMM.rainspot_vis`: Rainspot for vis (html-widget binding)
+* `.[0-6]d_HHMM.relativehumidity`: Relative air humidity
+* `.[0-6]d_HHMM.sealevelpressure`: Sea level pressure, adjusted to mean sea level
 * `.[0-6]d_HHMM.snowfraction`: Snow fraction, information whether precipitation falls as rain or snow
-* `.[0-6]d_HHMM.uvindex`: UV-index on ground level (`0` ... `11`)
+* `.[0-6]d_HHMM.temperature`: Temperature, 2m above ground
+* `.[0-6]d_HHMM.time`: Day and time of forecast
+* `.[0-6]d_HHMM.uvindex`: UV-index on ground level (0 ... 11+)
+* `.[0-6]d_HHMM.winddirectionChar2`: Wind direction 10m above ground, 2 char
+* `.[0-6]d_HHMM.winddirectionChar3`: Wind direction 10m above ground, 3 char
+* `.[0-6]d_HHMM.winddirection`: Wind direction 10m above ground, degree
+* `.[0-6]d_HHMM.windspeed`: Windspeed, 10m above ground
 
 Forecast Package `basic-day`: meteodata for 7 days in a 1d interval (7d x 1value/d x 30values = 210 forecast values)
-* `.[0-6]d.time`: Date and time of forecast
-* `.[0-6]d.temperature_min`: Minimum temperature, 2m above ground (unit specified in settings)
-* `.[0-6]d.temperature_mean`: Mean temperature, 2m above ground (unit specified in settings)
-* `.[0-6]d.temperature_max`: Maximum temperature, 2m above ground (unit specified in settings)
-* `.[0-6]d.felttemperature_min`: Minimum felttemperature, 2m above ground (unit specified in settings)
-* `.[0-6]d.felttemperature_max`: Mean felttemperature, 2m above ground (unit specified in settings)
-* `.[0-6]d.sealevelpressure_min`: Maximum felttemperature, 2m above ground (unit specified in settings)
-* `.[0-6]d.sealevelpressure_mean`: Minimum sea level pressure, adjusted to mean sea level (unit specified in settings)
-* `.[0-6]d.sealevelpressure_max`: Maximum sea level pressure, adjusted to mean sea level (unit specified in settings)
-* `.[0-6]d.relativehumidity_min`: Minimum relative air humidity, in percent
-* `.[0-6]d.relativehumidity_mean`: Mean relative air humidity, in percent
-* `.[0-6]d.relativehumidity_max`: Maximum relative air humidity, in percent
-* `.[0-6]d.humiditygreater90_hours`: Hours with humidity greater than 90%
-* `.[0-6]d.windspeed_min`: Minimum windspeed, 10m above ground (unit specified in settings)
-* `.[0-6]d.windspeed_mean`: Mean windspeed, 10m above ground (unit specified in settings)
-* `.[0-6]d.windspeed_max`: Maximum windspeed, 10m above ground (unit specified in settings)
-* `.[0-6]d.winddirection`: Wind direction 10m above ground, degree
-* `.[0-6]d.winddirectionChar2`: Wind direction 10m above ground, 2 char (f.ex. `NO`)
-* `.[0-6]d.winddirectionChar3`: Wind direction 10m above ground, 3 char (f. ex. `NNO`)
-* `.[0-6]d.precipitation`: Precipitation
-* `.[0-6]d.precipitation_probability`: Precipitation probability
-* `.[0-6]d.precipitation_hours`: Hours with precipitation
 * `.[0-6]d.convective_precipitation`: Water amount, caused by convection e.g. thunderstorms
-* `.[0-6]d.pictocode`: Classification of weather conditions using a numeric number (`1` ... `17`) ([Day and night pictograms](https://content.meteoblue.com/en/specifications/standards/symbols-and-pictograms))
-* `.[0-6]d.rainspot`: Rainspot (`0` ≤ 0.02 mm, `1` = 0.2 - 1.5 mm, `2` = 1.5 - 5 mm, `3` ≥ 5 mm, `9` = 0.02 - 0.2 mm)
+* `.[0-6]d.felttemperature_max`: Maximum felttemperature, 2m above ground
+* `.[0-6]d.felttemperature_min`: Minimum felttemperature, 2m above ground
+* `.[0-6]d.humiditygreater90_hours`: Hours with humidity greater than 90%
+* `.[0-6]d.pictocode`: Classification of weather conditions, using a numeric number (1-17) ([Day and night pictograms](https://content.meteoblue.com/en/specifications/standards/symbols-and-pictograms))
+* `.[0-6]d.precipitation`: Precipitation
+* `.[0-6]d.precipitation_hours`: Hours with precipitation
+* `.[0-6]d.precipitation_probability`: Precipitation Probability
+* `.[0-6]d.predictability`: Predictability (24h)
+* `.[0-6]d.predictability_class`: Predictability class (1 = very low, 5 = very high)
+* `.[0-6]d.rainspot`: Rainspot (0 ≤ 0.02 mm, 1 = 0.2 - 1.5 mm, 2 = 1.5 - 5 mm, 3 ≥ 5 mm, 9 = 0.02 - 0.2 mm)
 * `.[0-6]d.rainspot_vis`: Rainspot for vis (html-widget binding)
+* `.[0-6]d.relativehumidity_max`: Max relative air humidity
+* `.[0-6]d.relativehumidity_mean`: Mean relative air humidity
+* `.[0-6]d.relativehumidity_min`: Min relative air humidity
+* `.[0-6]d.sealevelpressure_max`: Maximum sea level pressure, adjusted to mean sea level
+* `.[0-6]d.sealevelpressure_mean`: Mean sea level pressure, adjusted to mean sea level
+* `.[0-6]d.sealevelpressure_min`: Minimum sea level pressure, adjusted to mean sea level
 * `.[0-6]d.snowfraction`: Snow fraction, information whether precipitation falls as rain or snow
-* `.[0-6]d.uvindex`: UV-index on ground level (`0` ... `11`)
-* `.[0-6]d.predictability`: Predictability 24h
-* `.[0-6]d.predictability_class`: Predictability class (`1`: very low ... `5`: very high)
+* `.[0-6]d.temperature_max`: Maximum temperature, 2m above ground
+* `.[0-6]d.temperature_mean`: Mean temperature, 2m above ground
+* `.[0-6]d.temperature_min`: Minimum temperature, 2m above ground
+* `.[0-6]d.time`: Day of forecast
+* `.[0-6]d.uvindex`: UV-index on ground level (0 ... 11+)
+* `.[0-6]d.winddirectionChar2`: Wind direction 10m above ground, 2 char
+* `.[0-6]d.winddirectionChar3`: Wind direction 10m above ground, 3 char
+* `.[0-6]d.winddirection`: Wind direction 10m above ground, degree
+* `.[0-6]d.windspeed_max`: Max windspeed, 10m above ground
+* `.[0-6]d.windspeed_mean`: Mean windspeed, 10m above ground
+* `.[0-6]d.windspeed_min`: Minimum windspeed, 10m above ground
 
 Forecast Package `current`: meteodata for current day (1d x 1value/d x 8values = 8 forecast values)
-* `.time`: Date and time of forecast
-* `.temperature`: Temperature, 2m above ground (unit specified in settings)
-* `.windspeed`: Windspeed, 10m above ground (unit specified in settings)
-* `.isdaylight`: Day or night (`0`: night, `1`: day)
-* `.pictocode`: Classification of weather conditions "sunny", "partly cloudy" or "overcast with rain" using a numeric number (`1` ... `17`)
-* `.pictocode_detailed`: Classification of weather conditions using a numeric number (`1` ... `35`) ([Day and night pictograms](https://content.meteoblue.com/en/specifications/standards/symbols-and-pictograms))
-* `.isobserveddata`: Is-observation (`1`: observation available, `0`: no observation)
-* `.zenithangle`: Angle between zenith and centre of the sun's disc, in degree
+* `.isdaylight`: Day or night
+* `.isobserveddata`: Is observed data
+* `.pictocode`: Classification of weather conditions, using a numeric number (1-17)
+* `.pictocode_detailed`: Classification of weather conditions, using a numeric number (1-35) ([Day and night pictograms](https://content.meteoblue.com/en/specifications/standards/symbols-and-pictograms))
+* `.temperature`: Temperature, 2m above ground
+* `.time`: Day of forecast
+* `.windspeed`: Windspeed, 10m above ground
+* `.zenithangle`: Angle between zenith and centre of the suns disc
+
+Forecast Package `clouds-1h`: meteodata for 7 days in a 1h interval (7d x 24values/d x 7values = 1176 forecast values)
+
+Forecast Package `clouds-3h`: meteodata for 7 days in a 3h interval (7d x 8values/d x 7values = 392 forecast values)
+* `.[0-6]d_HHMM.highclouds`: Cover of the sky (high clouds)
+* `.[0-6]d_HHMM.lowclouds`: Cover of the sky (low clouds)
+* `.[0-6]d_HHMM.midclouds`: Cover of the sky (mid clouds)
+* `.[0-6]d_HHMM.sunshinetime`: Direct sunlight, depends also on day length
+* `.[0-6]d_HHMM.time` : Day of forecast
+* `.[0-6]d_HHMM.totalcloudcover`: Cover of the sky (total cloud cover)
+* `.[0-6]d_HHMM.visibility`: Visibility (distance)
+
+Forecast Package `clouds-day`: meteodata for 7 days in a 1d interval (7d x 1value/d x 21values = 147 forecast values)
+* `.[0-6]d.highclouds_max`: Cover of the sky (maximum high clouds)
+* `.[0-6]d.highclouds_mean`: Cover of the sky (mean high clouds)
+* `.[0-6]d.highclouds_min`: Cover of the sky (minimum high clouds)
+* `.[0-6]d.lowclouds_max`: Cover of the sky (maximum low clouds)
+* `.[0-6]d.lowclouds_mean`: Cover of the sky (mean low clouds)
+* `.[0-6]d.lowclouds_min`: Cover of the sky (minimum low clouds)
+* `.[0-6]d.midclouds_max`: Cover of the sky (maximum mid clouds)
+* `.[0-6]d.midclouds_mean`: Cover of the sky (mean mid clouds)
+* `.[0-6]d.midclouds_min`: Cover of the sky (minimum mid clouds)
+* `.[0-6]d.sunshine_time`: Direct sunlight, depends also on day length
+* `.[0-6]d.time`: Day of forecast
+* `.[0-6]d.totalcloudcover_max`: Cover of the sky (total maximum cloud cover)
+* `.[0-6]d.totalcloudcover_mean`: Cover of the sky (total mean cloud cover)
+* `.[0-6]d.totalcloudcover_min`: Cover of the sky (total minimum cloud cover)
+* `.[0-6]d.visibility_max`: Maximum visibility (distance)
+* `.[0-6]d.visibility_mean`: Mean visibility (distance)
+* `.[0-6]d.visibility_min`: Minimum visibility (distance)
+* `.[0-6]d.indexto1hvalues_start`: *indexto1hvalues_start*
+* `.[0-6]d.indexto1hvalues_end`: *indexto1hvalues_end*
+* `.[0-6]d.indexto3hvalues_start`: *indexto3hvalues_start*
+* `.[0-6]d.indexto3hvalues_end`: *indexto3hvalues_end*
+
+Forecast Package `sunmoon`: meteodata for 7 days in a 1d interval (7d x 1value/d x 21values = 147 forecast values)
+* `.[0-6]d.moonage`: Moon age
+* `.[0-6]d.moonphaseangle`: Moon phase angle
+* `.[0-6]d.moonphasename`: Moon phase name
+* `.[0-6]d.moonphasetransittime`: Moon phase transit time
+* `.[0-6]d.moonrise`: Moon rise time
+* `.[0-6]d.moonset`: Moon set time
+* `.[0-6]d.sunrise`: Sunrise time
+* `.[0-6]d.sunset`: Sunset time
+* `.[0-6]d.time`: Day of forecast
 
 ## How to report issues and feature requests
 
@@ -125,8 +170,10 @@ Forecast Package `current`: meteodata for current day (1d x 1value/d x 8values =
 
 ### **WORK IN PROGRESS**
 * (ice987987) add section "Available values (readonly)" in readme
-* (ice987987) BREAKING: added forecast packages `basic-15min`, `basic-1h`, `basic-3h` and `current`. Names of Objects in forecast package `basic-day` changed.
-* (ice987987) add possibility for manual requests
+* (ice987987) add section "Control" in readme
+* (ice987987) add feature requrest form
+* (ice987987) BREAKING: added forecast packages `basic-15min`, `basic-1h`, `basic-3h`, `current`, `clouds-1h`, `clouds-3h`, `clouds-day` and `sunmoon`. Names of Objects in forecast package `basic-day` changed
+* (ice987987) add possibility for manual requests via `.ACTION.REQUEST_DATA` if polling intervall is set to `0`
 * (ice987987) fix date of DP `modelrun_updatetime_utc` and `modelrun_utc`
 
 ### 0.0.6 (2022-07-21)

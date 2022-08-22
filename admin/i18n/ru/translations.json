@@ -4,6 +4,8 @@
     "title3": "Настройки",
     "forecastPackage_basic_explanation": "Для общих целей, содержит наиболее распространенные переменные погоды",
     "forecastPackage_current_explanation": "Актуальная информация о погоде, включая наблюдения и измерения",
+    "forecastPackage_clouds_explanation": "Подробный облачный слой и прогнозы продолжительности солнца",
+    "forecastPackage_sunAndMoon_explanation": "Информация о восходе и настройке солнца и луны",
     "city": "город",
     "cityHint": "e.g Базель",
     "cityFromSystem": "использовать город из системных настроек",

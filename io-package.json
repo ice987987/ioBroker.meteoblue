@@ -159,7 +159,11 @@
         "forecastPackage_basic_1h": false,
         "forecastPackage_basic_3h": false,
         "forecastPackage_basic_day": true,
-        "forecastPackage_current": false
+        "forecastPackage_current": false,
+        "forecastPackage_clouds_1h": false,
+        "forecastPackage_clouds_3h": false,
+        "forecastPackage_clouds_day": false,
+        "forecastPackage_sunmoon": false
     },
     "objects": [],
     "instanceObjects": [

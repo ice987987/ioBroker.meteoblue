@@ -4,6 +4,8 @@
     "title3": "Configurações",
     "forecastPackage_basic_explanation": "Para fins gerais, contém as variáveis climáticas mais comuns",
     "forecastPackage_current_explanation": "InformaÃ§Ãμes climáticas atuais, incluindo observações e medidas",
+    "forecastPackage_clouds_explanation": "Previsões detalhadas da duração da camada de nuvem e da luz solar",
+    "forecastPackage_sunAndMoon_explanation": "InformaÃ§Ãμes sobre o surgimento e o ajuste dos tempos do sol e da lua",
     "city": "cidade",
     "cityHint": "por exemplo Basileia",
     "cityFromSystem": "usar cidade nas configurações do sistema",

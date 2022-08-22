@@ -4,6 +4,8 @@
     "title3": "Réglages",
     "forecastPackage_basic_explanation": "À des fins générales, contient les variables météorologiques les plus courantes",
     "forecastPackage_current_explanation": "Informations météorologiques actuelles, y compris observations et mesures",
+    "forecastPackage_clouds_explanation": "Prévisions détaillées de la couche de nuage et de la durée du soleil",
+    "forecastPackage_sunAndMoon_explanation": "Informations sur le lever et le coucher du soleil et de la lune",
     "city": "ville",
     "cityHint": "par exemple Bâle",
     "cityFromSystem": "utiliser la ville à partir des paramètres système",

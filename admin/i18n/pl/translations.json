@@ -4,6 +4,8 @@
     "title3": "Setting",
     "forecastPackage_basic_explanation": "Dla celów ogólnych, zawiera najczęstsze zmienne pogodowe",
     "forecastPackage_current_explanation": "Aktualne informacje pogodowe, w tym obserwacje i pomiary",
+    "forecastPackage_clouds_explanation": "Określona warstwa chmur i czas trwania prognozy słonecznej",
+    "forecastPackage_sunAndMoon_explanation": "Informacja o nadchodzących i ustalonych okresach słońca i księżyca",
     "city": "Miasto",
     "cityHint": "np Basel",
     "cityFromSystem": "użyj miasta z ustawień systemu",
