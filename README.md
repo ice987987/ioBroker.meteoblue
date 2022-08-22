@@ -143,7 +143,7 @@ Forecast Package `clouds-day`: meteodata for 7 days in a 1d interval (7d x 1valu
 * `.[0-6]d.indexto3hvalues_start`: *indexto3hvalues_start*
 * `.[0-6]d.indexto3hvalues_end`: *indexto3hvalues_end*
 
-Forecast Package `sunmoon`: meteodata for 7 days in a 1d interval (7d x 1value/d x 21values = 147 forecast values)
+Forecast Package `sunmoon`: meteodata for 7 days in a 1d interval (7d x 1value/d x 9values = 63 forecast values)
 * `.[0-6]d.moonage`: Moon age
 * `.[0-6]d.moonphaseangle`: Moon phase angle
 * `.[0-6]d.moonphasename`: Moon phase name
