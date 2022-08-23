@@ -163,7 +163,13 @@
         "forecastPackage_clouds_1h": false,
         "forecastPackage_clouds_3h": false,
         "forecastPackage_clouds_day": false,
-        "forecastPackage_sunmoon": false
+        "forecastPackage_sunmoon": false,
+        "forecastPackage_agro_1h": false,
+        "forecastPackage_agro_3h": false,
+        "forecastPackage_agro_day": false,
+        "forecastPackage_agromodelLeafWetness_1h": false,
+        "forecastPackage_agromodelSowing_1h": false,
+        "forecastPackage_agromodelSpray_1h": false
     },
     "objects": [],
     "instanceObjects": [

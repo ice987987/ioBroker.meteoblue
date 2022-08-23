@@ -34,7 +34,7 @@ If polling interval is set to `0` you can fetch the values from the API manually
 
 You get the following values from meteoblue.ch:
 
-Forecast Package `basic-15min`: meteodata for 7 days in a 15min interval (7d x 96values/d x 9values = 6048 forecast values)
+Forecast Package [`basic-15min`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#general-packages): meteodata for 7 days in a 15min interval (7d x 96values/d x 9values = 6048 forecast values)
 * `.[0-6]d_HHMM.felttemperature`: Felttemperature, 2m above ground
 * `.[0-6]d_HHMM.relativehumidity`: Relative air humidity
 * `.[0-6]d_HHMM.sealevelpressure`: Sea level pressure, adjusted to mean sea level
@@ -45,9 +45,9 @@ Forecast Package `basic-15min`: meteodata for 7 days in a 15min interval (7d x 9
 * `.[0-6]d_HHMM.winddirection`: Wind direction 10m above ground, degree
 * `.[0-6]d_HHMM.windspeed`: Windspeed, 10m above ground
 
-Forecast Package `basic-1h`: meteodata for 7 days in a 1h interval (7d x 24values/d x 18values = 3024 forecast values)
+Forecast Package [`basic-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#general-packages): meteodata for 7 days in a 1h interval (7d x 24values/d x 18values = 3024 forecast values)
 
-Forecast Package `basic-3h`: meteodata for 7 days in a 3h interval (7d x 8values/d x 18values = 1008 forecast values)
+Forecast Package [`basic-3h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#general-packages): meteodata for 7 days in a 3h interval (7d x 8values/d x 18values = 1008 forecast values)
 * `.[0-6]d_HHMM.convective_precipitation`: Water amount, caused by convection e.g. thunderstorms
 * `.[0-6]d_HHMM.felttemperature`: Felttemperature, 2m above ground
 * `.[0-6]d_HHMM.isdaylight`: Day or night
@@ -67,7 +67,7 @@ Forecast Package `basic-3h`: meteodata for 7 days in a 3h interval (7d x 8values
 * `.[0-6]d_HHMM.winddirection`: Wind direction 10m above ground, degree
 * `.[0-6]d_HHMM.windspeed`: Windspeed, 10m above ground
 
-Forecast Package `basic-day`: meteodata for 7 days in a 1d interval (7d x 1value/d x 30values = 210 forecast values)
+Forecast Package [`basic-day`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#general-packages): meteodata for 7 days in a 1d interval (7d x 1value/d x 30values = 210 forecast values)
 * `.[0-6]d.convective_precipitation`: Water amount, caused by convection e.g. thunderstorms
 * `.[0-6]d.felttemperature_max`: Maximum felttemperature, 2m above ground
 * `.[0-6]d.felttemperature_min`: Minimum felttemperature, 2m above ground
@@ -99,7 +99,7 @@ Forecast Package `basic-day`: meteodata for 7 days in a 1d interval (7d x 1value
 * `.[0-6]d.windspeed_mean`: Mean windspeed, 10m above ground
 * `.[0-6]d.windspeed_min`: Minimum windspeed, 10m above ground
 
-Forecast Package `current`: meteodata for current day (1d x 1value/d x 8values = 8 forecast values)
+Forecast Package [`current`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#current): meteodata for current day (1d x 1value/d x 8values = 8 forecast values)
 * `.isdaylight`: Day or night
 * `.isobserveddata`: Is observed data
 * `.pictocode`: Classification of weather conditions, using a numeric number (1-17)
@@ -109,18 +109,18 @@ Forecast Package `current`: meteodata for current day (1d x 1value/d x 8values =
 * `.windspeed`: Windspeed, 10m above ground
 * `.zenithangle`: Angle between zenith and centre of the suns disc
 
-Forecast Package `clouds-1h`: meteodata for 7 days in a 1h interval (7d x 24values/d x 7values = 1176 forecast values)
+Forecast Package [`clouds-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#clouds): meteodata for 7 days in a 1h interval (7d x 24values/d x 7values = 1176 forecast values)
 
-Forecast Package `clouds-3h`: meteodata for 7 days in a 3h interval (7d x 8values/d x 7values = 392 forecast values)
+Forecast Package [`clouds-3h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#clouds): meteodata for 7 days in a 3h interval (7d x 8values/d x 7values = 392 forecast values)
 * `.[0-6]d_HHMM.highclouds`: Cover of the sky (high clouds)
 * `.[0-6]d_HHMM.lowclouds`: Cover of the sky (low clouds)
 * `.[0-6]d_HHMM.midclouds`: Cover of the sky (mid clouds)
 * `.[0-6]d_HHMM.sunshinetime`: Direct sunlight, depends also on day length
-* `.[0-6]d_HHMM.time` : Day of forecast
+* `.[0-6]d_HHMM.time` : Day and time of forecast
 * `.[0-6]d_HHMM.totalcloudcover`: Cover of the sky (total cloud cover)
 * `.[0-6]d_HHMM.visibility`: Visibility (distance)
 
-Forecast Package `clouds-day`: meteodata for 7 days in a 1d interval (7d x 1value/d x 21values = 147 forecast values)
+Forecast Package [`clouds-day`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#clouds): meteodata for 7 days in a 1d interval (7d x 1value/d x 17values = 119 forecast values)
 * `.[0-6]d.highclouds_max`: Cover of the sky (maximum high clouds)
 * `.[0-6]d.highclouds_mean`: Cover of the sky (mean high clouds)
 * `.[0-6]d.highclouds_min`: Cover of the sky (minimum high clouds)
@@ -138,12 +138,8 @@ Forecast Package `clouds-day`: meteodata for 7 days in a 1d interval (7d x 1valu
 * `.[0-6]d.visibility_max`: Maximum visibility (distance)
 * `.[0-6]d.visibility_mean`: Mean visibility (distance)
 * `.[0-6]d.visibility_min`: Minimum visibility (distance)
-* `.[0-6]d.indexto1hvalues_start`: *indexto1hvalues_start*
-* `.[0-6]d.indexto1hvalues_end`: *indexto1hvalues_end*
-* `.[0-6]d.indexto3hvalues_start`: *indexto3hvalues_start*
-* `.[0-6]d.indexto3hvalues_end`: *indexto3hvalues_end*
 
-Forecast Package `sunmoon`: meteodata for 7 days in a 1d interval (7d x 1value/d x 9values = 63 forecast values)
+Forecast Package [`sunmoon`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#sun-and-moon): meteodata for 7 days in a 1d interval (7d x 1value/d x 9values = 63 forecast values)
 * `.[0-6]d.moonage`: Moon age
 * `.[0-6]d.moonphaseangle`: Moon phase angle
 * `.[0-6]d.moonphasename`: Moon phase name
@@ -153,6 +149,73 @@ Forecast Package `sunmoon`: meteodata for 7 days in a 1d interval (7d x 1value/d
 * `.[0-6]d.sunrise`: Sunrise time
 * `.[0-6]d.sunset`: Sunset time
 * `.[0-6]d.time`: Day of forecast
+
+Forecast Package [`agro-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#agro): meteodata for 7 days in a 1h interval (7d x 24values/d x 11values = 1848 forecast values)
+
+Forecast Package [`agro-3h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#agro): meteodata for 7 days in a 3h interval (7d x 8values/d x 11values = 616 forecast values)
+* `.[0-6]d_HHMM.dewpointtemperature`: Dewpoint temperature
+* `.[0-6]d_HHMM.evapotranspiration`: Total evapotranspiration
+* `.[0-6]d_HHMM.leafwetnessindex`: Leaf wetness index
+* `.[0-6]d_HHMM.potentialevapotranspiration`: Potential evapotranspiration
+* `.[0-6]d_HHMM.referenceevapotranspiration_fao`: Reference evapotranspiration (ET_0)
+* `.[0-6]d_HHMM.sensibleheatflux`: Mean sensible heat flux
+* `.[0-6]d_HHMM.skintemperature`: Skin / Surface temperature
+* `.[0-6]d_HHMM.soilmoisture_0to10cm`: Soil moisture (0 - 10cm)
+* `.[0-6]d_HHMM.soiltemperature_0to10cm`: Soil temperature (0 - 10cm)
+* `.[0-6]d_HHMM.time`: Day and time of forecast
+* `.[0-6]d_HHMM.wetbulbtemperature`: Wetbulb temperature
+
+Forecast Package [`agro-day`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#agro): meteodata for 7 days in a 1d interval (7d x 1value/d x values =  forecast values)
+
+* `.[0-6]d.dewpointtemperature_max`: Maximum ewpoint temperature
+* `.[0-6]d.dewpointtemperature_mean`: Mean dewpoint temperature
+* `.[0-6]d.dewpointtemperature_min`: Minimum dewpoint temperature
+* `.[0-6]d.evapotranspiration`: Total evapotranspiration
+* `.[0-6]d.leafwetnessindex`: Leaf wetness index
+* `.[0-6]d.potentialevapotranspiration`: Potential evapotranspiration
+* `.[0-6]d.referenceevapotranspiration_fao`: Reference evapotranspiration (ET_0)
+* `.[0-6]d.sensibleheatflux`: Mean sensible heat flux
+* `.[0-6]d.skintemperature_max`: Maximum skin / surface temperature
+* `.[0-6]d.skintemperature_mean`: Mean skin / surface temperature
+* `.[0-6]d.skintemperature_min`: Minimum skin / surface temperature
+* `.[0-6]d.soilmoisture_0to10cm_max`: Maximum soil moisture (0 - 10cm)
+* `.[0-6]d.soilmoisture_0to10cm_mean`: Mean soil moisture (0 - 10cm)
+* `.[0-6]d.soilmoisture_0to10cm_min`: Minimum soil moisture (0 - 10cm)
+* `.[0-6]d.soiltemperature_0to10cm_max`: Maximum soil temperature (0 - 10cm)
+* `.[0-6]d.soiltemperature_0to10cm_mean`: Mean soil temperature (0 - 10cm)
+* `.[0-6]d.soiltemperature_0to10cm_min`: Minimum soil temperature (0 - 10cm)
+* `.[0-6]d.time`: Day of forecast
+* `.[0-6]d.wetbulbtemperature_max`: Maximum wetbulb temperature
+* `.[0-6]d.wetbulbtemperature_mean`: Mean wetbulb temperature
+* `.[0-6]d.wetbulbtemperature_min`: Minimum wetbulb temperature
+
+Forecast Package [`agromodelleafwetness-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#agromodel-leaf-wetness): meteodata for 7 days in a 1h interval (7d x 24values/d x 5values = 840 forecast values)
+
+* `.[0-6]d_HHMM.leafwetness_dewindex`: Leaf wetness dew index
+* `.[0-6]d_HHMM.leafwetness_evaporationindex`: Leaf wetness evaporation index
+* `.[0-6]d_HHMM.leafwetness_probability`: Leaf wetness probability
+* `.[0-6]d_HHMM.leafwetness_rainindex`: Leaf wetness rain index
+* `.[0-6]d_HHMM.time`: Day and time of forecast
+
+Forecast Package [`agromodelsowing-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#agromodel-sowing): meteodata for 7 days in a 1h interval (7d x 24values/d x 12values = 2016 forecast values)
+
+* `.[0-6]d_HHMM.sowing_barley`: Sowing barley
+* `.[0-6]d_HHMM.sowing_cotton`: Sowing cotton
+* `.[0-6]d_HHMM.sowing_maize`: Sowing maize
+* `.[0-6]d_HHMM.sowing_potato`: Sowing potato
+* `.[0-6]d_HHMM.sowing_rapseed`: Sowing rapseed
+* `.[0-6]d_HHMM.sowing_riceindica`: Sowing riceindica
+* `.[0-6]d_HHMM.sowing_ricejaponi`: Sowing ricejaponi
+* `.[0-6]d_HHMM.sowing_sorghum`: Sowing sorghum
+* `.[0-6]d_HHMM.sowing_soybean`: Sowing soybean
+* `.[0-6]d_HHMM.sowing_sugarbeets`: Sowing sugarbeets
+* `.[0-6]d_HHMM.sowing_wheat`: Sowing wheat
+* `.[0-6]d_HHMM.time`: Day and time of forecast
+
+Forecast Package [`agromodelspray-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#agromodel-spray): meteodata for 7 days in a 1h interval (7d x 24values/d x 1values = 168 forecast values)
+
+* `.[0-6]d_HHMM.spraywindow`: Spray window
+* `.[0-6]d_HHMM.time`: Day and time of forecast
 
 ## How to report issues and feature requests
 
@@ -169,10 +232,11 @@ Forecast Package `sunmoon`: meteodata for 7 days in a 1d interval (7d x 1value/d
 <!-- ### **WORK IN PROGRESS** -->
 
 ### **WORK IN PROGRESS**
+* (ice987987) BREAKING: Names of Objects in forecast package `basic-day` changed
 * (ice987987) add section "Available values (readonly)" in readme
 * (ice987987) add section "Control" in readme
 * (ice987987) add feature requrest form
-* (ice987987) BREAKING: added forecast packages `basic-15min`, `basic-1h`, `basic-3h`, `current`, `clouds-1h`, `clouds-3h`, `clouds-day` and `sunmoon`. Names of Objects in forecast package `basic-day` changed
+* (ice987987) added forecast packages `basic-15min`, `basic-1h`, `basic-3h`, `current`, `clouds-1h`, `clouds-3h`, `clouds-day`, `sunmoon`, `agromodelleafwetness-1h`, `agromodelsowing-1h` and `agromodelspray-1h`
 * (ice987987) add possibility for manual requests via `.ACTION.REQUEST_DATA` if polling intervall is set to `0`
 * (ice987987) fix date of DP `modelrun_updatetime_utc` and `modelrun_utc`
 
