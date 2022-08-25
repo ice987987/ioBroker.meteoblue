@@ -12,21 +12,21 @@
             "md": 8,
             "lg": 8
         },
-        "_forecastPackage_basic_explanation": {
+        "_basic_explanation": {
             "newLine": true,
             "type": "staticText",
-            "label": "forecastPackage_basic_explanation",
+            "label": "basic_explanation",
             "xs": 12,
             "sm": 12,
             "md": 8,
             "lg": 8
         },
-        "forecastPackage_basic_15min": {
+        "basic_15min": {
             "newLine": true,
             "type": "checkbox",
             "label": "basic-15min",
             "help": "8000 credits",
-            "validator": "data.forecastPackage_basic_15min || data.forecastPackage_basic_1h || data.forecastPackage_basic_3h || data.forecastPackage_basic_day || data.forecastPackage_current || data.forecastPackage_clouds_1h || data.forecastPackage_clouds_3h || data.forecastPackage_clouds_day || data.forecastPackage_sunmoon || data.forecastPackage_agro_1h || data.forecastPackage_agro_3h || data.forecastPackage_agro_day || data.forecastPackage_agromodelLeafWetness_1h || data.forecastPackage_agromodelSowing_1h || data.forecastPackage_agromodelSpray_1h",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
             "validatorNoSaveOnError": true,
             "noTranslation": true,
             "xs": 6,
@@ -34,12 +34,12 @@
             "md": 2,
             "lg": 2
         },
-        "forecastPackage_basic_1h": {
+        "basic_1h": {
             "newLine": false,
             "type": "checkbox",
             "label": "basic-1h",
             "help": "8000 credits",
-            "validator": "data.forecastPackage_basic_15min || data.forecastPackage_basic_1h || data.forecastPackage_basic_3h || data.forecastPackage_basic_day || data.forecastPackage_current || data.forecastPackage_clouds_1h || data.forecastPackage_clouds_3h || data.forecastPackage_clouds_day || data.forecastPackage_sunmoon || data.forecastPackage_agro_1h || data.forecastPackage_agro_3h || data.forecastPackage_agro_day || data.forecastPackage_agromodelLeafWetness_1h || data.forecastPackage_agromodelSowing_1h || data.forecastPackage_agromodelSpray_1h",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
             "validatorNoSaveOnError": true,
             "noTranslation": true,
             "xs": 6,
@@ -47,11 +47,11 @@
             "md": 2,
             "lg": 2
         },
-        "forecastPackage_basic_3h": {
+        "basic_3h": {
             "type": "checkbox",
             "label": "basic-3h",
             "help": "8000 credits",
-            "validator": "data.forecastPackage_basic_15min || data.forecastPackage_basic_1h || data.forecastPackage_basic_3h || data.forecastPackage_basic_day || data.forecastPackage_current || data.forecastPackage_clouds_1h || data.forecastPackage_clouds_3h || data.forecastPackage_clouds_day || data.forecastPackage_sunmoon || data.forecastPackage_agro_1h || data.forecastPackage_agro_3h || data.forecastPackage_agro_day || data.forecastPackage_agromodelLeafWetness_1h || data.forecastPackage_agromodelSowing_1h || data.forecastPackage_agromodelSpray_1h",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
             "validatorNoSaveOnError": true,
             "noTranslation": true,
             "xs": 6,
@@ -59,12 +59,12 @@
             "md": 2,
             "lg": 2
         },
-        "forecastPackage_basic_day": {
+        "basic_day": {
             "newLine": false,
             "type": "checkbox",
             "label": "basic-day",
             "help": "4000 credits",
-            "validator": "data.forecastPackage_basic_15min || data.forecastPackage_basic_1h || data.forecastPackage_basic_3h || data.forecastPackage_basic_day || data.forecastPackage_current || data.forecastPackage_clouds_1h || data.forecastPackage_clouds_3h || data.forecastPackage_clouds_day || data.forecastPackage_sunmoon || data.forecastPackage_agro_1h || data.forecastPackage_agro_3h || data.forecastPackage_agro_day || data.forecastPackage_agromodelLeafWetness_1h || data.forecastPackage_agromodelSowing_1h || data.forecastPackage_agromodelSpray_1h",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
             "validatorNoSaveOnError": true,
             "noTranslation": true,
             "xs": 6,
@@ -72,21 +72,21 @@
             "md": 2,
             "lg": 2
         },
-        "_forecastPackage_current_explanation": {
+        "_current_explanation": {
             "newLine": true,
             "type": "staticText",
-            "label": "forecastPackage_current_explanation",
+            "label": "current_explanation",
             "xs": 12,
             "sm": 12,
             "md": 8,
             "lg": 8
         },
-        "forecastPackage_current": {
+        "current": {
             "newLine": true,
             "type": "checkbox",
             "label": "current",
             "help": "4000 credits",
-            "validator": "data.forecastPackage_basic_15min || data.forecastPackage_basic_1h || data.forecastPackage_basic_3h || data.forecastPackage_basic_day || data.forecastPackage_current || data.forecastPackage_clouds_1h || data.forecastPackage_clouds_3h || data.forecastPackage_clouds_day || data.forecastPackage_sunmoon || data.forecastPackage_agro_1h || data.forecastPackage_agro_3h || data.forecastPackage_agro_day || data.forecastPackage_agromodelLeafWetness_1h || data.forecastPackage_agromodelSowing_1h || data.forecastPackage_agromodelSpray_1h",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
             "validatorNoSaveOnError": true,
             "noTranslation": true,
             "xs": 6,
@@ -94,21 +94,21 @@
             "md": 2,
             "lg": 2
         },
-        "_forecastPackage_clouds_explanation": {
+        "_clouds_explanation": {
             "newLine": true,
             "type": "staticText",
-            "label": "forecastPackage_clouds_explanation",
+            "label": "clouds_explanation",
             "xs": 12,
             "sm": 12,
             "md": 8,
             "lg": 8
         },
-        "forecastPackage_clouds_1h": {
+        "clouds_1h": {
             "newLine": true,
             "type": "checkbox",
             "label": "clouds-1h",
             "help": "4000 credits",
-            "validator": "data.forecastPackage_basic_15min || data.forecastPackage_basic_1h || data.forecastPackage_basic_3h || data.forecastPackage_basic_day || data.forecastPackage_current || data.forecastPackage_clouds_1h || data.forecastPackage_clouds_3h || data.forecastPackage_clouds_day || data.forecastPackage_sunmoon || data.forecastPackage_agro_1h || data.forecastPackage_agro_3h || data.forecastPackage_agro_day || data.forecastPackage_agromodelLeafWetness_1h || data.forecastPackage_agromodelSowing_1h || data.forecastPackage_agromodelSpray_1h",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
             "validatorNoSaveOnError": true,
             "noTranslation": true,
             "xs": 6,
@@ -116,12 +116,12 @@
             "md": 2,
             "lg": 2
         },
-        "forecastPackage_clouds_3h": {
+        "clouds_3h": {
             "newLine": false,
             "type": "checkbox",
             "label": "clouds-3h",
             "help": "4000 credits",
-            "validator": "data.forecastPackage_basic_15min || data.forecastPackage_basic_1h || data.forecastPackage_basic_3h || data.forecastPackage_basic_day || data.forecastPackage_current || data.forecastPackage_clouds_1h || data.forecastPackage_clouds_3h || data.forecastPackage_clouds_day || data.forecastPackage_sunmoon || data.forecastPackage_agro_1h || data.forecastPackage_agro_3h || data.forecastPackage_agro_day || data.forecastPackage_agromodelLeafWetness_1h || data.forecastPackage_agromodelSowing_1h || data.forecastPackage_agromodelSpray_1h",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
             "validatorNoSaveOnError": true,
             "noTranslation": true,
             "xs": 6,
@@ -129,12 +129,12 @@
             "md": 2,
             "lg": 2
         },
-        "forecastPackage_clouds_day": {
+        "clouds_day": {
             "newLine": false,
             "type": "checkbox",
             "label": "clouds-day",
             "help": "2000 credits",
-            "validator": "data.forecastPackage_basic_15min || data.forecastPackage_basic_1h || data.forecastPackage_basic_3h || data.forecastPackage_basic_day || data.forecastPackage_current || data.forecastPackage_clouds_1h || data.forecastPackage_clouds_3h || data.forecastPackage_clouds_day || data.forecastPackage_sunmoon || data.forecastPackage_agro_1h || data.forecastPackage_agro_3h || data.forecastPackage_agro_day || data.forecastPackage_agromodelLeafWetness_1h || data.forecastPackage_agromodelSowing_1h || data.forecastPackage_agromodelSpray_1h",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
             "validatorNoSaveOnError": true,
             "noTranslation": true,
             "xs": 6,
@@ -142,21 +142,21 @@
             "md": 2,
             "lg": 2
         },
-        "_forecastPackage_sunAndMoon_explanation": {
+        "_sunmoon_explanation": {
             "newLine": true,
             "type": "staticText",
-            "label": "forecastPackage_sunAndMoon_explanation",
+            "label": "sunmoon_explanation",
             "xs": 12,
             "sm": 12,
             "md": 8,
             "lg": 8
         },
-        "forecastPackage_sunmoon": {
+        "sunmoon": {
             "newLine": true,
             "type": "checkbox",
             "label": "sunmoon",
             "help": "2000 credits",
-            "validator": "data.forecastPackage_basic_15min || data.forecastPackage_basic_1h || data.forecastPackage_basic_3h || data.forecastPackage_basic_day || data.forecastPackage_current || data.forecastPackage_clouds_1h || data.forecastPackage_clouds_3h || data.forecastPackage_clouds_day || data.forecastPackage_sunmoon || data.forecastPackage_agro_1h || data.forecastPackage_agro_3h || data.forecastPackage_agro_day || data.forecastPackage_agromodelLeafWetness_1h || data.forecastPackage_agromodelSowing_1h || data.forecastPackage_agromodelSpray_1h",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
             "validatorNoSaveOnError": true,
             "noTranslation": true,
             "xs": 6,
@@ -164,21 +164,21 @@
             "md": 2,
             "lg": 2
         },
-        "_forecastPackage_agro_explanation": {
+        "_agro_explanation": {
             "newLine": true,
             "type": "staticText",
-            "label": "forecastPackage_agro_explanation",
+            "label": "agro_explanation",
             "xs": 12,
             "sm": 12,
             "md": 8,
             "lg": 8
         },
-        "forecastPackage_agro_1h": {
+        "agro_1h": {
             "newLine": true,
             "type": "checkbox",
             "label": "agro-1h",
             "help": "8000 credits",
-            "validator": "data.forecastPackage_basic_15min || data.forecastPackage_basic_1h || data.forecastPackage_basic_3h || data.forecastPackage_basic_day || data.forecastPackage_current || data.forecastPackage_clouds_1h || data.forecastPackage_clouds_3h || data.forecastPackage_clouds_day || data.forecastPackage_sunmoon || data.forecastPackage_agro_1h || data.forecastPackage_agro_3h || data.forecastPackage_agro_day || data.forecastPackage_agromodelLeafWetness_1h || data.forecastPackage_agromodelSowing_1h || data.forecastPackage_agromodelSpray_1h",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
             "validatorNoSaveOnError": true,
             "noTranslation": true,
             "xs": 6,
@@ -186,12 +186,12 @@
             "md": 2,
             "lg": 2
         },
-        "forecastPackage_agro_3h": {
+        "agro_3h": {
             "newLine": false,
             "type": "checkbox",
             "label": "agro-3h",
             "help": "8000 credits",
-            "validator": "data.forecastPackage_basic_15min || data.forecastPackage_basic_1h || data.forecastPackage_basic_3h || data.forecastPackage_basic_day || data.forecastPackage_current || data.forecastPackage_clouds_1h || data.forecastPackage_clouds_3h || data.forecastPackage_clouds_day || data.forecastPackage_sunmoon || data.forecastPackage_agro_1h || data.forecastPackage_agro_3h || data.forecastPackage_agro_day || data.forecastPackage_agromodelLeafWetness_1h || data.forecastPackage_agromodelSowing_1h || data.forecastPackage_agromodelSpray_1h",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
             "validatorNoSaveOnError": true,
             "noTranslation": true,
             "xs": 6,
@@ -199,12 +199,12 @@
             "md": 2,
             "lg": 2
         },
-        "forecastPackage_agro_day": {
+        "agro_day": {
             "newLine": false,
             "type": "checkbox",
             "label": "agro-day",
             "help": "4000 credits",
-            "validator": "data.forecastPackage_basic_15min || data.forecastPackage_basic_1h || data.forecastPackage_basic_3h || data.forecastPackage_basic_day || data.forecastPackage_current || data.forecastPackage_clouds_1h || data.forecastPackage_clouds_3h || data.forecastPackage_clouds_day || data.forecastPackage_sunmoon || data.forecastPackage_agro_1h || data.forecastPackage_agro_3h || data.forecastPackage_agro_day || data.forecastPackage_agromodelLeafWetness_1h || data.forecastPackage_agromodelSowing_1h || data.forecastPackage_agromodelSpray_1h",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
             "validatorNoSaveOnError": true,
             "noTranslation": true,
             "xs": 6,
@@ -212,21 +212,21 @@
             "md": 2,
             "lg": 2
         },
-        "_forecastPackage_agromodelLeafWetness_explanation": {
+        "_agromodelleafwetness_explanation": {
             "newLine": true,
             "type": "staticText",
-            "label": "forecastPackage_agromodelLeafWetness_explanation",
+            "label": "agromodelleafwetness_explanation",
             "xs": 12,
             "sm": 12,
             "md": 8,
             "lg": 8
         },
-        "forecastPackage_agromodelLeafWetness_1h": {
+        "agromodelleafwetness_1h": {
             "newLine": true,
             "type": "checkbox",
             "label": "agromodelleafwetness-1h",
             "help": "8000 credits",
-            "validator": "data.forecastPackage_basic_15min || data.forecastPackage_basic_1h || data.forecastPackage_basic_3h || data.forecastPackage_basic_day || data.forecastPackage_current || data.forecastPackage_clouds_1h || data.forecastPackage_clouds_3h || data.forecastPackage_clouds_day || data.forecastPackage_sunmoon || data.forecastPackage_agro_1h || data.forecastPackage_agro_3h || data.forecastPackage_agro_day || data.forecastPackage_agromodelLeafWetness_1h || data.forecastPackage_agromodelSowing_1h || data.forecastPackage_agromodelSpray_1h",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
             "validatorNoSaveOnError": true,
             "noTranslation": true,
             "xs": 6,
@@ -234,21 +234,21 @@
             "md": 2,
             "lg": 2
         },
-        "_forecastPackage_agromodelSowing_explanation": {
+        "_agromodelsowing_explanation": {
             "newLine": true,
             "type": "staticText",
-            "label": "forecastPackage_agromodelSowing_explanation",
+            "label": "agromodelsowing_explanation",
             "xs": 12,
             "sm": 12,
             "md": 8,
             "lg": 8
         },
-        "forecastPackage_agromodelSowing_1h": {
+        "agromodelsowing_1h": {
             "newLine": true,
             "type": "checkbox",
             "label": "agromodelsowing-1h",
             "help": "4000 credits",
-            "validator": "data.forecastPackage_basic_15min || data.forecastPackage_basic_1h || data.forecastPackage_basic_3h || data.forecastPackage_basic_day || data.forecastPackage_current || data.forecastPackage_clouds_1h || data.forecastPackage_clouds_3h || data.forecastPackage_clouds_day || data.forecastPackage_sunmoon || data.forecastPackage_agro_1h || data.forecastPackage_agro_3h || data.forecastPackage_agro_day || data.forecastPackage_agromodelLeafWetness_1h || data.forecastPackage_agromodelSowing_1h || data.forecastPackage_agromodelSpray_1h",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
             "validatorNoSaveOnError": true,
             "noTranslation": true,
             "xs": 6,
@@ -256,21 +256,187 @@
             "md": 2,
             "lg": 2
         },
-        "_forecastPackage_agromodelSpray_explanation": {
+        "_agromodelspray_explanation": {
             "newLine": true,
             "type": "staticText",
-            "label": "forecastPackage_agromodelSpray_explanation",
+            "label": "agromodelspray_explanation",
             "xs": 12,
             "sm": 12,
             "md": 8,
             "lg": 8
         },
-        "forecastPackage_agromodelSpray_1h": {
+        "agromodelspray_1h": {
             "newLine": true,
             "type": "checkbox",
             "label": "agromodelspray-1h",
             "help": "4000 credits",
-            "validator": "data.forecastPackage_basic_15min || data.forecastPackage_basic_1h || data.forecastPackage_basic_3h || data.forecastPackage_basic_day || data.forecastPackage_current || data.forecastPackage_clouds_1h || data.forecastPackage_clouds_3h || data.forecastPackage_clouds_day || data.forecastPackage_sunmoon || data.forecastPackage_agro_1h || data.forecastPackage_agro_3h || data.forecastPackage_agro_day || data.forecastPackage_agromodelLeafWetness_1h || data.forecastPackage_agromodelSowing_1h || data.forecastPackage_agromodelSpray_1h",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
+            "validatorNoSaveOnError": true,
+            "noTranslation": true,
+            "xs": 6,
+            "sm": 6,
+            "md": 2,
+            "lg": 2
+        },
+        "_solar_explanation": {
+            "newLine": true,
+            "type": "staticText",
+            "label": "solar_explanation",
+            "xs": 12,
+            "sm": 12,
+            "md": 8,
+            "lg": 8
+        },
+        "solar_15min": {
+            "newLine": true,
+            "type": "checkbox",
+            "label": "solar-15min",
+            "help": "16000 credits",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
+            "validatorNoSaveOnError": true,
+            "noTranslation": true,
+            "xs": 6,
+            "sm": 6,
+            "md": 2,
+            "lg": 2
+        },
+        "solar_1h": {
+            "newLine": false,
+            "type": "checkbox",
+            "label": "solar-1h",
+            "help": "16000 credits",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
+            "validatorNoSaveOnError": true,
+            "noTranslation": true,
+            "xs": 6,
+            "sm": 6,
+            "md": 2,
+            "lg": 2
+        },
+        "solar_3h": {
+            "newLine": false,
+            "type": "checkbox",
+            "label": "solar-3h",
+            "help": "16000 credits",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
+            "validatorNoSaveOnError": true,
+            "noTranslation": true,
+            "xs": 6,
+            "sm": 6,
+            "md": 2,
+            "lg": 2
+        },
+        "solar_day": {
+            "newLine": false,
+            "type": "checkbox",
+            "label": "solar-day",
+            "help": "8000 credits",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
+            "validatorNoSaveOnError": true,
+            "noTranslation": true,
+            "xs": 6,
+            "sm": 6,
+            "md": 2,
+            "lg": 2
+        },
+        "_solarensemble_explanation": {
+            "newLine": true,
+            "type": "staticText",
+            "label": "solarensemble_explanation",
+            "xs": 12,
+            "sm": 12,
+            "md": 8,
+            "lg": 8
+        },
+        "solarensemble_1h": {
+            "newLine": true,
+            "type": "checkbox",
+            "label": "solarensemble-1h",
+            "help": "16000 credits",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
+            "validatorNoSaveOnError": true,
+            "noTranslation": true,
+            "xs": 6,
+            "sm": 6,
+            "md": 2,
+            "lg": 2
+        },
+        "_wind_explanation": {
+            "newLine": true,
+            "type": "staticText",
+            "label": "wind_explanation",
+            "xs": 12,
+            "sm": 12,
+            "md": 8,
+            "lg": 8
+        },
+        "wind_15min": {
+            "newLine": true,
+            "type": "checkbox",
+            "label": "wind-15min",
+            "help": "16000 credits",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
+            "validatorNoSaveOnError": true,
+            "noTranslation": true,
+            "xs": 6,
+            "sm": 6,
+            "md": 2,
+            "lg": 2
+        },
+        "wind_1h": {
+            "newLine": false,
+            "type": "checkbox",
+            "label": "wind-1h",
+            "help": "16000 credits",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
+            "validatorNoSaveOnError": true,
+            "noTranslation": true,
+            "xs": 6,
+            "sm": 6,
+            "md": 2,
+            "lg": 2
+        },
+        "wind_3h": {
+            "newLine": false,
+            "type": "checkbox",
+            "label": "wind-3h",
+            "help": "16000 credits",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
+            "validatorNoSaveOnError": true,
+            "noTranslation": true,
+            "xs": 6,
+            "sm": 6,
+            "md": 2,
+            "lg": 2
+        },
+        "wind_day": {
+            "newLine": false,
+            "type": "checkbox",
+            "label": "wind-day",
+            "help": "8000 credits",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
+            "validatorNoSaveOnError": true,
+            "noTranslation": true,
+            "xs": 6,
+            "sm": 6,
+            "md": 2,
+            "lg": 2
+        },
+        "_wind80ensemble_explanation": {
+            "newLine": true,
+            "type": "staticText",
+            "label": "wind80ensemble_explanation",
+            "xs": 12,
+            "sm": 12,
+            "md": 8,
+            "lg": 8
+        },
+        "wind80ensemble_1h": {
+            "newLine": true,
+            "type": "checkbox",
+            "label": "wind80ensemble-1h",
+            "help": "8000 credits",
+            "validator": "data.basic_15min || data.basic_1h || data.basic_3h || data.basic_day || data.current || data.clouds_1h || data.clouds_3h || data.clouds_day || data.sunmoon || data.agro_1h || data.agro_3h || data.agro_day || data.agromodelleafwetness_1h || data.agromodelsowing_1h || data.agromodelspray_1h || data.solar_15min || data.solar_1h || data.solar_3h || data.solar_day || data.solarensemble_1h || data.wind_15min || data.wind_1h || data.wind_3h || data.wind_day || data.wind80ensemble_1h",
             "validatorNoSaveOnError": true,
             "noTranslation": true,
             "xs": 6,
