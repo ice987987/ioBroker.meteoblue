@@ -189,12 +189,9 @@
 		"airquality_1h": false,
 		"airquality_3h": false,
 		"airquality_day": false,
-		"multimodel_1h": false,
+        "ensemble_1h": false,
 		"trend_1h": false,
-		"trend_day": false,
-		"trendpro_1h": false,
-		"trendpro_day": false,
-		"ensemble_1h": false
+		"trend_day": false		
     },
     "objects": [],
     "instanceObjects": [

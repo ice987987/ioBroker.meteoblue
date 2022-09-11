@@ -91,14 +91,9 @@ class Meteoblue extends utils.Adapter {
 		this.log.debug(`this.config.airquality_1h: ${this.config.airquality_1h}`);
 		this.log.debug(`this.config.airquality_3h: ${this.config.airquality_3h}`);
 		this.log.debug(`this.config.airquality_day: ${this.config.airquality_day}`);
-		// multimodelnot implemented
-		this.log.debug(`this.config.airmodel_1h: ${this.config.multimodel_1h}`);
+		this.log.debug(`this.config.ensemble_1h: ${this.config.ensemble_1h}`);
 		this.log.debug(`this.config.trend_1h: ${this.config.trend_1h}`);
 		this.log.debug(`this.config.trend_day: ${this.config.trend_day}`);
-		// trendpro not implemented
-		this.log.debug(`this.config.trendpro_1h: ${this.config.trendpro_1h}`);
-		this.log.debug(`this.config.trendpro_day: ${this.config.trendpro_day}`);
-		this.log.debug(`this.config.ensemble_1h: ${this.config.ensemble_1h}`);
 
 		// load system.config
 		const systemConfig = await this.getForeignObjectAsync('system.config', 'state');
@@ -108,7 +103,7 @@ class Meteoblue extends utils.Adapter {
 		this.meteoblueApiUrl = 'http://my.meteoblue.com/packages/';
 
 		// check forecast package
-		if (!this.config.basic_15min && !this.config.basic_1h && !this.config.basic_3h && !this.config.basic_day && !this.config.current && ! this.config.clouds_1h && !this.config.clouds_3h && !this.config.clouds_day && !this.config.sunmoon && !this.config.agro_1h && !this.config.agro_3h && !this.config.agro_day && !this.config.agromodelleafwetness_1h && !this.config.agromodelsowing_1h && !this.config.agromodelspray_1h && !this.config.solar_15min && !this.config.solar_1h && !this.config.solar_3h && !this.config.solar_day && !this.config.solarensemble_1h && !this.config.wind_15min && !this.config.wind_1h && !this.config.wind_3h && !this.config.wind_day && !this.config.wind80ensemble_1h && !this.config.sea_1h && !this.config.sea_3h && !this.config.sea_day && !this.config.air_1h && !this.config.air_3h && !this.config.air_day && !this.config.airquality_1h && !this.config.airquality_3h && !this.config.airquality_day && !this.config.trend_1h && !this.config.trend_day && !this.config.trendpro_1h && !this.config.trendpro_day && !this.config.ensemble_1h) {
+		if (!this.config.basic_15min && !this.config.basic_1h && !this.config.basic_3h && !this.config.basic_day && !this.config.current && ! this.config.clouds_1h && !this.config.clouds_3h && !this.config.clouds_day && !this.config.sunmoon && !this.config.agro_1h && !this.config.agro_3h && !this.config.agro_day && !this.config.agromodelleafwetness_1h && !this.config.agromodelsowing_1h && !this.config.agromodelspray_1h && !this.config.solar_15min && !this.config.solar_1h && !this.config.solar_3h && !this.config.solar_day && !this.config.solarensemble_1h && !this.config.wind_15min && !this.config.wind_1h && !this.config.wind_3h && !this.config.wind_day && !this.config.wind80ensemble_1h && !this.config.sea_1h && !this.config.sea_3h && !this.config.sea_day && !this.config.air_1h && !this.config.air_3h && !this.config.air_day && !this.config.airquality_1h && !this.config.airquality_3h && !this.config.airquality_day && !this.config.trend_1h && !this.config.trend_day && !this.config.ensemble_1h) {
 			this.log.error('No "forecast Package" selected. Please check configuration! (ERR_#001)');
 			return;
 		} else {
@@ -217,21 +212,12 @@ class Meteoblue extends utils.Adapter {
 			if (this.config.airquality_day) {
 				this.meteoblueApiUrl += 'airquality-day_';
 			}
-			//if (this.config.multimodel_1h) {
-			//	this.meteoblueApiUrl += 'multimodel-1h_';
-			//}
 			if (this.config.trend_1h) {
 				this.meteoblueApiUrl += 'trend-1h_';
 			}
 			if (this.config.trend_day) {
 				this.meteoblueApiUrl += 'trend-day_';
 			}
-			//if (this.config.trendpro_1h) {
-			//	this.meteoblueApiUrl += 'trendpro-1h_';
-			//}
-			//if (this.config.trendpro_day) {
-			//	this.meteoblueApiUrl += 'trendpro-day_';
-			//}
 			if (this.config.ensemble_1h) {
 				this.meteoblueApiUrl += 'ensemble-1h_';
 			}
