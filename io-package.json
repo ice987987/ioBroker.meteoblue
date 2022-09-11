@@ -110,9 +110,9 @@
         "license": "MIT",
         "platform": "Javascript/Node.js",
         "main": "main.js",
-        "icon": "meteoblue.png",
+        "icon": "meteoblue.svg",
         "enabled": false,
-        "extIcon": "https://raw.githubusercontent.com/ice987987/ioBroker.meteoblue/main/admin/meteoblue.png",
+        "extIcon": "https://raw.githubusercontent.com/ice987987/ioBroker.meteoblue/main/admin/meteoblue.svg",
         "readme": "https://github.com/ice987987/ioBroker.meteoblue/blob/main/README.md",
         "loglevel": "info",
         "mode": "daemon",
@@ -126,12 +126,12 @@
         },
         "dependencies": [
             {
-                "js-controller": ">=3.3.19"
+                "js-controller": ">=4.0.23"
             }
         ],
         "globalDependencies": [
             {
-                "admin": ">=5.1.28"
+                "admin": ">=6.2.21"
             }
         ]
     },
@@ -179,7 +179,22 @@
         "wind_1h": false,
         "wind_3h": false,
         "wind_day": false,
-        "wind80ensemble_1h": false
+        "wind80ensemble_1h": false,
+		"sea_1h": false,
+		"sea_3h": false,
+		"sea_day": false,
+		"air_1h": false,
+		"air_3h": false,
+		"air_day": false,
+		"airquality_1h": false,
+		"airquality_3h": false,
+		"airquality_day": false,
+		"multimodel_1h": false,
+		"trend_1h": false,
+		"trend_day": false,
+		"trendpro_1h": false,
+		"trendpro_day": false,
+		"ensemble_1h": false
     },
     "objects": [],
     "instanceObjects": [
