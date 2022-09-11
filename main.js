@@ -96,8 +96,12 @@ class Meteoblue extends utils.Adapter {
 		this.log.debug(`this.config.trend_day: ${this.config.trend_day}`);
 
 		// load system.config
-		const systemConfig = await this.getForeignObjectAsync('system.config', 'state');
-		// this.log.debug(`systemConfig: ${JSON.stringify(systemConfig)}`);
+		try {
+			const systemConfig = await this.getForeignObjectAsync('system.config', 'state');
+			this.log.debug(`systemConfig: ${JSON.stringify(systemConfig)}`);
+		} catch (error) {
+			this.log.debug(`error systemConfig: ${error}`);
+		}
 
 		// https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#url-parameter
 		this.meteoblueApiUrl = 'http://my.meteoblue.com/packages/';
