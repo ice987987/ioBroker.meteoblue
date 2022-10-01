@@ -24,7 +24,7 @@
     "axios": "^0.27.2"
   },
   "devDependencies": {
-    "@iobroker/adapter-dev": "^1.0.1",
+    "@iobroker/adapter-dev": "^1.1.0",
     "@iobroker/testing": "^4.1.0",
     "@types/chai": "^4.3.3",
     "@types/chai-as-promised": "^7.1.5",
