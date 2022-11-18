@@ -11,6 +11,7 @@ const objectsStates = require('./lib/objectsStates.js');
 
 // Load your modules:
 const axios = require('axios');
+const crypto5 = require('crypto');
 
 // variables
 const isValidApplicationKey = /[a-zA-Z0-9]{12,}/;
@@ -600,34 +601,58 @@ class Meteoblue extends utils.Adapter {
 		this.log.debug(`[valuesForFolderTrend_1h]: ${JSON.stringify(valuesForFolderTrend_1h)}`);
 		this.log.debug(`[valuesForFolderTrend_day]: ${JSON.stringify(valuesForFolderTrend_day)}`);
 
-		/*
-		// delete unused states
-		const variables_all = objectsStates.values_master.map(val => val.id);
-		let valuesUnusedForFolderData_xmin = variables_all.filter(val => !valuesForFolderData_xmin.includes(val));
-		let valuesUnusedForFolderData_1h = variables_all.filter(val => !valuesForFolderData_1h.includes(val));
-		let valuesUnusedForFolderData_3h = variables_all.filter(val => !valuesForFolderData_3h.includes(val));
-		let valuesUnusedForFolderData_day = variables_all.filter(val => !valuesForFolderData_day.includes(val));
-		let valuesUnusedForFolderData_current = variables_all.filter(val => !valuesForFolderData_current.includes(val));
-		let valuesUnusedForFolderGfsensemble = variables_all.filter(val => !valuesForFolderGfsensemble_1h.includes(val));
-		let valuesUnusedForFolderSoiltrafficability_1h = variables_all.filter(val => !valuesForFolderSoiltrafficability_1h.includes(val));
-		let valuesUnusedForFolderTrend_1h = variables_all.filter(val => !valuesForFolderTrend_1h.includes(val));
-		let valuesUnusedForFolderTrend_day = variables_all.filter(val => !valuesForFolderTrend_day.includes(val));
-		*/
+		const crc = crypto5.createHash('md5').update(this.meteoblueApiUrl).digest('hex');
+		this.log.debug(`current crc: ${crc}`);
 
-		/**
-		 * DELETE EVERYTHING
-		 */
-		this.log.debug(`[delete]: start deleting all channels. Please be patient...`);
-		await this.delObjectAsync('data_xmin', { recursive: true });
-		await this.delObjectAsync('data_1h', { recursive: true });
-		await this.delObjectAsync('data_3h', { recursive: true });
-		await this.delObjectAsync('data_day', { recursive: true });
-		await this.delObjectAsync('data_current', { recursive: true });
-		await this.delObjectAsync('gfsensemble_1h', { recursive: true });
-		await this.delObjectAsync('soiltrafficability_1h', { recursive: true });
-		await this.delObjectAsync('trend_1h', { recursive: true });
-		await this.delObjectAsync('trend_day', { recursive: true });
-		this.log.debug(`[delete]: deletion for all channels finished.`);
+		// get oldCRC
+		const object = await this.getStateAsync('checksumUserData');
+		if (typeof (object) !== 'undefined' && object !== null) {
+			this.oldCrc = object.val;
+		}
+		// compare to previous config
+		if (!this.oldCrc || this.oldCrc != crc) {
+			this.log.debug(`[checkUserData] has changed or is new; oldCrc: ${this.oldCrc}; current crc: ${crc}`);
+			// write datapoint
+			await this.setObjectNotExistsAsync('checksumUserData', {
+				type: 'state',
+				common: {
+					name: {
+						'en': 'Checksum user data',
+						'de': 'Checksumme Benutzerdaten',
+						'ru': 'Проверьте данные пользователя Checksum',
+						'pt': 'Dados do usuário do checksum',
+						'nl': 'Vertaling:',
+						'fr': 'Vérifier les données utilisateur',
+						'it': 'Dati utente di checksum',
+						'es': 'Datos de usuario de checksum',
+						'pl': 'Checksum data',
+						'uk': 'Перевірити дані користувачів',
+						'zh-cn': '用户数据'
+					},
+					type: 'string',
+					role: 'state',
+					read: true,
+					write: false,
+				},
+				native: {},
+			});
+			await this.setStateAsync('checksumUserData', { val: crc, ack: true });
+
+			/**
+			 * DELETE EVERYTHING
+			 */
+			this.log.debug(`[delete]: start deleting all channels. Please be patient...`);
+			await this.delObjectAsync('data_xmin', { recursive: true });
+			await this.delObjectAsync('data_1h', { recursive: true });
+			await this.delObjectAsync('data_3h', { recursive: true });
+			await this.delObjectAsync('data_day', { recursive: true });
+			await this.delObjectAsync('data_current', { recursive: true });
+			await this.delObjectAsync('gfsensemble_1h', { recursive: true });
+			await this.delObjectAsync('soiltrafficability_1h', { recursive: true });
+			await this.delObjectAsync('trend_1h', { recursive: true });
+			await this.delObjectAsync('trend_day', { recursive: true });
+			this.log.debug(`[delete]: deletion for all channels finished.`);
+		}
 
 		/**
 		 * CREATE REQUIRED CHANNELS AND OBJECTS
@@ -643,10 +668,6 @@ class Meteoblue extends utils.Adapter {
 				}
 			}
 			this.log.debug(`[createObject]: objects creation for channel "data_xmin" finished.`);
-		} else {
-			this.log.debug(`[deleteObject]: start deleting channel "data_xmin". Please be patient...`);
-			await this.delObjectAsync('data_xmin', { recursive: true });
-			this.log.debug(`[deleteObject]: deletion of channel "data_xmin" finished.`);
 		}
 		// channel data_1h
 		if (valuesForFolderData_1h.length > 2) {
@@ -659,10 +680,6 @@ class Meteoblue extends utils.Adapter {
 				}
 			}
 			this.log.debug(`[createObject]: objects creation for channel "data_1h" finished.`);
-		} else {
-			this.log.debug(`[deleteObject]: start deleting channel "data_1h". Please be patient...`);
-			await this.delObjectAsync('data_1h', { recursive: true });
-			this.log.debug(`[deleteObject]: deletion of channel "data_1h" finished.`);
 		}
 		// channel data_3h
 		if (valuesForFolderData_3h.length > 2) {
@@ -678,10 +695,6 @@ class Meteoblue extends utils.Adapter {
 				}
 			}
 			this.log.debug(`[createObject]: objects creation for channel "data_3h" finished.`);
-		} else {
-			this.log.debug(`[deleteObject]: start deleting channel "data_3h". Please be patient...`);
-			await this.delObjectAsync('data_3h', { recursive: true });
-			this.log.debug(`[deleteObject]: deletion of channel "data_3h" finished.`);
 		}
 		// channel data_day
 		if (valuesForFolderData_day.length > 2) {
@@ -695,10 +708,6 @@ class Meteoblue extends utils.Adapter {
 				}
 			}
 			this.log.debug(`[createObject]: objects creation for channel "data_day" finished.`);
-		} else {
-			this.log.debug(`[deleteObject]: start deleting channel "data_day". Please be patient...`);
-			await this.delObjectAsync('data_day', { recursive: true });
-			this.log.debug(`[deleteObject]: deletion of channel "data_day" finished.`);
 		}
 		// channel data_current
 		if (valuesForFolderData_current.length > 1) {
@@ -709,10 +718,6 @@ class Meteoblue extends utils.Adapter {
 				await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex((obj) => obj.id === valuesForFolderData_current[0])], null, objectsStates.values_master[objectsStates.values_master.findIndex((obj) => obj.id === valuesForFolderData_current[i])] || `channel_${i}`);
 			}
 			this.log.debug(`[createObject]: objects creation for channel "current" finished.`);
-		} else {
-			this.log.debug(`[deleteObject]: start deleting channel "current". Please be patient...`);
-			await this.delObjectAsync('current', { recursive: true });
-			this.log.debug(`[deleteObject]: deletion of channel "current" finished.`);
 		}
 		// channel gfsensemble_1h
 		if (valuesForFolderGfsensemble_1h.length > 2) {
@@ -725,10 +730,6 @@ class Meteoblue extends utils.Adapter {
 				}
 			}
 			this.log.debug(`[createObject]: objects creation for channel "gfsensemble_1h" finished.`);
-		} else {
-			this.log.debug(`[deleteObject]: start deleting channel "gfsensemble_1h". Please be patient...`);
-			await this.delObjectAsync('gfsensemble_1h', { recursive: true });
-			this.log.debug(`[deleteObject]: deletion of channel "gfsensemble_1h" finished.`);
 		}
 		// channel soiltrafficability_1h
 		if (valuesForFolderSoiltrafficability_1h.length > 2) {
@@ -741,10 +742,6 @@ class Meteoblue extends utils.Adapter {
 				}
 			}
 			this.log.debug(`[createObject]: objects creation for channel "soiltrafficability_1h" finished.`);
-		} else {
-			this.log.debug(`[deleteObject]: start deleting channel "soiltrafficability_1h". Please be patient...`);
-			await this.delObjectAsync('soiltrafficability_1h', { recursive: true });
-			this.log.debug(`[deleteObject]: deletion of channel "soiltrafficability_1h" finished.`);
 		}
 		// channel trend_1h
 		if (valuesForFolderTrend_1h.length > 2) {
@@ -757,10 +754,6 @@ class Meteoblue extends utils.Adapter {
 				}
 			}
 			this.log.debug(`[createObject]: objects creation for channel "trend_1h" finished.`);
-		} else {
-			this.log.debug(`[deleteObject]: start deleting channel "trend_1h". Please be patient...`);
-			await this.delObjectAsync('trend_1h', { recursive: true });
-			this.log.debug(`[deleteObject]: deletion of channel "trend_1h" finished.`);
 		}
 		// channel trend_day
 		if (valuesForFolderTrend_day.length > 2) {
@@ -771,10 +764,6 @@ class Meteoblue extends utils.Adapter {
 				}
 			}
 			this.log.debug(`[createObject]: objects creation for channel "trend_day" finished.`);
-		} else {
-			this.log.debug(`[deleteObject]: start deleting channel "trend_day". Please be patient...`);
-			await this.delObjectAsync('trend_day', { recursive: true });
-			this.log.debug(`[deleteObject]: deletion of channel "trend_day" finished.`);
 		}
 
 		await this.getMeteoblueData();
@@ -861,40 +850,37 @@ class Meteoblue extends utils.Adapter {
 	createVisHTMLBindingRainspot(day) {
 		// https://content.meteoblue.com/en/spatial-dimensions/spot
 		// correction of +2px/-2px due to basic-HTML widget issues
-		let html = `<style> 
-						table.meteoblue {width: 100%; height: 100%; border: none; border-collapse: collapse; empty-cells: show; }
-						table.meteoblue tr {height: calc(100% / 7); }
-						table.meteoblue td {width: calc(100% / 7); }
-						table.meteoblue td.value0 {background-color: rgba(0, 0, 0, 0); }
-						table.meteoblue td.value1 {background-color: rgba(19, 238, 252, 1); }
-						table.meteoblue td.value2 {background-color: rgba(58, 170, 220, 1); }
-						table.meteoblue td.value3 {background-color: rgba(23, 116, 196, 1); }
-						table.meteoblue td.value9 {background-color: rgba(38, 215, 146, 1); }
-						#meteoblueMain {position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; border: none; }
-						#meteoblueCircle1 {position: absolute; top: 0px; left: 0px; width: calc(100% - 2px); height: calc(100% - 2px); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }
-						#meteoblueCircle2 {position: absolute; top: calc(((100% - 2px) / 7) * 1); left: calc(((100% - 2px) / 7) * 1); width: calc(((100% - 2px) / 7) * 5); height: calc(((100% - 2px) / 7) * 5); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }
-						#meteoblueCircle3 {position: absolute; top: calc(((100% - 2px) / 7) * 2); left: calc(((100% - 2px) / 7) * 2); width: calc(((100% - 2px) / 7) * 3); height: calc(((100% - 2px) / 7) * 3); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }
-						#meteoblueCircle4 {position: absolute; top: calc(((100% - 2px) / 7) * 3); left: calc(((100% - 2px) / 7) * 3); width: calc(((100% - 2px) / 7) * 1); height: calc(((100% - 2px) / 7) * 1); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%; }
-						#meteoblueLineleft {position: absolute; top: calc((100% - 2px) / 2); left: 0px; border: 0.5px solid rgba(109, 109, 114, 0.5); width: calc(100% / 14); height: 0px; }
-						#meteoblueLineright {position: absolute; top: calc((100% - 2px) / 2); right: 0px; border: 0.5px solid rgba(109, 109, 114, 0.5); width: calc(100% / 14); }
-						#meteoblueLinetop {position: absolute; top: 0px; left: calc((100% - 2px) / 2); border: 0.5px solid rgba(109, 109, 114, 0.5); width: 0px; height: calc(100% / 14); }
-						#meteoblueLinedown {position: absolute; top: calc((100% - 2px) - ((100% - 2px) / 14)); left: calc((100% - 2px) / 2); border: 0.5px solid rgba(109, 109, 114, 0.5); width: 0px; height: calc(100% / 14); }
-					</style>
-					<div id="meteoblueMain">
-					<div id="meteoblueCircle1"></div>
-					<div id="meteoblueCircle2"></div>
-					<div id="meteoblueCircle3"></div>
-					<div id="meteoblueCircle4"></div>
-					<div id="meteoblueLineleft"></div>
-					<div id="meteoblueLineright"></div>
-					<div id="meteoblueLinetop"></div>
-					<div id="meteoblueLinedown"></div>
-					<table class="meteoblue"> `;
+		let html = `<div style="position:relative; width:100%; height:100%; border:none;">
+					<div style="display:inline-block; position:absolute; top:0px; left: 0px; width: calc(100% - 2px); height: calc(100% - 2px); border: 1px solid rgba(109, 109, 114, 1); border-radius: 50%"></div>
+					<div style="display:inline-block; position:absolute; top:calc(((100% - 2px) / 7) * 1); left:calc(((100% - 2px) / 7) * 1); width:calc(((100% - 2px) / 7) * 5); height:calc(((100% - 2px) / 7) * 5); border:1px solid rgba(109, 109, 114, 1); border-radius:50%"></div>
+					<div style="display:inline-block; position:absolute; top:calc(((100% - 2px) / 7) * 2); left:calc(((100% - 2px) / 7) * 2); width:calc(((100% - 2px) / 7) * 3); height:calc(((100% - 2px) / 7) * 3); border:1px solid rgba(109, 109, 114, 1); border-radius:50%"></div>
+					<div style="display:inline-block; position:absolute; top:calc(((100% - 2px) / 7) * 3); left:calc(((100% - 2px) / 7) * 3); width:calc(((100% - 2px) / 7) * 1); height:calc(((100% - 2px) / 7) * 1); border:1px solid rgba(109, 109, 114, 1); border-radius:50%"></div>
+					<div style="display:inline-block; position:absolute; top:calc((100% - 2px) / 2); left:0px; border:0.5px solid rgba(109, 109, 114, 0.5); width:calc(100% / 14); height:0px"></div>
+					<div style="display:inline-block; position:absolute; top:calc((100% - 2px) / 2); right:0px; border:0.5px solid rgba(109, 109, 114, 0.5); width:calc(100% / 14)"></div>
+					<div style="display:inline-block; position:absolute; top:0px; left: calc((100% - 2px) / 2); border:0.5px solid rgba(109, 109, 114, 0.5); width:0px; height:calc(100% / 14)"></div>
+					<div style="display:inline-block; position:absolute; top:calc((100% - 2px) - ((100% - 2px) / 14)); left:calc((100% - 2px) / 2); border:0.5px solid rgba(109, 109, 114, 0.5); width:0px; height:calc(100% / 14)"></div>
+					<table style="width:100%; height:100%; border:none; border-collapse:collapse; empty-cells:show"> `;
 		for (let i = 7; i > 0; i--) {
-			html += '<tr> ';
+			html += '<tr style="height:calc(100% / 7); border:none"> ';
 			// display correct order of values
 			for (let j = 7; j > 0; j--) {
-				html += `<td class="value${day.substr(7 * i - j, 1)}"></td> `;
+				switch (day.substr(7 * i - j, 1)) {
+					case 0:
+						html += `<td style="width:calc(100% / 7); border:none; background-color:rgba(0, 0, 0, 0)"></td> `;
+						break;
+					case 1:
+						html += `<td style="width:calc(100% / 7); border:none; background-color:rgba(19, 238, 252, 1)"></td> `;
+						break;
+					case 2:
+						html += `<td style="width:calc(100% / 7); border:none; background-color:rgba(58, 170, 220, 1)"></td> `;
+						break;
+					case 3:
+						html += `<td style="width:calc(100% / 7); border:none; background-color:rgba(23, 116, 196, 1)"></td> `;
+						break;
+					case 9:
+						html += `<td style="width:calc(100% / 7); border:none; background-color:rgba(38, 215, 146, 1)"></td> `;
+						break;
+				}
 			}
 			html += '</tr> ';
 		}
@@ -915,9 +901,6 @@ class Meteoblue extends utils.Adapter {
 	async writeStates1(channel, valuesForFolder, content) {
 		this.log.debug(`[writeStates1]: start writing states for channel "${channel}". Please be patient...`);
 		for (let i = 0; i < valuesForFolder.length; i++) {
-			// const testy1 because it does not directly work (number string issue)
-			//const testy1 = content[channel][valuesForFolder[i]];
-			//this.setState(`${channel}.${valuesForFolder[i]}`, {val: testy1, ack: true});
 			this.setState(`${channel}.${valuesForFolder[i]}`, { val: content[channel][valuesForFolder[i]], ack: true });
 		}
 		this.log.debug(`[writeStates1]: writing states for channel "${channel}" finished.`);
@@ -934,9 +917,6 @@ class Meteoblue extends utils.Adapter {
 				} else if (valuesForFolder[i] === 'rainspot_vis') {
 					this.setState(`${channel}.${objectsStates.channel_1_master[3].timeresolution[j]}.${valuesForFolder[i]}`, { val: this.createVisHTMLBindingRainspot(content[channel]['rainspot'][j]), ack: true });
 				} else {
-					// const testy2 because it does not directly work (number string issue)
-					//const testy2 = content[channel][valuesForFolder[i]][j];
-					//this.setState(`${channel}.${objectsStates.channel_1_master[3].timeresolution[j]}.${valuesForFolder[i]}`, {val: testy2, ack: true});
 					this.setState(`${channel}.${objectsStates.channel_1_master[3].timeresolution[j]}.${valuesForFolder[i]}`, { val: content[channel][valuesForFolder[i]][j], ack: true });
 				}
 			}
@@ -981,6 +961,7 @@ class Meteoblue extends utils.Adapter {
 	 * GET VALUES FROM METEOBLUE
 	 */
 	async getMeteoblueData() {
+
 		await axios({
 			method: 'get',
 			url: this.meteoblueApiUrl,
@@ -996,7 +977,6 @@ class Meteoblue extends utils.Adapter {
 				this.log.info('[getMeteoblueData]: start writing all configured states...');
 
 				await this.writeStates1('units', units_active.slice(1), content);
-				await this.writeStates1('metadata', metadata_active.slice(1), content);
 
 				if (valuesForFolderData_xmin.length > 2 && 'data_xmin' in content) {
 					await this.writeStates3('data_xmin', valuesForFolderData_xmin.slice(2), content);
@@ -1044,7 +1024,10 @@ class Meteoblue extends utils.Adapter {
 					this.log.debug(`[writeStates3 trend_day]: No Data available. Nothing written.`);
 				}
 
+				await this.writeStates1('metadata', metadata_active.slice(1), content);
+
 				this.log.info('[getMeteoblueData]: all states written.');
+
 			})
 			.catch((error) => {
 				if (error.response) {

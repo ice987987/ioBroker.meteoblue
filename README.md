@@ -950,7 +950,7 @@ Forecast Package [`trend-day`](https://docs.meteoblue.com/en/weather-apis/packag
 
 <!-- ### **WORK IN PROGRESS** -->
 
-### 0.1.0-beta.4 **WORK IN PROGRESS**
+### 0.1.0-beta.5 **WORK IN PROGRESS**
 
 -   (ice987987) BREAKING: Names of Objects in forecast package `basic-day` changed
 -   (ice987987) BREAKING: js-controller >= v4.0.23 is and admin >= v6.2.21 is required
@@ -961,6 +961,7 @@ Forecast Package [`trend-day`](https://docs.meteoblue.com/en/weather-apis/packag
     `basic-15min`, `basic-1h`, `basic-3h`, `basic-day`, `current`, `clouds-1h`, `clouds-3h`, `clouds-day`, `sunmoon`, `basic-day_webcolors`, `agro-1h`, `agro-3h`, `agro-day`, `agromodelleafwetness-1h`, `agromodelsowing-1h`, `agromodelspray-1h`, `soiltrafficability-1h`, `solar-15min`, `solar-1h`, `solar-3h`, `solar-day`, `solarensemble-1h`, `pvpro-1h`, `pvpro-day`, `wind-15min`, `wind-1h`, `wind-3h`, `wind-day`, `wind80ensemble-1h`, `windpower-1h`, `sea-1h`, `sea-3h`, `sea-day`, `air-1h`, `air-3h`, `air-day`, `airquality-1h`, `airquality-3h`, `airquality-day`, `sigmalevel-1h`, `sigmalevel-day`, `profiletemp_1h`, `profileheight_1h`, `profilewind_1h`, `profileclouds_1h`, `profilerh_1h`, `ensemble-1h`, `trend-1h` and `trend-day`.
 -   (ice987987) add possibility for manual requests via `.ACTION.REQUEST_DATA` if polling intervall is set to `0`
 -   (ice987987) fix date of DP `modelrun_updatetime_utc` and `modelrun_utc`
+-   (ice978978) code improvements
 
 ### 0.0.6 (2022-07-21)
 
