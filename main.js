@@ -9,8 +9,6 @@
 const utils = require('@iobroker/adapter-core');
 const objectsStates = require('./lib/objectsStates.js');
 
-const api = require('./lib/api.js');
-
 // Load your modules:
 const axios = require('axios');
 const crypto5 = require('crypto');
@@ -963,7 +961,6 @@ class Meteoblue extends utils.Adapter {
 	 * GET VALUES FROM METEOBLUE
 	 */
 	async getMeteoblueData() {
-		/*
 		await axios({
 			method: 'get',
 			url: this.meteoblueApiUrl,
@@ -975,64 +972,61 @@ class Meteoblue extends utils.Adapter {
 
 				this.log.debug(`[getMeteoblueData]: HTTP status response: ${response.status} ${response.statusText}; config: ${JSON.stringify(response.config)}; headers: ${JSON.stringify(response.headers)}; data: ${JSON.stringify(response.data)}`);
 				const content = response.data;
-*/
 
-		const content = api.content;
+				this.log.info('[getMeteoblueData]: start writing all configured states...');
 
-		this.log.info('[getMeteoblueData]: start writing all configured states...');
+				await this.writeStates1('units', units_active.slice(1), content);
 
-		await this.writeStates1('units', units_active.slice(1), content);
+				if (valuesForFolderData_xmin.length > 2 && 'data_xmin' in content) {
+					await this.writeStates3('data_xmin', valuesForFolderData_xmin.slice(2), content);
+				} else {
+					this.log.debug(`[writeStates3 data_xmin]: No Data available. Nothing written.`);
+				}
+				if (valuesForFolderData_1h.length > 2 && 'data_1h' in content) {
+					await this.writeStates3('data_1h', valuesForFolderData_1h.slice(2), content);
+				} else {
+					this.log.debug(`[writeStates3 data_1h]: No Data available. Nothing written.`);
+				}
+				if (valuesForFolderData_3h.length > 2 && 'data_3h' in content) {
+					await this.writeStates3('data_3h', valuesForFolderData_3h.slice(2), content);
+				} else {
+					this.log.debug(`[writeStates3 data_3h]: No Data available. Nothing written.`);
+				}
+				if (valuesForFolderData_day.length > 2 && 'data_day' in content) {
+					await this.writeStates2('data_day', valuesForFolderData_day.slice(2), content);
+				} else {
+					this.log.debug(`[writeStates3 data_day]: No Data available. Nothing written.`);
+				}
+				if (valuesForFolderData_current.length > 1 && 'data_current' in content) {
+					await this.writeStates1('data_current', valuesForFolderData_current.slice(1), content);
+				} else {
+					this.log.debug(`[writeStates3 data_current]: No Data available. Nothing written.`);
+				}
+				if (valuesForFolderGfsensemble_1h.length > 2 && 'gfsensemble_1h' in content) {
+					await this.writeStates3('gfsensemble_1h', valuesForFolderGfsensemble_1h.slice(2), content);
+				} else {
+					this.log.debug(`[writeStates3 gfsensemble_1h]: No Data available. Nothing written.`);
+				}
+				if (valuesForFolderSoiltrafficability_1h.length > 2 && 'soiltrafficability_1h' in content) {
+					await this.writeStates3('soiltrafficability_1h', valuesForFolderSoiltrafficability_1h.slice(2), content);
+				} else {
+					this.log.debug(`[writeStates3 soiltrafficability_1h]: No Data available. Nothing written.`);
+				}
+				if (valuesForFolderTrend_1h.length > 2 && 'trend_1h' in content) {
+					await this.writeStates3('trend_1h', valuesForFolderTrend_1h.slice(2), content);
+				} else {
+					this.log.debug(`[writeStates3 trend_1h]: No Data available. Nothing written.`);
+				}
+				if (valuesForFolderTrend_day.length > 2 && 'trend_day' in content) {
+					await this.writeStates2('trend_day', valuesForFolderTrend_day.slice(2), content);
+				} else {
+					this.log.debug(`[writeStates3 trend_day]: No Data available. Nothing written.`);
+				}
 
-		if (valuesForFolderData_xmin.length > 2 && 'data_xmin' in content) {
-			await this.writeStates3('data_xmin', valuesForFolderData_xmin.slice(2), content);
-		} else {
-			this.log.debug(`[writeStates3 data_xmin]: No Data available. Nothing written.`);
-		}
-		if (valuesForFolderData_1h.length > 2 && 'data_1h' in content) {
-			await this.writeStates3('data_1h', valuesForFolderData_1h.slice(2), content);
-		} else {
-			this.log.debug(`[writeStates3 data_1h]: No Data available. Nothing written.`);
-		}
-		if (valuesForFolderData_3h.length > 2 && 'data_3h' in content) {
-			await this.writeStates3('data_3h', valuesForFolderData_3h.slice(2), content);
-		} else {
-			this.log.debug(`[writeStates3 data_3h]: No Data available. Nothing written.`);
-		}
-		if (valuesForFolderData_day.length > 2 && 'data_day' in content) {
-			await this.writeStates2('data_day', valuesForFolderData_day.slice(2), content);
-		} else {
-			this.log.debug(`[writeStates3 data_day]: No Data available. Nothing written.`);
-		}
-		if (valuesForFolderData_current.length > 1 && 'data_current' in content) {
-			await this.writeStates1('data_current', valuesForFolderData_current.slice(1), content);
-		} else {
-			this.log.debug(`[writeStates3 data_current]: No Data available. Nothing written.`);
-		}
-		if (valuesForFolderGfsensemble_1h.length > 2 && 'gfsensemble_1h' in content) {
-			await this.writeStates3('gfsensemble_1h', valuesForFolderGfsensemble_1h.slice(2), content);
-		} else {
-			this.log.debug(`[writeStates3 gfsensemble_1h]: No Data available. Nothing written.`);
-		}
-		if (valuesForFolderSoiltrafficability_1h.length > 2 && 'soiltrafficability_1h' in content) {
-			await this.writeStates3('soiltrafficability_1h', valuesForFolderSoiltrafficability_1h.slice(2), content);
-		} else {
-			this.log.debug(`[writeStates3 soiltrafficability_1h]: No Data available. Nothing written.`);
-		}
-		if (valuesForFolderTrend_1h.length > 2 && 'trend_1h' in content) {
-			await this.writeStates3('trend_1h', valuesForFolderTrend_1h.slice(2), content);
-		} else {
-			this.log.debug(`[writeStates3 trend_1h]: No Data available. Nothing written.`);
-		}
-		if (valuesForFolderTrend_day.length > 2 && 'trend_day' in content) {
-			await this.writeStates2('trend_day', valuesForFolderTrend_day.slice(2), content);
-		} else {
-			this.log.debug(`[writeStates3 trend_day]: No Data available. Nothing written.`);
-		}
+				await this.writeStates1('metadata', metadata_active.slice(1), content);
 
-		await this.writeStates1('metadata', metadata_active.slice(1), content);
+				this.log.info('[getMeteoblueData]: all states written.');
 
-		this.log.info('[getMeteoblueData]: all states written.');
-		/*
 			})
 			.catch((error) => {
 				if (error.response) {
@@ -1048,7 +1042,6 @@ class Meteoblue extends utils.Adapter {
 				}
 				this.log.debug(`[getMeteoblueData]: error.config: ${JSON.stringify(error.config)}`);
 			});
-*/
 	}
 
 	/**
