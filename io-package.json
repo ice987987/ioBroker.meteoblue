@@ -1,239 +1,230 @@
 {
-    "common": {
-        "name": "meteoblue",
-        "version": "0.1.0-beta.5",
-        "news": {
-            "0.0.2": {
-                "en": "add rainspot\nremove user inputfield winddirection, calculate winddirection as 2 and 3 chars\nremove user inputfield timezone\nbugfix",
-                "de": "Regenfleck hinzufügen\nBenutzereingabefeld Windrichtung entfernen, Windrichtung als 2 und 3 Zeichen berechnen\nZeitzone des Benutzereingabefelds entfernen\nFehlerbehebung",
-                "ru": "добавить дождевое пятно\nудалить направление ветра в поле ввода пользователя, вычислить направление ветра как 2 и 3 символа\nудалить часовой пояс поля ввода пользователя\nИсправлена ошибка",
-                "pt": "adicionar ponto de chuva\nremova a direção do vento do campo de entrada do usuário, calcule a direção do vento como 2 e 3 caracteres\nremover o fuso horário do campo de entrada do usuário\ncorreção de bug",
-                "nl": "regenvlek toevoegen\nverwijder gebruikersinvoerveld windrichting, bereken windrichting als 2 en 3 tekens\nverwijder gebruikersinvoerveld tijdzone\nbugfix",
-                "fr": "ajouter une tache de pluie\nsupprimer la direction du vent du champ de saisie de l'utilisateur, calculer la direction du vent comme 2 et 3 caractères\nsupprimer le fuseau horaire du champ de saisie de l'utilisateur\ncorrection d'un bug",
-                "it": "aggiungi punto di pioggia\nrimuovere la direzione del vento del campo di input dell'utente, calcolare la direzione del vento come 2 e 3 caratteri\nrimuovi il fuso orario del campo di input dell'utente\nrisoluzione del problema",
-                "es": "agregar la mancha de lluvia\neliminar la dirección del viento del campo de entrada del usuario, calcular la dirección del viento como 2 y 3 caracteres\neliminar la zona horaria del campo de entrada del usuario\narreglo del fallo",
-                "pl": "dodaj plamę deszczu\nusuń pole wejściowe użytkownika kierunek wiatru, oblicz kierunek wiatru jako 2 i 3 znaki\nusuń strefę czasową pola wejściowego użytkownika\nnaprawa błędów",
-                "zh-cn": "添加雨点\n删除用户输入字段风向，将风向计算为 2 和 3 个字符\n删除用户输入字段时区\n错误修正",
-                "uk": "додати дощову пляму\nвидалити поле введення користувача winddirection, розрахувати напрям вітру як 2 і 3 символи\nвидалити часовий пояс поля введення користувача\nвиправлення помилок"
-            },
-            "0.0.3": {
-                "en": "revision of the index_m input page\nimplementation of API-Key de- and entcryption\nbugfix",
-                "de": "Überarbeitung der index_m Eingabeseite\nImplementierung der API-Key Ent- und Entschlüsselung\nBugfix",
-                "ru": "пересмотр страницы ввода index_m\nвнедрение API-ключей дешифрования и шифрования\nисправление",
-                "pt": "revisão da página de entrada index_m\nimplementação de API-Key de- e entcryption\nbugfix",
-                "nl": "revisie van de index_m invoerpagina\nimplementatie van API-Key de- en encryptie\nbugfix",
-                "fr": "révision de la page d'entrée index_m\nimplémentation du déchiffrement et du chiffrement de la clé API\ncorrection de bug",
-                "it": "revisione della pagina di input index_m\nimplementazione della chiave API di de- e entcryption\ncorrezione di bug",
-                "es": "revisión de la página de entrada index_m\nimplementación de API-Key descifrado y cifrado\ncorrección de errores",
-                "pl": "wersja strony wejściowej index_m\nimplementacja odszyfrowywania i szyfrowania klucza API\npoprawka błędów",
-                "zh-cn": "index_m 输入页面的修订\n实施 API-Key 解密和加密\n错误修复",
-                "uk": "перегляд сторінки введення index_m\nреалізація де- та шифрування API-Key\nвиправлення помилок"
-            },
-            "0.0.4": {
-                "en": "update dependencies\nupdate readme.md\nbugfix",
-                "de": "Abhängigkeiten aktualisieren\nreadme.md aktualisieren\nFehlerbehebung",
-                "ru": "обновить зависимости\nобновить файл readme.md\nbugfix",
-                "pt": "atualizar dependências\nupdate readme.md\nbugfix",
-                "nl": "update afhankelijkheden\nupdate readme.md\nbugfix",
-                "fr": "mettre à jour les dépendances\nmettre à jour le fichier readme.md\ncorrection de bug",
-                "it": "aggiorna le dipendenze\naggiorna readme.md\ncorrezione di bug",
-                "es": "actualizar dependencias\nactualizar readme.md\ncorrección de errores",
-                "pl": "zależności aktualizacji\nzaktualizuj plik readme.md\npoprawka błędów",
-                "zh-cn": "更新依赖\n更新 readme.md\n错误修复",
-                "uk": "оновити залежності\nоновити readme.md\nвиправлення помилок"
-            },
-            "0.0.5": {
-                "en": "bugfix\nremove dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` and `.metadata.modelrun`\nupdate dependencies\nupdate readme",
-                "de": "Bug-Fix\nEntfernen Sie dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` und `.metadata.modelrun`\nAbhängigkeiten aktualisieren\nReadme aktualisieren",
-                "ru": "Исправлена ошибка\nудалить dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` и `.metadata.modelrun`\nобновить зависимости\nобновить ридми",
-                "pt": "correção de bug\nremover dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` e `.metadata.modelrun`\natualizar dependências\natualize o leia-me",
-                "nl": "bugfix\nverwijder dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` en `.metadata.modelrun`\nupdate afhankelijkheden\nupdate leesmij",
-                "fr": "correction d'un bug\nsupprimer dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` et `.metadata.modelrun`\nmettre à jour les dépendances\nmettre à jour le fichier lisez-moi",
-                "it": "risoluzione del problema\nrimuovere dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` e `.metadata.modelrun`\naggiornare le dipendenze\naggiorna il readme",
-                "es": "arreglo del fallo\neliminar dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` y `.metadata.modelrun`\nactualizar dependencias\nactualizar Léame",
-                "pl": "naprawa błędów\nusuń dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` i `.metadata.modelrun`\nzaktualizuj zależności\nzaktualizuj plik readme",
-                "zh-cn": "错误修正\n删除 dp `.data_day.[0-6].time_ms`、`.metadata.modelrun_updatetime` 和 `.metadata.modelrun`\n更新依赖\n更新自述文件",
-                "uk": "виправлення помилок\nвидалити dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` і `.metadata.modelrun`\nоновити залежності\nоновити readme"
-            },
-            "0.0.6": {
-                "en": "password encryption added (user need to reenter the password once after update, this change requires admin >= v4.0.9)\nclean up code\nimplementation of JSON config (this change requires js-controller >= v3.3.19 and admin >= v5.1.28)\nnode.js >= v14.0 is required\nimproved bug-report form\nupdate links to meteoblue homepage due to their updated homepage\nupdate dependencies\nadd polling interval",
-                "de": "passwort-verschlüsselung hinzugefügt (benutzer müssen das passwort nach update neu eingeben, diese änderung erfordert admin >= v4.0.9)\ncode aufräumen\nimplementierung von JSON config (diese Änderung erfordert js-controller >= v3.3.19 und admin >= v5.1.28)\nnode.js >= v14.0 ist erforderlich\nverbessertes bug-report-formular\naktualisierung von links zu meteoblue homepage aufgrund ihrer aktualisierten homepage\naktualisierung der abhängigkeiten\ndas abfrageintervall hinzufügen",
-                "ru": "шифрование пароля добавлено (пользователю нужно перекодировать пароль после обновления, это изменение требует админ >= v4.0.9)\nочистить код\nреализация JSON config (это изменение требует js-controller >= v3.3.19 и admin >= v5.1.28)\nnode.js >= v14.0 требуется\nулучшенная форма bug-report\nобновление ссылок на сайт meteoblue из-за обновленной домашней страницы\nобновление зависимостей\nдобавить интервал опроса",
-                "pt": "criptografia de senha adicionada (o usuário precisa digitar a senha uma vez após a atualização, essa alteração requer admin >= v4.0.9)\nlimpar o código\nimplementação de JSON config (esta mudança requer js-controller >= v3.3.19 e admin >= v5.1.28)\nnode.js >= v14.0 é necessário\nformulário melhorado de relatório de bugs\natualizar links para a página inicial do meteoblue devido à sua página inicial atualizada\ndependências\nadicionar intervalo de votação",
-                "nl": "wachtwoord encryptie toegevoegd om het wachtwoord een keer na de update te vernieuwen, vereist deze verandering administratie v.0.9\nruim code op\nimplementatie van JSON config ( deze verandering vereist js-verandering js-19 en administratie =3,28 )\nnode\nverbeterde insecten-reportvorm\nvertaling:\nvertaling:\nvoeg de peiling toe",
-                "fr": "cryptage de mot de passe ajouté (l'utilisateur doit entrer le mot de passe une fois après la mise à jour, ce changement nécessite admin = v4.0.9)\nnettoyer le code\nimplémentation de la configuration JSON (ce changement nécessite js-controller ACIA= v3.3.19 et admin > v5.1.28)\nnode.js acia= v14.0 est nécessaire\nformulaire amélioré de rapport de bogues\nmettre à jour les liens vers la page d'accueil de meteoblue en raison de leur page d'accueil mise à jour\nmettre à jour les dépendances\najouter l'intervalle de vote",
-                "it": "crittografia della password aggiunta (l'utente deve reinserire la password una volta dopo l'aggiornamento, questa modifica richiede admin >= v4.0.9)\npulire il codice\nimplementazione di JSON config (questa modifica richiede js-controller >= v3.3.19 e admin >= v5.1.28)\nnode.js >= v14.0 è richiesto\nmigliorata forma di bug-report\naggiornamento link alla homepage meteoblue a causa della loro pagina iniziale aggiornata\naggiornamento dipendenze\naggiungere l'intervallo di polling",
-                "es": "contraseña de cifrado añadido (usuario necesita reingresar la contraseña una vez después de la actualización, este cambio requiere administrador >= v4.0.9)\nlimpiar código\nla implementación de JSON config (este cambio requiere js-controller √= v3.3.19 y admin= v5.1.28)\nnode.js √= v14.0 se requiere\nmejorado formulario de informe de fallos\nenlaces a página web meteoblue debido a su página web actualizada\ndependencias de actualización\nañadir intervalo de votación",
-                "pl": "dodanie szyfrowania haseł (user need to reenter the password once after update, to zmiana wymaga admin >= v4.0.9)\nczyścić kod\nwdrażanie formatu JSON (tzw. zmiana wymaga js-controller >= v3.19, admin >= v5.1.28\nwęzły >= v14.0\nulepszona forma bug-reportu\npowiązane z meteoblue ze względu na ich aktualizację\nzależności\ndodać interwał",
-                "zh-cn": "密码加密(用户需要在更新之后重新写言,这一变化需要注释>= v4.0.9)\n清洁守则\n实施联合执行协会会议config(其变化需要防控勒->= v3.3.19和注释>= v5.128)\n无需说明。\n改进报告格式\n由于其更新的主页,更新了与面纱的联系\na. 最新受扶养人\n增加投票间隔",
-                "uk": "додано шифрування пароля (користувачу потрібно повторно ввести пароль один раз після оновлення, для цієї зміни потрібен admin >= v4.0.9)\nочистити код\nреалізація конфігурації JSON (для цієї зміни потрібен js-controller >= v3.3.19 і admin >= v5.1.28)\nПотрібен node.js >= v14.0\nпокращена форма звіту про помилку\nоновити посилання на домашню сторінку meteoblue через їх оновлену домашню сторінку\nоновити залежності\nдодати інтервал опитування"
-            },
-            "0.1.0-beta.5": {
-                "en": "BREAKING: Names of Objects in forecast package basic-day changed, BREAKING: js-controller >= v4.0.23 is and admin >= v6.2.21 is required, added forecast packages, add possibility for manual requests, fix date of DP modelrun_updatetime_utc and modelrun_utc, code improvements",
-                "de": "BREAKING: Namen von Objekten im Basistag des Prognosepakets geändert, BREAKING: js-controller >= v4.0.23 ist und admin >= v6.2.21 ist erforderlich, Prognosepakete hinzugefügt, Möglichkeit für manuelle Anfragen hinzugefügt, Datum von DP modelrun_updatetime_utc festgelegt und modelrun_utc, Codeverbesserungen",
-                "ru": "BREAKING: Имена объектов в пакете прогноза базового дня изменены, BREAKING: js-controller >= v4.0.23 is and admin >= v6.2.21 требуется, добавлены пакеты прогнозов, добавлена ​​возможность ручных запросов, исправлена ​​дата DP modelrun_updatetime_utc и modelrun_utc, улучшения кода",
-                "pt": "BREAKING: Nomes de objetos no pacote de previsão basic-day alterados, BREAKING: js-controller >= v4.0.23 é e admin >= v6.2.21 é necessário, pacotes de previsão adicionados, possibilidade de solicitações manuais, data fixa de DP modelrun_updatetime_utc e modelrun_utc, melhorias no código",
-                "nl": "BREAKING: namen van objecten in prognosepakket basisdag gewijzigd, BREAKING: js-controller >= v4.0.23 is en admin >= v6.2.21 is vereist, prognosepakketten toegevoegd, mogelijkheid voor handmatige verzoeken toegevoegd, datum van DP vastgelegd modelrun_updatetime_utc en modelrun_utc, codeverbeteringen",
-                "fr": "BREAKING : Les noms des objets dans le package de prévision basic-day ont changé, BREAKING : js-controller >= v4.0.23 est et admin >= v6.2.21 est requis, ajout de packages de prévision, ajout de la possibilité de demandes manuelles, date fixe de DP modelrun_updatetime_utc et modelrun_utc, améliorations du code",
-                "it": "BREAKING: i nomi degli oggetti nel pacchetto di previsione basic-day sono cambiati, BREAKING: js-controller >= v4.0.23 è e admin >= v6.2.21 è richiesto, pacchetti di previsione aggiunti, aggiunta possibilità per richieste manuali, correzione data di DP modelrun_updatetime_utc e modelrun_utc, miglioramenti del codice",
-                "es": "ÚLTIMA HORA: Los nombres de los objetos en el día básico del paquete de pronóstico cambiaron, ÚLTIMA HORA: js-controller >= v4.0.23 es y admin >= v6.2.21 es necesario, se agregaron paquetes de pronóstico, se agregó la posibilidad de solicitudes manuales, se corrigió la fecha de DP modelrun_updatetime_utc y modelrun_utc, mejoras de código",
-                "pl": "BREAKING: Zmieniono nazwy obiektów w pakiecie prognozy dzień podstawowy, BREAKING: js-controller >= v4.0.23 jest i admin >= v6.2.21 jest wymagany, dodano pakiety prognozy, dodano możliwość ręcznych żądań, poprawkę daty DP modelrun_updatetime_utc i modelrun_utc, ulepszenia kodu",
-                "uk": "ПОРУШЕННЯ: змінено назви об’єктів у базовому пакеті прогнозу, ПОРУШЕННЯ: потрібен js-controller >= v4.0.23 і адміністратор >= v6.2.21, додано пакети прогнозу, додано можливість ручних запитів, виправлено дату DP modelrun_updatetime_utc і modelrun_utc, покращення коду",
-                "zh-cn": "BREAKING：预测包基本日中的对象名称已更改，BREAKING：js-controller >= v4.0.23 是并且 admin >= v6.2.21 是必需的，添加了预测包，增加了手动请求的可能性，修复了 DP modelrun_updatetime_utc 的日期和modelrun_utc，代码改进"
-            }
-        },
-        "titleLang": {
-            "en": "Meteoblue",
-            "de": "Meteoblue",
-            "ru": "Meteoblue",
-            "pt": "Meteoblue",
-            "nl": "Meteoblue",
-            "fr": "Meteoblue",
-            "it": "Meteoblue",
-            "es": "Meteoblue",
-            "pl": "Meteoblue",
-            "zh-cn": "Meteoblue",
-            "uk": "Метеоблюз"
-        },
-        "desc": {
-            "en": "This adapter fetches weather forecast from meteoblue.com",
-            "de": "Dieser Adapter ruft die Wettervorhersage von meteoblue.com ab",
-            "ru": "Этот адаптер получает прогноз погоды с сайта meteoblue.com",
-            "pt": "Este adaptador obtém a previsão do tempo de meteoblue.com",
-            "nl": "Deze adapter haalt de weersvoorspelling op van meteoblue.com",
-            "fr": "Cet adaptateur récupère les prévisions météo de meteoblue.com",
-            "it": "Questo adattatore recupera le previsioni del tempo da meteoblue.com",
-            "es": "Este adaptador obtiene el pronóstico del tiempo de meteoblue.com",
-            "pl": "Ten adapter pobiera prognozę pogody z meteoblue.com",
-            "zh-cn": "此适配器从meteoblue.com 获取天气预报",
-            "uk": "Цей адаптер отримує прогноз погоди з meteoblue.com"
-        },
-        "authors": [
-            "ice987987 <mathias.frei1@gmail.com>"
-        ],
-        "keywords": [
-            "meteoblue",
-            "weather"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "main.js",
-        "icon": "meteoblue.svg",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/ice987987/iobroker.meteoblue/main/admin/meteoblue.svg",
-        "readme": "https://github.com/ice987987/iobroker.meteoblue/blob/main/README.md",
-        "loglevel": "info",
-        "mode": "daemon",
-        "type": "weather",
-        "compact": true,
-        "connectionType": "cloud",
-        "dataSource": "poll",
-        "adminUI": {
-            "config": "json"
-        },
-        "dependencies": [
-            {
-                "js-controller": ">=4.0.23"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=6.2.21"
-            }
-        ]
-    },
-    "encryptedNative": [
-        "applicationKey"
-    ],
-    "protectedNative": [
-        "applicationKey"
-    ],
-    "native": {
-        "applicationKey": "",
-        "latlongFromSystem": false,
-        "latitude": "",
-        "longitude": "",
-        "cityFromSystem": false,
-        "city": "",
-        "elevation": "",
-        "timezone": "Europe%2FZurich",
-        "tempunitFromSystem": false,
-        "tempunit": "C",
-        "windspeed": "kmh",
-        "precipitationamount": "mm",
-        "intervall": 0,
-        "basic_15min": false,
-        "basic_1h": false,
-        "basic_3h": false,
-        "basic_day": true,
-        "current": false,
-        "clouds_1h": false,
-        "clouds_3h": false,
-        "clouds_day": false,
-        "sunmoon": false,
-        "basic_day_webcolors": false,
-        "agro_1h": false,
-        "agro_3h": false,
-        "agro_day": false,
-        "agromodelleafwetness_1h": false,
-        "agromodelsowing_1h": false,
-        "agromodelspray_1h": false,
-        "soiltrafficability_1h": false,
-        "solar_15min": false,
-        "solar_1h": false,
-        "solar_3h": false,
-        "solar_day": false,
-        "solarensemble_1h": false,
-        "pvpro_1h": false,
-        "pvpro_day": false,
-        "wind_15min": false,
-        "wind_1h": false,
-        "wind_3h": false,
-        "wind_day": false,
-        "wind80ensemble_1h": false,
-        "windpower_1h": false,
-        "sea_1h": false,
-        "sea_3h": false,
-        "sea_day": false,
-        "air_1h": false,
-        "air_3h": false,
-        "air_day": false,
-        "airquality_1h": false,
-        "airquality_3h": false,
-        "airquality_day": false,
-        "sigmalevel_1h": false,
-        "sigmalevel_day": false,
-        "profiletemp_1h": false,
-        "profileheight_1h": false,
-        "profilewind_1h": false,
-        "profileclouds_1h": false,
-        "profilerh_1h": false,
-        "ensemble_1h": false,
-        "trend_1h": false,
-        "trend_day": false
-    },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "info",
-            "type": "channel",
-            "common": {
-                "name": "Information"
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "Device or service connected",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
-    ]
+	"common": {
+		"name": "meteoblue",
+		"version": "0.1.0-beta.6",
+		"news": {
+			"0.0.2": {
+				"en": "add rainspot\nremove user inputfield winddirection, calculate winddirection as 2 and 3 chars\nremove user inputfield timezone\nbugfix",
+				"de": "Regenfleck hinzufügen\nBenutzereingabefeld Windrichtung entfernen, Windrichtung als 2 und 3 Zeichen berechnen\nZeitzone des Benutzereingabefelds entfernen\nFehlerbehebung",
+				"ru": "добавить дождевое пятно\nудалить направление ветра в поле ввода пользователя, вычислить направление ветра как 2 и 3 символа\nудалить часовой пояс поля ввода пользователя\nИсправлена ошибка",
+				"pt": "adicionar ponto de chuva\nremova a direção do vento do campo de entrada do usuário, calcule a direção do vento como 2 e 3 caracteres\nremover o fuso horário do campo de entrada do usuário\ncorreção de bug",
+				"nl": "regenvlek toevoegen\nverwijder gebruikersinvoerveld windrichting, bereken windrichting als 2 en 3 tekens\nverwijder gebruikersinvoerveld tijdzone\nbugfix",
+				"fr": "ajouter une tache de pluie\nsupprimer la direction du vent du champ de saisie de l'utilisateur, calculer la direction du vent comme 2 et 3 caractères\nsupprimer le fuseau horaire du champ de saisie de l'utilisateur\ncorrection d'un bug",
+				"it": "aggiungi punto di pioggia\nrimuovere la direzione del vento del campo di input dell'utente, calcolare la direzione del vento come 2 e 3 caratteri\nrimuovi il fuso orario del campo di input dell'utente\nrisoluzione del problema",
+				"es": "agregar la mancha de lluvia\neliminar la dirección del viento del campo de entrada del usuario, calcular la dirección del viento como 2 y 3 caracteres\neliminar la zona horaria del campo de entrada del usuario\narreglo del fallo",
+				"pl": "dodaj plamę deszczu\nusuń pole wejściowe użytkownika kierunek wiatru, oblicz kierunek wiatru jako 2 i 3 znaki\nusuń strefę czasową pola wejściowego użytkownika\nnaprawa błędów",
+				"zh-cn": "添加雨点\n删除用户输入字段风向，将风向计算为 2 和 3 个字符\n删除用户输入字段时区\n错误修正",
+				"uk": "додати дощову пляму\nвидалити поле введення користувача winddirection, розрахувати напрям вітру як 2 і 3 символи\nвидалити часовий пояс поля введення користувача\nвиправлення помилок"
+			},
+			"0.0.3": {
+				"en": "revision of the index_m input page\nimplementation of API-Key de- and entcryption\nbugfix",
+				"de": "Überarbeitung der index_m Eingabeseite\nImplementierung der API-Key Ent- und Entschlüsselung\nBugfix",
+				"ru": "пересмотр страницы ввода index_m\nвнедрение API-ключей дешифрования и шифрования\nисправление",
+				"pt": "revisão da página de entrada index_m\nimplementação de API-Key de- e entcryption\nbugfix",
+				"nl": "revisie van de index_m invoerpagina\nimplementatie van API-Key de- en encryptie\nbugfix",
+				"fr": "révision de la page d'entrée index_m\nimplémentation du déchiffrement et du chiffrement de la clé API\ncorrection de bug",
+				"it": "revisione della pagina di input index_m\nimplementazione della chiave API di de- e entcryption\ncorrezione di bug",
+				"es": "revisión de la página de entrada index_m\nimplementación de API-Key descifrado y cifrado\ncorrección de errores",
+				"pl": "wersja strony wejściowej index_m\nimplementacja odszyfrowywania i szyfrowania klucza API\npoprawka błędów",
+				"zh-cn": "index_m 输入页面的修订\n实施 API-Key 解密和加密\n错误修复",
+				"uk": "перегляд сторінки введення index_m\nреалізація де- та шифрування API-Key\nвиправлення помилок"
+			},
+			"0.0.4": {
+				"en": "update dependencies\nupdate readme.md\nbugfix",
+				"de": "Abhängigkeiten aktualisieren\nreadme.md aktualisieren\nFehlerbehebung",
+				"ru": "обновить зависимости\nобновить файл readme.md\nbugfix",
+				"pt": "atualizar dependências\nupdate readme.md\nbugfix",
+				"nl": "update afhankelijkheden\nupdate readme.md\nbugfix",
+				"fr": "mettre à jour les dépendances\nmettre à jour le fichier readme.md\ncorrection de bug",
+				"it": "aggiorna le dipendenze\naggiorna readme.md\ncorrezione di bug",
+				"es": "actualizar dependencias\nactualizar readme.md\ncorrección de errores",
+				"pl": "zależności aktualizacji\nzaktualizuj plik readme.md\npoprawka błędów",
+				"zh-cn": "更新依赖\n更新 readme.md\n错误修复",
+				"uk": "оновити залежності\nоновити readme.md\nвиправлення помилок"
+			},
+			"0.0.5": {
+				"en": "bugfix\nremove dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` and `.metadata.modelrun`\nupdate dependencies\nupdate readme",
+				"de": "Bug-Fix\nEntfernen Sie dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` und `.metadata.modelrun`\nAbhängigkeiten aktualisieren\nReadme aktualisieren",
+				"ru": "Исправлена ошибка\nудалить dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` и `.metadata.modelrun`\nобновить зависимости\nобновить ридми",
+				"pt": "correção de bug\nremover dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` e `.metadata.modelrun`\natualizar dependências\natualize o leia-me",
+				"nl": "bugfix\nverwijder dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` en `.metadata.modelrun`\nupdate afhankelijkheden\nupdate leesmij",
+				"fr": "correction d'un bug\nsupprimer dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` et `.metadata.modelrun`\nmettre à jour les dépendances\nmettre à jour le fichier lisez-moi",
+				"it": "risoluzione del problema\nrimuovere dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` e `.metadata.modelrun`\naggiornare le dipendenze\naggiorna il readme",
+				"es": "arreglo del fallo\neliminar dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` y `.metadata.modelrun`\nactualizar dependencias\nactualizar Léame",
+				"pl": "naprawa błędów\nusuń dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` i `.metadata.modelrun`\nzaktualizuj zależności\nzaktualizuj plik readme",
+				"zh-cn": "错误修正\n删除 dp `.data_day.[0-6].time_ms`、`.metadata.modelrun_updatetime` 和 `.metadata.modelrun`\n更新依赖\n更新自述文件",
+				"uk": "виправлення помилок\nвидалити dp `.data_day.[0-6].time_ms`, `.metadata.modelrun_updatetime` і `.metadata.modelrun`\nоновити залежності\nоновити readme"
+			},
+			"0.0.6": {
+				"en": "password encryption added (user need to reenter the password once after update, this change requires admin >= v4.0.9)\nclean up code\nimplementation of JSON config (this change requires js-controller >= v3.3.19 and admin >= v5.1.28)\nnode.js >= v14.0 is required\nimproved bug-report form\nupdate links to meteoblue homepage due to their updated homepage\nupdate dependencies\nadd polling interval",
+				"de": "passwort-verschlüsselung hinzugefügt (benutzer müssen das passwort nach update neu eingeben, diese änderung erfordert admin >= v4.0.9)\ncode aufräumen\nimplementierung von JSON config (diese Änderung erfordert js-controller >= v3.3.19 und admin >= v5.1.28)\nnode.js >= v14.0 ist erforderlich\nverbessertes bug-report-formular\naktualisierung von links zu meteoblue homepage aufgrund ihrer aktualisierten homepage\naktualisierung der abhängigkeiten\ndas abfrageintervall hinzufügen",
+				"ru": "шифрование пароля добавлено (пользователю нужно перекодировать пароль после обновления, это изменение требует админ >= v4.0.9)\nочистить код\nреализация JSON config (это изменение требует js-controller >= v3.3.19 и admin >= v5.1.28)\nnode.js >= v14.0 требуется\nулучшенная форма bug-report\nобновление ссылок на сайт meteoblue из-за обновленной домашней страницы\nобновление зависимостей\nдобавить интервал опроса",
+				"pt": "criptografia de senha adicionada (o usuário precisa digitar a senha uma vez após a atualização, essa alteração requer admin >= v4.0.9)\nlimpar o código\nimplementação de JSON config (esta mudança requer js-controller >= v3.3.19 e admin >= v5.1.28)\nnode.js >= v14.0 é necessário\nformulário melhorado de relatório de bugs\natualizar links para a página inicial do meteoblue devido à sua página inicial atualizada\ndependências\nadicionar intervalo de votação",
+				"nl": "wachtwoord encryptie toegevoegd om het wachtwoord een keer na de update te vernieuwen, vereist deze verandering administratie v.0.9\nruim code op\nimplementatie van JSON config ( deze verandering vereist js-verandering js-19 en administratie =3,28 )\nnode\nverbeterde insecten-reportvorm\nvertaling:\nvertaling:\nvoeg de peiling toe",
+				"fr": "cryptage de mot de passe ajouté (l'utilisateur doit entrer le mot de passe une fois après la mise à jour, ce changement nécessite admin = v4.0.9)\nnettoyer le code\nimplémentation de la configuration JSON (ce changement nécessite js-controller ACIA= v3.3.19 et admin > v5.1.28)\nnode.js acia= v14.0 est nécessaire\nformulaire amélioré de rapport de bogues\nmettre à jour les liens vers la page d'accueil de meteoblue en raison de leur page d'accueil mise à jour\nmettre à jour les dépendances\najouter l'intervalle de vote",
+				"it": "crittografia della password aggiunta (l'utente deve reinserire la password una volta dopo l'aggiornamento, questa modifica richiede admin >= v4.0.9)\npulire il codice\nimplementazione di JSON config (questa modifica richiede js-controller >= v3.3.19 e admin >= v5.1.28)\nnode.js >= v14.0 è richiesto\nmigliorata forma di bug-report\naggiornamento link alla homepage meteoblue a causa della loro pagina iniziale aggiornata\naggiornamento dipendenze\naggiungere l'intervallo di polling",
+				"es": "contraseña de cifrado añadido (usuario necesita reingresar la contraseña una vez después de la actualización, este cambio requiere administrador >= v4.0.9)\nlimpiar código\nla implementación de JSON config (este cambio requiere js-controller √= v3.3.19 y admin= v5.1.28)\nnode.js √= v14.0 se requiere\nmejorado formulario de informe de fallos\nenlaces a página web meteoblue debido a su página web actualizada\ndependencias de actualización\nañadir intervalo de votación",
+				"pl": "dodanie szyfrowania haseł (user need to reenter the password once after update, to zmiana wymaga admin >= v4.0.9)\nczyścić kod\nwdrażanie formatu JSON (tzw. zmiana wymaga js-controller >= v3.19, admin >= v5.1.28\nwęzły >= v14.0\nulepszona forma bug-reportu\npowiązane z meteoblue ze względu na ich aktualizację\nzależności\ndodać interwał",
+				"zh-cn": "密码加密(用户需要在更新之后重新写言,这一变化需要注释>= v4.0.9)\n清洁守则\n实施联合执行协会会议config(其变化需要防控勒->= v3.3.19和注释>= v5.128)\n无需说明。\n改进报告格式\n由于其更新的主页,更新了与面纱的联系\na. 最新受扶养人\n增加投票间隔",
+				"uk": "додано шифрування пароля (користувачу потрібно повторно ввести пароль один раз після оновлення, для цієї зміни потрібен admin >= v4.0.9)\nочистити код\nреалізація конфігурації JSON (для цієї зміни потрібен js-controller >= v3.3.19 і admin >= v5.1.28)\nПотрібен node.js >= v14.0\nпокращена форма звіту про помилку\nоновити посилання на домашню сторінку meteoblue через їх оновлену домашню сторінку\nоновити залежності\nдодати інтервал опитування"
+			},
+			"0.1.0-beta.6": {
+				"en": "BREAKING: Names of Objects in forecast package basic-day changed, BREAKING: js-controller >= v4.0.23 is and admin >= v6.2.21 is required, added forecast packages, add possibility for manual requests, fix date of DP modelrun_updatetime_utc and modelrun_utc, code improvements",
+				"de": "BREAKING: Namen von Objekten im Basistag des Prognosepakets geändert, BREAKING: js-controller >= v4.0.23 ist und admin >= v6.2.21 ist erforderlich, Prognosepakete hinzugefügt, Möglichkeit für manuelle Anfragen hinzugefügt, Datum von DP modelrun_updatetime_utc festgelegt und modelrun_utc, Codeverbesserungen",
+				"ru": "BREAKING: Имена объектов в пакете прогноза базового дня изменены, BREAKING: js-controller >= v4.0.23 is and admin >= v6.2.21 требуется, добавлены пакеты прогнозов, добавлена ​​возможность ручных запросов, исправлена ​​дата DP modelrun_updatetime_utc и modelrun_utc, улучшения кода",
+				"pt": "BREAKING: Nomes de objetos no pacote de previsão basic-day alterados, BREAKING: js-controller >= v4.0.23 é e admin >= v6.2.21 é necessário, pacotes de previsão adicionados, possibilidade de solicitações manuais, data fixa de DP modelrun_updatetime_utc e modelrun_utc, melhorias no código",
+				"nl": "BREAKING: namen van objecten in prognosepakket basisdag gewijzigd, BREAKING: js-controller >= v4.0.23 is en admin >= v6.2.21 is vereist, prognosepakketten toegevoegd, mogelijkheid voor handmatige verzoeken toegevoegd, datum van DP vastgelegd modelrun_updatetime_utc en modelrun_utc, codeverbeteringen",
+				"fr": "BREAKING : Les noms des objets dans le package de prévision basic-day ont changé, BREAKING : js-controller >= v4.0.23 est et admin >= v6.2.21 est requis, ajout de packages de prévision, ajout de la possibilité de demandes manuelles, date fixe de DP modelrun_updatetime_utc et modelrun_utc, améliorations du code",
+				"it": "BREAKING: i nomi degli oggetti nel pacchetto di previsione basic-day sono cambiati, BREAKING: js-controller >= v4.0.23 è e admin >= v6.2.21 è richiesto, pacchetti di previsione aggiunti, aggiunta possibilità per richieste manuali, correzione data di DP modelrun_updatetime_utc e modelrun_utc, miglioramenti del codice",
+				"es": "ÚLTIMA HORA: Los nombres de los objetos en el día básico del paquete de pronóstico cambiaron, ÚLTIMA HORA: js-controller >= v4.0.23 es y admin >= v6.2.21 es necesario, se agregaron paquetes de pronóstico, se agregó la posibilidad de solicitudes manuales, se corrigió la fecha de DP modelrun_updatetime_utc y modelrun_utc, mejoras de código",
+				"pl": "BREAKING: Zmieniono nazwy obiektów w pakiecie prognozy dzień podstawowy, BREAKING: js-controller >= v4.0.23 jest i admin >= v6.2.21 jest wymagany, dodano pakiety prognozy, dodano możliwość ręcznych żądań, poprawkę daty DP modelrun_updatetime_utc i modelrun_utc, ulepszenia kodu",
+				"uk": "ПОРУШЕННЯ: змінено назви об’єктів у базовому пакеті прогнозу, ПОРУШЕННЯ: потрібен js-controller >= v4.0.23 і адміністратор >= v6.2.21, додано пакети прогнозу, додано можливість ручних запитів, виправлено дату DP modelrun_updatetime_utc і modelrun_utc, покращення коду",
+				"zh-cn": "BREAKING：预测包基本日中的对象名称已更改，BREAKING：js-controller >= v4.0.23 是并且 admin >= v6.2.21 是必需的，添加了预测包，增加了手动请求的可能性，修复了 DP modelrun_updatetime_utc 的日期和modelrun_utc，代码改进"
+			}
+		},
+		"titleLang": {
+			"en": "Meteoblue",
+			"de": "Meteoblue",
+			"ru": "Meteoblue",
+			"pt": "Meteoblue",
+			"nl": "Meteoblue",
+			"fr": "Meteoblue",
+			"it": "Meteoblue",
+			"es": "Meteoblue",
+			"pl": "Meteoblue",
+			"zh-cn": "Meteoblue",
+			"uk": "Метеоблюз"
+		},
+		"desc": {
+			"en": "This adapter fetches weather forecast from meteoblue.com",
+			"de": "Dieser Adapter ruft die Wettervorhersage von meteoblue.com ab",
+			"ru": "Этот адаптер получает прогноз погоды с сайта meteoblue.com",
+			"pt": "Este adaptador obtém a previsão do tempo de meteoblue.com",
+			"nl": "Deze adapter haalt de weersvoorspelling op van meteoblue.com",
+			"fr": "Cet adaptateur récupère les prévisions météo de meteoblue.com",
+			"it": "Questo adattatore recupera le previsioni del tempo da meteoblue.com",
+			"es": "Este adaptador obtiene el pronóstico del tiempo de meteoblue.com",
+			"pl": "Ten adapter pobiera prognozę pogody z meteoblue.com",
+			"zh-cn": "此适配器从meteoblue.com 获取天气预报",
+			"uk": "Цей адаптер отримує прогноз погоди з meteoblue.com"
+		},
+		"authors": ["ice987987 <mathias.frei1@gmail.com>"],
+		"keywords": ["meteoblue", "weather"],
+		"license": "MIT",
+		"platform": "Javascript/Node.js",
+		"main": "main.js",
+		"icon": "meteoblue.svg",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/ice987987/iobroker.meteoblue/main/admin/meteoblue.svg",
+		"readme": "https://github.com/ice987987/iobroker.meteoblue/blob/main/README.md",
+		"loglevel": "info",
+		"mode": "daemon",
+		"type": "weather",
+		"compact": true,
+		"connectionType": "cloud",
+		"dataSource": "poll",
+		"adminUI": {
+			"config": "json"
+		},
+		"dependencies": [
+			{
+				"js-controller": ">=4.0.23"
+			}
+		],
+		"globalDependencies": [
+			{
+				"admin": ">=6.2.21"
+			}
+		]
+	},
+	"encryptedNative": ["applicationKey"],
+	"protectedNative": ["applicationKey"],
+	"native": {
+		"applicationKey": "",
+		"latlongFromSystem": false,
+		"latitude": "",
+		"longitude": "",
+		"cityFromSystem": false,
+		"city": "",
+		"elevation": "",
+		"timezone": "Europe%2FZurich",
+		"tempunitFromSystem": false,
+		"tempunit": "C",
+		"windspeed": "kmh",
+		"precipitationamount": "mm",
+		"intervall": 0,
+		"basic_15min": false,
+		"basic_1h": false,
+		"basic_3h": false,
+		"basic_day": true,
+		"current": false,
+		"clouds_1h": false,
+		"clouds_3h": false,
+		"clouds_day": false,
+		"sunmoon": false,
+		"basic_day_webcolors": false,
+		"agro_1h": false,
+		"agro_3h": false,
+		"agro_day": false,
+		"agromodelleafwetness_1h": false,
+		"agromodelsowing_1h": false,
+		"agromodelspray_1h": false,
+		"soiltrafficability_1h": false,
+		"solar_15min": false,
+		"solar_1h": false,
+		"solar_3h": false,
+		"solar_day": false,
+		"solarensemble_1h": false,
+		"pvpro_1h": false,
+		"pvpro_day": false,
+		"wind_15min": false,
+		"wind_1h": false,
+		"wind_3h": false,
+		"wind_day": false,
+		"wind80ensemble_1h": false,
+		"windpower_1h": false,
+		"sea_1h": false,
+		"sea_3h": false,
+		"sea_day": false,
+		"air_1h": false,
+		"air_3h": false,
+		"air_day": false,
+		"airquality_1h": false,
+		"airquality_3h": false,
+		"airquality_day": false,
+		"sigmalevel_1h": false,
+		"sigmalevel_day": false,
+		"profiletemp_1h": false,
+		"profileheight_1h": false,
+		"profilewind_1h": false,
+		"profileclouds_1h": false,
+		"profilerh_1h": false,
+		"ensemble_1h": false,
+		"trend_1h": false,
+		"trend_day": false
+	},
+	"objects": [],
+	"instanceObjects": [
+		{
+			"_id": "info",
+			"type": "channel",
+			"common": {
+				"name": "Information"
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.connection",
+			"type": "state",
+			"common": {
+				"role": "indicator.connected",
+				"name": "Device or service connected",
+				"type": "boolean",
+				"read": true,
+				"write": false,
+				"def": false
+			},
+			"native": {}
+		}
+	]
 }
