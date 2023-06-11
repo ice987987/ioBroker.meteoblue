@@ -6,7 +6,7 @@
     "name": "ice987987",
     "email": "mathias.frei1@gmail.com"
   },
-  "homepage": "https://github.com/ice987987/iobroker.meteoblue",
+  "homepage": "https://github.com/ice987987/ioBroker.meteoblue",
   "license": "MIT",
   "keywords": [
     "meteoblue",
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ice987987/iobroker.meteoblue.git"
+    "url": "https://github.com/ice987987/ioBroker.meteoblue.git"
   },
   "engines": {
     "node": ">= 16.4"
