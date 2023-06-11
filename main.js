@@ -10,8 +10,8 @@ const utils = require('@iobroker/adapter-core');
 const objectsStates = require('./lib/objectsStates.js');
 
 // Load your modules:
-const axios = require('axios');
-const crypto5 = require('crypto');
+const axios = require('axios').default;
+const crypto = require('crypto');
 
 // variables
 const isValidApplicationKey = /[a-zA-Z0-9]{12,}/;
@@ -601,7 +601,7 @@ class Meteoblue extends utils.Adapter {
 		this.log.debug(`[valuesForFolderTrend_1h]: ${JSON.stringify(valuesForFolderTrend_1h)}`);
 		this.log.debug(`[valuesForFolderTrend_day]: ${JSON.stringify(valuesForFolderTrend_day)}`);
 
-		const crc = crypto5.createHash('md5').update(this.meteoblueApiUrl).digest('hex');
+		const crc = crypto.createHash('sha256').update(this.meteoblueApiUrl).digest('hex');
 		this.log.debug(`current crc: ${crc}`);
 
 		// get oldCRC
