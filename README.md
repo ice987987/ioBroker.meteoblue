@@ -954,7 +954,7 @@ Forecast Package [`trend-day`](https://docs.meteoblue.com/en/weather-apis/packag
 
 <!-- ### **WORK IN PROGRESS** -->
 
-### 0.1.0-beta.8 **WORK IN PROGRESS**
+### 0.1.0-beta.9 **WORK IN PROGRESS**
 
 -   (ice987987) BREAKING: Names of Objects in forecast package `basic-day` changed
 -   (ice987987) BREAKING: js-controller >= v4.0.24, admin >= v6.3.5 and node.js >= v16.4 is required
@@ -967,6 +967,7 @@ Forecast Package [`trend-day`](https://docs.meteoblue.com/en/weather-apis/packag
 -   (ice987987) fix date of DP `modelrun_updatetime_utc` and `modelrun_utc`
 -   (ice987987) code improvements
 -   (ice987987) add section "Disclaimer" in readme
+-   (ice987987) dependencies updated
 
 ### 0.0.6 (2022-07-21)
 
