@@ -3942,7 +3942,6 @@
 			"label": "Readme",
 			"noTranslation": true,
 			"variant": "contained",
-			"color": "primary",
 			"button": true,
 			"href": "https://github.com/ice987987/ioBroker.meteoblue/blob/main/README.md"
 		},
@@ -3952,7 +3951,6 @@
 			"label": "Forecast data description",
 			"noTranslation": true,
 			"variant": "contained",
-			"color": "primary",
 			"button": true,
 			"href": "https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data"
 		}

@@ -173,8 +173,8 @@ class Meteoblue extends utils.Adapter {
 
 		// load system.config
 		try {
-			systemConfig = await this.getForeignObjectAsync('system.config', 'state');
-			// this.log.debug(`systemConfig: ${JSON.stringify(systemConfig)}`);
+			systemConfig = await this.getForeignObjectAsync('system.config');
+			this.log.debug(`systemConfig: ${JSON.stringify(systemConfig)}`);
 		} catch (error) {
 			this.log.debug(`error systemConfig: ${error}`);
 		}
