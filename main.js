@@ -10,7 +10,7 @@ const utils = require('@iobroker/adapter-core');
 const objectsStates = require('./lib/objectsStates.js');
 
 // Load your modules:
-const axios = require('axios').default;
+const axios = require('axios');
 const crypto = require('crypto');
 
 // variables

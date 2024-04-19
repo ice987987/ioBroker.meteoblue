@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "meteoblue",
-        "version": "0.1.0-beta.10",
+        "version": "0.1.0-beta.11",
         "news": {
             "0.0.2": {
                 "en": "add rainspot\nremove user inputfield winddirection, calculate winddirection as 2 and 3 chars\nremove user inputfield timezone\nbugfix",
@@ -68,18 +68,18 @@
                 "zh-cn": "密码加密(用户需要在更新之后重新写言,这一变化需要注释>= v4.0.9)\n清洁守则\n实施联合执行协会会议config(其变化需要防控勒->= v3.3.19和注释>= v5.128)\n无需说明。\n改进报告格式\n由于其更新的主页,更新了与面纱的联系\na. 最新受扶养人\n增加投票间隔",
                 "uk": "додано шифрування пароля (користувачу потрібно повторно ввести пароль один раз після оновлення, для цієї зміни потрібен admin >= v4.0.9)\nочистити код\nреалізація конфігурації JSON (для цієї зміни потрібен js-controller >= v3.3.19 і admin >= v5.1.28)\nПотрібен node.js >= v14.0\nпокращена форма звіту про помилку\nоновити посилання на домашню сторінку meteoblue через їх оновлену домашню сторінку\nоновити залежності\nдодати інтервал опитування"
             },
-            "0.1.0-beta.10": {
-                "en": "BREAKING: Names of Objects in forecast package basic-day changed, BREAKING: js-controller >= v4.0.24, admin >= v6.3.5 and node.js >= v16.4 is required, added forecast packages, add possibility for manual requests, fix date of DP modelrun_updatetime_utc and modelrun_utc, code improvements, dependencies updated, issue #155 fixed",
-                "de": "BREAKING: Namen von Objekten im Prognosepaket „Basic-Day“ geändert, BREAKING: js-controller >= v4.0.24, admin >= v6.3.5 und node.js >= v16.4 sind erforderlich, Prognosepakete hinzugefügt, Möglichkeit für manuelles hinzufügen Anfragen, Korrekturdatum von DP modelrun_updatetime_utc und modelrun_utc, Codeverbesserungen, Abhängigkeiten aktualisiert, Problem Nr. 155 behoben",
-                "ru": "СРОЧНО: Имена объектов в пакете прогноза на базовый день изменены. СРОЧНО: требуется js-controller >= v4.0.24, admin >= v6.3.5 и node.js >= v16.4, добавлены пакеты прогнозов, добавлена ​​возможность ручного управления. запросы, исправлена ​​дата DP modelrun_updatetime_utc и modelrun_utc, улучшения кода, обновлены зависимости, исправлена ​​проблема № 155",
-                "pt": "QUEBRANDO: Nomes de objetos no pacote de previsão do dia básico alterados, QUEBRANDO: js-controller >= v4.0.24, admin >= v6.3.5 e node.js >= v16.4 é necessário, pacotes de previsão adicionados, adição de possibilidade para manual solicitações, data de correção de DP modelrun_updatetime_utc e modelrun_utc, melhorias de código, dependências atualizadas, problema nº 155 corrigido",
-                "nl": "BREAKING: Namen van objecten in voorspellingspakket basic-day gewijzigd, BREAKING: js-controller >= v4.0.24, admin >= v6.3.5 en node.js >= v16.4 is vereist, voorspellingspakketten toegevoegd, mogelijkheid toegevoegd voor handmatig verzoeken, fixdatum van DP modelrun_updatetime_utc en modelrun_utc, codeverbeteringen, afhankelijkheden bijgewerkt, probleem #155 opgelost",
-                "fr": "RUPTURE : les noms des objets dans le package de prévisions de base ont été modifiés, RUPTURE : js-controller >= v4.0.24, admin >= v6.3.5 et node.js >= v16.4 sont requis, ajout de packages de prévisions, ajout d'une possibilité de manuel requêtes, correction de la date de DP modelrun_updatetime_utc et modelrun_utc, améliorations du code, dépendances mises à jour, problème n°155 résolu",
-                "it": "BREAKING: nomi degli oggetti nel pacchetto di previsione giorno base modificati, BREAKING: js-controller >= v4.0.24, admin >= v6.3.5 e node.js >= v16.4 sono obbligatori, aggiunti pacchetti di previsione, aggiunta possibilità di manuale richieste, correzione della data di DP modelrun_updatetime_utc e modelrun_utc, miglioramenti del codice, dipendenze aggiornate, problema n. 155 risolto",
-                "es": "ÚLTIMA HORA: Los nombres de los objetos en el paquete de pronóstico basic-day cambiaron, ÚLTIMA HORA: js-controller >= v4.0.24, admin >= v6.3.5 y node.js >= v16.4 son necesarios, se agregaron paquetes de pronóstico, se agregó la posibilidad de manual solicitudes, fecha de corrección de DP modelrun_updatetime_utc y modelrun_utc, mejoras de código, dependencias actualizadas, problema #155 solucionado",
-                "pl": "ŁAMANIE: Zmieniono nazwy obiektów w pakiecie prognozy na dzień podstawowy, ŁAMANIE: js-controller >= v4.0.24, admin >= v6.3.5 i node.js >= wymagana jest wersja 16.4, dodano pakiety prognoz, dodano możliwość ręcznego żądania, poprawka daty DP modelrun_updatetime_utc i modelrun_utc, ulepszenia kodu, zaktualizowano zależności, naprawiono problem nr 155",
-                "uk": "ПОРУШЕННЯ: Назви об’єктів у базовому пакеті прогнозу змінено, ПОРУШЕННЯ: потрібен js-controller >= v4.0.24, admin >= v6.3.5 і node.js >= v16.4, додано пакети прогнозу, додано можливість ручного запити, виправлена ​​дата DP modelrun_updatetime_utc і modelrun_utc, покращення коду, оновлені залежності, виправлена ​​проблема №155",
-                "zh-cn": "破坏性：预测包基本日中的对象名称已更改，破坏性：需要 js-controller >= v4.0.24、admin >= v6.3.5 和 node.js >= v16.4，添加了预测包，添加了手动的可能性请求、修复 DP modelrun_updatetime_utc 和 modelrun_utc 的日期、代码改进、更新依赖项、修复问题 #155"
+            "0.1.0-beta.11": {
+                "en": "BREAKING: Names of Objects in forecast package basic-day changed, BREAKING: js-controller >= v5, admin >= v6.3.5 and node.js >= v18 is required, added forecast packages, add possibility for manual requests, fix date of DP modelrun_updatetime_utc and modelrun_utc, code improvements, dependencies updated, issue #155 fixed",
+                "de": "BREAKING: Namen von Objekten im Prognosepaket „Basic-Day“ geändert, BREAKING: js-controller >= v5, admin >= v6.3.5 und node.js >= v18 sind erforderlich, Prognosepakete hinzugefügt, Möglichkeit für manuelle Anfragen hinzugefügt, Datum korrigieren von DP modelrun_updatetime_utc und modelrun_utc, Codeverbesserungen, Abhängigkeiten aktualisiert, Problem Nr. 155 behoben",
+                "ru": "СРОЧНО: Имена объектов в пакете прогноза на базовый день изменены. СРОЧНО: требуется js-controller >= v5, admin >= v6.3.5 и node.js >= v18, добавлены пакеты прогнозов, добавлена ​​возможность запросов вручную, исправлена ​​дата DP modelrun_updatetime_utc и modelrun_utc, улучшения кода, обновлены зависимости, исправлена ​​проблема № 155",
+                "pt": "QUEBRANDO: Nomes de objetos no pacote de previsão do dia básico alterados, QUEBRANDO: js-controller >= v5, admin >= v6.3.5 e node.js >= v18 são necessários, pacotes de previsão adicionados, adição de possibilidade para solicitações manuais, correção de data de DP modelrun_updatetime_utc e modelrun_utc, melhorias de código, dependências atualizadas, problema nº 155 corrigido",
+                "nl": "BREAKING: Namen van objecten in voorspellingspakket basic-day gewijzigd, BREAKING: js-controller >= v5, admin >= v6.3.5 en node.js >= v18 is vereist, voorspellingspakketten toegevoegd, mogelijkheid toegevoegd voor handmatige verzoeken, datum repareren van DP modelrun_updatetime_utc en modelrun_utc, codeverbeteringen, afhankelijkheden bijgewerkt, probleem #155 opgelost",
+                "fr": "RUPTURE : les noms des objets dans le package de prévisions de base ont été modifiés, RUPTURE : js-controller >= v5, admin >= v6.3.5 et node.js >= v18 sont requis, ajout de packages de prévisions, ajout de possibilité de requêtes manuelles, correction de la date de DP modelrun_updatetime_utc et modelrun_utc, améliorations du code, dépendances mises à jour, problème n°155 résolu",
+                "it": "BREAKING: nomi degli oggetti nel pacchetto di previsione giorno base modificati, BREAKING: js-controller >= v5, admin >= v6.3.5 e node.js >= v18 sono obbligatori, aggiunti pacchetti di previsione, aggiunta possibilità di richieste manuali, correzione della data di DP modelrun_updatetime_utc e modelrun_utc, miglioramenti al codice, dipendenze aggiornate, problema n. 155 risolto",
+                "es": "ÚLTIMA HORA: Los nombres de los objetos en el paquete de pronóstico basic-day cambiaron, ÚLTIMA HORA: js-controller >= v5, admin >= v6.3.5 y node.js >= v18 son necesarios, se agregaron paquetes de pronóstico, se agregó la posibilidad de solicitudes manuales, se corrigió la fecha de DP modelrun_updatetime_utc y modelrun_utc, mejoras de código, dependencias actualizadas, problema #155 solucionado",
+                "pl": "ŁAMANIE: Zmieniono nazwy obiektów w pakiecie prognozy na dzień podstawowy, ŁAMANIE: js-controller >= v5, admin >= v6.3.5 i node.js >= wymagane jest v18, dodano pakiety prognoz, dodano możliwość ręcznych żądań, poprawiona data DP modelrun_updatetime_utc i modelrun_utc, ulepszenia kodu, zaktualizowano zależności, naprawiono problem nr 155",
+                "uk": "ПОЛИМАННЯ: змінено назви об’єктів у базовому пакеті прогнозу, ПОРУШЕННЯ: потрібні js-controller >= v5, admin >= v6.3.5 і node.js >= v18, додано пакети прогнозів, додано можливість ручних запитів, виправлену дату DP modelrun_updatetime_utc і modelrun_utc, покращено код, оновлено залежності, виправлено проблему №155",
+                "zh-cn": "破坏性：预测包基本日中的对象名称已更改，破坏性：需要 js-controller >= v5、admin >= v6.3.5 和 node.js >= v18、添加预测包、添加手动请求的可能性、修复日期DP modelrun_updatetime_utc 和 modelrun_utc，代码改进，依赖项更新，问题 #155 已修复"
             }
         },
         "titleLang": {
@@ -115,7 +115,10 @@
             "meteoblue",
             "weather"
         ],
-        "license": "MIT",
+        "licenseInformation": {
+            "type": "free",
+            "license": "MIT"
+        },
         "platform": "Javascript/Node.js",
         "main": "main.js",
         "icon": "meteoblue.svg",
@@ -123,6 +126,7 @@
         "extIcon": "https://raw.githubusercontent.com/ice987987/iobroker.meteoblue/main/admin/meteoblue.svg",
         "readme": "https://github.com/ice987987/iobroker.meteoblue/blob/main/README.md",
         "loglevel": "info",
+        "tier": 3,
         "mode": "daemon",
         "type": "weather",
         "compact": true,
@@ -133,7 +137,7 @@
         },
         "dependencies": [
             {
-                "js-controller": ">=4.0.24"
+                "js-controller": ">=5"
             }
         ],
         "globalDependencies": [
