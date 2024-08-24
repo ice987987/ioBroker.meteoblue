@@ -954,7 +954,7 @@ Forecast Package [`trend-day`](https://docs.meteoblue.com/en/weather-apis/packag
 
 <!-- ### **WORK IN PROGRESS** -->
 
-### 0.1.0-beta.11 **WORK IN PROGRESS**
+### 0.1.0-beta.12 **WORK IN PROGRESS**
 
 -   (ice987987) BREAKING: Names of Objects in forecast package `basic-day` changed
 -   (ice987987) BREAKING: js-controller >= v5, admin >= v6.3.5 and node.js >= v18 is required

@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "meteoblue",
-        "version": "0.1.0-beta.11",
+        "version": "0.1.0-beta.12",
         "news": {
             "0.0.2": {
                 "en": "add rainspot\nremove user inputfield winddirection, calculate winddirection as 2 and 3 chars\nremove user inputfield timezone\nbugfix",
@@ -68,7 +68,7 @@
                 "zh-cn": "密码加密(用户需要在更新之后重新写言,这一变化需要注释>= v4.0.9)\n清洁守则\n实施联合执行协会会议config(其变化需要防控勒->= v3.3.19和注释>= v5.128)\n无需说明。\n改进报告格式\n由于其更新的主页,更新了与面纱的联系\na. 最新受扶养人\n增加投票间隔",
                 "uk": "додано шифрування пароля (користувачу потрібно повторно ввести пароль один раз після оновлення, для цієї зміни потрібен admin >= v4.0.9)\nочистити код\nреалізація конфігурації JSON (для цієї зміни потрібен js-controller >= v3.3.19 і admin >= v5.1.28)\nПотрібен node.js >= v14.0\nпокращена форма звіту про помилку\nоновити посилання на домашню сторінку meteoblue через їх оновлену домашню сторінку\nоновити залежності\nдодати інтервал опитування"
             },
-            "0.1.0-beta.11": {
+            "0.1.0-beta.12": {
                 "en": "BREAKING: Names of Objects in forecast package basic-day changed, BREAKING: js-controller >= v5, admin >= v6.3.5 and node.js >= v18 is required, added forecast packages, add possibility for manual requests, fix date of DP modelrun_updatetime_utc and modelrun_utc, code improvements, dependencies updated, issue #155 fixed",
                 "de": "BREAKING: Namen von Objekten im Prognosepaket „Basic-Day“ geändert, BREAKING: js-controller >= v5, admin >= v6.3.5 und node.js >= v18 sind erforderlich, Prognosepakete hinzugefügt, Möglichkeit für manuelle Anfragen hinzugefügt, Datum korrigieren von DP modelrun_updatetime_utc und modelrun_utc, Codeverbesserungen, Abhängigkeiten aktualisiert, Problem Nr. 155 behoben",
                 "ru": "СРОЧНО: Имена объектов в пакете прогноза на базовый день изменены. СРОЧНО: требуется js-controller >= v5, admin >= v6.3.5 и node.js >= v18, добавлены пакеты прогнозов, добавлена ​​возможность запросов вручную, исправлена ​​дата DP modelrun_updatetime_utc и modelrun_utc, улучшения кода, обновлены зависимости, исправлена ​​проблема № 155",
