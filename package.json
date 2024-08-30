@@ -1,6 +1,6 @@
 {
   "name": "iobroker.meteoblue",
-  "version": "0.1.0-beta.12",
+  "version": "0.1.0-beta.14",
   "description": "This adapter fetches weather forecast from meteoblue.com",
   "author": {
     "name": "ice987987",
@@ -18,7 +18,7 @@
     "url": "https://github.com/ice987987/ioBroker.meteoblue.git"
   },
   "engines": {
-    "node": ">= 18"
+    "node": ">=18"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^3.1.6",

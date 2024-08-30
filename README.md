@@ -427,6 +427,14 @@ Forecast Package [`pvpro-day`](https://docs.meteoblue.com/en/weather-apis/packag
 -   `.[0-6]d.snowcover_mean`: Mean snowcover (on the PV modules, considers incination)
 -   `.[0-6]d.time`: Day of forecast
 
+`pvpro-1h` and `pvpro-day` requires the following additional parameters:
+
+-   `kWp`: Kilowatt peak production (value > 0)
+-   `Slope`: Inclination of solar panel (0 < value <= 90)
+-   `Facing`: Orientation of solar panel (0 <= value >= 360)
+-   `Power efficiency`: Power efficiency of pv module (0 < value >= 1)
+-   `Tracker`: For solar panels using a sun tracker (0: no Tracker; 1: Daily vertical axis tracker; 2: Daily 2-axis tracker; 3: Yearly horizontal tracker; 4: Daily DNI tracker; 5: Daily horizontal axis tracker)
+
 #### Wind
 
 Forecast Package [`wind-15min`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#wind): meteodata for 7 days in a 15min interval (7d x 96values/d x 8values = _5376_ forecast values)
@@ -954,7 +962,7 @@ Forecast Package [`trend-day`](https://docs.meteoblue.com/en/weather-apis/packag
 
 <!-- ### **WORK IN PROGRESS** -->
 
-### 0.1.0-beta.12 **WORK IN PROGRESS**
+### 0.1.0-beta.14 **WORK IN PROGRESS**
 
 -   (ice987987) BREAKING: Names of Objects in forecast package `basic-day` changed
 -   (ice987987) BREAKING: js-controller >= v5.0.19, admin >= v6.3.5 and node.js >= v18 is required
@@ -969,6 +977,8 @@ Forecast Package [`trend-day`](https://docs.meteoblue.com/en/weather-apis/packag
 -   (ice987987) add section "Disclaimer" in readme
 -   (ice987987) dependencies updated
 -   (ice987987) issue [#155](https://github.com/ice987987/ioBroker.meteoblue/issues/155) fixed
+-   (ice987987) `kWp`, `Slope`, `Facing`, `Power efficiency` and `Tracker` for `PvPro` added
+-   (ice987987) issue [#187](https://github.com/ice987987/ioBroker.meteoblue/issues/187) fixed
 
 ### 0.0.6 (2022-07-21)
 

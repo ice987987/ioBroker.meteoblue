@@ -118,7 +118,12 @@ class Meteoblue extends utils.Adapter {
 		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'pvpro_1h')].active = this.config.pvpro_1h;
 		this.log.debug(`config.pvpro_day: ${this.config.pvpro_day}`);
 		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'pvpro_day')].active = this.config.pvpro_day;
-		this.log.debug(`config.wind_15min: ${this.config.wind_15min}`);
+		this.log.debug(`config.pvpro_kWp: ${this.config.pvpro_kWp}`);
+		this.log.debug(`config.pvpro_slope: ${this.config.pvpro_slope}`);
+		this.log.debug(`config.pvpro_facing: ${this.config.pvpro_facing}`);
+		this.log.debug(`config.pvpro_powerEfficiency: ${this.config.pvpro_powerEfficiency}`);
+		this.log.debug(`config.pvpro_tracker: ${this.config.pvpro_tracker}`);
+		this.log.debug(`config.pvpro_wind_15min: ${this.config.wind_15min}`);
 		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'wind_15min')].active = this.config.wind_15min;
 		this.log.debug(`config.wind_1h: ${this.config.wind_1h}`);
 		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'wind_1h')].active = this.config.wind_1h;
@@ -162,8 +167,8 @@ class Meteoblue extends utils.Adapter {
 		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'profileclouds_1h')].active = this.config.profileclouds_1h;
 		this.log.debug(`config.profilerh_1h: ${this.config.profilerh_1h}`);
 		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'profilerh_1h')].active = this.config.profilerh_1h;
-		this.log.debug(`config.ensemble_1h: ${this.config.ensemble_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'ensemble_1h')].active = this.config.ensemble_1h;
+		// this.log.debug(`config.ensemble_1h: ${this.config.ensemble_1h}`);
+		// objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'ensemble_1h')].active = this.config.ensemble_1h;
 		this.log.debug(`config.trend_1h: ${this.config.trend_1h}`);
 		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'trend_1h')].active = this.config.trend_1h;
 		this.log.debug(`config.trend_day: ${this.config.trend_day}`);
@@ -178,9 +183,6 @@ class Meteoblue extends utils.Adapter {
 		} catch (error) {
 			this.log.debug(`error systemConfig: ${error}`);
 		}
-
-		// https://docs.meteoblue.com/en/weather-apis/packages-api/introduction#url-parameter
-		this.meteoblueApiUrl = 'http://my.meteoblue.com/packages/';
 
 		/**
 		 * CHECK ENTRIES OF GUI
@@ -237,8 +239,7 @@ class Meteoblue extends utils.Adapter {
 			!this.config.profileclouds_1h &&
 			!this.config.profilerh_1h &&
 			!this.config.trend_1h &&
-			!this.config.trend_day &&
-			!this.config.ensemble_1h
+			!this.config.trend_day
 		) {
 			this.log.error('No "forecast Package" selected. Please check configuration! (ERR_#001)');
 			return;
@@ -390,9 +391,9 @@ class Meteoblue extends utils.Adapter {
 			if (this.config.trend_day) {
 				this.meteoblueApiUrl += 'trend-day_';
 			}
-			if (this.config.ensemble_1h) {
-				this.meteoblueApiUrl += 'ensemble-1h_';
-			}
+			// if (this.config.ensemble_1h) {
+			// 	this.meteoblueApiUrl += 'ensemble-1h_';
+			// }
 
 			this.meteoblueApiUrl = this.meteoblueApiUrl.substring(0, this.meteoblueApiUrl.length - 1);
 			this.meteoblueApiUrl += '?';
@@ -490,6 +491,43 @@ class Meteoblue extends utils.Adapter {
 		this.meteoblueApiUrl += `&precipitationamount=${this.config.precipitationamount}`;
 		this.meteoblueApiUrl += '&timeformat=Y-M-D&format=json';
 
+
+		// check Required Input Parameters for PV Pro
+		if (this.config.pvpro_1h || this.config.pvpro_day) {
+			if (Number(this.config.pvpro_kWp) < 0) {
+				this.log.error('"Required kWp-parameter for PV Pro" not valid. Please check configuration! (ERR_#0xx)');
+				return;
+			} else {
+				this.meteoblueApiUrl += `&kwp=${Number(this.config.pvpro_kWp)}`;
+			}
+			if (Number(this.config.pvpro_slope) <= 0 && Number(this.config.pvpro_slope) > 90) {
+				this.log.error('"Required slope-parameters for PV Pro" not valid. Please check configuration! (ERR_#0xx)');
+				return;
+			} else {
+				this.meteoblueApiUrl += `&slope=${Number(this.config.pvpro_slope)}`;
+			}
+			if (Number(this.config.pvpro_facing) < 0 && Number(this.config.pvpro_facing) > 360) {
+				this.log.error('"Required facing-parameters for PV Pro" not valid. Please check configuration! (ERR_#0xx)');
+				return;
+			} else {
+				this.meteoblueApiUrl += `&facing=${Number(this.config.pvpro_facing)}`;
+			}
+			if (Number(this.config.pvpro_powerEfficiency) < 0 && Number(this.config.pvpro_powerEfficiency) > 1) {
+				this.log.error('"Required powerEfficiency-parameters for PV Pro" not valid. Please check configuration! (ERR_#0xx)');
+				return;
+			} else {
+				this.meteoblueApiUrl += `&power_efficiency=${Number(this.config.pvpro_powerEfficiency)}`;
+			}
+			if (Number(this.config.pvpro_tracker) < 0 && Number(this.config.pvpro_powerEfficiency) > 5) {
+				this.log.error('"Required tracker-parameters for PV Pro" not valid. Please check configuration! (ERR_#0xx)');
+				return;
+			} else {
+				this.meteoblueApiUrl += `&tracker=${Number(this.config.pvpro_tracker)}`;
+			}
+		}
+
+		this.log.debug(`this.meteoblueApiUrl: ${this.meteoblueApiUrl}`);
+
 		// check intervall
 		if (Number(this.config.intervall) === 0) {
 			this.log.info('"Polling intervall" set to manual mode.');
@@ -504,8 +542,6 @@ class Meteoblue extends utils.Adapter {
 			this.log.error('"Polling intervall" not valid. Please check configuration! (ERR_#016)');
 			return;
 		}
-
-		this.log.debug(`this.meteoblueApiUrl: ${this.meteoblueApiUrl}`);
 
 		// create array of active packages
 		const packages_active = [];
