@@ -368,7 +368,7 @@ class Meteoblue extends utils.Adapter {
 		if (this.config.sigmalevel_1h) {
 			this.meteoblueApiUrl += 'sigmalevel-1h_';
 		}
-		if (this.config.airquality_day) {
+		if (this.config.sigmalevel_day) {
 			this.meteoblueApiUrl += 'sigmalevel-day_';
 		}
 		if (this.config.profiletemp_1h) {

@@ -1,6 +1,6 @@
 {
   "name": "iobroker.meteoblue",
-  "version": "0.1.0-15",
+  "version": "0.1.0-beta.15",
   "description": "This adapter fetches weather forecast from meteoblue.com",
   "author": {
     "name": "ice987987",
