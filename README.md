@@ -81,7 +81,7 @@ You get the following values from meteoblue.com:
 
 #### Basic
 
-Forecast Package [`basic-15min`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#basic): meteodata for 7 days in a 15min interval (7d x 96values/d x 9values = _6048_ forecast values)
+Forecast Package [`basic-15min`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#basic): meteodata for 7 days in a 15min interval (7d x 96values/d x 9values = _6048_ forecast values)
 
 -   `.[0-6]d_HHMM.felttemperature`: Felttemperature (2m above ground)
 -   `.[0-6]d_HHMM.relativehumidity`: Relative humidity (Air humidity)
@@ -93,9 +93,9 @@ Forecast Package [`basic-15min`](https://docs.meteoblue.com/en/weather-apis/pack
 -   `.[0-6]d_HHMM.winddirectionChar3`: Wind direction (10m above ground, 3 char)
 -   `.[0-6]d_HHMM.windspeed`: Wind speed (10m above ground)
 
-Forecast Package [`basic-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#basic): meteodata for 7 days in a 1h interval (7d x 24values/d x 18values = _3024_ forecast values)
+Forecast Package [`basic-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#basic): meteodata for 7 days in a 1h interval (7d x 24values/d x 18values = _3024_ forecast values)
 
-Forecast Package [`basic-3h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#basic): meteodata for 7 days in a 3h interval (7d x 8values/d x 18values = _1008_ forecast values)
+Forecast Package [`basic-3h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#basic): meteodata for 7 days in a 3h interval (7d x 8values/d x 18values = _1008_ forecast values)
 
 -   `.[0-6]d_HHMM.convective_precipitation`: Convective precipitation (Water amount, caused by convection e.g. thunderstorms)
 -   `.[0-6]d_HHMM.felttemperature`: Felttemperature (2m above ground)
@@ -116,7 +116,7 @@ Forecast Package [`basic-3h`](https://docs.meteoblue.com/en/weather-apis/package
 -   `.[0-6]d_HHMM.winddirectionChar3`: Wind direction (10m above ground, 3 char)
 -   `.[0-6]d_HHMM.windspeed`: Wind speed (10m above ground)
 
-Forecast Package [`basic-day`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#basic): meteodata for 7 days in a 1d interval (7d x 1value/d x 30values = _210_ forecast values)
+Forecast Package [`basic-day`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#basic): meteodata for 7 days in a 1d interval (7d x 1value/d x 30values = _210_ forecast values)
 
 -   `.[0-6]d.convective_precipitation`: Convective precipitation (Water amount, caused by convection e.g. thunderstorms)
 -   `.[0-6]d.felttemperature_max`: Maximum felttemperature (2m above ground)
@@ -151,7 +151,7 @@ Forecast Package [`basic-day`](https://docs.meteoblue.com/en/weather-apis/packag
 
 #### Current
 
-Forecast Package [`current`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#current): meteodata for current day (1d x 1value/d x 8values = _8_ forecast values)
+Forecast Package [`current`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#current): meteodata for current day (1d x 1value/d x 8values = _8_ forecast values)
 
 -   `.isdaylight`: Day or night
 -   `.isobserveddata`: Observed data
@@ -164,9 +164,9 @@ Forecast Package [`current`](https://docs.meteoblue.com/en/weather-apis/packages
 
 #### Clouds
 
-Forecast Package [`clouds-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#clouds): meteodata for 7 days in a 1h interval (7d x 24values/d x 7values = _1176_ forecast values)
+Forecast Package [`clouds-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#clouds): meteodata for 7 days in a 1h interval (7d x 24values/d x 7values = _1176_ forecast values)
 
-Forecast Package [`clouds-3h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#clouds): meteodata for 7 days in a 3h interval (7d x 8values/d x 7values = _392_ forecast values)
+Forecast Package [`clouds-3h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#clouds): meteodata for 7 days in a 3h interval (7d x 8values/d x 7values = _392_ forecast values)
 
 -   `.[0-6]d_HHMM.highclouds`: High clouds (Cover of the sky)
 -   `.[0-6]d_HHMM.lowclouds`: Low clouds (Cover of the sky)
@@ -176,7 +176,7 @@ Forecast Package [`clouds-3h`](https://docs.meteoblue.com/en/weather-apis/packag
 -   `.[0-6]d_HHMM.totalcloudcover`: Total cloud cover (cover of the sky)
 -   `.[0-6]d_HHMM.visibility`: Visibility (distance)
 
-Forecast Package [`clouds-day`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#clouds): meteodata for 7 days in a 1d interval (7d x 1value/d x 17values = _119_ forecast values)
+Forecast Package [`clouds-day`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#clouds): meteodata for 7 days in a 1d interval (7d x 1value/d x 17values = _119_ forecast values)
 
 -   `.[0-6]d.highclouds_max`: Maximum high clouds (Cover of the sky)
 -   `.[0-6]d.highclouds_mean`: Mean high clouds (Cover of the sky)
@@ -198,7 +198,7 @@ Forecast Package [`clouds-day`](https://docs.meteoblue.com/en/weather-apis/packa
 
 #### Sun and Moon
 
-Forecast Package [`sunmoon`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#sun-and-moon): meteodata for 7 days in a 1d interval (7d x 1value/d x 9values = _63_ forecast values)
+Forecast Package [`sunmoon`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#sun-and-moon): meteodata for 7 days in a 1d interval (7d x 1value/d x 9values = _63_ forecast values)
 
 -   `.[0-6]d.moonage`: Moon age
 -   `.[0-6]d.moonphaseangle`: Moon phase angle
@@ -212,7 +212,7 @@ Forecast Package [`sunmoon`](https://docs.meteoblue.com/en/weather-apis/packages
 
 #### Web colors
 
-Forecast Package [`basic-day_webcolors`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#web-colors): web colors package for 7 days in a 1d interval (7d x 1value/d x 16values = _112_ values)
+Forecast Package [`basic-day_webcolors`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#web-colors): web colors package for 7 days in a 1d interval (7d x 1value/d x 16values = _112_ values)
 
 -   `.[0-6]d.convective_precipitation`: Convective precipitation (Water amount, caused by convection e.g. thunderstorms)
 -   `.[0-6]d.felttemperature_max`: Maximum felttemperature (2m above ground)
@@ -264,9 +264,9 @@ Forecast Package [`basic-day_webcolors`](https://docs.meteoblue.com/en/weather-a
 
 #### Agro
 
-Forecast Package [`agro-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#agro): meteodata for 7 days in a 1h interval (7d x 24values/d x 11values = _1848_ forecast values)
+Forecast Package [`agro-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#agro): meteodata for 7 days in a 1h interval (7d x 24values/d x 11values = _1848_ forecast values)
 
-Forecast Package [`agro-3h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#agro): meteodata for 7 days in a 3h interval (7d x 8values/d x 11values = _616_ forecast values)
+Forecast Package [`agro-3h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#agro): meteodata for 7 days in a 3h interval (7d x 8values/d x 11values = _616_ forecast values)
 
 -   `.[0-6]d_HHMM.dewpointtemperature`: Dewpoint temperature (2m above ground)
 -   `.[0-6]d_HHMM.evapotranspiration`: Total evapotranspiration
@@ -280,7 +280,7 @@ Forecast Package [`agro-3h`](https://docs.meteoblue.com/en/weather-apis/packages
 -   `.[0-6]d_HHMM.time`: Day and time of forecast
 -   `.[0-6]d_HHMM.wetbulbtemperature`: Wetbulb temperature
 
-Forecast Package [`agro-day`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#agro): meteodata for 7 days in a 1d interval (7d x 1value/d x 21values = _147_ forecast values)
+Forecast Package [`agro-day`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#agro): meteodata for 7 days in a 1d interval (7d x 1value/d x 21values = _147_ forecast values)
 
 -   `.[0-6]d.dewpointtemperature_max`: Maximum dewpoint temperature (2m above ground)
 -   `.[0-6]d.dewpointtemperature_mean`: Mean dewpoint temperature (2m above ground)
@@ -306,7 +306,7 @@ Forecast Package [`agro-day`](https://docs.meteoblue.com/en/weather-apis/package
 
 #### Agromodel Leaf Wetness
 
-Forecast Package [`agromodelleafwetness-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#agromodel-leaf-wetness): meteodata for 7 days in a 1h interval (7d x 24values/d x 5values = _840_ forecast values)
+Forecast Package [`agromodelleafwetness-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#agromodel-leaf-wetness): meteodata for 7 days in a 1h interval (7d x 24values/d x 5values = _840_ forecast values)
 
 -   `.[0-6]d_HHMM.leafwetness_dewindex`: Leaf wetness dew index (Index describing the contribution of dew to leaf wetness (0 = no contribution, 1 = maximal contribution))
 -   `.[0-6]d_HHMM.leafwetness_evaporationindex`: Leaf wetness evaporation index (Index describing the contribution of evaporation to leaf wetness (0 = no contribution, 1 = maximal contribution))
@@ -316,7 +316,7 @@ Forecast Package [`agromodelleafwetness-1h`](https://docs.meteoblue.com/en/weath
 
 #### Agromodel Sowing
 
-Forecast Package [`agromodelsowing-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#agromodel-sowing): meteodata for 7 days in a 1h interval (7d x 24values/d x 12values = _2016_ forecast values)
+Forecast Package [`agromodelsowing-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#agromodel-sowing): meteodata for 7 days in a 1h interval (7d x 24values/d x 12values = _2016_ forecast values)
 
 -   `.[0-6]d_HHMM.sowing_barley`: Sowing barley
 -   `.[0-6]d_HHMM.sowing_cotton`: Sowing cotton
@@ -333,14 +333,14 @@ Forecast Package [`agromodelsowing-1h`](https://docs.meteoblue.com/en/weather-ap
 
 #### Agromodel Spray
 
-Forecast Package [`agromodelspray-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#agromodel-spray): meteodata for 7 days in a 1h interval (7d x 24values/d x 1values = _168_ forecast values)
+Forecast Package [`agromodelspray-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#agromodel-spray): meteodata for 7 days in a 1h interval (7d x 24values/d x 1values = _168_ forecast values)
 
 -   `.[0-6]d_HHMM.spraywindow`: Spray window
 -   `.[0-6]d_HHMM.time`: Day and time of forecast
 
 #### Soil Trafficability
 
-Forecast Package [`soiltrafficability-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#soil-trafficability): data for 7 days in a 1h interval (7d x 24values/d x 4values = _672_ values)
+Forecast Package [`soiltrafficability-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#soil-trafficability): data for 7 days in a 1h interval (7d x 24values/d x 4values = _672_ values)
 
 -   `.[0-6]d_HHMM.clay`: Stability of the clay for moving vehicles
 -   `.[0-6]d_HHMM.sand`: Stability of the sand for moving vehicles
@@ -352,11 +352,11 @@ Forecast Package [`soiltrafficability-1h`](https://docs.meteoblue.com/en/weather
 
 #### Solar
 
-Forecast Package [`solar-15min`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#solar): meteodata for 7 days in a 15min interval (7d x 96values/d x 11values = _7392_ forecast values)
+Forecast Package [`solar-15min`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#solar): meteodata for 7 days in a 15min interval (7d x 96values/d x 11values = _7392_ forecast values)
 
-Forecast Package [`solar-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#solar): meteodata for 7 days in a 1h interval (7d x 24values/d x 11values = _1848_ forecast values)
+Forecast Package [`solar-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#solar): meteodata for 7 days in a 1h interval (7d x 24values/d x 11values = _1848_ forecast values)
 
-Forecast Package [`solar-3h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#solar): meteodata for 7 days in a 3h interval (7d x 8values/d x 11values = _616_ forecast values)
+Forecast Package [`solar-3h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#solar): meteodata for 7 days in a 3h interval (7d x 8values/d x 11values = _616_ forecast values)
 
 -   `.[0-6]d_HHMM.dif_backwards`: Diffuse radiation (backwards)
 -   `.[0-6]d_HHMM.dif_instant`: Diffuse radiation (instant)
@@ -370,7 +370,7 @@ Forecast Package [`solar-3h`](https://docs.meteoblue.com/en/weather-apis/package
 -   `.[0-6]d_HHMM.gni_instant`: Global normalized irradiance (Radiation, instant)
 -   `.[0-6]d_HHMM.time`: Day and time of forecast
 
-Forecast Package [`solar-day`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#solar): meteodata for 7 days in a 1d interval (7d x 1value/d x 6values = _42_ forecast values)
+Forecast Package [`solar-day`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#solar): meteodata for 7 days in a 1d interval (7d x 1value/d x 6values = _42_ forecast values)
 
 -   `.[0-6]d.dif_total`: Diffuse radiation (total)
 -   `.[0-6]d.dni_total`: Direct normalized irradiance (Radiation, total)
@@ -381,7 +381,7 @@ Forecast Package [`solar-day`](https://docs.meteoblue.com/en/weather-apis/packag
 
 #### Solarensemble
 
-Forecast Package [`solarensemble-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#solar-ensemble): meteodata for 7 days in a 1h interval (7d x 24values/d x 19values = _3192_ forecast values)
+Forecast Package [`solarensemble-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#solar-ensemble): meteodata for 7 days in a 1h interval (7d x 24values/d x 19values = _3192_ forecast values)
 
 -   `.[0-6]d_HHMM.ghi_backwards_consensus`: Global horizontal radiation (backwards, consensus)
 -   `.[0-6]d_HHMM.ghi_backwards_max`: Maximum global horizontal radiation (backwards)
@@ -405,7 +405,7 @@ Forecast Package [`solarensemble-1h`](https://docs.meteoblue.com/en/weather-apis
 
 #### PV Pro
 
-Forecast Package [`pvpro-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#pv-pro) meteodata for 7 days in a 1h interval (7d x 24values/d x 11values = _1848_ forecast values)
+Forecast Package [`pvpro-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#pv-pro) meteodata for 7 days in a 1h interval (7d x 24values/d x 11values = _1848_ forecast values)
 
 -   `.[0-6]d_HHMM.gti_backwards`: Global tilted irradiance (Radiaton, backwards)
 -   `.[0-6]d_HHMM.gti_instant`: Global tilted irradiance (Radiation, instant)
@@ -419,7 +419,7 @@ Forecast Package [`pvpro-1h`](https://docs.meteoblue.com/en/weather-apis/package
 -   `.[0-6]d_HHMM.snowcover`: Snowcover (on the PV modules, considers incination)
 -   `.[0-6]d_HHMM.time`: Day and time of forecast
 
-Forecast Package [`pvpro-day`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#pv-pro) meteodata for 7 days in a 1d interval (7d x 1value/d x 5values = _35_ forecast values)
+Forecast Package [`pvpro-day`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#pv-pro) meteodata for 7 days in a 1d interval (7d x 1value/d x 5values = _35_ forecast values)
 
 -   `.[0-6]d.gti_total`: Total global tilted irradiance (Radiaton)
 -   `.[0-6]d.moduletemperature_mean`: Mean module temperature
@@ -437,11 +437,11 @@ Forecast Package [`pvpro-day`](https://docs.meteoblue.com/en/weather-apis/packag
 
 #### Wind
 
-Forecast Package [`wind-15min`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#wind): meteodata for 7 days in a 15min interval (7d x 96values/d x 8values = _5376_ forecast values)
+Forecast Package [`wind-15min`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#wind): meteodata for 7 days in a 15min interval (7d x 96values/d x 8values = _5376_ forecast values)
 
-Forecast Package [`wind-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#wind): meteodata for 7 days in a 1h interval (7d x 24values/d x 8values = _1344_ forecast values)
+Forecast Package [`wind-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#wind): meteodata for 7 days in a 1h interval (7d x 24values/d x 8values = _1344_ forecast values)
 
-Forecast Package [`wind-3h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#wind): meteodata for 7 days in a 3h interval (7d x 8values/d x 8values = _448_ forecast values)
+Forecast Package [`wind-3h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#wind): meteodata for 7 days in a 3h interval (7d x 8values/d x 8values = _448_ forecast values)
 
 -   `.[0-6]d_HHMM.airdensity`: Air density (result of altitude, temperature and humidity)
 -   `.[0-6]d_HHMM.gust`: Wind gusts (10m above ground)
@@ -452,7 +452,7 @@ Forecast Package [`wind-3h`](https://docs.meteoblue.com/en/weather-apis/packages
 -   `.[0-6]d_HHMM.winddirection_80mChar3`: Wind direction (80m above ground, 3 char)
 -   `.[0-6]d_HHMM.windspeed_80m`: Wind speed (80m above ground)
 
-Forecast Package [`wind-day`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#wind): meteodata for 7 days in a 1d interval (7d x 1value/d x 16values = _112_ forecast values)
+Forecast Package [`wind-day`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#wind): meteodata for 7 days in a 1d interval (7d x 1value/d x 16values = _112_ forecast values)
 
 -   `.[0-6]d.airdensity_max`: Maximum air density (result of altitude, temperature and humidity)
 -   `.[0-6]d.airdensity_mean`: Mean air density (result of altitude, temperature and humidity)
@@ -473,7 +473,7 @@ Forecast Package [`wind-day`](https://docs.meteoblue.com/en/weather-apis/package
 
 #### Wind 80m Ensemble
 
-Forecast Package [`wind80ensemble-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#wind-80m-ensemble): meteodata for 7 days in a 1h interval (7d x 24values/d x 19values = _3192_ forecast values)
+Forecast Package [`wind80ensemble-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#wind-80m-ensemble): meteodata for 7 days in a 1h interval (7d x 24values/d x 19values = _3192_ forecast values)
 
 -   `.[0-6]d_HHMM.time`: Day and time of forecast
 -   `.[0-6]d_HHMM.windspeed_80m_consensus`: Wind speed 80m consensus (80m above ground)
@@ -497,7 +497,7 @@ Forecast Package [`wind80ensemble-1h`](https://docs.meteoblue.com/en/weather-api
 
 #### Windpower
 
-Forecast Package [`windpower-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#wind-power) meteodata for 7 days in a 1h interval (7d x 24values/d x 2values = _336_ forecast values)
+Forecast Package [`windpower-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#wind-power) meteodata for 7 days in a 1h interval (7d x 24values/d x 2values = _336_ forecast values)
 
 -   `.[0-6]d_HHMM.time`: Day and time of forecast
 -   `.[0-6]d_HHMM.windpower`: Wind power (80m above ground)
@@ -506,9 +506,9 @@ Forecast Package [`windpower-1h`](https://docs.meteoblue.com/en/weather-apis/pac
 
 #### Sea
 
-Forecast Package [`sea-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#sea) meteodata for 7 days in a 1h interval (7d x 24values/d x 16values = _2688_ forecast values)
+Forecast Package [`sea-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#sea) meteodata for 7 days in a 1h interval (7d x 24values/d x 16values = _2688_ forecast values)
 
-Forecast Package [`sea-3h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#sea) meteodata for 7 days in a 3h interval (7d x 8values/d x 16values = _896_ forecast values)
+Forecast Package [`sea-3h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#sea) meteodata for 7 days in a 3h interval (7d x 8values/d x 16values = _896_ forecast values)
 
 -   `.[0-6]d_HHMM.currentvelocity_u`: Current velocity U (Velocity on longitude-axis)
 -   `.[0-6]d_HHMM.currentvelocity_v`: Current velocity V (Velocity on latitude-axis)
@@ -527,7 +527,7 @@ Forecast Package [`sea-3h`](https://docs.meteoblue.com/en/weather-apis/packages-
 -   `.[0-6]d_HHMM.windwave_meanperiod`: Mean wind wave period (majority of waves)
 -   `.[0-6]d_HHMM.windwave_peakwaveperiod`: Peak wave period of wind waves
 
-Forecast Package [`sea-day`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#sea) meteodata for 7 days in a 1d interval (7d x 1value/d x 36values = _252_ forecast values)
+Forecast Package [`sea-day`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#sea) meteodata for 7 days in a 1d interval (7d x 1value/d x 36values = _252_ forecast values)
 
 -   `.[0-6]d.currentvelocity_u_max`: Maximum velocity U (Velocity on longitude-axis)
 -   `.[0-6]d.currentvelocity_u_mean`: Mean velocity U (Velocity on longitude-axis)
@@ -568,9 +568,9 @@ Forecast Package [`sea-day`](https://docs.meteoblue.com/en/weather-apis/packages
 
 #### Air
 
-Forecast Package [`air-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#air) meteodata for 7 days in a 1h interval (7d x 24values/d x 9values = _1512_ forecast values)
+Forecast Package [`air-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#air) meteodata for 7 days in a 1h interval (7d x 24values/d x 9values = _1512_ forecast values)
 
-Forecast Package [`air-3h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#air) meteodata for 7 days in a 3h interval (7d x 8values/d x 9values = _504_ forecast values)
+Forecast Package [`air-3h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#air) meteodata for 7 days in a 3h interval (7d x 8values/d x 9values = _504_ forecast values)
 
 -   `.[0-6]d_HHMM.boundarylayerheight`: Boundary layer height (Layer with inversion)
 -   `.[0-6]d_HHMM.cape`: Convective available potential Energy
@@ -582,7 +582,7 @@ Forecast Package [`air-3h`](https://docs.meteoblue.com/en/weather-apis/packages-
 -   `.[0-6]d_HHMM.liftedindex`: Lifted index (Risk of thunderstorms)
 -   `.[0-6]d_HHMM.time`: Day and time of forecast
 
-Forecast Package [`air-day`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#air) meteodata for 7 days in a 1d interval (7d x 1value/d x 25values = _175_ forecast values)
+Forecast Package [`air-day`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#air) meteodata for 7 days in a 1d interval (7d x 1value/d x 25values = _175_ forecast values)
 
 -   `.[0-6]d.boundarylayerheight_max`: Maximum boundary layer height (Layer with inversion
 -   `.[0-6]d.boundarylayerheight_mean`: Mean boundary layer height (Layer with inversion
@@ -612,9 +612,9 @@ Forecast Package [`air-day`](https://docs.meteoblue.com/en/weather-apis/packages
 
 #### Airquality
 
-Forecast Package [`airquality-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#air-quality) meteodata for 7 days in a 1h interval (7d x 24values/d x 14values = _2352_ forecast values)
+Forecast Package [`airquality-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#air-quality) meteodata for 7 days in a 1h interval (7d x 24values/d x 14values = _2352_ forecast values)
 
-Forecast Package [`airquality-3h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#air-quality) meteodata for 7 days in a 3h interval (7d x 8values/d x 14values = _784_ forecast values)
+Forecast Package [`airquality-3h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#air-quality) meteodata for 7 days in a 3h interval (7d x 8values/d x 14values = _784_ forecast values)
 
 -   `.[0-6]d_HHMM.airqualityindex`: Air quality index (2m above ground)
 -   `.[0-6]d_HHMM.aod550`: AOD500 concentration (2m above ground, aerosol optical depth at 550nm)
@@ -631,7 +631,7 @@ Forecast Package [`airquality-3h`](https://docs.meteoblue.com/en/weather-apis/pa
 -   `.[0-6]d_HHMM.so2`: Sulphur dioxide concentration (2m above ground)
 -   `.[0-6]d_HHMM.time`: Day and time of forecast
 
-Forecast Package [`airquality-day`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#air-quality) meteodata for 7 days in a 1d interval (7d x 1value/d x 23values = _161_ forecast values)
+Forecast Package [`airquality-day`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#air-quality) meteodata for 7 days in a 1d interval (7d x 1value/d x 23values = _161_ forecast values)
 
 -   `.[0-6]d.airqualityindex_max`: Maximum air quality index (2m above ground)
 -   `.[0-6]d.airqualityindex_mean`: Mean air quality index (2m above ground)
@@ -659,7 +659,7 @@ Forecast Package [`airquality-day`](https://docs.meteoblue.com/en/weather-apis/p
 
 #### Sigmalevel
 
-Forecast Package [`sigmalevel-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#sigma-level) meteodata for 7 days in a 1h interval (7d x 24values/d x 8values = _1344_ forecast values)
+Forecast Package [`sigmalevel-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#sigma-level) meteodata for 7 days in a 1h interval (7d x 24values/d x 8values = _1344_ forecast values)
 
 -   `.[0-6]d_HHMM.airdensity`: Air density (result of altitude, temperature and humidity)
 -   `.[0-6]d_HHMM.relativehumidity`: Relative humidity (Air humidity)
@@ -670,7 +670,7 @@ Forecast Package [`sigmalevel-1h`](https://docs.meteoblue.com/en/weather-apis/pa
 -   `.[0-6]d_HHMM.winddirectionChar3`: Wind direction (10m above ground, 3 char)
 -   `.[0-6]d_HHMM.windspeed`: Wind speed (10m above ground)
 
-Forecast Package [`sigmalevel-day`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#sigma-level) meteodata for 7 days in a 1d interval (7d x 1value/d x 14values = _98_ forecast values)
+Forecast Package [`sigmalevel-day`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#sigma-level) meteodata for 7 days in a 1d interval (7d x 1value/d x 14values = _98_ forecast values)
 
 -   `.[0-6]d.airdensity_max`: Maximum air density (result of altitude, temperature and humidity)
 -   `.[0-6]d.airdensity_mean`: Mean air density (result of altitude, temperature and humidity)
@@ -695,7 +695,7 @@ Forecast Package [`sigmalevel-day`](https://docs.meteoblue.com/en/weather-apis/p
 
 #### Profile Series Temperature
 
-Forecast Package [`profiletemp-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#profile-series-temperature) meteodata for 7 days in a 1h interval (7d x 24values/d x 21values = _3528_ forecast values)
+Forecast Package [`profiletemp-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#profile-series-temperature) meteodata for 7 days in a 1h interval (7d x 24values/d x 21values = _3528_ forecast values)
 
 -   `.[0-6]d_HHMM.temperatureprofile_1000_mb`: Temperature profile 1000mb
 -   `.[0-6]d_HHMM.temperatureprofile_200_mb`: Temperature profile 200mb
@@ -721,7 +721,7 @@ Forecast Package [`profiletemp-1h`](https://docs.meteoblue.com/en/weather-apis/p
 
 #### Profile Series Geopotential Height
 
-Forecast Package [`profileheight-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#profile-series-geopotential-height) meteodata for 7 days in a 1h interval (7d x 24values/d x 21values = _3528_ forecast values)
+Forecast Package [`profileheight-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#profile-series-geopotential-height) meteodata for 7 days in a 1h interval (7d x 24values/d x 21values = _3528_ forecast values)
 
 -   `.[0-6]d_HHMM.heightprofile_1000_mb`: Geopotential height profile 1000mb
 -   `.[0-6]d_HHMM.heightprofile_200_mb`: Geopotential height profile 200mb
@@ -747,7 +747,7 @@ Forecast Package [`profileheight-1h`](https://docs.meteoblue.com/en/weather-apis
 
 #### Profile Series Wind
 
-Forecast Package [`profilewind-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#profile-series-wind) meteodata for 7 days in a 1h interval (7d x 24values/d x 41values = _6888_ forecast values)
+Forecast Package [`profilewind-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#profile-series-wind) meteodata for 7 days in a 1h interval (7d x 24values/d x 41values = _6888_ forecast values)
 
 -   `.[0-6]d_HHMM.time`: Day and time of forecast
 -   `.[0-6]d_HHMM.winddirectionprofile1000_mb`: Wind direction profile 1000mb
@@ -793,7 +793,7 @@ Forecast Package [`profilewind-1h`](https://docs.meteoblue.com/en/weather-apis/p
 
 #### Profile Series Cloud Cover
 
-Forecast Package [`profileclouds-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#profile-series-cloud-cover) meteodata for 7 days in a 1h interval (7d x 24values/d x 21values = _3528_ forecast values)
+Forecast Package [`profileclouds-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#profile-series-cloud-cover) meteodata for 7 days in a 1h interval (7d x 24values/d x 21values = _3528_ forecast values)
 
 -   `.[0-6]d_HHMM.cloudcoverprofile_1000_mb`: Cloud cover profile 1000mb (Cover of the sky)
 -   `.[0-6]d_HHMM.cloudcoverprofile_200_mb`: Cloud cover profile 200mb (Cover of the sky)
@@ -819,7 +819,7 @@ Forecast Package [`profileclouds-1h`](https://docs.meteoblue.com/en/weather-apis
 
 #### Profile Series Relative Humidity
 
-Forecast Package [`profilerh-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#profile-series-relative-humidity) meteodata for 7 days in a 1h interval (7d x 24values/d x 21values = _3528_ forecast values)
+Forecast Package [`profilerh-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#profile-series-relative-humidity) meteodata for 7 days in a 1h interval (7d x 24values/d x 21values = _3528_ forecast values)
 
 -   `.[0-6]d_HHMM.relativehumidityprofile_1000_mb`: Relative humidity profile 1000mb (Air humidity)
 -   `.[0-6]d_HHMM.relativehumidityprofile_200_mb`: Relative humidity profile 200mb (Air humidity)
@@ -846,9 +846,9 @@ Forecast Package [`profilerh-1h`](https://docs.meteoblue.com/en/weather-apis/pac
 <!--
 #### Multimodel
 
-Forecast Package [`multimodel-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#multimodel) meteodata for 7 days in a 1h interval (7d x 24values/d x 11values = *1848* forecast values)
+Forecast Package [`multimodel-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#multimodel) meteodata for 7 days in a 1h interval (7d x 24values/d x 11values = *1848* forecast values)
 
-Forecast Package [`multimodel-3h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#multimodel) meteodata for 7 days in a 3h interval (7d x 8values/d x 11values = *616* forecast values)
+Forecast Package [`multimodel-3h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#multimodel) meteodata for 7 days in a 3h interval (7d x 8values/d x 11values = *616* forecast values)
 
 * `.[0-6]d_HHMM.cloudcover`: Cloud cover
 * `.[0-6]d_HHMM.precipitation`: Precipation
@@ -863,20 +863,20 @@ Forecast Package [`multimodel-3h`](https://docs.meteoblue.com/en/weather-apis/pa
 * `.[0-6]d_HHMM.windspeed_spread`: Wind speed spread
 -->
 
-<!-- Forecast Package [`multimodel-temperature`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#multimodel-temperature) tbd -->
-<!-- Forecast Package [`multimodel-precipitation`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#multimodel-precipitation) tbd -->
-<!-- Forecast Package [`multimodel-relative-humidity`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#multimodel-relative-humidity) tbd -->
-<!-- Forecast Package [`multimodel-wind`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#multimodel-wind) tbd -->
-<!-- Forecast Package [`multimodel-wind-80m`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#multimodel-wind-80m) tbd -->
-<!-- Forecast Package [`multimodel-clouds`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#multimodel-clouds) tbd -->
-<!-- Forecast Package [`multimodel-radiation`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#multimodel-radiation) tbd -->
-<!-- Forecast Package [`multimodelpv-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#multimodel-pv) tbd -->
+<!-- Forecast Package [`multimodel-temperature`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#multimodel-temperature) tbd -->
+<!-- Forecast Package [`multimodel-precipitation`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#multimodel-precipitation) tbd -->
+<!-- Forecast Package [`multimodel-relative-humidity`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#multimodel-relative-humidity) tbd -->
+<!-- Forecast Package [`multimodel-wind`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#multimodel-wind) tbd -->
+<!-- Forecast Package [`multimodel-wind-80m`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#multimodel-wind-80m) tbd -->
+<!-- Forecast Package [`multimodel-clouds`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#multimodel-clouds) tbd -->
+<!-- Forecast Package [`multimodel-radiation`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#multimodel-radiation) tbd -->
+<!-- Forecast Package [`multimodelpv-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#multimodel-pv) tbd -->
 
 ### 14-Day Forecast Packages
 
 #### Ensemble
 
-Forecast Package [`ensemble`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#ensemble) meteodata for 7 days in a 1d interval (7d x 1value/d x 11values = _77_ forecast values)
+Forecast Package [`ensemble`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#ensemble) meteodata for 7 days in a 1d interval (7d x 1value/d x 11values = _77_ forecast values)
 
 -   `.[0-6]d_HHMM.ghi_backwards`: Global tilted irradiance (Radiaton, backwards)
 -   `.[0-6]d_HHMM.gust`: Wind gusts (10m above ground)
@@ -894,7 +894,7 @@ Forecast Package [`ensemble`](https://docs.meteoblue.com/en/weather-apis/package
 
 #### Trend
 
-Forecast Package [`trend-1h`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#trend) meteodata for 7 days in a 1h interval (7d x 24values/d x 18values = _3024_ forecast values)
+Forecast Package [`trend-1h`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#trend) meteodata for 7 days in a 1h interval (7d x 24values/d x 18values = _3024_ forecast values)
 
 -   `.[0-6]d_HHMM.extraterrestrialradiation_backwards`: Extraterrestrial solar radiation (backwards)
 -   `.[0-6]d_HHMM.ghi_backwards`: Global horizontal radiation (backwards)
@@ -915,7 +915,7 @@ Forecast Package [`trend-1h`](https://docs.meteoblue.com/en/weather-apis/package
 -   `.[0-6]d_HHMM.windspeed`: Wind speed (10m above ground)
 -   `.[0-6]d_HHMM.windspeed_spread`: Wind speed spread (10m above ground, 1h from the mean wind speed)
 
-Forecast Package [`trend-day`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#trend) meteodata for 7 days in a 1d interval (7d x 1value/d x 31values = _217_ forecast values)
+Forecast Package [`trend-day`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#trend) meteodata for 7 days in a 1d interval (7d x 1value/d x 31values = _217_ forecast values)
 
 -   `.[0-6]d.extraterrestrialradiation_total`: Extraterrestrial solar radiation (total)
 -   `.[0-6]d.ghi_total`: Total global horizontal radiation
@@ -949,8 +949,8 @@ Forecast Package [`trend-day`](https://docs.meteoblue.com/en/weather-apis/packag
 -   `.[0-6]d.windspeed_min`: Minimum windspeed (10m above ground)
 -   `.[0-6]d.windspeed_spread`: Wind speed spread (10m above ground, 1h from the mean wind speed)
 
-<!-- Forecast Package [`trendpro`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#trend-pro) tbd -->
-<!-- Forecast Package [`seasonal-anomalies-forecast`](https://docs.meteoblue.com/en/weather-apis/packages-api/forecast-data#seasonal-anomalies-forecast) tbd -->
+<!-- Forecast Package [`trendpro`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#trend-pro) tbd -->
+<!-- Forecast Package [`seasonal-anomalies-forecast`](https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data#seasonal-anomalies-forecast) tbd -->
 
 ## How to report issues and feature requests
 
