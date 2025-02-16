@@ -72,7 +72,7 @@
     "city": "Stadt",
     "cityHint": "z.B. Basel",
     "cityFromSystem": "Stadt aus den Systemeinstellungen verwenden",
-    "latitude": "Latitude WGS84",
+    "latitude": "Breitengrad WGS84",
     "latitudeHint": "z.B. 47.55814",
     "longitude": "Längengrad WGS84",
     "longitudeHint": "z.B. 7.58769",
