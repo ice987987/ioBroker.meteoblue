@@ -77,7 +77,7 @@
     "longitude": "Längengrad WGS84",
     "longitudeHint": "z.B. 7.58769",
     "latlongFromSystem": "Verwenden Sie Breiten- und Längengrad aus den Systemeinstellungen",
-    "elevation": "Elevation",
+    "elevation": "Höhe über dem Meeresspiegel",
     "elevationHint": "Meter über dem Meer",
     "timezone": "Zeitzone",
     "tempunit": "Temperatureinheit",
