@@ -4183,7 +4183,12 @@
 			"noTranslation": true,
 			"variant": "contained",
 			"button": true,
-			"href": "https://github.com/ice987987/ioBroker.meteoblue/blob/main/README.md"
+			"href": "https://github.com/ice987987/ioBroker.meteoblue/blob/main/README.md",
+			"xs": 12,
+			"sm": 12,
+			"md": 8,
+			"lg": 8,
+			"xl": 8
 		},
 		"_helpLink2": {
 			"newLine": false,
@@ -4192,7 +4197,12 @@
 			"noTranslation": true,
 			"variant": "contained",
 			"button": true,
-			"href": "https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data"
+			"href": "https://docs.meteoblue.com/en/weather-apis/forecast-api/forecast-data",
+			"xs": 12,
+			"sm": 12,
+			"md": 8,
+			"lg": 8,
+			"xl": 8
 		}
 	}
 }
