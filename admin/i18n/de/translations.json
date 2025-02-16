@@ -53,6 +53,7 @@
     "airquality_explanation": "Das Datenpaket zur Luftqualität enthält Prognosen zur Luftqualität wie Schadstoffkonzentrationen.",
     "airquality_link": "Dokumentation des Datenpakets zur Luftqualität",
     "sigmalevel_explanation": "Das Sigma Level-Datenpaket enthält Vorhersagen der atmosphärischen Schicht über 300 m.",
+    "sigmalevel_heightHint": "Höhe über Boden in [m]",
     "sigmalevel_link": "Dokumentation des Sigma Level-Datenpakets",
     "profileSeries_explanation": "Die Datenpakete der Profile Series enthalten atmosphärische Profilvorhersagen für verschiedene Höhenstufen (1000, 975, 950, 925, 900, 875, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 250, 200) und Variablen.",
     "profileSeries_link": "Dokumentation der Profile Series-Datenpakete",

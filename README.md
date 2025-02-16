@@ -687,6 +687,10 @@ Forecast Package [`sigmalevel-day`](https://docs.meteoblue.com/en/weather-apis/p
 -   `.[0-6]d.windspeed_mean`: Mean wind speed (10m above ground)
 -   `.[0-6]d.windspeed_min`: Minimum windspeed (10m above ground)
 
+`sigmalevel-1h` and `sigmalevel-day` requires the following additional parameter:
+
+-   `Sigma level`: Height above ground in [m] (value > 0)
+
 ### Profile Series
 
 #### Profile Series Temperature
@@ -962,7 +966,7 @@ Forecast Package [`trend-day`](https://docs.meteoblue.com/en/weather-apis/packag
 
 <!-- ### **WORK IN PROGRESS** -->
 
-### 0.1.0-beta.14 **WORK IN PROGRESS**
+### 0.1.0-beta.15 **WORK IN PROGRESS**
 
 -   (ice987987) BREAKING: Names of Objects in forecast package `basic-day` changed
 -   (ice987987) BREAKING: js-controller >= v5.0.19, admin >= v6.3.5 and node.js >= v18 is required
@@ -979,6 +983,7 @@ Forecast Package [`trend-day`](https://docs.meteoblue.com/en/weather-apis/packag
 -   (ice987987) issue [#155](https://github.com/ice987987/ioBroker.meteoblue/issues/155) fixed
 -   (ice987987) `kWp`, `Slope`, `Facing`, `Power efficiency` and `Tracker` for `PvPro` added
 -   (ice987987) issue [#187](https://github.com/ice987987/ioBroker.meteoblue/issues/187) fixed
+-   (ice987987) issue [#200](https://github.com/ice987987/ioBroker.meteoblue/issues/200) fixed
 
 ### 0.0.6 (2022-07-21)
 
@@ -1025,7 +1030,7 @@ Forecast Package [`trend-day`](https://docs.meteoblue.com/en/weather-apis/packag
 
 MIT License
 
-Copyright (c) 2024 ice987987 <mathias.frei1@gmail.com>
+Copyright (c) 2025 ice987987 <mathias.frei1@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

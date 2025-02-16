@@ -71,108 +71,109 @@ class Meteoblue extends utils.Adapter {
 		this.log.debug(`config.precipitationamount: ${this.config.precipitationamount}`);
 		this.log.debug(`config.intervall: ${this.config.intervall}`);
 		this.log.debug(`config.basic_15min: ${this.config.basic_15min}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'basic_15min')].active = this.config.basic_15min;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'basic_15min')].active = this.config.basic_15min;
 		this.log.debug(`config.basic_1h: ${this.config.basic_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'basic_1h')].active = this.config.basic_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'basic_1h')].active = this.config.basic_1h;
 		this.log.debug(`config.basic_3h: ${this.config.basic_3h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'basic_3h')].active = this.config.basic_3h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'basic_3h')].active = this.config.basic_3h;
 		this.log.debug(`config.basic_day: ${this.config.basic_day}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'basic_day')].active = this.config.basic_day;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'basic_day')].active = this.config.basic_day;
 		this.log.debug(`config.current: ${this.config.current}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'current')].active = this.config.current;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'current')].active = this.config.current;
 		this.log.debug(`config.clouds_1h: ${this.config.clouds_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'clouds_1h')].active = this.config.clouds_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'clouds_1h')].active = this.config.clouds_1h;
 		this.log.debug(`config.clouds_3h: ${this.config.clouds_3h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'clouds_3h')].active = this.config.clouds_3h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'clouds_3h')].active = this.config.clouds_3h;
 		this.log.debug(`config.clouds_day: ${this.config.clouds_day}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'clouds_day')].active = this.config.clouds_day;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'clouds_day')].active = this.config.clouds_day;
 		this.log.debug(`config.sunmoon: ${this.config.sunmoon}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'sunmoon')].active = this.config.sunmoon;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'sunmoon')].active = this.config.sunmoon;
 		this.log.debug(`config.basic_day_webcolors: ${this.config.basic_day_webcolors}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'basic_day_webcolors')].active = this.config.basic_day_webcolors;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'basic_day_webcolors')].active = this.config.basic_day_webcolors;
 		this.log.debug(`config.agro_1h: ${this.config.agro_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'agro_1h')].active = this.config.agro_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'agro_1h')].active = this.config.agro_1h;
 		this.log.debug(`config.agro_3h: ${this.config.agro_3h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'agro_3h')].active = this.config.agro_3h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'agro_3h')].active = this.config.agro_3h;
 		this.log.debug(`config.agro_day: ${this.config.agro_day}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'agro_day')].active = this.config.agro_day;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'agro_day')].active = this.config.agro_day;
 		this.log.debug(`config.agromodelleafwetness_1h: ${this.config.agromodelleafwetness_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'agromodelleafwetness_1h')].active = this.config.agromodelleafwetness_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'agromodelleafwetness_1h')].active = this.config.agromodelleafwetness_1h;
 		this.log.debug(`config.agromodelsowing_1h: ${this.config.agromodelsowing_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'agromodelsowing_1h')].active = this.config.agromodelsowing_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'agromodelsowing_1h')].active = this.config.agromodelsowing_1h;
 		this.log.debug(`config.agromodelspray_1h: ${this.config.agromodelspray_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'agromodelspray_1h')].active = this.config.agromodelspray_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'agromodelspray_1h')].active = this.config.agromodelspray_1h;
 		this.log.debug(`config.soiltrafficability_1h: ${this.config.soiltrafficability_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'soiltrafficability_1h')].active = this.config.soiltrafficability_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'soiltrafficability_1h')].active = this.config.soiltrafficability_1h;
 		this.log.debug(`config.solar_15min: ${this.config.solar_15min}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'solar_15min')].active = this.config.solar_15min;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'solar_15min')].active = this.config.solar_15min;
 		this.log.debug(`config.solar_1h: ${this.config.solar_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'solar_1h')].active = this.config.solar_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'solar_1h')].active = this.config.solar_1h;
 		this.log.debug(`config.solar_3h: ${this.config.solar_3h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'solar_3h')].active = this.config.solar_3h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'solar_3h')].active = this.config.solar_3h;
 		this.log.debug(`config.solar_day: ${this.config.solar_day}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'solar_day')].active = this.config.solar_day;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'solar_day')].active = this.config.solar_day;
 		this.log.debug(`config.solarensemble_1h: ${this.config.solarensemble_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'solarensemble_1h')].active = this.config.solarensemble_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'solarensemble_1h')].active = this.config.solarensemble_1h;
 		this.log.debug(`config.pvpro_1h: ${this.config.pvpro_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'pvpro_1h')].active = this.config.pvpro_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'pvpro_1h')].active = this.config.pvpro_1h;
 		this.log.debug(`config.pvpro_day: ${this.config.pvpro_day}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'pvpro_day')].active = this.config.pvpro_day;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'pvpro_day')].active = this.config.pvpro_day;
 		this.log.debug(`config.pvpro_kWp: ${this.config.pvpro_kWp}`);
 		this.log.debug(`config.pvpro_slope: ${this.config.pvpro_slope}`);
 		this.log.debug(`config.pvpro_facing: ${this.config.pvpro_facing}`);
 		this.log.debug(`config.pvpro_powerEfficiency: ${this.config.pvpro_powerEfficiency}`);
 		this.log.debug(`config.pvpro_tracker: ${this.config.pvpro_tracker}`);
 		this.log.debug(`config.pvpro_wind_15min: ${this.config.wind_15min}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'wind_15min')].active = this.config.wind_15min;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'wind_15min')].active = this.config.wind_15min;
 		this.log.debug(`config.wind_1h: ${this.config.wind_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'wind_1h')].active = this.config.wind_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'wind_1h')].active = this.config.wind_1h;
 		this.log.debug(`config.wind_3h: ${this.config.wind_3h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'wind_3h')].active = this.config.wind_3h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'wind_3h')].active = this.config.wind_3h;
 		this.log.debug(`config.wind_day: ${this.config.wind_day}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'wind_day')].active = this.config.wind_day;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'wind_day')].active = this.config.wind_day;
 		this.log.debug(`config.wind80ensemble_1h: ${this.config.wind80ensemble_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'wind80ensemble_1h')].active = this.config.wind80ensemble_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'wind80ensemble_1h')].active = this.config.wind80ensemble_1h;
 		this.log.debug(`config.windpower_1h: ${this.config.windpower_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'windpower_1h')].active = this.config.windpower_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'windpower_1h')].active = this.config.windpower_1h;
 		this.log.debug(`config.sea_1h: ${this.config.sea_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'sea_1h')].active = this.config.sea_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'sea_1h')].active = this.config.sea_1h;
 		this.log.debug(`config.sea_3h: ${this.config.sea_3h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'sea_3h')].active = this.config.sea_3h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'sea_3h')].active = this.config.sea_3h;
 		this.log.debug(`config.sea_day: ${this.config.sea_day}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'sea_day')].active = this.config.sea_day;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'sea_day')].active = this.config.sea_day;
 		this.log.debug(`config.air_1h: ${this.config.air_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'air_1h')].active = this.config.air_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'air_1h')].active = this.config.air_1h;
 		this.log.debug(`config.air_3h: ${this.config.air_3h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'air_3h')].active = this.config.air_3h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'air_3h')].active = this.config.air_3h;
 		this.log.debug(`config.air_day: ${this.config.air_day}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'air_day')].active = this.config.air_day;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'air_day')].active = this.config.air_day;
 		this.log.debug(`config.airquality_1h: ${this.config.airquality_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'airquality_1h')].active = this.config.airquality_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'airquality_1h')].active = this.config.airquality_1h;
 		this.log.debug(`config.airquality_3h: ${this.config.airquality_3h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'airquality_3h')].active = this.config.airquality_3h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'airquality_3h')].active = this.config.airquality_3h;
 		this.log.debug(`config.airquality_day: ${this.config.airquality_day}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'airquality_day')].active = this.config.airquality_day;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'airquality_day')].active = this.config.airquality_day;
 		this.log.debug(`config.sigmalevel_1h: ${this.config.sigmalevel_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'sigmalevel_1h')].active = this.config.sigmalevel_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'sigmalevel_1h')].active = this.config.sigmalevel_1h;
 		this.log.debug(`config.sigmalevel_day: ${this.config.sigmalevel_day}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'sigmalevel_day')].active = this.config.sigmalevel_day;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'sigmalevel_day')].active = this.config.sigmalevel_day;
+		this.log.debug(`config.sigmalevel_height: ${this.config.sigmalevel_height}`);
 		this.log.debug(`config.profiletemp_1h: ${this.config.profiletemp_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'profiletemp_1h')].active = this.config.profiletemp_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'profiletemp_1h')].active = this.config.profiletemp_1h;
 		this.log.debug(`config.profileheight_1h: ${this.config.profileheight_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'profileheight_1h')].active = this.config.profileheight_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'profileheight_1h')].active = this.config.profileheight_1h;
 		this.log.debug(`config.profilewind_1h: ${this.config.profilewind_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'profilewind_1h')].active = this.config.profilewind_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'profilewind_1h')].active = this.config.profilewind_1h;
 		this.log.debug(`config.profileclouds_1h: ${this.config.profileclouds_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'profileclouds_1h')].active = this.config.profileclouds_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'profileclouds_1h')].active = this.config.profileclouds_1h;
 		this.log.debug(`config.profilerh_1h: ${this.config.profilerh_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'profilerh_1h')].active = this.config.profilerh_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'profilerh_1h')].active = this.config.profilerh_1h;
 		// this.log.debug(`config.ensemble_1h: ${this.config.ensemble_1h}`);
 		// objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'ensemble_1h')].active = this.config.ensemble_1h;
 		this.log.debug(`config.trend_1h: ${this.config.trend_1h}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'trend_1h')].active = this.config.trend_1h;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'trend_1h')].active = this.config.trend_1h;
 		this.log.debug(`config.trend_day: ${this.config.trend_day}`);
-		objectsStates.packages_master[objectsStates.packages_master.findIndex((obj) => obj.id === 'trend_day')].active = this.config.trend_day;
+		objectsStates.packages_master[objectsStates.packages_master.findIndex(obj => obj.id === 'trend_day')].active = this.config.trend_day;
 
 		this.log.debug(`packages_master: ${JSON.stringify(objectsStates.packages_master)}`);
 
@@ -243,161 +244,160 @@ class Meteoblue extends utils.Adapter {
 		) {
 			this.log.error('No "forecast Package" selected. Please check configuration! (ERR_#001)');
 			return;
-		} else {
-			if (this.config.basic_15min) {
-				this.meteoblueApiUrl += 'basic-15min_';
-			}
-			if (this.config.basic_1h) {
-				this.meteoblueApiUrl += 'basic-1h_';
-			}
-			if (this.config.basic_3h) {
-				this.meteoblueApiUrl += 'basic-3h_';
-			}
-			if (this.config.basic_day) {
-				this.meteoblueApiUrl += 'basic-day_';
-			}
-			if (this.config.current) {
-				this.meteoblueApiUrl += 'current_';
-			}
-			if (this.config.clouds_1h) {
-				this.meteoblueApiUrl += 'clouds-1h_';
-			}
-			if (this.config.clouds_3h) {
-				this.meteoblueApiUrl += 'clouds-3h_';
-			}
-			if (this.config.clouds_day) {
-				this.meteoblueApiUrl += 'clouds-day_';
-			}
-			if (this.config.clouds_3h) {
-				this.meteoblueApiUrl += 'clouds-3h_';
-			}
-			if (this.config.sunmoon) {
-				this.meteoblueApiUrl += 'sunmoon_';
-			}
-			if (this.config.basic_day_webcolors) {
-				this.meteoblueApiUrl += 'basic-day_webcolors_';
-			}
-			if (this.config.agro_1h) {
-				this.meteoblueApiUrl += 'agro-1h_';
-			}
-			if (this.config.agro_3h) {
-				this.meteoblueApiUrl += 'agro-3h_';
-			}
-			if (this.config.agro_day) {
-				this.meteoblueApiUrl += 'agro-day_';
-			}
-			if (this.config.agromodelleafwetness_1h) {
-				this.meteoblueApiUrl += 'agromodelleafwetness-1h_';
-			}
-			if (this.config.agromodelsowing_1h) {
-				this.meteoblueApiUrl += 'agromodelsowing-1h_';
-			}
-			if (this.config.agromodelspray_1h) {
-				this.meteoblueApiUrl += 'agromodelspray-1h_';
-			}
-			if (this.config.soiltrafficability_1h) {
-				this.meteoblueApiUrl += 'soiltrafficability-1h_';
-			}
-			if (this.config.solar_15min) {
-				this.meteoblueApiUrl += 'solar-15min_';
-			}
-			if (this.config.solar_1h) {
-				this.meteoblueApiUrl += 'solar-1h_';
-			}
-			if (this.config.solar_3h) {
-				this.meteoblueApiUrl += 'solar-3h_';
-			}
-			if (this.config.solar_day) {
-				this.meteoblueApiUrl += 'solar-day_';
-			}
-			if (this.config.solarensemble_1h) {
-				this.meteoblueApiUrl += 'solarensemble-1h_';
-			}
-			if (this.config.pvpro_1h) {
-				this.meteoblueApiUrl += 'pvpro-1h_';
-			}
-			if (this.config.pvpro_day) {
-				this.meteoblueApiUrl += 'pvpro-day_';
-			}
-			if (this.config.wind_15min) {
-				this.meteoblueApiUrl += 'wind-15min_';
-			}
-			if (this.config.wind_1h) {
-				this.meteoblueApiUrl += 'wind-1h_';
-			}
-			if (this.config.wind_3h) {
-				this.meteoblueApiUrl += 'wind-3h_';
-			}
-			if (this.config.wind_day) {
-				this.meteoblueApiUrl += 'wind-day_';
-			}
-			if (this.config.wind80ensemble_1h) {
-				this.meteoblueApiUrl += 'wind80ensemble-1h_';
-			}
-			if (this.config.windpower_1h) {
-				this.meteoblueApiUrl += 'windpower-1h_';
-			}
-			if (this.config.sea_1h) {
-				this.meteoblueApiUrl += 'sea-1h_';
-			}
-			if (this.config.sea_3h) {
-				this.meteoblueApiUrl += 'sea-3h_';
-			}
-			if (this.config.sea_day) {
-				this.meteoblueApiUrl += 'sea-day_';
-			}
-			if (this.config.air_1h) {
-				this.meteoblueApiUrl += 'air-1h_';
-			}
-			if (this.config.air_3h) {
-				this.meteoblueApiUrl += 'air-3h_';
-			}
-			if (this.config.air_day) {
-				this.meteoblueApiUrl += 'air-day_';
-			}
-			if (this.config.airquality_1h) {
-				this.meteoblueApiUrl += 'airquality-1h_';
-			}
-			if (this.config.airquality_3h) {
-				this.meteoblueApiUrl += 'airquality-3h_';
-			}
-			if (this.config.airquality_day) {
-				this.meteoblueApiUrl += 'airquality-day_';
-			}
-			if (this.config.sigmalevel_1h) {
-				this.meteoblueApiUrl += 'sigmalevel-1h_';
-			}
-			if (this.config.airquality_day) {
-				this.meteoblueApiUrl += 'sigmalevel-day_';
-			}
-			if (this.config.profiletemp_1h) {
-				this.meteoblueApiUrl += 'profiletemp-1h_';
-			}
-			if (this.config.profileheight_1h) {
-				this.meteoblueApiUrl += 'profileheight-1h_';
-			}
-			if (this.config.profilewind_1h) {
-				this.meteoblueApiUrl += 'profilewind-1h_';
-			}
-			if (this.config.profileclouds_1h) {
-				this.meteoblueApiUrl += 'profileclouds-1h_';
-			}
-			if (this.config.profilerh_1h) {
-				this.meteoblueApiUrl += 'profilerh-1h_';
-			}
-			if (this.config.trend_1h) {
-				this.meteoblueApiUrl += 'trend-1h_';
-			}
-			if (this.config.trend_day) {
-				this.meteoblueApiUrl += 'trend-day_';
-			}
-			// if (this.config.ensemble_1h) {
-			// 	this.meteoblueApiUrl += 'ensemble-1h_';
-			// }
-
-			this.meteoblueApiUrl = this.meteoblueApiUrl.substring(0, this.meteoblueApiUrl.length - 1);
-			this.meteoblueApiUrl += '?';
 		}
+		if (this.config.basic_15min) {
+			this.meteoblueApiUrl += 'basic-15min_';
+		}
+		if (this.config.basic_1h) {
+			this.meteoblueApiUrl += 'basic-1h_';
+		}
+		if (this.config.basic_3h) {
+			this.meteoblueApiUrl += 'basic-3h_';
+		}
+		if (this.config.basic_day) {
+			this.meteoblueApiUrl += 'basic-day_';
+		}
+		if (this.config.current) {
+			this.meteoblueApiUrl += 'current_';
+		}
+		if (this.config.clouds_1h) {
+			this.meteoblueApiUrl += 'clouds-1h_';
+		}
+		if (this.config.clouds_3h) {
+			this.meteoblueApiUrl += 'clouds-3h_';
+		}
+		if (this.config.clouds_day) {
+			this.meteoblueApiUrl += 'clouds-day_';
+		}
+		if (this.config.clouds_3h) {
+			this.meteoblueApiUrl += 'clouds-3h_';
+		}
+		if (this.config.sunmoon) {
+			this.meteoblueApiUrl += 'sunmoon_';
+		}
+		if (this.config.basic_day_webcolors) {
+			this.meteoblueApiUrl += 'basic-day_webcolors_';
+		}
+		if (this.config.agro_1h) {
+			this.meteoblueApiUrl += 'agro-1h_';
+		}
+		if (this.config.agro_3h) {
+			this.meteoblueApiUrl += 'agro-3h_';
+		}
+		if (this.config.agro_day) {
+			this.meteoblueApiUrl += 'agro-day_';
+		}
+		if (this.config.agromodelleafwetness_1h) {
+			this.meteoblueApiUrl += 'agromodelleafwetness-1h_';
+		}
+		if (this.config.agromodelsowing_1h) {
+			this.meteoblueApiUrl += 'agromodelsowing-1h_';
+		}
+		if (this.config.agromodelspray_1h) {
+			this.meteoblueApiUrl += 'agromodelspray-1h_';
+		}
+		if (this.config.soiltrafficability_1h) {
+			this.meteoblueApiUrl += 'soiltrafficability-1h_';
+		}
+		if (this.config.solar_15min) {
+			this.meteoblueApiUrl += 'solar-15min_';
+		}
+		if (this.config.solar_1h) {
+			this.meteoblueApiUrl += 'solar-1h_';
+		}
+		if (this.config.solar_3h) {
+			this.meteoblueApiUrl += 'solar-3h_';
+		}
+		if (this.config.solar_day) {
+			this.meteoblueApiUrl += 'solar-day_';
+		}
+		if (this.config.solarensemble_1h) {
+			this.meteoblueApiUrl += 'solarensemble-1h_';
+		}
+		if (this.config.pvpro_1h) {
+			this.meteoblueApiUrl += 'pvpro-1h_';
+		}
+		if (this.config.pvpro_day) {
+			this.meteoblueApiUrl += 'pvpro-day_';
+		}
+		if (this.config.wind_15min) {
+			this.meteoblueApiUrl += 'wind-15min_';
+		}
+		if (this.config.wind_1h) {
+			this.meteoblueApiUrl += 'wind-1h_';
+		}
+		if (this.config.wind_3h) {
+			this.meteoblueApiUrl += 'wind-3h_';
+		}
+		if (this.config.wind_day) {
+			this.meteoblueApiUrl += 'wind-day_';
+		}
+		if (this.config.wind80ensemble_1h) {
+			this.meteoblueApiUrl += 'wind80ensemble-1h_';
+		}
+		if (this.config.windpower_1h) {
+			this.meteoblueApiUrl += 'windpower-1h_';
+		}
+		if (this.config.sea_1h) {
+			this.meteoblueApiUrl += 'sea-1h_';
+		}
+		if (this.config.sea_3h) {
+			this.meteoblueApiUrl += 'sea-3h_';
+		}
+		if (this.config.sea_day) {
+			this.meteoblueApiUrl += 'sea-day_';
+		}
+		if (this.config.air_1h) {
+			this.meteoblueApiUrl += 'air-1h_';
+		}
+		if (this.config.air_3h) {
+			this.meteoblueApiUrl += 'air-3h_';
+		}
+		if (this.config.air_day) {
+			this.meteoblueApiUrl += 'air-day_';
+		}
+		if (this.config.airquality_1h) {
+			this.meteoblueApiUrl += 'airquality-1h_';
+		}
+		if (this.config.airquality_3h) {
+			this.meteoblueApiUrl += 'airquality-3h_';
+		}
+		if (this.config.airquality_day) {
+			this.meteoblueApiUrl += 'airquality-day_';
+		}
+		if (this.config.sigmalevel_1h) {
+			this.meteoblueApiUrl += 'sigmalevel-1h_';
+		}
+		if (this.config.airquality_day) {
+			this.meteoblueApiUrl += 'sigmalevel-day_';
+		}
+		if (this.config.profiletemp_1h) {
+			this.meteoblueApiUrl += 'profiletemp-1h_';
+		}
+		if (this.config.profileheight_1h) {
+			this.meteoblueApiUrl += 'profileheight-1h_';
+		}
+		if (this.config.profilewind_1h) {
+			this.meteoblueApiUrl += 'profilewind-1h_';
+		}
+		if (this.config.profileclouds_1h) {
+			this.meteoblueApiUrl += 'profileclouds-1h_';
+		}
+		if (this.config.profilerh_1h) {
+			this.meteoblueApiUrl += 'profilerh-1h_';
+		}
+		if (this.config.trend_1h) {
+			this.meteoblueApiUrl += 'trend-1h_';
+		}
+		if (this.config.trend_day) {
+			this.meteoblueApiUrl += 'trend-day_';
+		}
+		// if (this.config.ensemble_1h) {
+		// 	this.meteoblueApiUrl += 'ensemble-1h_';
+		// }
+
+		this.meteoblueApiUrl = this.meteoblueApiUrl.substring(0, this.meteoblueApiUrl.length - 1);
+		this.meteoblueApiUrl += '?';
 
 		// check applicationKey
 		if (!isValidApplicationKey.test(this.config.applicationKey)) {
@@ -491,39 +491,46 @@ class Meteoblue extends utils.Adapter {
 		this.meteoblueApiUrl += `&precipitationamount=${this.config.precipitationamount}`;
 		this.meteoblueApiUrl += '&timeformat=Y-M-D&format=json';
 
-
 		// check Required Input Parameters for PV Pro
 		if (this.config.pvpro_1h || this.config.pvpro_day) {
 			if (Number(this.config.pvpro_kWp) < 0) {
 				this.log.error('"Required kWp-parameter for PV Pro" not valid. Please check configuration! (ERR_#0xx)');
 				return;
-			} else {
-				this.meteoblueApiUrl += `&kwp=${Number(this.config.pvpro_kWp)}`;
 			}
+			this.meteoblueApiUrl += `&kwp=${Number(this.config.pvpro_kWp)}`;
+
 			if (Number(this.config.pvpro_slope) <= 0 && Number(this.config.pvpro_slope) > 90) {
 				this.log.error('"Required slope-parameters for PV Pro" not valid. Please check configuration! (ERR_#0xx)');
 				return;
-			} else {
-				this.meteoblueApiUrl += `&slope=${Number(this.config.pvpro_slope)}`;
 			}
+			this.meteoblueApiUrl += `&slope=${Number(this.config.pvpro_slope)}`;
+
 			if (Number(this.config.pvpro_facing) < 0 && Number(this.config.pvpro_facing) > 360) {
 				this.log.error('"Required facing-parameters for PV Pro" not valid. Please check configuration! (ERR_#0xx)');
 				return;
-			} else {
-				this.meteoblueApiUrl += `&facing=${Number(this.config.pvpro_facing)}`;
 			}
+			this.meteoblueApiUrl += `&facing=${Number(this.config.pvpro_facing)}`;
+
 			if (Number(this.config.pvpro_powerEfficiency) < 0 && Number(this.config.pvpro_powerEfficiency) > 1) {
 				this.log.error('"Required powerEfficiency-parameters for PV Pro" not valid. Please check configuration! (ERR_#0xx)');
 				return;
-			} else {
-				this.meteoblueApiUrl += `&power_efficiency=${Number(this.config.pvpro_powerEfficiency)}`;
 			}
+			this.meteoblueApiUrl += `&power_efficiency=${Number(this.config.pvpro_powerEfficiency)}`;
+
 			if (Number(this.config.pvpro_tracker) < 0 && Number(this.config.pvpro_powerEfficiency) > 5) {
 				this.log.error('"Required tracker-parameters for PV Pro" not valid. Please check configuration! (ERR_#0xx)');
 				return;
-			} else {
-				this.meteoblueApiUrl += `&tracker=${Number(this.config.pvpro_tracker)}`;
 			}
+			this.meteoblueApiUrl += `&tracker=${Number(this.config.pvpro_tracker)}`;
+		}
+
+		// check Required Input Parameters for Sigma Level
+		if (this.config.sigmalevel_1h || this.config.sigmalevel_day) {
+			if (Number(this.config.sigmalevel_height) < 0) {
+				this.log.error('"Required Sigma level for Sigma Level" not valid. Please check configuration! (ERR_#0xx)');
+				return;
+			}
+			this.meteoblueApiUrl += `&sigmalevel=${Number(this.config.sigmalevel_height)}`;
 		}
 
 		this.log.debug(`this.meteoblueApiUrl: ${this.meteoblueApiUrl}`);
@@ -531,7 +538,7 @@ class Meteoblue extends utils.Adapter {
 		// check intervall
 		if (Number(this.config.intervall) === 0) {
 			this.log.info('"Polling intervall" set to manual mode.');
-			await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex((obj) => obj.id === 'ACTION')], null, objectsStates.manual_mode[objectsStates.manual_mode.findIndex((obj) => obj.id === 'REQUEST_DATA')]);
+			await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === 'ACTION')], null, objectsStates.manual_mode[objectsStates.manual_mode.findIndex(obj => obj.id === 'REQUEST_DATA')]);
 			// subscribeState
 			await this.subscribeStatesAsync('ACTION.REQUEST_DATA');
 		} else if (Number(this.config.intervall) >= 1 || Number(this.config.intervall <= 1440)) {
@@ -545,7 +552,7 @@ class Meteoblue extends utils.Adapter {
 
 		// create array of active packages
 		const packages_active = [];
-		for (const key of objectsStates.packages_master.filter((x) => x.active === true)) {
+		for (const key of objectsStates.packages_master.filter(x => x.active === true)) {
 			packages_active.push(key);
 		}
 		this.log.debug(`[packages_active]: ${JSON.stringify(packages_active)}`);
@@ -581,14 +588,14 @@ class Meteoblue extends utils.Adapter {
 		for (let i = 0; i < metadata_active.length; i++) {
 			// this.log.debug(`value1: ${JSON.stringify(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === metadata_active[0])])}`);
 			// this.log.debug(`value3: ${JSON.stringify(objectsStates.metadata_master[objectsStates.metadata_master.findIndex(obj => obj.id === metadata_active[i])])}`);
-			await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex((obj) => obj.id === metadata_active[0])], null, objectsStates.metadata_master[objectsStates.metadata_master.findIndex((obj) => obj.id === metadata_active[i])] || `channel_${i}`);
+			await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === metadata_active[0])], null, objectsStates.metadata_master[objectsStates.metadata_master.findIndex(obj => obj.id === metadata_active[i])] || `channel_${i}`);
 		}
 		this.log.debug(`[create metadata]: states creation for channel "metadata" finished.`);
 
 		// create channel units
 		this.log.debug(`[create units]: start creation channel "units". Please be patient...`);
 		for (let i = 0; i < units_active.length; i++) {
-			await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex((obj) => obj.id === units_active[0])], null, objectsStates.units_master[objectsStates.units_master.findIndex((obj) => obj.id === units_active[i])] || `channel_${i}`);
+			await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === units_active[0])], null, objectsStates.units_master[objectsStates.units_master.findIndex(obj => obj.id === units_active[i])] || `channel_${i}`);
 		}
 		this.log.debug(`[create units]: states creation for channel "units" finished.`);
 
@@ -642,7 +649,7 @@ class Meteoblue extends utils.Adapter {
 
 		// get oldCRC
 		const object = await this.getStateAsync('checksumUserData');
-		if (typeof (object) !== 'undefined' && object !== null) {
+		if (typeof object !== 'undefined' && object !== null) {
 			this.oldCrc = object.val;
 		}
 		// compare to previous config
@@ -653,17 +660,17 @@ class Meteoblue extends utils.Adapter {
 				type: 'state',
 				common: {
 					name: {
-						'en': 'Checksum user data',
-						'de': 'Checksumme Benutzerdaten',
-						'ru': 'Проверьте данные пользователя Checksum',
-						'pt': 'Dados do usuário do checksum',
-						'nl': 'Vertaling:',
-						'fr': 'Vérifier les données utilisateur',
-						'it': 'Dati utente di checksum',
-						'es': 'Datos de usuario de checksum',
-						'pl': 'Checksum data',
-						'uk': 'Перевірити дані користувачів',
-						'zh-cn': '用户数据'
+						en: 'Checksum user data',
+						de: 'Checksumme Benutzerdaten',
+						ru: 'Проверьте данные пользователя Checksum',
+						pt: 'Dados do usuário do checksum',
+						nl: 'Vertaling:',
+						fr: 'Vérifier les données utilisateur',
+						it: 'Dati utente di checksum',
+						es: 'Datos de usuario de checksum',
+						pl: 'Checksum data',
+						uk: 'Перевірити дані користувачів',
+						'zh-cn': '用户数据',
 					},
 					type: 'string',
 					role: 'state',
@@ -699,7 +706,7 @@ class Meteoblue extends utils.Adapter {
 			for (let k = 0; k < objectsStates.channel_1_master[3].timeresolution.length; k++) {
 				for (let j = 0; j < objectsStates.channel_1_master[0].timeresolution.length; j++) {
 					for (let i = 0; i < valuesForFolderData_xmin.length; i++) {
-						await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex((obj) => obj.id === valuesForFolderData_xmin[0])], `${objectsStates.channel_1_master[3].timeresolution[k]}_${objectsStates.channel_1_master[0].timeresolution[j]}`, objectsStates.values_master[objectsStates.values_master.findIndex((obj) => obj.id === valuesForFolderData_xmin[i])] || `channel_${i}`);
+						await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === valuesForFolderData_xmin[0])], `${objectsStates.channel_1_master[3].timeresolution[k]}_${objectsStates.channel_1_master[0].timeresolution[j]}`, objectsStates.values_master[objectsStates.values_master.findIndex(obj => obj.id === valuesForFolderData_xmin[i])] || `channel_${i}`);
 					}
 				}
 			}
@@ -711,7 +718,7 @@ class Meteoblue extends utils.Adapter {
 			for (let k = 0; k < objectsStates.channel_1_master[3].timeresolution.length; k++) {
 				for (let j = 0; j < objectsStates.channel_1_master[1].timeresolution.length; j++) {
 					for (let i = 0; i < valuesForFolderData_1h.length; i++) {
-						await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex((obj) => obj.id === valuesForFolderData_1h[0])], `${objectsStates.channel_1_master[3].timeresolution[k]}_${objectsStates.channel_1_master[1].timeresolution[j]}`, objectsStates.values_master[objectsStates.values_master.findIndex((obj) => obj.id === valuesForFolderData_1h[i])] || `channel_${i}`);
+						await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === valuesForFolderData_1h[0])], `${objectsStates.channel_1_master[3].timeresolution[k]}_${objectsStates.channel_1_master[1].timeresolution[j]}`, objectsStates.values_master[objectsStates.values_master.findIndex(obj => obj.id === valuesForFolderData_1h[i])] || `channel_${i}`);
 					}
 				}
 			}
@@ -726,7 +733,7 @@ class Meteoblue extends utils.Adapter {
 						// this.log.debug(`value1: ${JSON.stringify(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === valuesForFolderData_3h[0])])}`);
 						// this.log.debug(`value2: ${objectsStates.channel_1_master[3].timeresolution[k]}_${objectsStates.channel_1_master[2].timeresolution[j]}`);
 						// this.log.debug(`value3: ${JSON.stringify(objectsStates.values_master[objectsStates.values_master.findIndex(obj => obj.id === valuesForFolderData_3h[i])])}`);
-						await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex((obj) => obj.id === valuesForFolderData_3h[0])], `${objectsStates.channel_1_master[3].timeresolution[k]}_${objectsStates.channel_1_master[2].timeresolution[j]}`, objectsStates.values_master[objectsStates.values_master.findIndex((obj) => obj.id === valuesForFolderData_3h[i])] || `channel_${i}`);
+						await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === valuesForFolderData_3h[0])], `${objectsStates.channel_1_master[3].timeresolution[k]}_${objectsStates.channel_1_master[2].timeresolution[j]}`, objectsStates.values_master[objectsStates.values_master.findIndex(obj => obj.id === valuesForFolderData_3h[i])] || `channel_${i}`);
 					}
 				}
 			}
@@ -740,7 +747,7 @@ class Meteoblue extends utils.Adapter {
 					// this.log.debug(`value1: ${JSON.stringify(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === valuesForFolderData_day[0])])}`);
 					// this.log.debug(`value2: ${objectsStates.channel_1_master[3].timeresolution[j]}`);
 					// this.log.debug(`value3: ${JSON.stringify(objectsStates.values_master[objectsStates.values_master.findIndex(obj => obj.id === valuesForFolderData_day[i])])}`);
-					await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex((obj) => obj.id === valuesForFolderData_day[0])], objectsStates.channel_1_master[3].timeresolution[j], objectsStates.values_master[objectsStates.values_master.findIndex((obj) => obj.id === valuesForFolderData_day[i])] || `channel_${i}`);
+					await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === valuesForFolderData_day[0])], objectsStates.channel_1_master[3].timeresolution[j], objectsStates.values_master[objectsStates.values_master.findIndex(obj => obj.id === valuesForFolderData_day[i])] || `channel_${i}`);
 				}
 			}
 			this.log.debug(`[createObject]: objects creation for channel "data_day" finished.`);
@@ -751,7 +758,7 @@ class Meteoblue extends utils.Adapter {
 			for (let i = 0; i < valuesForFolderData_current.length; i++) {
 				// this.log.debug(`value1: ${JSON.stringify(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === valuesForFolderData_current[0])])}`);
 				// this.log.debug(`value3: ${JSON.stringify(objectsStates.values_master[objectsStates.values_master.findIndex(obj => obj.id === valuesForFolderData_current[i])])}`);
-				await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex((obj) => obj.id === valuesForFolderData_current[0])], null, objectsStates.values_master[objectsStates.values_master.findIndex((obj) => obj.id === valuesForFolderData_current[i])] || `channel_${i}`);
+				await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === valuesForFolderData_current[0])], null, objectsStates.values_master[objectsStates.values_master.findIndex(obj => obj.id === valuesForFolderData_current[i])] || `channel_${i}`);
 			}
 			this.log.debug(`[createObject]: objects creation for channel "current" finished.`);
 		}
@@ -761,7 +768,7 @@ class Meteoblue extends utils.Adapter {
 			for (let k = 0; k < objectsStates.channel_1_master[3].timeresolution.length; k++) {
 				for (let j = 0; j < objectsStates.channel_1_master[1].timeresolution.length; j++) {
 					for (let i = 0; i < valuesForFolderGfsensemble_1h.length; i++) {
-						await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex((obj) => obj.id === valuesForFolderGfsensemble_1h[0])], `${objectsStates.channel_1_master[3].timeresolution[k]}_${objectsStates.channel_1_master[1].timeresolution[j]}`, objectsStates.values_master[objectsStates.values_master.findIndex((obj) => obj.id === valuesForFolderGfsensemble_1h[i])] || `channel_${i}`);
+						await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === valuesForFolderGfsensemble_1h[0])], `${objectsStates.channel_1_master[3].timeresolution[k]}_${objectsStates.channel_1_master[1].timeresolution[j]}`, objectsStates.values_master[objectsStates.values_master.findIndex(obj => obj.id === valuesForFolderGfsensemble_1h[i])] || `channel_${i}`);
 					}
 				}
 			}
@@ -773,7 +780,7 @@ class Meteoblue extends utils.Adapter {
 			for (let k = 0; k < objectsStates.channel_1_master[3].timeresolution.length; k++) {
 				for (let j = 0; j < objectsStates.channel_1_master[1].timeresolution.length; j++) {
 					for (let i = 0; i < valuesForFolderSoiltrafficability_1h.length; i++) {
-						await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex((obj) => obj.id === valuesForFolderSoiltrafficability_1h[0])], `${objectsStates.channel_1_master[3].timeresolution[k]}_${objectsStates.channel_1_master[1].timeresolution[j]}`, objectsStates.values_master[objectsStates.values_master.findIndex((obj) => obj.id === valuesForFolderSoiltrafficability_1h[i])] || `channel_${i}`);
+						await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === valuesForFolderSoiltrafficability_1h[0])], `${objectsStates.channel_1_master[3].timeresolution[k]}_${objectsStates.channel_1_master[1].timeresolution[j]}`, objectsStates.values_master[objectsStates.values_master.findIndex(obj => obj.id === valuesForFolderSoiltrafficability_1h[i])] || `channel_${i}`);
 					}
 				}
 			}
@@ -785,7 +792,7 @@ class Meteoblue extends utils.Adapter {
 			for (let k = 0; k < objectsStates.channel_1_master[3].timeresolution.length; k++) {
 				for (let j = 0; j < objectsStates.channel_1_master[1].timeresolution.length; j++) {
 					for (let i = 0; i < valuesForFolderTrend_1h.length; i++) {
-						await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex((obj) => obj.id === valuesForFolderTrend_1h[0])], `${objectsStates.channel_1_master[3].timeresolution[k]}_${objectsStates.channel_1_master[1].timeresolution[j]}`, objectsStates.values_master[objectsStates.values_master.findIndex((obj) => obj.id === valuesForFolderTrend_1h[i])] || `channel_${i}`);
+						await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === valuesForFolderTrend_1h[0])], `${objectsStates.channel_1_master[3].timeresolution[k]}_${objectsStates.channel_1_master[1].timeresolution[j]}`, objectsStates.values_master[objectsStates.values_master.findIndex(obj => obj.id === valuesForFolderTrend_1h[i])] || `channel_${i}`);
 					}
 				}
 			}
@@ -796,7 +803,7 @@ class Meteoblue extends utils.Adapter {
 			this.log.debug(`[createObject]: start objects creation for channel "trend_day". Please be patient...`);
 			for (let j = 0; j < objectsStates.channel_1_master[3].timeresolution.length; j++) {
 				for (let i = 0; i < valuesForFolderTrend_day.length; i++) {
-					await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex((obj) => obj.id === valuesForFolderTrend_day[0])], objectsStates.channel_1_master[3].timeresolution[j], objectsStates.values_master[objectsStates.values_master.findIndex((obj) => obj.id === valuesForFolderTrend_day[i])] || `channel_${i}`);
+					await this.createObject(objectsStates.channel_0_master[objectsStates.channel_0_master.findIndex(obj => obj.id === valuesForFolderTrend_day[0])], objectsStates.channel_1_master[3].timeresolution[j], objectsStates.values_master[objectsStates.values_master.findIndex(obj => obj.id === valuesForFolderTrend_day[i])] || `channel_${i}`);
 				}
 			}
 			this.log.debug(`[createObject]: objects creation for channel "trend_day" finished.`);
@@ -818,6 +825,10 @@ class Meteoblue extends utils.Adapter {
 
 	/**
 	 * Create Objects
+	 *
+	 * @param channel_0
+	 * @param channel_1
+	 * @param stateInfo
 	 */
 	async createObject(channel_0, channel_1, stateInfo) {
 		// this.log.debug(`channel_0: ${JSON.stringify(channel_0)}`);
@@ -933,6 +944,10 @@ class Meteoblue extends utils.Adapter {
 
 	/**
 	 * fill Objects
+	 *
+	 * @param channel
+	 * @param valuesForFolder
+	 * @param content
 	 */
 	async writeStates1(channel, valuesForFolder, content) {
 		this.log.debug(`[writeStates1]: start writing states for channel "${channel}". Please be patient...`);
@@ -1003,7 +1018,7 @@ class Meteoblue extends utils.Adapter {
 			timeout: 2000,
 			responseType: 'json',
 		})
-			.then(async (response) => {
+			.then(async response => {
 				this.setState('info.connection', true, true);
 
 				this.log.debug(`[getMeteoblueData]: HTTP status response: ${response.status} ${response.statusText}; config: ${JSON.stringify(response.config)}; headers: ${JSON.stringify(response.headers)}; data: ${JSON.stringify(response.data)}`);
@@ -1062,9 +1077,8 @@ class Meteoblue extends utils.Adapter {
 				await this.writeStates1('metadata', metadata_active.slice(1), content);
 
 				this.log.info('[getMeteoblueData]: all states written.');
-
 			})
-			.catch((error) => {
+			.catch(error => {
 				if (error.response) {
 					// The request was made and the server responded with a status code that falls out of the range of 2xx
 					this.log.debug(`[getMeteoblueData]: HTTP status response: ${error.response.status}; headers: ${JSON.stringify(error.response.headers)}; data: ${JSON.stringify(error.response.data)}`);
@@ -1082,6 +1096,7 @@ class Meteoblue extends utils.Adapter {
 
 	/**
 	 * Is called when adapter shuts down - callback has to be called under any circumstances!
+	 *
 	 * @param {() => void} callback
 	 */
 	onUnload(callback) {
@@ -1101,6 +1116,7 @@ class Meteoblue extends utils.Adapter {
 
 	/**
 	 * Is called if a subscribed state changes
+	 *
 	 * @param {string} id
 	 * @param {ioBroker.State | null | undefined} state
 	 */
@@ -1126,7 +1142,7 @@ if (require.main !== module) {
 	/**
 	 * @param {Partial<utils.AdapterOptions>} [options={}]
 	 */
-	module.exports = (options) => new Meteoblue(options);
+	module.exports = options => new Meteoblue(options);
 } else {
 	// otherwise start the instance directly
 	new Meteoblue();
