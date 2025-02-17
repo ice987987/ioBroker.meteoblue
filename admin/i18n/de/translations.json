@@ -20,7 +20,7 @@
     "agromodelsowing_link": "Dokumentation des Agromodel-Aussaatdatenpakets",
     "agromodelspray_explanation": "Das Agromodel Spray-Datenpaket enthält Informationen über geeignete Zeitfenster für das Besprühen von Feldern.",
     "agromodelspray_link": "Dokumentation des Agromodel Spray-Datenpakets",
-    "soiltrafficability_explanation": "Das Datenpaket zur Bodenbefahrbarkeit enthält Informationen über die Fähigkeit des Bodens, fahrende Fahrzeuge zu tragen, basierend auf der Bodenart und der Entwicklung des Wassergehalts im Oberboden (0–10 cm).",
+    "soiltrafficability_explanation": "Das Datenpaket zur Bodenbefahrbarkeit enthält Informationen über die Fähigkeit des Bodens, fahrende Fahrzeuge zu tragen, basierend auf der Bodenart und der Entwicklung des Wassergehalts im Oberboden (0-10 cm).",
     "soiltrafficability_link": "Dokumentation des Datenpakets zur Bodenbefahrbarkeit",
     "renewableEnergyPackages": "Pakete für erneuerbare Energien",
     "solar_explanation": "Das Solardatenpaket enthält spezifische Solarstrahlungsgrößen für den Solarenergiesektor.",
