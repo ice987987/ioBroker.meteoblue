@@ -1641,7 +1641,12 @@
 					"trend_1h",
 					"trend_day"
 				]
-			}
+			},
+			"xs": 12,
+			"sm": 12,
+			"md": 8,
+			"lg": 8,
+			"xl": 8
 		},
 		"_apiKeySettings": {
 			"newLine": true,
